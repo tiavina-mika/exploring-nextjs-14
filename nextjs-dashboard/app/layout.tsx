@@ -11,11 +11,11 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body className={`${primaryFont} antialiased`}>
-      <AppRouterCacheProvider>
-        <ThemeRegistry>
-          {children}
-        </ThemeRegistry>
-      </AppRouterCacheProvider>
+        <AppRouterCacheProvider>
+          <ThemeRegistry>
+            {children}
+          </ThemeRegistry>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

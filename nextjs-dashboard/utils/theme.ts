@@ -1,3 +1,4 @@
+import { secondaryFontStyle } from './../app/ui/fonts';
 import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
@@ -13,4 +14,18 @@ export const theme = createTheme({
       default: '#0e0e0e',
     },
   },
+  typography: {
+    // font should be defined in <body>
+    fontFamily: 'inherit',
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          // this override the default primary font (defined in <body>)
+          ...secondaryFontStyle
+        }
+      }
+    }
+  }
 });
