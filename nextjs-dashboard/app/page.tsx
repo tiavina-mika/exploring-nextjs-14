@@ -10,7 +10,7 @@ const Page = () => {
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         {/* <AcmeLogo /> */}
         <h1 className={secondaryFont}>Layout level 1</h1>
-        <Button variant="contained" color="secondary">Hello</Button>
+        <Button variant="contained" color="error">Hello</Button>
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
