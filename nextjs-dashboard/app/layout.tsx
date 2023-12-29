@@ -14,7 +14,7 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body className={`${primaryFont} antialiased`}>
-      <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+      <AppRouterCacheProvider>
         <ThemeRegistry>
           {children}
         </ThemeRegistry>

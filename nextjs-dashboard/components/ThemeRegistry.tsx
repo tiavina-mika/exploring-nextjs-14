@@ -3,10 +3,10 @@ import { ReactNode } from 'react';
 import { theme } from '@/utils/theme';
 import { ThemeProvider } from '@emotion/react';
 
-type Props2 = {
+type Props = {
   children: ReactNode;
 }
-const ThemeRegistry = ({ children }: Props2) => {
+const ThemeRegistry = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme}>
       {children}
