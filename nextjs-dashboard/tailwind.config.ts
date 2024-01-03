@@ -1,32 +1,21 @@
-import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
+import { customizeElements, theme } from './utils/theme';
 
-const config: Config = {
+const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      gridTemplateColumns: {
-        '13': 'repeat(13, minmax(0, 1fr))',
-      },
-      colors: {
-        blue: {
-          400: '#2589FE',
-          500: '#0070F3',
-          600: '#2F6FEB',
-        },
-      },
-    },
-    keyframes: {
-      shimmer: {
-        '100%': {
-          transform: 'translateX(100%)',
-        },
-      },
-    },
+    extend: theme,
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    plugin(function({ addComponents, addBase, theme }) {
+      addBase(customizeElements(theme))
+      // addComponents(customizeClass(theme))
+    })
+  ],
 };
 export default config;
