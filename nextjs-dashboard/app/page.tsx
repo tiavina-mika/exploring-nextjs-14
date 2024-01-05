@@ -4,18 +4,24 @@ import Button from '../components/Button';
 import Table from '@/components/table/Table';
 import Title from '@/components/typography/Title';
 import Text from '@/components/typography/Text';
+import { TextLink } from '@/components/typography/TextLink';
 
 const Page = () => {
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52 gap-4">
         <Button>Primary</Button>
+      <TextLink href="/login" isExternal>Login </TextLink>
+
         <Button color="secondary">Secondary</Button>
         <Button color="error">Error</Button>
         <Button color="success">Success</Button>
         <Button color="info">Info</Button>
         <Button color="warning">Warning</Button>
         <Button color="default">default</Button>
+      </div>
+      <div>
+
       </div>
       <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52  gap-4">
         <Button variant="outlined">Primary</Button>
