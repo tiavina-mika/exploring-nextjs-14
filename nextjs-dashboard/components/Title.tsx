@@ -19,22 +19,23 @@ export const titleVariants = cva(
     },
   }
 );
-
-type Props = {
+// --------- types --------- //
+type TitleProps = {
   level?: TitleLevelType;
   children: ReactNode;
   color?: ButtonPaletteColor;
   className?: string;
 } & HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof titleVariants>;
 
-type Props2 = Pick<Props, 'level' | 'children' | 'className'> & HTMLAttributes<HTMLHeadingElement>
+type ElementProps = Pick<TitleProps, 'level' | 'children' | 'className'> & HTMLAttributes<HTMLHeadingElement>
 
-const Heading = ({ level, children, ...props }: Props2) => {
+// --------- components --------- //
+const Heading = ({ level, children, ...props }: ElementProps) => {
   if (!level) return null;
   return createElement(level, props, children);
 }
 
-const Title = ({ children, color = "default", className, level = "h1", ...props }: Props) => {
+const Title = ({ children, color = "default", className, level = "h1", ...props }: TitleProps) => {
   return (
     <Heading
       className={cn(titleVariants({ color }), className)}
