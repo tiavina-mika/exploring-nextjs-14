@@ -1,74 +1,114 @@
 import { ButtonVariantType, ButtonPaletteColor } from '@/types/component.type';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { VariantProps, cva } from "class-variance-authority";
+import { cn } from '@/utils/utils';
 
-const getClassNameByColor = (color: ButtonPaletteColor, variant: ButtonVariantType) => {
-  if (variant === 'contained') {
-    switch (color) {
-      case 'primary': {
-        return 'bg-primary text-white'
-      }
-      case 'secondary': {
-        return 'bg-secondary text-white'
-      }
-      case 'success': {
-        return 'bg-success text-white'
-      }
-      case 'error': {
-        return 'bg-error text-white'
-      }
-      case 'info': {
-        return 'bg-info text-white'
-      }
-      case 'warning': {
-        return 'bg-warning text-white'
-      }
-      default: {
-        return 'bg-gray-400 text-white'
-      }
-    }
-    return;
+export const buttonVariants = cva(
+  "rounded-md font-primary px-4 py-3",
+  {
+    variants: {
+      variant: {
+        contained: "text-white",
+        outlined: "border-solid border",
+      },
+      color: {
+        primary: "",
+        secondary: "",
+        success: "",
+        error: "",
+        info: "",
+        warning: "",
+        default: "",
+      },
+    },
+    compoundVariants: [
+      {
+        variant: "contained",
+        color: "primary",
+        class: "bg-primary",
+      },
+      {
+        variant: "contained",
+        color: "secondary",
+        class: "bg-secondary",
+      },
+      {
+        variant: "contained",
+        color: "error",
+        class: "bg-error",
+      },
+      {
+        variant: "contained",
+        color: "success",
+        class: "bg-success",
+      },
+      {
+        variant: "contained",
+        color: "info",
+        class: "bg-info",
+      },
+      {
+        variant: "contained",
+        color: "warning",
+        class: "bg-warning",
+      },
+      {
+        variant: "contained",
+        color: "default",
+        class: "bg-gray-400",
+      },
+      // outlined
+      {
+        variant: "outlined",
+        color: "primary",
+        class: "border-primary text-primary",
+      },
+      {
+        variant: "outlined",
+        color: "secondary",
+        class: "border-secondary text-secondary",
+      },
+      {
+        variant: "outlined",
+        color: "error",
+        class: "border-error text-error",
+      },
+      {
+        variant: "outlined",
+        color: "success",
+        class: "border-success text-success",
+      },
+      {
+        variant: "outlined",
+        color: "info",
+        class: "border-info text-info",
+      },
+      {
+        variant: "outlined",
+        color: "warning",
+        class: "border-warning text-warning",
+      },
+      {
+        variant: "outlined",
+        color: "default",
+        class: "border-gray-400 text-gray-400",
+      },
+    ],
   }
-
-  if (variant === 'outlined') {
-    switch (color) {
-      case 'primary': {
-        return 'border-solid border border-primary text-primary'
-      }
-      case 'secondary': {
-        return 'border-solid border border-secondary text-secondary'
-      }
-      case 'success': {
-        return 'border-solid border border-success text-success'
-      }
-      case 'error': {
-        return 'border-solid border border-error text-error'
-      }
-      case 'info': {
-        return 'border-solid border border-info text-info'
-      }
-      case 'warning': {
-        return 'border-solid border border-warning text-warning'
-      }
-      default: {
-        return 'border-solid border border-gray-400 text-gray-400'
-      }
-    }
-  }
-}
+);
 
 type Props = {
   variant?: ButtonVariantType;
   children: ReactNode;
   color?: ButtonPaletteColor;
   className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>;
 
-const Button = ({ variant = 'contained', children, color = "primary", className, ...rest }: Props) => {
+const Button = ({ variant = 'contained', children, color = "primary", className, ...props }: Props) => {
   return (
     <button
-      {...rest}
-      className={twMerge('rounded-md font-primary px-4 py-3', getClassNameByColor(color, variant), className)}
+      className={cn(buttonVariants({ variant, color }), className)}
+      {...props}
     >
       {children}
     </button>
