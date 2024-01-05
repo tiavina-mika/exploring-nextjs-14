@@ -1,5 +1,6 @@
-import { primaryFont } from '@/app/ui/fonts';
+import { primaryFont } from '@/components/fonts';
 import { ReactNode } from 'react';
+import '@/app/ui/global.css';
 
 type Props = {
   children: ReactNode
