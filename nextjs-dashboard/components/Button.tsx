@@ -104,11 +104,11 @@ type Props = {
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>;
 
-const Button = ({ variant = 'contained', children, color = "primary", className, ...rest }: Props) => {
+const Button = ({ variant = 'contained', children, color = "primary", className, ...props }: Props) => {
   return (
     <button
-      {...rest}
       className={cn(buttonVariants({ variant, color }), className)}
+      {...props}
     >
       {children}
     </button>
