@@ -2,7 +2,8 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Button from '../components/Button';
 import Table from '@/components/table/Table';
-import Title from '@/components/Title';
+import Title from '@/components/typography/Title';
+import Text from '@/components/typography/Text';
 
 const Page = () => {
   return (
@@ -33,6 +34,19 @@ const Page = () => {
         <Title level="h5">Title h5</Title>
         <Title level="h6">Title h6</Title>
         <Title className="text-red-500">Title h1</Title>
+      </div>
+      <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52  gap-4">
+        <Text size="xl">Text xl</Text>
+        <Text size="lg" color="error">Text lg</Text>
+        <Text size="md" color="success">Text md</Text>
+        <Text size="sm" color="info">Text sm</Text>
+        <Text size="xs" color="warning">Text xs</Text>
+        <Text className="text-blue-500 text-3xl">Text default</Text>
+      </div>
+      <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52  gap-4">
+        <Text size="xl" palette="dark">Text dark (default)</Text>
+        <Text size="xl" palette="main">Text main</Text>
+        <Text size="xl" palette="light">Text light</Text>
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
