@@ -1,2 +1,3 @@
 links
 https://francoisbest.com/posts/2023/storing-react-state-in-the-url-with-nextjs
+https://michaelangelo.io/blog/darkmode-rsc
