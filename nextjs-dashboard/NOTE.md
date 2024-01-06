@@ -13,11 +13,6 @@
 [Resend pricing](https://resend.com/settings) (free: 100 email/day (3000 email / month), paid: $20 / 50k email / month)
 [Brevo pricing](https://www.brevo.com/pricing/)
 
+## Utils
+[Download Feather icons in svg format](https://feathericons.com/)
 
-
-
-
-
-
-
-// 
