@@ -14,10 +14,9 @@ const config = {
   },
   plugins: [
     require('@tailwindcss/forms'),
-    plugin(function({ addComponents, addBase, theme }) {
-      addBase(customizeElements(theme))
-      // addComponents(customizeClass(theme))
-    })
+    plugin(({ addBase, theme }) => {
+      addBase(customizeElements(theme));
+    }),
   ],
 };
 export default config;

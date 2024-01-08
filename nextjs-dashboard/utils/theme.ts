@@ -1,5 +1,3 @@
-import { Config } from "tailwindcss";
-
 // tailwindcss default theme: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js#L773
 export const theme = {
   colors: {
@@ -51,13 +49,13 @@ export const theme = {
     '6xl': ['3.75rem', { lineHeight: '1' }], // 60px
     '7xl': ['4.5rem', { lineHeight: '1' }], // 72px
   },
-}
+};
 
 export const customizeElements = (theme: any) => ({
-  'h1': { fontSize: theme('fontSize.4xl') },
-  'h2': { fontSize: theme('fontSize.3xl') },
-  'h3': { fontSize: theme('fontSize.2xl') },
-  'h4': { fontSize: theme('fontSize.xl') },
-  'h5': { fontSize: theme('fontSize.lg') },
-  'h6': { fontSize: theme('fontSize.base') },
-})
+  h1: { fontSize: theme('fontSize.4xl') },
+  h2: { fontSize: theme('fontSize.3xl') },
+  h3: { fontSize: theme('fontSize.2xl') },
+  h4: { fontSize: theme('fontSize.xl') },
+  h5: { fontSize: theme('fontSize.lg') },
+  h6: { fontSize: theme('fontSize.base') },
+});

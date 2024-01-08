@@ -1,10 +1,19 @@
-import { lusitana } from '@/components/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
 } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import Button from './Button';
+
+function LoginButton() {
+  return (
+    <Button className="mt-4 w-full">
+      Log in
+      {' '}
+      <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+    </Button>
+  );
+}
 
 export default function LoginForm() {
   return (
@@ -60,13 +69,5 @@ export default function LoginForm() {
         </div>
       </div>
     </form>
-  );
-}
-
-function LoginButton() {
-  return (
-    <Button className="mt-4 w-full">
-      Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-    </Button>
   );
 }
