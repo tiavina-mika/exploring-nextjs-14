@@ -1,11 +1,11 @@
 const { db } = require('@vercel/postgres');
+const bcrypt = require('bcrypt');
 const {
   invoices,
   customers,
   revenue,
   users,
-} = require('../app/lib/placeholder-data.js');
-const bcrypt = require('bcrypt');
+} = require('../app/lib/placeholder-data');
 
 async function seedUsers(client) {
   try {
@@ -20,7 +20,7 @@ async function seedUsers(client) {
       );
     `;
 
-    console.log(`Created "users" table`);
+    console.log('Created "users" table');
 
     // Insert data into the "users" table
     const insertedUsers = await Promise.all(
@@ -61,7 +61,7 @@ async function seedInvoices(client) {
   );
 `;
 
-    console.log(`Created "invoices" table`);
+    console.log('Created "invoices" table');
 
     // Insert data into the "invoices" table
     const insertedInvoices = await Promise.all(
@@ -100,7 +100,7 @@ async function seedCustomers(client) {
       );
     `;
 
-    console.log(`Created "customers" table`);
+    console.log('Created "customers" table');
 
     // Insert data into the "customers" table
     const insertedCustomers = await Promise.all(
@@ -135,7 +135,7 @@ async function seedRevenue(client) {
       );
     `;
 
-    console.log(`Created "revenue" table`);
+    console.log('Created "revenue" table');
 
     // Insert data into the "revenue" table
     const insertedRevenue = await Promise.all(

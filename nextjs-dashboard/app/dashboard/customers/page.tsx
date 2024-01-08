@@ -1,5 +1,5 @@
-const Page = () => {
+function Page() {
   return <p>Customers Page</p>;
 }
 
-export default Page
+export default Page;

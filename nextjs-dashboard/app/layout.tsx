@@ -4,8 +4,8 @@ import '@/app/ui/global.css';
 
 type Props = {
   children: ReactNode
-}
-const RootLayout = ({ children }: Props) => {
+};
+function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={`${primaryFont} antialiased`}>
@@ -15,4 +15,4 @@ const RootLayout = ({ children }: Props) => {
   );
 }
 
-export default RootLayout
+export default RootLayout;

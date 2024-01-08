@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
-import Link, { type LinkProps } from "next/link";
-import Balancer from "react-wrap-balancer";
+import React, { ReactNode } from 'react';
+import Link, { type LinkProps } from 'next/link';
+import Balancer from 'react-wrap-balancer';
 import Image from 'next/image';
-import Text from "./Text";
+import Text from './Text';
 
 type TextLinkProps = LinkProps & {
   isExternal?: boolean;
@@ -11,7 +11,7 @@ type TextLinkProps = LinkProps & {
   alt?: string;
 };
 
-export const TextLink = ({
+export function TextLink({
   children,
   href,
   alt,
@@ -22,28 +22,32 @@ export const TextLink = ({
   isExternal,
   noOfLines,
   ...textProps
-}: TextLinkProps) => (
-  <Link
-    href={href}
-    shallow={shallow}
-    replace={replace}
-    scroll={scroll}
-    prefetch={prefetch}
-    target={isExternal ? "_blank" : undefined}
-  >
-    <Text component="span" className="inline-block underline flex flex-row" {...textProps}>
-      {isExternal ?
-        <Balancer as="span">
-          <span className="max-w-[100%] leading-relaxed">{children}</span>
-          <Image
-            priority
-            src="/icons/external-link.svg"
-            alt={alt || ""}
-            height={12}
-            width={12}
-          />
-        </Balancer>
-      : children}
-    </Text>
-  </Link>
-);
+}: TextLinkProps) {
+  return (
+    <Link
+      href={href}
+      shallow={shallow}
+      replace={replace}
+      scroll={scroll}
+      prefetch={prefetch}
+      target={isExternal ? '_blank' : undefined}
+    >
+      <Text component="span" className="inline-block underline flex flex-row" {...textProps}>
+        {isExternal
+          ? (
+            <Balancer as="span">
+              <span className="max-w-[100%] leading-relaxed">{children}</span>
+              <Image
+                priority
+                src="/icons/external-link.svg"
+                alt={alt || ''}
+                height={12}
+                width={12}
+              />
+            </Balancer>
+          )
+          : children}
+      </Text>
+    </Link>
+  );
+}

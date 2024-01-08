@@ -8,7 +8,9 @@
     "start": "cp .env.prod .env.local && node server.js",
     "start:preprod": "cp .env.preprod .env.local node server.js",
     "build:prod": "cp .env.prod .env.local && next build",
-    "build:preprod": "cp .env.preprod .env.local && next build"
+    "build:preprod": "cp .env.preprod .env.local && next build",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint ."
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -52,7 +54,11 @@
     "eslint-config-prettier": "9.0.0",
     "nodemon": "^3.0.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "0.5.4"
+    "prettier-plugin-tailwindcss": "0.5.4",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0"
   },
   "engines": {
     "node": ">=18.17.0"

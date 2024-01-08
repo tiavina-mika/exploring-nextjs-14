@@ -1,20 +1,20 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import Button from '../components/Button';
 import Table from '@/components/table/Table';
 import Title from '@/components/typography/Title';
 import Text from '@/components/typography/Text';
 import { TextLink } from '@/components/typography/TextLink';
-import { env } from '@/env';
+import env from '@/env';
+import Button from '../components/Button';
 
 const Page = () => {
-  console.log("SERVER", env.SERVER);
-  console.log("NEXT_PUBLIC_CLIENT", env.NEXT_PUBLIC_CLIENT);
+  console.log('SERVER', env.SERVER);
+  console.log('NEXT_PUBLIC_CLIENT', env.NEXT_PUBLIC_CLIENT);
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52 gap-4">
         <Button>Primary</Button>
-      <TextLink href="/login" isExternal>Login </TextLink>
+        <TextLink href="/login" isExternal>Login </TextLink>
 
         <Button color="secondary">Secondary</Button>
         <Button color="error">Error</Button>
@@ -23,9 +23,7 @@ const Page = () => {
         <Button color="warning">Warning</Button>
         <Button color="default">default</Button>
       </div>
-      <div>
-
-      </div>
+      <div />
       <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52  gap-4">
         <Button variant="outlined">Primary</Button>
         <Button color="secondary" variant="outlined">Secondary</Button>
@@ -63,7 +61,9 @@ const Page = () => {
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+            <span>Log in</span>
+            {' '}
+            <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
       </div>
@@ -72,6 +72,6 @@ const Page = () => {
       </div>
     </main>
   );
-}
+};
 
-export default Page
+export default Page;
