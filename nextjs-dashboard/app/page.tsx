@@ -5,8 +5,11 @@ import Table from '@/components/table/Table';
 import Title from '@/components/typography/Title';
 import Text from '@/components/typography/Text';
 import { TextLink } from '@/components/typography/TextLink';
+import { env } from '@/env';
 
 const Page = () => {
+  console.log("SERVER", env.SERVER);
+  console.log("NEXT_PUBLIC_CLIENT", env.NEXT_PUBLIC_CLIENT);
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex bg-yellow-300 h-20 shrink-0 items-end rounded-lg p-4 md:h-52 gap-4">
