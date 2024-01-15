@@ -7,6 +7,9 @@
 
 ## Libs
 [CVA, add variants to reusable components](https://cva.style/docs/getting-started/variants)
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+[Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
+
 
 ### email
 [react-email with resend](https://react.email/docs/integrations/resend)
@@ -17,4 +20,8 @@
 [Download Feather icons in svg format](https://feathericons.com/)
 
 https://codesandbox.io/p/devbox/drawer-with-scale-forked-nx2glp?file=%2Fpackage.json
+
+### husky
+Issue with husky when the .git folder is in different place than packgage.json
+https://github.com/typicode/husky/issues/851
 
