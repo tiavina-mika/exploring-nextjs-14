@@ -11,7 +11,7 @@ type TextLinkProps = LinkProps & {
   alt?: string;
 };
 
-export function TextLink({
+export const TextLink = ({
   children,
   href,
   alt,
@@ -22,32 +22,30 @@ export function TextLink({
   isExternal,
   noOfLines,
   ...textProps
-}: TextLinkProps) {
-  return (
-    <Link
-      href={href}
-      shallow={shallow}
-      replace={replace}
-      scroll={scroll}
-      prefetch={prefetch}
-      target={isExternal ? '_blank' : undefined}
-    >
-      <Text component="span" className="inline-block underline flex flex-row" {...textProps}>
-        {isExternal
-          ? (
-            <Balancer as="span">
-              <span className="max-w-[100%] leading-relaxed">{children}</span>
-              <Image
-                priority
-                src="/icons/external-link.svg"
-                alt={alt || ''}
-                height={12}
-                width={12}
-              />
-            </Balancer>
-          )
-          : children}
-      </Text>
-    </Link>
-  );
-}
+}: TextLinkProps) => (
+  <Link
+    href={href}
+    shallow={shallow}
+    replace={replace}
+    scroll={scroll}
+    prefetch={prefetch}
+    target={isExternal ? '_blank' : undefined}
+  >
+    <Text component="span" className="inline-block underline flex flex-row" {...textProps}>
+      {isExternal
+        ? (
+          <Balancer as="span">
+            <span className="max-w-[100%] leading-relaxed">{children}</span>
+            <Image
+              priority
+              src="/icons/external-link.svg"
+              alt={alt || ''}
+              height={12}
+              width={12}
+            />
+          </Balancer>
+        )
+        : children}
+    </Text>
+  </Link>
+);

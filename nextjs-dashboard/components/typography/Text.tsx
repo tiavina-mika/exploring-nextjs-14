@@ -154,23 +154,21 @@ type TextProps = {
 type ElementProps = Pick<TextProps, 'component' | 'children' | 'className'>;
 
 // --------- components --------- //
-function TextElement({ component, children, ...props }: ElementProps) {
+const TextElement = ({ component, children, ...props }: ElementProps) => {
   if (!component) return null;
   return createElement(component, props, children);
-}
+};
 
-function Text({
+const Text = ({
   children, color = 'default', palette = 'dark', className, size = 'md', component = 'p', ...props
-}: TextProps) {
-  return (
-    <TextElement
-      className={cn(textVariants({ color, size, palette }), className)}
-      component={component}
-      {...props}
-    >
-      {children}
-    </TextElement>
-  );
-}
+}: TextProps) => (
+  <TextElement
+    className={cn(textVariants({ color, size, palette }), className)}
+    component={component}
+    {...props}
+  >
+    {children}
+  </TextElement>
+);
 
 export default Text;

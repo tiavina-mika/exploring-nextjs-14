@@ -8,6 +8,7 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
+  plugins: ["prefer-arrow-functions"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-console": "off",
@@ -19,6 +20,16 @@ module.exports = {
     "jsx-a11y/label-has-associated-control": "off",
     "react/no-unescaped-entities": "off",
     "jsx-a11y/control-has-associated-label": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "prefer-arrow-functions/prefer-arrow-functions": [
+      "warn",
+      {
+        "allowNamedFunctions": false,
+        "classPropertiesAllowed": false,
+        "disallowPrototype": false,
+        "returnStyle": "unchanged",
+        "singleReturnOnly": false
+      }
+    ]
   },
 };

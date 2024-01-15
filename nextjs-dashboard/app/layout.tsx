@@ -5,14 +5,12 @@ import '@/app/ui/global.css';
 type Props = {
   children: ReactNode
 };
-function RootLayout({ children }: Props) {
-  return (
-    <html lang="en">
-      <body className={`${primaryFont} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }: Props) => (
+  <html lang="en">
+    <body className={`${primaryFont} antialiased`}>
+      {children}
+    </body>
+  </html>
+);
 
 export default RootLayout;

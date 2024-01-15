@@ -104,18 +104,16 @@ type Props = {
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>;
 
-function Button({
+const Button = ({
   variant = 'contained', children, color = 'primary', className, ...props
-}: Props) {
-  return (
-    <button
-      className={cn(buttonVariants({ variant, color }), className)}
-      type="button"
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
+}: Props) => (
+  <button
+    className={cn(buttonVariants({ variant, color }), className)}
+    type="button"
+    {...props}
+  >
+    {children}
+  </button>
+);
 
 export default Button;

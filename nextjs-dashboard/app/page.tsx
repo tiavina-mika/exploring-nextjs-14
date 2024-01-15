@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import Table from '@/components/table/Table';
 import Title from '@/components/typography/Title';
 import Text from '@/components/typography/Text';
 import { TextLink } from '@/components/typography/TextLink';
@@ -66,9 +65,6 @@ const Page = () => {
             <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
-      </div>
-      <div>
-        <Table />
       </div>
     </main>
   );
