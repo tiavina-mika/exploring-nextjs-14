@@ -9,9 +9,12 @@
 [CVA, add variants to reusable components](https://cva.style/docs/getting-started/variants)
 [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 [Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
+[Shadcn](https://ui.shadcn.com/docs)
 
+## Repos
+[Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
 
-### email
+### Emailing
 [react-email with resend](https://react.email/docs/integrations/resend)
 [Resend pricing](https://resend.com/settings) (free: 100 email/day (3000 email / month), paid: $20 / 50k email / month)
 [Brevo pricing](https://www.brevo.com/pricing/)

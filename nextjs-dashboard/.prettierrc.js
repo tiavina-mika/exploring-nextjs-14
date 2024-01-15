@@ -28,15 +28,19 @@ module.exports = {
   ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   plugins: [
+    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss" // MUST come last
   ],
   printWidth: 80,
   semi: true,
-  singleQuote: false,
+  singleQuote: true,
   tabWidth: 2,
   trailingComma: "all",
   useTabs: false,
   importOrderSeparation: true,
   importOrderCaseInsensitive: true,
-  importOrderGroupNamespaceSpecifiers: true
+  importOrderGroupNamespaceSpecifiers: true,
+  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
+  importOrderMergeDuplicateImports: true,
+  importOrderCombineTypeAndValueImports: true,
 };
