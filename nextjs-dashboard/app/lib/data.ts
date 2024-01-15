@@ -10,7 +10,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-export async function fetchRevenue() {
+export const fetchRevenue = async () => {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
@@ -30,9 +30,9 @@ export async function fetchRevenue() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch revenue data.');
   }
-}
+};
 
-export async function fetchLatestInvoices() {
+export const fetchLatestInvoices = async () => {
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
@@ -50,9 +50,9 @@ export async function fetchLatestInvoices() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch the latest invoices.');
   }
-}
+};
 
-export async function fetchCardData() {
+export const fetchCardData = async () => {
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
@@ -85,13 +85,10 @@ export async function fetchCardData() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch card data.');
   }
-}
+};
 
 const ITEMS_PER_PAGE = 6;
-export async function fetchFilteredInvoices(
-  query: string,
-  currentPage: number,
-) {
+export const fetchFilteredInvoices = async (query: string, currentPage: number) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
@@ -121,9 +118,9 @@ export async function fetchFilteredInvoices(
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoices.');
   }
-}
+};
 
-export async function fetchInvoicesPages(query: string) {
+export const fetchInvoicesPages = async (query: string) => {
   try {
     const count = await sql`SELECT COUNT(*)
     FROM invoices
@@ -142,9 +139,9 @@ export async function fetchInvoicesPages(query: string) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of invoices.');
   }
-}
+};
 
-export async function fetchInvoiceById(id: string) {
+export const fetchInvoiceById = async (id: string) => {
   try {
     const data = await sql<InvoiceForm>`
       SELECT
@@ -167,9 +164,9 @@ export async function fetchInvoiceById(id: string) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoice.');
   }
-}
+};
 
-export async function fetchCustomers() {
+export const fetchCustomers = async () => {
   try {
     const data = await sql<CustomerField>`
       SELECT
@@ -185,9 +182,9 @@ export async function fetchCustomers() {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all customers.');
   }
-}
+};
 
-export async function fetchFilteredCustomers(query: string) {
+export const fetchFilteredCustomers = async (query: string) => {
   try {
     const data = await sql<CustomersTableType>`
       SELECT
@@ -218,9 +215,9 @@ export async function fetchFilteredCustomers(query: string) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch customer table.');
   }
-}
+};
 
-export async function getUser(email: string) {
+export const getUser = async (email: string) => {
   try {
     const user = await sql`SELECT * FROM users WHERE email=${email}`;
     return user.rows[0] as User;
@@ -228,4 +225,4 @@ export async function getUser(email: string) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
   }
-}
+};

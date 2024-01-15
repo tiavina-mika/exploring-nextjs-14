@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "eslint-plugin-prefer-arrow-functions": "^3.2.4"
+  }
+}

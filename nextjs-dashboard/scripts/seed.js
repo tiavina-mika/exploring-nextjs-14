@@ -7,7 +7,7 @@ const {
   users,
 } = require('../app/lib/placeholder-data');
 
-async function seedUsers(client) {
+const seedUsers = async (client) => {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "users" table if it doesn't exist
@@ -44,9 +44,9 @@ async function seedUsers(client) {
     console.error('Error seeding users:', error);
     throw error;
   }
-}
+};
 
-async function seedInvoices(client) {
+const seedInvoices = async (client) => {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
@@ -84,9 +84,9 @@ async function seedInvoices(client) {
     console.error('Error seeding invoices:', error);
     throw error;
   }
-}
+};
 
-async function seedCustomers(client) {
+const seedCustomers = async (client) => {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
@@ -123,9 +123,9 @@ async function seedCustomers(client) {
     console.error('Error seeding customers:', error);
     throw error;
   }
-}
+};
 
-async function seedRevenue(client) {
+const seedRevenue = async (client) => {
   try {
     // Create the "revenue" table if it doesn't exist
     const createTable = await client.sql`
@@ -158,9 +158,9 @@ async function seedRevenue(client) {
     console.error('Error seeding revenue:', error);
     throw error;
   }
-}
+};
 
-async function main() {
+const main = async () => {
   const client = await db.connect();
 
   await seedUsers(client);
@@ -169,7 +169,7 @@ async function main() {
   await seedRevenue(client);
 
   await client.end();
-}
+};
 
 main().catch((err) => {
   console.error(

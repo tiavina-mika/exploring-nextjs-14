@@ -30,23 +30,21 @@ type TitleProps = {
 type ElementProps = Pick<TitleProps, 'level' | 'children' | 'className'> & HTMLAttributes<HTMLHeadingElement>;
 
 // --------- components --------- //
-function Heading({ level, children, ...props }: ElementProps) {
+const Heading = ({ level, children, ...props }: ElementProps) => {
   if (!level) return null;
   return createElement(level, props, children);
-}
+};
 
-function Title({
+const Title = ({
   children, color = 'default', className, level = 'h1', ...props
-}: TitleProps) {
-  return (
-    <Heading
-      className={cn(titleVariants({ color }), className)}
-      level={level}
-      {...props}
-    >
-      {children}
-    </Heading>
-  );
-}
+}: TitleProps) => (
+  <Heading
+    className={cn(titleVariants({ color }), className)}
+    level={level}
+    {...props}
+  >
+    {children}
+  </Heading>
+);
 
 export default Title;

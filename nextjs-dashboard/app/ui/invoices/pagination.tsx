@@ -1,15 +1,10 @@
 'use client';
 
-export default function Pagination() {
-  // NOTE: comment in this code when you get to this point in the course
+export default () => (
+  <>
+    {/* NOTE: comment in this code when you get to this point in the course */}
 
-  // const allPages = generatePagination(currentPage, totalPages);
-
-  return (
-    <>
-      {/* NOTE: comment in this code when you get to this point in the course */}
-
-      {/* <div className="inline-flex">
+    {/* <div className="inline-flex">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
@@ -43,6 +38,5 @@ export default function Pagination() {
           isDisabled={currentPage >= totalPages}
         />
       </div> */}
-    </>
-  );
-}
+  </>
+);

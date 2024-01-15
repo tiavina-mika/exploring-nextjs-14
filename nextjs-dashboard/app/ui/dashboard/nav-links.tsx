@@ -20,7 +20,7 @@ const links = [
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
 ];
 
-export default function NavLinks() {
+export default () => {
   const pathname = usePathname();
 
   return (
@@ -45,4 +45,4 @@ export default function NavLinks() {
       })}
     </>
   );
-}
+};
