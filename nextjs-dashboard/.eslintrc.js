@@ -4,6 +4,7 @@ module.exports = {
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
+    "plugin:eslint-comments/recommended"
   ],
   parserOptions: {
     project: "./tsconfig.json",
@@ -21,6 +22,7 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "react/function-component-definition": "off",
+    "eslint-comments/no-unused-disable": "warn",
     "prefer-arrow-functions/prefer-arrow-functions": [
       "warn",
       {
