@@ -1,5 +1,16 @@
-## Next.js App Router Course - Starter
+## Overview
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+This is a starter template using the following stack:
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+- Framework - [Next.js 14](https://nextjs.org)
+- Language - [TypeScript](https://www.typescriptlang.org)
+- Styling - [Tailwind CSS](https://tailwindcss.com)
+- Components - [Shadcn-ui](https://ui.shadcn.com)
+- Schema Validations - [Zod](https://zod.dev)
+- State Management - [Zustand](https://zustand-demo.pmnd.rs)
+- Auth - [Nextauth](https://next-auth.js.org)
+- File Uploading - [Uploadthing](https://uploadthing.com)
+- Tables - [Tanstack Tables](https://ui.shadcn.com/docs/components/data-table)
+- Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
+- Linting - [ESLint](https://eslint.org)
+- Formatting - [Prettier](https://prettier.io)
