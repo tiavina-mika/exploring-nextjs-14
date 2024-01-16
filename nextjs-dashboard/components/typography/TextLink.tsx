@@ -6,12 +6,11 @@ import Text from './Text';
 
 type TextLinkProps = LinkProps & {
   isExternal?: boolean;
-  noOfLines?: number;
   children?: ReactNode;
   alt?: string;
 };
 
-export const TextLink = ({
+const TextLink = ({
   children,
   href,
   alt,
@@ -20,7 +19,6 @@ export const TextLink = ({
   scroll,
   prefetch,
   isExternal,
-  noOfLines,
   ...textProps
 }: TextLinkProps) => (
   <Link
@@ -31,7 +29,7 @@ export const TextLink = ({
     prefetch={prefetch}
     target={isExternal ? '_blank' : undefined}
   >
-    <Text component="span" className="inline-block underline flex flex-row" {...textProps}>
+    <Text component="span" className="underline flex flex-row hover:opacity-90" {...textProps}>
       {isExternal
         ? (
           <Balancer as="span">
@@ -49,3 +47,5 @@ export const TextLink = ({
     </Text>
   </Link>
 );
+
+export default TextLink;
