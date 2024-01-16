@@ -30,7 +30,7 @@
     "app/lib/placeholder-data.js",
     "scripts/seed.js",
     "env.ts"
-  ],
+, "stories/components/typography/Title.stories.ts"  ],
   "exclude": [
     "node_modules",
     "server.js",
