@@ -23,7 +23,12 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
         <Story />
       </ThemeProvider>

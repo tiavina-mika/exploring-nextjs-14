@@ -9,7 +9,7 @@ type Props = {
 };
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
-    <body className={`${primaryFont} antialiased dark:bg-warning-dark`}>
+    <body className={`${primaryFont} antialiased dark:bg-neutral-900`}>
       <ThemeProvider
         attribute="class"
         defaultTheme="system"

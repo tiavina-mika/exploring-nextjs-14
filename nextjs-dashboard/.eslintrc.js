@@ -25,6 +25,7 @@ module.exports = {
     "react/function-component-definition": "off",
     "react/prop-types": "off",
     "eslint-comments/no-unused-disable": "warn",
+    "max-len": "off",
     "prefer-arrow-functions/prefer-arrow-functions": [
       "warn",
       {
