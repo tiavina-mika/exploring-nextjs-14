@@ -4,7 +4,8 @@ module.exports = {
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
-    "plugin:eslint-comments/recommended"
+    "plugin:eslint-comments/recommended",
+    "plugin:storybook/recommended"
   ],
   parserOptions: {
     project: "./tsconfig.json",
