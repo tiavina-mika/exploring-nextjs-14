@@ -10,7 +10,6 @@
 [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 [Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
 [Shadcn](https://ui.shadcn.com/docs)
-[Tailwindcss dark mode with storybook](https://storybook.js.org/addons/storybook-tailwind-dark-mode)
 
 ## Repos
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
