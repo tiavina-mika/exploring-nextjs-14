@@ -2,7 +2,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Title from '@/components/typography/Title';
 import Text from '@/components/typography/Text';
-import { TextLink } from '@/components/typography/TextLink';
+import TextLink from '@/components/typography/TextLink';
 import env from '@/env';
 import Button from '../components/Button';
 

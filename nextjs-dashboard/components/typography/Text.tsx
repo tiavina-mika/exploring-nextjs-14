@@ -163,7 +163,7 @@ const Text = ({
   children, color = 'default', palette = 'dark', className, size = 'md', component = 'p', ...props
 }: TextProps) => (
   <TextElement
-    className={cn(textVariants({ color, size, palette }), className)}
+    className={cn(textVariants({ color, size, palette }), className, "dark:text-white")}
     component={component}
     {...props}
   >

@@ -1,5 +1,7 @@
 import { primaryFont } from '@/components/fonts';
 import { ReactNode } from 'react';
+import ThemeProvider from '@/components/ThemeProvider';
+
 import '@/app/ui/global.css';
 
 type Props = {
@@ -7,8 +9,15 @@ type Props = {
 };
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
-    <body className={`${primaryFont} antialiased`}>
-      {children}
+    <body className={`${primaryFont} antialiased dark:bg-warning-dark`}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}
+      </ThemeProvider>
     </body>
   </html>
 );

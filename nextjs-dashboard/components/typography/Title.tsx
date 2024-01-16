@@ -39,7 +39,7 @@ const Title = ({
   children, color = 'default', className, level = 'h1', ...props
 }: TitleProps) => (
   <Heading
-    className={cn(titleVariants({ color }), className)}
+    className={cn(titleVariants({ color }), className, "dark:text-white")}
     level={level}
     {...props}
   >
