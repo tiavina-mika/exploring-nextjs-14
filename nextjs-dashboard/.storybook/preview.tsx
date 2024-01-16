@@ -4,13 +4,6 @@ import ThemeProvider from "../components/ThemeProvider";
 
 import "../app/globals.css";
 
-enum ThemeEnum {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
-
-const defaultTheme = ThemeEnum.DARK;
-
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -22,21 +15,34 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
-        <Story />
-      </ThemeProvider>
-    ),
+    (Story, context) => {
+      return (
+        <ThemeProvider
+          attribute="class"
+          forcedTheme={context.globals.theme}
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+          <Story />
+        </ThemeProvider>
+      )
+    },
   ],
   globalTypes: {
-    darkMode: {
-      defaultValue: defaultTheme, // Enable dark mode by default on all stories
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        // The label to show for this toolbar item
+        title: 'Theme',
+        icon: 'circlehollow',
+        // Array of plain string values or MenuItem shape (see below)
+        items: ['light', 'dark', "system"],
+        // Change title based on selected value
+        dynamicTitle: true,
+      },
     },
   },
 };
