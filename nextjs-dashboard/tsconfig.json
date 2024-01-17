@@ -15,12 +15,12 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["./*"],
+    },
   },
   "include": [
     "next-env.d.ts",
@@ -29,14 +29,15 @@
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.js",
     "scripts/seed.js",
-    "env.ts"
-, "stories/components/typography/Title.stories.ts"  ],
+    "env.ts",
+    "stories/components/typography/Title.stories.ts",
+  ],
   "exclude": [
     "node_modules",
     "server.js",
     ".eslintrc.js",
     "tailwind.config.js",
     "postcss.config.js",
-    "next.config.js"
-  ]
+    "next.config.js",
+  ],
 }

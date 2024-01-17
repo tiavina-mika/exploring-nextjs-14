@@ -1,4 +1,5 @@
 import env from '@/env';
+
 import ToggleTheme from '@/components/ToggleTheme';
 
 const Page = () => {
@@ -9,7 +10,6 @@ const Page = () => {
       <div>
         <ToggleTheme />
       </div>
-
     </main>
   );
 };

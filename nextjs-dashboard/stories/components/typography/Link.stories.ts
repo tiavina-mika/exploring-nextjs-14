@@ -1,6 +1,6 @@
-import LinkComponent from '@/components/typography/TextLink';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import LinkComponent from '@/components/typography/TextLink';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -23,7 +23,6 @@ export const Link: Story = {
   args: {
     isExternal: false,
     children: 'Click here',
-    href: '/'
+    href: '/',
   },
 };
-

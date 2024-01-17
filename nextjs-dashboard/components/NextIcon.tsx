@@ -8,7 +8,11 @@ type Props = {
 } & ImageProps;
 
 const NextIcon = ({
-  src, className, width = 24, height = 24, ...props
+  src,
+  className,
+  width = 24,
+  height = 24,
+  ...props
 }: Props) => (
   <Image
     {...props}

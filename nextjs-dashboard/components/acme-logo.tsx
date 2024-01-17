@@ -1,4 +1,5 @@
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
+
 import { primaryFont } from './fonts';
 
 export default () => (

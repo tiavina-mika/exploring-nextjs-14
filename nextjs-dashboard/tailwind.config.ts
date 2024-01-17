@@ -1,4 +1,5 @@
 import plugin from 'tailwindcss/plugin';
+
 import { customizeElements, theme } from './utils/theme';
 
 const config = {

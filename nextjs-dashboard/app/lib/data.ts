@@ -1,12 +1,13 @@
 import { sql } from '@vercel/postgres';
+
 import {
   CustomerField,
   CustomersTableType,
   InvoiceForm,
   InvoicesTable,
   LatestInvoiceRaw,
-  User,
   Revenue,
+  User,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -88,7 +89,10 @@ export const fetchCardData = async () => {
 };
 
 const ITEMS_PER_PAGE = 6;
-export const fetchFilteredInvoices = async (query: string, currentPage: number) => {
+export const fetchFilteredInvoices = async (
+  query: string,
+  currentPage: number,
+) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {

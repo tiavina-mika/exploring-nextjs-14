@@ -1,6 +1,6 @@
-import TitleComponent from '@/components/typography/Title';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import TitleComponent from '@/components/typography/Title';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -25,4 +25,3 @@ export const Title: Story = {
     children: 'Hello There',
   },
 };
-

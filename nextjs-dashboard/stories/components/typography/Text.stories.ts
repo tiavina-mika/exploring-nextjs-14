@@ -1,6 +1,6 @@
-import TextComponent from '@/components/typography/Text';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import TextComponent from '@/components/typography/Text';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -39,4 +39,3 @@ export const Text: Story = {
     children: `Lorem ipsum`,
   },
 };
-

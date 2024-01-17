@@ -1,4 +1,5 @@
 ## Articles
+
 [Storing React state in the URL with Next.js](https://francoisbest.com/posts/2023/storing-react-state-in-the-url-with-nextjs)
 [How to add Tailwind Dark Mode to React Server Side Apps](https://michaelangelo.io/blog/darkmode-rsc)
 [Accessible design](https://m3.material.io/foundations/accessible-design/accessibility-basics)
@@ -6,25 +7,29 @@
 [](https://copyprogramming.com/howto/how-to-use-diferent-env-files-with-nextjs)
 
 ## Libs
+
 [CVA, add variants to reusable components](https://cva.style/docs/getting-started/variants)
 [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 [Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
 [Shadcn](https://ui.shadcn.com/docs)
 
 ## Repos
+
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
 
 ### Emailing
+
 [react-email with resend](https://react.email/docs/integrations/resend)
 [Resend pricing](https://resend.com/settings) (free: 100 email/day (3000 email / month), paid: $20 / 50k email / month)
 [Brevo pricing](https://www.brevo.com/pricing/)
 
 ## Utils
+
 [Download Feather icons in svg format](https://feathericons.com/)
 
 https://codesandbox.io/p/devbox/drawer-with-scale-forked-nx2glp?file=%2Fpackage.json
 
 ### husky
+
 Issue with husky when the .git folder is in different place than packgage.json
 https://github.com/typicode/husky/issues/851
-

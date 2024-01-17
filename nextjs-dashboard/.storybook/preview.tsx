@@ -1,16 +1,17 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import ThemeProvider from "../components/ThemeProvider";
 
-import "../app/globals.css";
+import ThemeProvider from '../components/ThemeProvider';
+
+import '../app/globals.css';
 
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
   },
@@ -27,7 +28,7 @@ const preview: Preview = {
           {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
           <Story />
         </ThemeProvider>
-      )
+      );
     },
   ],
   globalTypes: {
@@ -39,7 +40,7 @@ const preview: Preview = {
         title: 'Theme',
         icon: 'circlehollow',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['light', 'dark', "system"],
+        items: ['light', 'dark', 'system'],
         // Change title based on selected value
         dynamicTitle: true,
       },

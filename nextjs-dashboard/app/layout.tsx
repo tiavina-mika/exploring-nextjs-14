@@ -1,11 +1,12 @@
-import { primaryFont } from '@/components/fonts';
 import { ReactNode } from 'react';
+
+import { primaryFont } from '@/components/fonts';
 import ThemeProvider from '@/components/ThemeProvider';
 
 import '@/app/ui/global.css';
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
