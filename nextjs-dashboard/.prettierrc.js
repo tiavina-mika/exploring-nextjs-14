@@ -9,6 +9,7 @@ module.exports = {
   endOfLine: 'lf',
   importOrder: [
     '^(react/(.*)$)|^(react$)',
+    '',
     '^(next/(.*)$)|^(next$)',
     '<THIRD_PARTY_MODULES>',
     '',
@@ -18,6 +19,8 @@ module.exports = {
     '^@/hooks/(.*)$',
     '^@/validations/(.*)$',
     '^@/utils/(.*)$',
+    '',
+    '^@/types/(.*)$',
     '^@/env/(.*)$',
     '',
     '^[./]',
