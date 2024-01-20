@@ -26,6 +26,10 @@ const NavBar = () => {
       label: 'Preview Article',
       value: ROUTES.articles.preview('1'),
     },
+    {
+      label: 'Add Article',
+      value: ROUTES.articles.add,
+    },
   ];
 
   return (
