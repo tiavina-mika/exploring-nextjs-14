@@ -1,12 +1,14 @@
 import { createElement, ReactNode } from 'react';
+
+import { cva, VariantProps } from 'class-variance-authority';
+
+import { cn } from '@/utils/utils';
+
 import {
   ButtonPaletteColor,
   SimplePaletteColorOptions,
   TextSizeType,
 } from '@/types/component.type';
-import { cva, VariantProps } from 'class-variance-authority';
-
-import { cn } from '@/utils/utils';
 
 export const textVariants = cva('font-primary', {
   variants: {

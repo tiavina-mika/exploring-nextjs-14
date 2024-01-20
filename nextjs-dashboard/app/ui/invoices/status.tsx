@@ -8,17 +8,17 @@ export default ({ status }: { status: string }) => (
       'bg-green-500 text-white': status === 'paid',
     })}
   >
-    {status === 'pending' ?
+    {status === 'pending' ? (
       <>
         Pending
         <ClockIcon className="ml-1 w-4 text-gray-500" />
       </>
-    : null}
-    {status === 'paid' ?
+    ) : null}
+    {status === 'paid' ? (
       <>
         Paid
         <CheckIcon className="ml-1 w-4 text-white" />
       </>
-    : null}
+    ) : null}
   </span>
 );

@@ -7,6 +7,7 @@ import '@/app/ui/global.css';
 
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import NavBar from '@/components/NavBar';
 import { Locale, locales } from '@/config/i18n';
 
 export const generateStaticParams = () => {
@@ -31,7 +32,8 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NavBar />
+          <div>{children}</div>
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,14 @@
 {
+  "edit": "Edit",
+  "add": "Add",
+  "delete": "Delete",
   "Shared": {
     "greeting": "Hello"
+  },
+  "NavBar": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles",
+    "article": "Article"
   }
 }
