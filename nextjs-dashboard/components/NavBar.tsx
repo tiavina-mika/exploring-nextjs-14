@@ -2,24 +2,29 @@ import { useTranslations } from 'next-intl';
 
 import { ROUTES } from '@/config/routes';
 
-import { ISelectOption } from '@/types/app.type';
+import { IDynamicRouteParams, ISelectOption } from '@/types/app.type';
 
 import TextLink from './typography/TextLink';
 
+type IMenu = ISelectOption<string | IDynamicRouteParams>;
 const NavBar = () => {
   const t = useTranslations('NavBar');
-  const menus: ISelectOption[] = [
+  const menus: IMenu[] = [
     {
       label: t('home'),
       value: ROUTES.home,
     },
     {
       label: t('articles'),
-      value: ROUTES.articles.root,
+      value: (ROUTES.articles as any).root,
     },
     {
       label: t('about'),
       value: ROUTES.about,
+    },
+    {
+      label: 'Preview Article',
+      value: (ROUTES.articles as any).preview('1'),
     },
   ];
 
@@ -60,7 +65,7 @@ const NavBar = () => {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900">
-            {menus.map((menu: ISelectOption, index: number) => (
+            {menus.map((menu: IMenu, index: number) => (
               <li key={menu.label + index}>
                 <TextLink
                   href={menu.value}

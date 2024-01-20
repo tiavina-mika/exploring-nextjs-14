@@ -10,16 +10,16 @@ type Props = {
   };
 };
 
-const ArticlePage = ({ params: { locale, articleId } }: Props) => {
+const EditArticlePage = ({ params: { locale, articleId } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div>
-        <Title>Article preview {articleId}</Title>
+        <Title>Edit Article {articleId}</Title>
       </div>
     </main>
   );
 };
 
-export default ArticlePage;
+export default EditArticlePage;
