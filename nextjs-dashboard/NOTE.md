@@ -43,3 +43,6 @@ To add new language:
 - /config/i18n.ts
 - /middleware.ts
 - add new language translation in /translations
+
+To add new translated routes:
+- add the translated route to /config/routes.ts
