@@ -1,8 +1,10 @@
 import { createElement, HTMLAttributes, ReactNode } from 'react';
-import { ButtonPaletteColor, TitleLevelType } from '@/types/component.type';
+
 import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/utils/utils';
+
+import { ButtonPaletteColor, TitleLevelType } from '@/types/component.type';
 
 export const titleVariants = cva('font-primary', {
   variants: {

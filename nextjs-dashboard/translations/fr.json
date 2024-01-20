@@ -1,0 +1,14 @@
+{
+  "edit": "Modifier",
+  "add": "Ajouter",
+  "delete": "Supprimer",
+  "Shared": {
+    "greeting": "Bonjour"
+  },
+  "NavBar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "articles": "Articles",
+    "article": "Article"
+  }
+}

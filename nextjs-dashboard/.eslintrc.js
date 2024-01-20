@@ -27,6 +27,8 @@ module.exports = {
     'react/prop-types': 'off',
     'eslint-comments/no-unused-disable': 'warn',
     'max-len': 'off',
+    "consistent-return": "off",
+    "react/no-array-index-key": "off",
     // -- see: https://github.com/prettier/eslint-plugin-prettier -- //
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",

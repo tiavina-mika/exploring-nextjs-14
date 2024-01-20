@@ -21,9 +21,9 @@ export default ({ breadcrumbs }: { breadcrumbs: Breadcrumb[] }) => (
           )}
         >
           <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
-          {index < breadcrumbs.length - 1 ?
+          {index < breadcrumbs.length - 1 ? (
             <span className="mx-3 inline-block">/</span>
-          : null}
+          ) : null}
         </li>
       ))}
     </ol>

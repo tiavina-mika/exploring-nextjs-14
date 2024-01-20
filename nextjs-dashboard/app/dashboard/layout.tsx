@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import SideNav from '@/app/ui/dashboard/sidenav';
 
 type Props = {

@@ -1,8 +1,10 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { ButtonPaletteColor, ButtonVariantType } from '@/types/component.type';
+
 import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/utils/utils';
+
+import { ButtonPaletteColor, ButtonVariantType } from '@/types/component.type';
 
 export const buttonVariants = cva('rounded-md font-primary px-4 py-3', {
   variants: {
