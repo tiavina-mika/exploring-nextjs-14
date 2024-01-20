@@ -13,6 +13,7 @@
 [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 [Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
 [Shadcn](https://ui.shadcn.com/docs)
+[next-intl tuto](https://phrase.com/blog/posts/next-js-app-router-localization-next-intl/)
 
 ## Repos
 
