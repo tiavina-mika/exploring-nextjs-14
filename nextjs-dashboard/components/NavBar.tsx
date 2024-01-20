@@ -24,7 +24,7 @@ const NavBar = () => {
     },
     {
       label: 'Preview Article',
-      value: (ROUTES.articles as any).preview('1'),
+      value: ROUTES.articles.preview('1'),
     },
   ];
 
