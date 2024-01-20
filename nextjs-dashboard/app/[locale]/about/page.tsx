@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { Locale } from '@/config/i18n';
@@ -10,8 +11,9 @@ type Props = {
 
 const AboutPage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
+  const t = useTranslations('NavBar');
 
-  return <div>About page</div>;
+  return <div>{t('about')} page</div>;
 };
 
 export default AboutPage;
