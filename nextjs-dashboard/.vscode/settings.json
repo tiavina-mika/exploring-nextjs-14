@@ -1,0 +1,117 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["tw=\"([^\"]*)\""]
+  ],
+  "i18n-ally.keystyle": "nested",
+  "css.validate": false,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "classNames",
+    "containerClassName"
+  ],
+  "i18n-ally.sourceLanguage": "en-us",
+  "i18n-ally.displayLanguage": "en-us",
+  "i18n-ally.localesPaths": ["src/data/i18n"],
+  "i18n-ally.enabledFrameworks": ["general", "react", "next-intl"],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.ignore": "plaintext",
+    "*.txt": "plaintext"
+  },
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "markdownlint.config": {
+    "MD033": {
+      "allowed_elements": ["img", "p", "a", "details", "summary"]
+    }
+  },
+  "tsEssentialPlugins.fixSuggestionsSorting": true,
+  "search.exclude": {
+    "**/node_modules": false,
+    "**/node_modulesDISABLE": true
+  },
+  "tsEssentialPlugins.globalLibCompletions.action": "mark",
+  "tsEssentialPlugins.patchOutline": true,
+  "tsEssentialPlugins.outline.arraysTuplesNumberedItems": true,
+  "tsEssentialPlugins.renameImportNameOfFileRename": true,
+  "tsEssentialPlugins.signatureHelp.excludeBlockScope": true,
+  "tsEssentialPlugins.skipNodeModulesReferences": true,
+  "tsEssentialPlugins.suggestions.localityBonus": true,
+  "tsEssentialPlugins.tupleHelpSignature": true,
+  "tsEssentialPlugins.jsxEmmet.modernize": true,
+  "cSpell.enabled": true,
+  "tsEssentialPlugins.arrayMethodsSnippets.enable": true,
+  "ava-runner.experimentalEnabled": false,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "a": true,
+    "а": true,
+    "А": true,
+    "б": true,
+    "В": true,
+    "е": true,
+    "Е": true,
+    "з": true,
+    "З": true,
+    "і": true,
+    "І": true,
+    "н": true,
+    "Н": true,
+    "о": true,
+    "р": true,
+    "Р": true,
+    "с": true,
+    "у": true,
+    "У": true
+  },
+  "jest.autoRevealOutput": "on-exec-error",
+  "cSpell.words": [
+    "ecmascript",
+    "graphqlsp",
+    "nextjs",
+    "trpc",
+    "typecheck",
+    "webhookthing"
+  ],
+  "eslint.lintTask.options": "-c ${workspaceFolder}/eslint.config.ts",
+  "eslint.experimental.useFlatConfig": true,
+  "prettier.enable": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml"
+  ]
+}
