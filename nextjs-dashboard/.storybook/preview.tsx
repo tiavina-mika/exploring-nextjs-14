@@ -8,6 +8,7 @@ import { defaultLocale, storybookLocalesOptions } from '../config/i18n';
 import { NextIntlClientProvider } from 'next-intl';
 import '../app/globals.css';
 
+// get the selected messages (json) for the locale
 const getLanguage = (locale: string) => {
   switch (locale) {
     case 'en':
