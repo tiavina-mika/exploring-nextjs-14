@@ -7,7 +7,7 @@ import '@/app/ui/global.css';
 
 import { unstable_setRequestLocale } from 'next-intl/server';
 
-import NavBar from '@/components/NavBar';
+import NavBar from '@/components/navBar/NavBar';
 import { Locale, locales } from '@/config/i18n';
 
 export const generateStaticParams = () => {
