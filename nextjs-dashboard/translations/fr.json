@@ -10,5 +10,9 @@
     "about": "À propos",
     "articles": "Articles",
     "article": "Article"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer language",
+    "locale": "{locale, select, fr {Français} en {Anglais} other {Autres}}"
   }
 }
