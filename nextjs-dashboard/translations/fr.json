@@ -62,5 +62,10 @@
     "empty": "Aucun article trouvé",
     "view": "Voir l'article",
     "back": "Retour à la liste des articles"
+  },
+  "Test": {
+    "enterTitle": "Entrez un titre",
+    "titleDescription": "Quelques descriptions à propos du titre",
+    "titleError": "Le titre est obligatoire"
   }
 }

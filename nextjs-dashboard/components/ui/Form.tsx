@@ -134,21 +134,28 @@ const FormControl = forwardRef<
 });
 FormControl.displayName = 'FormControl';
 
-const FormDescription = forwardRef<
-  HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => {
-  const { formDescriptionId } = useFormField();
+export interface FormDescriptionProps
+  extends HTMLAttributes<HTMLParagraphElement> {
+  error?: boolean;
+}
+const FormDescription = forwardRef<HTMLParagraphElement, FormDescriptionProps>(
+  ({ className, error, ...props }, ref) => {
+    const { formDescriptionId } = useFormField();
 
-  return (
-    <p
-      ref={ref}
-      id={formDescriptionId}
-      className={cn('text-[0.8rem] text-muted-foreground', className)}
-      {...props}
-    />
-  );
-});
+    return (
+      <p
+        ref={ref}
+        id={formDescriptionId}
+        className={cn(
+          'text-[0.8rem] text-muted-foreground',
+          className,
+          error && 'text-error',
+        )}
+        {...props}
+      />
+    );
+  },
+);
 FormDescription.displayName = 'FormDescription';
 
 const FormMessage = forwardRef<
