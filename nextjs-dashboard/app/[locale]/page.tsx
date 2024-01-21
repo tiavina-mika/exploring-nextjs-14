@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Page = ({ params: { locale } }: Props) => {
-  const t = useTranslations('Shared');
+  const t = useTranslations('Common');
 
   console.log('SERVER', env.SERVER);
   console.log('NEXT_PUBLIC_CLIENT', env.NEXT_PUBLIC_CLIENT);
