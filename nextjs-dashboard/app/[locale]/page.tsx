@@ -2,6 +2,7 @@ import env from '@/env';
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import LanguageSwitcher from '@/components/languages/LanguageSwitcher';
 import ToggleTheme from '@/components/ToggleTheme';
 import { Locale } from '@/config/i18n';
 
@@ -22,6 +23,9 @@ const Page = ({ params: { locale } }: Props) => {
     <main className="flex min-h-screen flex-col p-6">
       <div>
         <ToggleTheme />
+      </div>
+      <div>
+        <LanguageSwitcher />
       </div>
       <div>{t('greeting')}</div>
     </main>
