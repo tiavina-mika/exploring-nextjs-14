@@ -7,3 +7,5 @@ export interface IDynamicRouteParams {
   pathname: 'string';
   params: Record<string, string>;
 }
+
+export type IMenu = ISelectOption<string | IDynamicRouteParams>;
