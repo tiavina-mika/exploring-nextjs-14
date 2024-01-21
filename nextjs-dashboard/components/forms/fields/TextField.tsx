@@ -17,7 +17,10 @@ type Props = {
 } & InputProps;
 
 const TextField = ({ name, label, description, ...inputProps }: Props) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <FormField
@@ -29,6 +32,11 @@ const TextField = ({ name, label, description, ...inputProps }: Props) => {
           <FormControl>
             <Input {...inputProps} {...field} />
           </FormControl>
+          {errors[name] && (
+            <FormDescription error>
+              {(errors as any)[name].message}
+            </FormDescription>
+          )}
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>

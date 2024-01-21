@@ -62,5 +62,10 @@
     "empty": "No articles found",
     "view": "View article",
     "back": "Back to articles list"
+  },
+  "Test": {
+    "enterTitle": "Enter title",
+    "titleDescription": "Some description about the title here.",
+    "titleError": "Title is required"
   }
 }
