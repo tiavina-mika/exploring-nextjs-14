@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Textarea as TextareaComponent } from '@/components/forms/inputs/Textarea';
+import { Textarea as TextareaComponent } from '@/components/ui/Textarea';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
