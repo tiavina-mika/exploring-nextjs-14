@@ -1,8 +1,22 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
+const getLocalLabel = (locale: string) => {
+  switch (locale) {
+    case 'fr':
+      return 'Français';
+    case 'en':
+      return 'English';
+    default:
+      return locale;
+  }
+};
 // Can be imported from a shared config
 export const locales = ['fr', 'en'] as const;
+export const storybookLocalesOptions = ['fr', 'en'].map((locale) => ({
+  value: locale,
+  title: getLocalLabel(locale) as string,
+}));
 export const defaultLocale = locales[1];
 export const localePrefix = 'always'; // Default
 
