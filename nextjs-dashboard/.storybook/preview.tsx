@@ -19,6 +19,7 @@ const getLanguage = (locale: string) => {
       return fr;
   }
 }
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
