@@ -102,6 +102,7 @@ type Props = {
   children: ReactNode;
   color?: ButtonPaletteColor;
   className?: string;
+  fullWidth?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
@@ -110,10 +111,15 @@ const Button = ({
   children,
   color = 'primary',
   className,
+  fullWidth = true,
   ...props
 }: Props) => (
   <button
-    className={cn(buttonVariants({ variant, color }), className)}
+    className={cn(
+      buttonVariants({ variant, color }),
+      className,
+      fullWidth && 'w-full',
+    )}
     type="button"
     {...props}
   >
