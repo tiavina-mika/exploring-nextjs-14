@@ -31,8 +31,8 @@ const SelectTrigger = forwardRef<
       <NextIcon
         alt=""
         src="/icons/fa-caret-sort.svg"
-        width={4}
-        height={4}
+        width={7}
+        height={7}
         className="opacity-50"
       />
     </SelectPrimitive.Icon>
