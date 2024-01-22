@@ -4,7 +4,7 @@
     "build": "next build",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
-    "dev": "cp .env.prod .env.local && nodemon server.js",
+    "dev": "cp .env.prod .env.local && start http://localhost:9001 && nodemon server.js",
     "start": "cp .env.prod .env.local && node server.js",
     "start:preprod": "cp .env.preprod .env.local node server.js",
     "build:prod": "cp .env.prod .env.local && next build",
