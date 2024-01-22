@@ -5,11 +5,43 @@ import ThemeProvider from '@/components/ThemeProvider';
 
 import '@/app/ui/global.css';
 
+import { Metadata } from 'next';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import NavBar from '@/components/navBar/NavBar';
 import ToasterProvider from '@/components/ToasterProvider';
+import ViewportIndicator from '@/components/ViewportIndicator';
 import { Locale, locales } from '@/config/i18n';
+import { siteConfig } from '@/config/site';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: ['nextjs', 'react', 'react server components', 'nodejs'],
+  authors: [
+    {
+      name: siteConfig.author,
+      url: 'https://www.linkedin.com/in/tiavina-michael-ralainirina/',
+    },
+  ],
+  creator: siteConfig.author,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  icons: {
+    icon: '/icon.png',
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
+};
 
 export const generateStaticParams = () => {
   return locales.map((locale: Locale) => ({ locale }));
@@ -36,6 +68,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
           <NavBar />
           <div>{children}</div>
           <ToasterProvider />
+          <ViewportIndicator />
         </ThemeProvider>
       </body>
     </html>

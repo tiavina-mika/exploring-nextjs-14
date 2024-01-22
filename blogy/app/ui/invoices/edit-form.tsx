@@ -9,7 +9,7 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 
-import { Button } from '@/components/Button';
+import { Button } from '@/components/buttons/Button';
 
 export default ({
   invoice,

@@ -8,6 +8,7 @@ const env = createEnv({
    */
   server: {
     SERVER: z.string().min(1),
+    NODE_ENV: z.enum(['development', 'test', 'production']),
   },
   /*
    * Environment variables available on the client (and server).
@@ -16,6 +17,7 @@ const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_CLIENT: z.string().min(1),
+    NEXT_PUBLIC_APP_URL: z.string().url(),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
@@ -26,6 +28,8 @@ const env = createEnv({
   runtimeEnv: {
     SERVER: process.env.SERVER,
     NEXT_PUBLIC_CLIENT: process.env.NEXT_PUBLIC_CLIENT,
+    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
 });
 

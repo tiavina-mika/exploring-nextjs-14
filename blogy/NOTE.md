@@ -18,6 +18,7 @@
 ## Repos
 
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
+[Shadcn tanstack table](https://github.com/sadmann7/shadcn-table)
 
 ### Emailing
 

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { useTheme } from 'next-themes';
 
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import {
   DropdownMenu,
   DropdownMenuContent,

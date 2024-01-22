@@ -4,9 +4,13 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/utils/utils';
 
-import { ButtonPaletteColor, ButtonVariantType } from '@/types/component.type';
+import {
+  ButtonPaletteColor,
+  ButtonSize,
+  ButtonVariantType,
+} from '@/types/component.type';
 
-export const buttonVariants = cva('rounded-md font-primary px-4 py-3', {
+export const buttonVariants = cva('rounded-md font-primary', {
   variants: {
     variant: {
       contained: 'text-white',
@@ -20,6 +24,11 @@ export const buttonVariants = cva('rounded-md font-primary px-4 py-3', {
       info: '',
       warning: '',
       default: '',
+    },
+    size: {
+      sm: 'px-2 py-1',
+      md: 'px-3 py-2',
+      lg: 'px-4 py-2',
     },
   },
   compoundVariants: [
@@ -97,12 +106,13 @@ export const buttonVariants = cva('rounded-md font-primary px-4 py-3', {
   ],
 });
 
-type Props = {
+export type ButtonProps = {
   variant?: ButtonVariantType;
   children: ReactNode;
   color?: ButtonPaletteColor;
   className?: string;
   fullWidth?: boolean;
+  size?: ButtonSize;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
@@ -112,11 +122,12 @@ const Button = ({
   color = 'primary',
   className,
   fullWidth = true,
+  size = 'md',
   ...props
-}: Props) => (
+}: ButtonProps) => (
   <button
     className={cn(
-      buttonVariants({ variant, color }),
+      buttonVariants({ variant, color, size }),
       className,
       fullWidth && 'w-full',
     )}
