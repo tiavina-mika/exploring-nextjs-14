@@ -83,36 +83,15 @@ const menus = [
 
 const Navbarv2 = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="flexRow min-w-[100vw] justify-between">
       <NavigationMenuList>
-        {menus.map((menu) =>
-          menu.title ? (
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>{menu.title}</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  {menu.items.map((item) => (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={item.value}
-                    >
-                      {item.label}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          ) : (
-            <NavigationMenuItem>
-              <Link href={menu.value} legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  {menu.label}
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          ),
-        )}
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Mik.
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -152,6 +131,36 @@ const Navbarv2 = () => {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem> */}
+      </NavigationMenuList>
+      <NavigationMenuList>
+        {menus.map((menu) =>
+          menu.title ? (
+            <NavigationMenuItem className="relative">
+              <NavigationMenuTrigger>{menu.title}</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 bg-error p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  {menu.items.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      href={item.value}
+                    >
+                      {item.label}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ) : (
+            <NavigationMenuItem>
+              <Link href={menu.value} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {menu.label}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          ),
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );
