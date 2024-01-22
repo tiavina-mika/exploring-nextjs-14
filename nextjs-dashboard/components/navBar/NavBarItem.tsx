@@ -5,7 +5,7 @@ import { cn } from '@/utils/utils';
 
 import { IMenu } from '@/types/app.type';
 
-import TextLink from '../typography/TextLink';
+import TextLink, { TextLinkProps } from '../typography/TextLink';
 
 const isLinkActive = (currentPath: string, href: IMenu['value']) => {
   if ((href as any).pathname) {
@@ -18,17 +18,23 @@ const isLinkActive = (currentPath: string, href: IMenu['value']) => {
 type Props = {
   label: IMenu['label'];
   href: IMenu['value'];
-};
-const NavBarItem = ({ label, href }: Props) => {
+  className?: string;
+} & TextLinkProps;
+const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
   const currentPath = usePathname();
 
   return (
     <li>
       <TextLink
+        {...linkProps}
         href={href}
-        className={cn({
-          'text-primary': isLinkActive(currentPath as string, href),
-        })}
+        className={cn(
+          {
+            'text-primary': isLinkActive(currentPath as string, href),
+          },
+          className,
+        )}
+        underline={false}
       >
         {label}
       </TextLink>

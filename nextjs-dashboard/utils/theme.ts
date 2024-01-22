@@ -1,4 +1,6 @@
 // tailwindcss default theme: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js#L773
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 export const theme = {
   colors: {
     primary: {
@@ -110,6 +112,30 @@ export const theme = {
     'accordion-down': 'accordion-down 0.2s ease-out',
     'accordion-up': 'accordion-up 0.2s ease-out',
   },
+  // this is used in viewports.utils.ts for storybook
+  screens: {
+    'xs': '360px',
+    ...defaultTheme.screens,
+  },
+  // tailwind default viewport breakpoints
+  /*
+  screens: {
+    'sm': '640px',
+    // => @media (min-width: 640px) { ... }
+
+    'md': '768px',
+    // => @media (min-width: 768px) { ... }
+
+    'lg': '1024px',
+    // => @media (min-width: 1024px) { ... }
+
+    'xl': '1280px',
+    // => @media (min-width: 1280px) { ... }
+
+    '2xl': '1536px',
+    // => @media (min-width: 1536px) { ... }
+  }
+  */
 };
 
 export const customizeElements = (theme: any) => ({
