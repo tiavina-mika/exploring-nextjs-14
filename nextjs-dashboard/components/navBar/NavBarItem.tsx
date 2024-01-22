@@ -34,6 +34,7 @@ const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
           },
           className,
         )}
+        underline={false}
       >
         {label}
       </TextLink>
