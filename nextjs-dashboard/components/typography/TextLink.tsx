@@ -9,13 +9,14 @@ import { cn } from '@/utils/utils';
 
 import Text from './Text';
 
-type TextLinkProps = LinkProps & {
+export type TextLinkProps = LinkProps & {
   isExternal?: boolean;
   children?: ReactNode;
   alt?: string;
   className?: string;
   href?: any;
   translate?: boolean;
+  underline?: boolean;
 };
 
 const TextLink = ({
@@ -29,6 +30,7 @@ const TextLink = ({
   isExternal,
   href,
   translate = true,
+  underline = true,
   ...textProps
 }: TextLinkProps) => {
   const Component = translate ? TranslatedLink : Link;
@@ -43,7 +45,9 @@ const TextLink = ({
     >
       <Text
         component="span"
-        className={cn('flex flex-row underline hover:opacity-90', className)}
+        className={cn('flex flex-row hover:opacity-90', className, {
+          'underline': underline,
+        })}
         {...textProps}
       >
         {isExternal ? (
