@@ -9,3 +9,13 @@ export interface IDynamicRouteParams {
 }
 
 export type IMenu = ISelectOption<string | IDynamicRouteParams>;
+export interface INavBarSubMenuItem extends IMenu {
+  title: string;
+}
+
+export interface INavBar {
+  title: string;
+  items: INavBarSubMenuItem[];
+}
+
+export type INavBarMenu = INavBar[] | IMenu[];
