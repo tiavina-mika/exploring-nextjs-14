@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Form as FormProvider } from '@/components/ui/Form';
 import { cn } from '@/utils/utils';
 
-import Button from '../Button';
+import Button from '../buttons/Button';
 
 type Props = {
   formId?: string;

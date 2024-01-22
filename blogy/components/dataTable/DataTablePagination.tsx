@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/Select';
 
-import Button from '../Button';
+import Button from '../buttons/Button';
 import NextIcon from '../NextIcon';
 
 interface DataTablePaginationProps<TData> {

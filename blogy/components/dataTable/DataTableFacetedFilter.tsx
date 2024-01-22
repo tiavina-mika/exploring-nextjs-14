@@ -20,7 +20,7 @@ import { cn } from '@/utils/utils';
 
 import { ISelectOption } from '@/types/app.type';
 
-import Button from '../Button';
+import Button from '../buttons/Button';
 import NextIcon from '../NextIcon';
 
 interface DataTableFacetedFilterProps<TData, TValue> {

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import type { Table } from '@tanstack/react-table';
 
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import NextIcon from '@/components/NextIcon';
 import { Input } from '@/components/ui/Input';
 

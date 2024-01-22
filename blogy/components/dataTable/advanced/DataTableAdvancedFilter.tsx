@@ -2,7 +2,7 @@
 
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import NextIcon from '@/components/NextIcon';
 import {
   Command,

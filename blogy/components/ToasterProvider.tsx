@@ -1,7 +1,7 @@
 "use client";
 
 import { toast, ToastBar, Toaster } from "react-hot-toast";
-import Button from "./Button";
+import Button from "./buttons/Button";
 
 
 /** @see https://react-hot-toast.com */

@@ -97,7 +97,7 @@ export const buttonVariants = cva('rounded-md font-primary px-4 py-3', {
   ],
 });
 
-type Props = {
+export type ButtonProps = {
   variant?: ButtonVariantType;
   children: ReactNode;
   color?: ButtonPaletteColor;
@@ -113,7 +113,7 @@ const Button = ({
   className,
   fullWidth = true,
   ...props
-}: Props) => (
+}: ButtonProps) => (
   <button
     className={cn(
       buttonVariants({ variant, color }),

@@ -9,7 +9,7 @@ import {
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { Table } from '@tanstack/react-table';
 
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import NextIcon from '@/components/NextIcon';
 import {
   DropdownMenu,

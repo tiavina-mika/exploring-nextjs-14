@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/DropdownMenu';
 import { cn } from '@/utils/utils';
 
-import Button from '../Button';
+import Button from '../buttons/Button';
 import NextIcon from '../NextIcon';
 
 interface DataTableColumnHeaderProps<TData, TValue>

@@ -4,7 +4,7 @@ import { MouseEventHandler, useTransition } from 'react';
 
 import type { Table } from '@tanstack/react-table';
 
-import Button, { buttonVariants } from '@/components/Button';
+import Button, { buttonVariants } from '@/components/buttons/Button';
 import { Input } from '@/components/ui/Input';
 import { cn } from '@/utils/utils';
 

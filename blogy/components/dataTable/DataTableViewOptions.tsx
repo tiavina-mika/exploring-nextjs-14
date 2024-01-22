@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 
-import Button from '../Button';
+import Button from '../buttons/Button';
 import NextIcon from '../NextIcon';
 
 interface DataTableViewOptionsProps<TData> {
