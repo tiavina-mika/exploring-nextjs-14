@@ -37,7 +37,7 @@ Issue with husky when the .git folder is in different place than packgage.json
 https://github.com/typicode/husky/issues/851
 
 
-# Congig
+# Config
 ## next-intel
 To add new language:
 - /config/i18n.ts
@@ -46,3 +46,6 @@ To add new language:
 
 To add new translated routes:
 - add the translated route to /config/routes.ts
+
+# Discussion
+[Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)
