@@ -8,6 +8,7 @@ import '@/app/ui/global.css';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import NavBar from '@/components/navBar/NavBar';
+import ToasterProvider from '@/components/ToasterProvider';
 import { Locale, locales } from '@/config/i18n';
 
 export const generateStaticParams = () => {
@@ -34,6 +35,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
         >
           <NavBar />
           <div>{children}</div>
+          <ToasterProvider />
         </ThemeProvider>
       </body>
     </html>
