@@ -1,14 +1,11 @@
 import { ReactNode } from 'react';
 
-import { primaryFont } from '@/components/fonts';
-import ThemeProvider from '@/components/ThemeProvider';
-
-import '@/app/ui/global.css';
-
 import { Metadata } from 'next';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import { primaryFont } from '@/components/fonts';
 import NavBar from '@/components/navBar/NavBar';
+import ThemeProvider from '@/components/ThemeProvider';
 import ToasterProvider from '@/components/ToasterProvider';
 import ViewportIndicator from '@/components/ViewportIndicator';
 import { Locale, locales } from '@/config/i18n';
