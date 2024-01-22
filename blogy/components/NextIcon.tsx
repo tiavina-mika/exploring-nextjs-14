@@ -20,7 +20,7 @@ const NextIcon = ({
     src={src}
     height={height}
     width={width}
-    alt={props.alt || 'xx'}
+    alt={props.alt || ''}
     className={className}
   />
 );
