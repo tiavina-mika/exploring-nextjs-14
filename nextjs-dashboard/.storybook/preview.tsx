@@ -1,11 +1,14 @@
 import React from 'react';
+import { NextIntlClientProvider } from 'next-intl';
 import type { Preview } from '@storybook/react';
+import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import en from "../translations/en.json";
 import fr from "../translations/fr.json";
 
 import ThemeProvider from '../components/ThemeProvider';
 import { defaultLocale, storybookLocalesOptions } from '../config/i18n';
-import { NextIntlClientProvider } from 'next-intl';
+import { customViewports } from '../utils/viewports.utils';
+
 import '../app/globals.css';
 
 // get the selected messages (json) for the locale
@@ -31,6 +34,16 @@ const preview: Preview = {
     },
     nextjs: {
       appDirectory: true
+    },
+    viewport: {
+      viewports: {
+        ...MINIMAL_VIEWPORTS,
+        ...customViewports,
+        ...INITIAL_VIEWPORTS,
+      },
+      // list of viewports to configure:
+      // https://github.com/storybookjs/storybook/blob/next/code/addons/viewport/src/defaults.ts
+      defaultViewport: 'iphone14',
     },
   },
   
