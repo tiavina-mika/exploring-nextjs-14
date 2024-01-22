@@ -10,6 +10,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { Table } from '@tanstack/react-table';
 
 import Button from '@/components/buttons/Button';
+import IconButton from '@/components/buttons/IconButton';
 import NextIcon from '@/components/NextIcon';
 import {
   DropdownMenu,
@@ -258,10 +259,7 @@ export const MultiFilterRow = <TData,>({
       )}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            // variant="ghost" size="icon"
-            className="size-8 shrink-0"
-          >
+          <IconButton className="size-8 shrink-0">
             <NextIcon
               alt=""
               src="/icons/more-horizontal.svg"
@@ -269,7 +267,7 @@ export const MultiFilterRow = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
+          </IconButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem

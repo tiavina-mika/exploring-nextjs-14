@@ -88,7 +88,7 @@ export const DataTableAdvancedToolbar = <TData,>({
           {selectedOptions.length > 0 ? (
             <Button
               variant="outlined"
-              // size="sm"
+              size="sm"
               onClick={() => setOpen((prev) => !prev)}
             >
               Filter
@@ -143,7 +143,7 @@ export const DataTableAdvancedToolbar = <TData,>({
           >
             <Button
               variant="outlined"
-              // size="sm"
+              size="sm"
               role="combobox"
               className="rounded-full"
             >

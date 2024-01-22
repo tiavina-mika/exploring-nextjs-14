@@ -20,7 +20,7 @@ import { cn } from '@/utils/utils';
 
 import { ISelectOption } from '@/types/app.type';
 
-import Button from '../buttons/Button';
+import IconButton from '../buttons/IconButton';
 import NextIcon from '../NextIcon';
 
 interface DataTableFacetedFilterProps<TData, TValue> {
@@ -44,13 +44,12 @@ const DataTableFacetedFilter = <TData, TValue>({
       {variant === 'popover' ? (
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outlined" className="h-8 border-dashed">
+            <IconButton>
               <NextIcon
                 alt=""
                 src="/icons/plus-circle.svg"
                 width={6}
                 height={6}
-                className="mr-2"
                 aria-hidden="true"
               />
               {title}
@@ -87,7 +86,7 @@ const DataTableFacetedFilter = <TData, TValue>({
                   </div>
                 </>
               )}
-            </Button>
+            </IconButton>
           </PopoverTrigger>
           <PopoverContent className="w-[200px] p-0" align="start">
             <Command>
@@ -120,8 +119,11 @@ const DataTableFacetedFilter = <TData, TValue>({
                               : 'opacity-50 [&_svg]:invisible',
                           )}
                         >
-                          <CheckIcon
-                            className={cn('size-4')}
+                          <NextIcon
+                            alt=""
+                            src="/icons/check.svg"
+                            width={18}
+                            height={18}
                             aria-hidden="true"
                           />
                         </div>
@@ -158,7 +160,7 @@ const DataTableFacetedFilter = <TData, TValue>({
           <CommandInput
             placeholder={title}
             autoFocus
-            showIcon={false}
+            // showIcon={false}
             className="flex h-8 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
           />
           <CommandList className="mt-1">
@@ -189,7 +191,13 @@ const DataTableFacetedFilter = <TData, TValue>({
                           : 'opacity-50 [&_svg]:invisible',
                       )}
                     >
-                      <CheckIcon className={cn('size-4')} aria-hidden="true" />
+                      <NextIcon
+                        alt=""
+                        src="/icons/check.svg"
+                        width={18}
+                        height={18}
+                        aria-hidden="true"
+                      />
                     </div>
                     {option.icon && (
                       <option.icon

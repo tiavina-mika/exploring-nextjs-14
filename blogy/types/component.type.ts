@@ -10,3 +10,4 @@ export type PaletteColor =
   | 'success'
   | 'warning';
 export type ButtonPaletteColor = PaletteColor | 'default';
+export type ButtonSize = 'sm' | 'md' | 'lg';

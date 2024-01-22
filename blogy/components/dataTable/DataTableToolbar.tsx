@@ -4,7 +4,7 @@ import { MouseEventHandler, useTransition } from 'react';
 
 import type { Table } from '@tanstack/react-table';
 
-import Button, { buttonVariants } from '@/components/buttons/Button';
+import { buttonVariants } from '@/components/buttons/Button';
 import { Input } from '@/components/ui/Input';
 import { cn } from '@/utils/utils';
 
@@ -13,10 +13,11 @@ import {
   DataTableSearchableColumn,
 } from '@/types/app.type';
 
+import IconButton from '../buttons/IconButton';
 import NextIcon from '../NextIcon';
 import TextLink from '../typography/TextLink';
 import DataTableFacetedFilter from './DataTableFacetedFilter';
-import DataTableViewOptions from './dataTableViewOptions';
+import DataTableViewOptions from './DataTableViewOptions';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -73,7 +74,7 @@ const DataTableToolbar = <TData,>({
               ),
           )}
         {isFiltered && (
-          <Button
+          <IconButton
             aria-label="Reset filters"
             className="h-8 px-2 lg:px-3"
             onClick={() => table.resetColumnFilters()}
@@ -87,15 +88,14 @@ const DataTableToolbar = <TData,>({
               className="ml-2"
               aria-hidden="true"
             />
-          </Button>
+          </IconButton>
         )}
       </div>
       <div className="flex items-center space-x-2">
         {/* eslint-disable-next-line no-nested-ternary */}
         {deleteRowsAction && table.getSelectedRowModel().rows.length > 0 ? (
-          <Button
+          <IconButton
             aria-label="Delete selected rows"
-            variant="outlined"
             className="h-8"
             onClick={(event) => {
               startTransition(() => {
@@ -108,13 +108,13 @@ const DataTableToolbar = <TData,>({
             <NextIcon
               alt=""
               src="/icons/plus-circle.svg"
-              width={6}
-              height={6}
+              width={18}
+              height={18}
               className="mr-2"
               aria-hidden="true"
             />
             Delete
-          </Button>
+          </IconButton>
         ) : newRowLink ? (
           <TextLink aria-label="Create new row" href={newRowLink}>
             <div
@@ -128,9 +128,8 @@ const DataTableToolbar = <TData,>({
               <NextIcon
                 alt=""
                 src="/icons/plus-circle.svg"
-                width={6}
-                height={6}
-                className="mr-2"
+                width={18}
+                height={18}
                 aria-hidden="true"
               />
               New

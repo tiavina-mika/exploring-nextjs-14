@@ -52,7 +52,7 @@ const SelectScrollUpButton = forwardRef<
     )}
     {...props}
   >
-    <NextIcon alt="" src="/icons/chevron-up.svg" width={4} height={4} />
+    <NextIcon alt="" src="/icons/chevron-up.svg" width={12} height={12} />
   </SelectPrimitive.ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
@@ -69,7 +69,7 @@ const SelectScrollDownButton = forwardRef<
     )}
     {...props}
   >
-    <NextIcon alt="" src="/icons/chevron-down.svg" width={4} height={4} />
+    <NextIcon alt="" src="/icons/chevron-down.svg" width={12} height={12} />
   </SelectPrimitive.ScrollDownButton>
 ));
 SelectScrollDownButton.displayName =
@@ -133,7 +133,7 @@ const SelectItem = forwardRef<
   >
     <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <NextIcon alt="" src="/icons/check.svg" width={4} height={4} />
+        <NextIcon alt="" src="/icons/check.svg" width={12} height={12} />
       </SelectPrimitive.ItemIndicator>
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

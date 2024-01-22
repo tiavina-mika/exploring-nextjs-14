@@ -10,6 +10,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { Table } from '@tanstack/react-table';
 
 import Button from '@/components/buttons/Button';
+import IconButton from '@/components/buttons/IconButton';
 import NextIcon from '@/components/NextIcon';
 import { Input } from '@/components/ui/Input';
 import {
@@ -163,10 +164,8 @@ const DataTableAdvancedFilterItem = <TData,>({
               </SelectContent>
             </Select>
           </div>
-          <Button
+          <IconButton
             aria-label="Remove filter"
-            // variant="ghost"
-            // size="icon"
             className="size-8"
             onClick={() => {
               router.push(
@@ -189,7 +188,7 @@ const DataTableAdvancedFilterItem = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
+          </IconButton>
         </div>
         {selectedOption.items.length > 0 ? (
           table.getColumn(

@@ -44,8 +44,8 @@ const DropdownMenuSubTrigger = forwardRef<
     <NextIcon
       alt=""
       src="/icons/chevron-right.svg"
-      width={4}
-      height={4}
+      width={18}
+      height={18}
       className="ml-auto "
     />
   </DropdownMenuPrimitive.SubTrigger>
@@ -121,7 +121,7 @@ const DropdownMenuCheckboxItem = forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <NextIcon alt="" src="/icons/check.svg" width={4} height={4} />
+        <NextIcon alt="" src="/icons/check.svg" width={18} height={18} />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -147,8 +147,8 @@ const DropdownMenuRadioItem = forwardRef<
         <NextIcon
           alt=""
           src="/icons/dot-circle-solid.svg"
-          width={4}
-          height={4}
+          width={18}
+          height={18}
           className="fill-current"
         />
       </DropdownMenuPrimitive.ItemIndicator>

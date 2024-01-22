@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/Select';
 
-import Button from '../buttons/Button';
+import IconButton from '../buttons/IconButton';
 import NextIcon from '../NextIcon';
 
 interface DataTablePaginationProps<TData> {
@@ -52,9 +52,8 @@ const DataTablePagination = <TData,>({
           {table.getPageCount()}
         </div>
         <div className="flex items-center space-x-2">
-          <Button
+          <IconButton
             aria-label="Go to first page"
-            variant="outlined"
             className="size-8 hidden p-0 lg:flex"
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
@@ -66,10 +65,9 @@ const DataTablePagination = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
-          <Button
+          </IconButton>
+          <IconButton
             aria-label="Go to previous page"
-            variant="outlined"
             className="size-8 p-0"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
@@ -81,10 +79,9 @@ const DataTablePagination = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
-          <Button
+          </IconButton>
+          <IconButton
             aria-label="Go to next page"
-            variant="outlined"
             className="size-8 p-0"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
@@ -96,10 +93,9 @@ const DataTablePagination = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
-          <Button
+          </IconButton>
+          <IconButton
             aria-label="Go to last page"
-            variant="outlined"
             className="size-8 hidden p-0 lg:flex"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
@@ -111,7 +107,7 @@ const DataTablePagination = <TData,>({
               height={6}
               aria-hidden="true"
             />
-          </Button>
+          </IconButton>
         </div>
       </div>
     </div>

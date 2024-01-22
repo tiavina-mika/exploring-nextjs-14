@@ -71,7 +71,7 @@
     "@storybook/blocks": "^7.6.8",
     "@storybook/nextjs": "^7.6.8",
     "@storybook/react": "^7.6.8",
-    "@storybook/test": "^7.6.8",
+    "@storybook/test": "^7.6.10",
     "@types/bcrypt": "^5.0.1",
     "@types/cors": "^2.8.17",
     "@types/parse": "^3.0.9",

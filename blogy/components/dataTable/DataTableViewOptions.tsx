@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 
-import Button from '../buttons/Button';
+import IconButton from '../buttons/IconButton';
 import NextIcon from '../NextIcon';
 
 interface DataTableViewOptionsProps<TData> {
@@ -23,7 +23,7 @@ const DataTableViewOptions = <TData,>({
 }: DataTableViewOptionsProps<TData>) => (
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button
+      <IconButton
         aria-label="Toggle columns"
         variant="outlined"
         className="ml-auto hidden h-8 lg:flex"
@@ -36,7 +36,7 @@ const DataTableViewOptions = <TData,>({
           className="mr-2"
         />
         View
-      </Button>
+      </IconButton>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" className="w-[150px]">
       <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
