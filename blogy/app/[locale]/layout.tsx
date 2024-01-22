@@ -10,6 +10,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import NavBar from '@/components/navBar/NavBar';
 import ToasterProvider from '@/components/ToasterProvider';
 import { Locale, locales } from '@/config/i18n';
+import ViewportIndicator from '@/components/ViewportIndicator';
 
 export const generateStaticParams = () => {
   return locales.map((locale: Locale) => ({ locale }));
@@ -36,6 +37,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
           <NavBar />
           <div>{children}</div>
           <ToasterProvider />
+          <ViewportIndicator />
         </ThemeProvider>
       </body>
     </html>

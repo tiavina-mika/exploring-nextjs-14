@@ -8,6 +8,7 @@ const env = createEnv({
    */
   server: {
     SERVER: z.string().min(1),
+    NODE_ENV: z.enum(['development', 'test', 'production']),
   },
   /*
    * Environment variables available on the client (and server).
@@ -26,6 +27,7 @@ const env = createEnv({
   runtimeEnv: {
     SERVER: process.env.SERVER,
     NEXT_PUBLIC_CLIENT: process.env.NEXT_PUBLIC_CLIENT,
+    NODE_ENV: process.env.NODE_ENV,
   },
 });
 

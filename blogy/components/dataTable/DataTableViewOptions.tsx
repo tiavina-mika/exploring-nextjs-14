@@ -25,8 +25,7 @@ const DataTableViewOptions = <TData,>({
     <DropdownMenuTrigger asChild>
       <IconButton
         aria-label="Toggle columns"
-        variant="outlined"
-        className="ml-auto hidden h-8 lg:flex"
+        className="ml-auto hidden lg:flex"
       >
         <NextIcon
           alt=""
