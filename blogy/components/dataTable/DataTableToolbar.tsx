@@ -6,7 +6,7 @@ import type { Table } from '@tanstack/react-table';
 
 import { buttonVariants } from '@/components/buttons/Button';
 import { Input } from '@/components/ui/Input';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import {
   DataTableFilterableColumn,

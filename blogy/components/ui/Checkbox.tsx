@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import NextIcon from '../NextIcon';
 

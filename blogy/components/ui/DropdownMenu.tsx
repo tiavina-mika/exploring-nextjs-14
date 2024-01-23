@@ -9,7 +9,7 @@ import {
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import NextIcon from '../NextIcon';
 

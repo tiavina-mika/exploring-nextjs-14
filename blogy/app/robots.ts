@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { getAbsoluteUrl } from '@/utils/utils';
+import { getAbsoluteUrl } from '@/utils/app.utils';
 
 /**
  * @see https://github.com/search?q=path%3Aapp%2Frobots.ts&type=code

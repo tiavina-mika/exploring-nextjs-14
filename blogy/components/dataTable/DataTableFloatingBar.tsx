@@ -4,7 +4,7 @@ import { HTMLAttributes } from 'react';
 
 import { type Table } from '@tanstack/react-table';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import IconButton from '../buttons/IconButton';
 import NextIcon from '../NextIcon';

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ComponentPropsWithoutRef,
   createContext,
@@ -20,7 +22,7 @@ import {
 } from 'react-hook-form';
 
 import { Label } from '@/components/ui/Label';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 const Form = FormProvider;
 

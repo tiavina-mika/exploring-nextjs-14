@@ -1,9 +1,15 @@
+import { Attributes } from 'parse';
 import { z } from 'zod';
 
-import { ArticleSchema } from '@/validations/article.validations';
+import { getArticleSchema } from '@/validations/article.validations';
 
-export interface IArticle {
+import { DateType } from './app.type';
+
+export interface IArticle extends Attributes {
+  objectId: string;
   title: string;
+  updatedAt?: DateType;
+  createdAt?: DateType;
 }
 
-export type ArticleInput = z.infer<ReturnType<typeof ArticleSchema>>;
+export type IArticleInput = z.infer<ReturnType<typeof getArticleSchema>>;

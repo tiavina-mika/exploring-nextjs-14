@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import Button from '../buttons/Button';
 import NextIcon from '../NextIcon';

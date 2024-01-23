@@ -1,77 +1,62 @@
 import { FormEvent, ReactNode } from 'react';
 
-import { useTranslations } from 'next-intl';
-
 import { Form as FormProvider } from '@/components/ui/Form';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
-import Button from '../buttons/Button';
+import FormSubmitButton from './FormSubmitButton';
 
 type Props = {
   formId?: string;
   onSubmit?: (() => void) | ((event: FormEvent<HTMLFormElement>) => void);
+  action?: any;
   form?: any;
   children?: ReactNode;
   primaryButtonText?: string;
   buttonClassName?: string;
   className?: string;
   isDisabled?: boolean;
+  loading?: boolean;
 };
 
 const Form = ({
   formId,
   onSubmit,
+  action,
   form,
   children,
   primaryButtonText,
   className,
   buttonClassName,
+  loading,
   isDisabled = true,
 }: Props) => {
-  const t = useTranslations('Common');
   const {
     formState: { isDirty, isValid },
     getFieldState,
   } = form;
 
-  const formComponent = (
-    <FormProvider {...form}>
-      <form
-        onSubmit={onSubmit}
-        id={formId}
-        className={cn('space-y-6', className)}
-      >
-        {children}
-        {/* use the local id if no id is defined */}
-        <div>
-          {!formId && (
-            <Button
-              className={buttonClassName}
-              variant="contained"
-              disabled={
-                isDisabled && (!isDirty || getFieldState().invalid || !isValid)
-              }
-              type="submit"
-              fullWidth
-            >
-              {primaryButtonText ?? t('save')}
-            </Button>
-          )}
-        </div>
-      </form>
-    </FormProvider>
-  );
-
-  if (!form) return formComponent;
-
   return (
     <FormProvider {...form}>
       <form
         onSubmit={onSubmit}
+        action={action}
         id={formId}
         className={cn('space-y-6', className)}
       >
-        {formComponent}
+        {children}
+
+        <div>
+          {!formId && (
+            <FormSubmitButton
+              className={buttonClassName}
+              disabled={
+                isDisabled && (!isDirty || getFieldState().invalid || !isValid)
+              }
+              loading={loading}
+              text={primaryButtonText || 'Save'}
+            />
+          )}
+        </div>
       </form>
     </FormProvider>
   );

@@ -1,6 +1,6 @@
 import { forwardRef, InputHTMLAttributes } from 'react';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
