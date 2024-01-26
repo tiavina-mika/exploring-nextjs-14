@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ArticleFormComponent from '@/containers/articles/ArticleForm';
+import ArticleFormComponent from '@/containers/articles/form/ArticleFormProvider';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

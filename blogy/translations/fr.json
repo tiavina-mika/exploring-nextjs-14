@@ -17,6 +17,8 @@
       "required": "{field} obligatoire",
       "max": "Le {field} devrait avoir moins de {number} caractères",
       "min": "Le {field} devrait avoir plus de {number} caractères",
+      "tooLong":"{field} trop long",
+      "tooShort":"{field} trop court",
       "passwordNotMatch": "Les mot de passes ne se correspondent pas",
       "fileSizeLessThan": "La taille du fichier doit être inférieure à {size}",
       "thisFileTypeNotAllowed": "Ce type de fichier n'est pas autorisé",
@@ -63,7 +65,19 @@
     "list": "Liste des articles",
     "empty": "Aucun article trouvé",
     "view": "Voir l'article",
-    "back": "Retour à la liste des articles"
+    "back": "Retour à la liste des articles",
+    "message": {
+      "success": {
+        "added": "Article ajouté avec succès.",
+        "deleted": "Article supprimé avec succès.",
+        "updated": "Article modifié avec succès."
+      },
+      "error": {
+        "added": "La création de l'article a échoué.",
+        "deleted": "La suppression de l'article a échoué.",
+        "updated": "L'édition de l'article a échoué."
+      }
+    }
   },
   "Test": {
     "enterTitle": "Entrez un titre",

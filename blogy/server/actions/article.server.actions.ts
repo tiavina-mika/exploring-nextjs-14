@@ -1,7 +1,10 @@
 'use server';
 
-import { setFormDataValues } from '@/utils/parse.utils';
+import { ArticleSchema } from '@/validations/article.validations';
+import { setValues } from '@/utils/parse.utils';
+import { catchError } from '@/utils/utils';
 
+import { IServerActionResponse } from '@/types/app.type';
 import { IArticle } from '@/types/article.type';
 
 const ARTICLE_PROPERTIES = new Set<string>(['title']);
@@ -15,13 +18,22 @@ const Article = Parse.Object.extend('Article');
  * @returns
  */
 export const createArticle = async (
-  _: IArticle | null,
+  _: IServerActionResponse<IArticle> | null,
   values: FormData,
-): Promise<IArticle> => {
-  const article = new Article();
-  // const currentUser = await Parse.User.currentAsync();
+): Promise<IServerActionResponse<IArticle>> => {
+  try {
+    const parsedData = ArticleSchema.parse(values);
+    const article = new Article();
+    // const currentUser = await Parse.User.currentAsync();
 
-  setFormDataValues(article, values, ARTICLE_PROPERTIES);
-  const savedArticle = await article.save();
-  return savedArticle.toJSON();
+    setValues(article, parsedData, ARTICLE_PROPERTIES);
+    const savedArticle = await article.save();
+    return {
+      success: true,
+      data: savedArticle.toJSON(),
+    };
+  } catch (e) {
+    const error = catchError(e);
+    return error;
+  }
 };

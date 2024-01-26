@@ -32,13 +32,8 @@ const TextField = ({ name, label, description, ...inputProps }: Props) => {
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input {...inputProps} {...field} />
+            <Input {...inputProps} {...field} error={!!errors[name]?.message} />
           </FormControl>
-          {errors[name] && (
-            <FormDescription error>
-              {(errors as any)[name].message}
-            </FormDescription>
-          )}
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>

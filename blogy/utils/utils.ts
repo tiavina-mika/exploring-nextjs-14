@@ -1,8 +1,6 @@
-/**
- * @param object
- * @param {array|Set} names
- * @returns {*}
- */
+import { ZodError, ZodIssue } from 'zod';
+
+import { IActionError } from '@/types/app.type';
 
 export const filter = (
   object: Record<string, any>,
@@ -38,4 +36,28 @@ export const isNull = (item: string | File): boolean => {
     default:
       return item == null;
   }
+};
+
+export const catchError = (error: unknown): IActionError => {
+  if (error instanceof ZodError) {
+    const errors = error.issues.map((issue: ZodIssue) => ({
+      path: issue.path.join('.'),
+      message: issue.message,
+    }));
+
+    return {
+      success: false,
+      errors,
+    };
+  }
+  if (error instanceof Error) {
+    return {
+      message: error.message,
+      success: false,
+    };
+  }
+  return {
+    success: false,
+    message: 'Something went wrong, please try again later.',
+  };
 };

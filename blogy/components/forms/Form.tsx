@@ -14,7 +14,7 @@ type Props = {
   primaryButtonText?: string;
   buttonClassName?: string;
   className?: string;
-  isDisabled?: boolean;
+  disabled?: boolean;
   loading?: boolean;
 };
 
@@ -28,13 +28,8 @@ const Form = ({
   className,
   buttonClassName,
   loading,
-  isDisabled = true,
+  disabled = false,
 }: Props) => {
-  const {
-    formState: { isDirty, isValid },
-    getFieldState,
-  } = form;
-
   return (
     <FormProvider {...form}>
       <form
@@ -49,9 +44,7 @@ const Form = ({
           {!formId && (
             <FormSubmitButton
               className={buttonClassName}
-              disabled={
-                isDisabled && (!isDirty || getFieldState().invalid || !isValid)
-              }
+              disabled={disabled}
               loading={loading}
               text={primaryButtonText || 'Save'}
             />

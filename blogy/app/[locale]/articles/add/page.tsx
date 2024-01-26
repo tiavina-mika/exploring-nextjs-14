@@ -2,8 +2,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 
 import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
-import ArticleForm from '@/containers/articles/ArticleForm';
-
+import ArticleFormProvider from '@/containers/articles/form/ArticleFormProvider';
 
 type Props = {
   params: {
@@ -20,7 +19,7 @@ const AddArticlePage = ({ params: { locale } }: Props) => {
         <Title>Add articles</Title>
       </div>
       <div>
-        <ArticleForm />
+        <ArticleFormProvider />
       </div>
     </main>
   );
