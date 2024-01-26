@@ -1,7 +1,8 @@
 
 // index.ts
 // index.ts
-// index.ts// index.ts// index.ts// index.ts// inde// index.ts
+// index.ts// index.ts// index.ts// index.ts// ind// index.ts
+e// index.ts
 x.ts
 
 
