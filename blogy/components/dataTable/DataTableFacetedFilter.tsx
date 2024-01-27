@@ -16,7 +16,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/Popover';
 import { Separator } from '@/components/ui/Separator';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import { ISelectOption } from '@/types/app.type';
 

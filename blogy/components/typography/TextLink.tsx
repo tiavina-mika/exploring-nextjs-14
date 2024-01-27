@@ -5,7 +5,7 @@ import Link, { type LinkProps } from 'next/link';
 import Balancer from 'react-wrap-balancer';
 
 import { Link as TranslatedLink } from '@/config/navigation';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import Text from './Text';
 

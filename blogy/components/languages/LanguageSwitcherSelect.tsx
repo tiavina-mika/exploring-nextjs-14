@@ -4,7 +4,7 @@ import { useTransition } from 'react';
 
 import { Locale } from '@/config/i18n';
 import { usePathname, useRouter } from '@/config/navigation';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import { ISelectOption } from '@/types/app.type';
 

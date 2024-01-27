@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from '@/config/navigation';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import { IMenu } from '@/types/app.type';
 

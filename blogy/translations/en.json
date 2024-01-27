@@ -13,23 +13,27 @@
       "invalidNumberType": "Excepted number type",
       "invalidDateType": "Excepted date type",
       "invalidBooleanType": "Excepted boolean type",
-      "invalid": "Invalid {{field}}",
-      "required": "{{field}} required",
-      "max": "{{field}} must be less than {{number}} characters",
-      "min": "{{field}} must be greater than {{number}} characters",
+      "invalid": "Invalid {field}",
+      "required": "{field} required",
+      "max": "{field} must be less than {number} characters",
+      "min": "{field} must be greater than {number} characters",
+      "tooLong":"{field} too long",
+      "tooShort":"{field} too short",
       "passwordNotMatch": "Password does not match",
-      "fileSizeLessThan": "File size should be less than {{size}}",
+      "fileSizeLessThan": "File size should be less than {size}",
       "thisFileTypeNotAllowed": "This file type is not allowed",
       "oneFileIsRequired": "Only one file is required",
-      "fileSizeMax": "File size should be less than {{size}}",
-      "acceptedFileType": "{{fileTypes}} are accepted",
+      "fileSizeMax": "File size should be less than {size}",
+      "acceptedFileType": "{fileTypes} are accepted",
       "tooManyFiles": "Too many files",
-      "maxFilesAllowed": "{{count}} {{file}} allowed",
+      "maxFilesAllowed": "{count} {file} allowed",
       "invalidEmail": "Invalid email",
       "requiredEmail": "Required email",
       "passwordMax": "Password must be less than 64 characters",
       "passwordMin": "Password must be greater than 8 characters"
-    }
+    },
+    "save": "Save",
+    "confirm": "Confirm"
   },
   "NavBar": {
     "home": "Home",
@@ -61,7 +65,19 @@
     "list": "Articles list",
     "empty": "No articles found",
     "view": "View article",
-    "back": "Back to articles list"
+    "back": "Back to articles list",
+    "message": {
+      "success": {
+        "added": "Article added successfully.",
+        "deleted": "Article deleted successfully.",
+        "updated": "Article updated successfully."
+      },
+      "error": {
+        "added": "Article creation failed.",
+        "deleted": "Article deletion failed.",
+        "updated": "Article updated failed."
+      }
+    }
   },
   "Test": {
     "enterTitle": "Enter title",

@@ -6,7 +6,7 @@ import {
   SelectValue,
   Select as UISelect,
 } from '@/components/ui/Select';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import { ISelectOption } from '@/types/app.type';
 import { TextSizeType } from '@/types/component.type';

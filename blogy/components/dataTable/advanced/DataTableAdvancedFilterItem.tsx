@@ -27,7 +27,7 @@ import {
   SelectValue,
 } from '@/components/ui/Select';
 import { useDebounce } from '@/hooks/useDebounce';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import type { DataTableFilterOption } from '@/types/app.type';
 

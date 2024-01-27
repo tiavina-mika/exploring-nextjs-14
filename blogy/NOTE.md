@@ -6,6 +6,7 @@
 [Accessible design](https://m3.material.io/foundations/accessible-design/accessibility-basics)
 [Tailwind tricks that would make your development comfortable](https://medium.com/@serpentarium13/tailwind-tricks-that-would-make-your-development-comfortable-72930590dd06)
 [](https://copyprogramming.com/howto/how-to-use-diferent-env-files-with-nextjs)
+[RHF with server components](https://nehalist.io/react-hook-form-with-nextjs-server-actions/)
 
 ## Libs
 
@@ -14,6 +15,7 @@
 [Commit lint tuto](https://dev.to/mahmudulhsn/install-husky-in-your-project-for-proper-commit-lint-with-pre-commit-hooks-25b2)
 [Shadcn](https://ui.shadcn.com/docs)
 [next-intl tuto](https://phrase.com/blog/posts/next-js-app-router-localization-next-intl/)
+[string-ts](https://github.com/gustavoguichard/string-ts)
 
 ## Repos
 
@@ -30,6 +32,8 @@
 
 [Download Feather icons in svg format](https://feathericons.com/)
 
+### Discussions
+[React useFormState vs RHF built-in](https://www.reddit.com/r/nextjs/comments/18b8z71/how_to_use_reacthookform_with_nextjs_server/)
 https://codesandbox.io/p/devbox/drawer-with-scale-forked-nx2glp?file=%2Fpackage.json
 
 ### husky
@@ -47,6 +51,12 @@ To add new language:
 
 To add new translated routes:
 - add the translated route to /config/routes.ts
+
+# Lib usage
+### React Hook Form
+- We use React `useFormState` for server actions with `action` instead of `onSubmit`
+- So this will use `FormData` instead of an `object`, this is utils when uploading a file for ex.
+
 
 # Discussion
 [Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)

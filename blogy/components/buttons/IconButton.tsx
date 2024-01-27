@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 type Props = {
   children: ReactNode;

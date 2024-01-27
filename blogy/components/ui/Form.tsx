@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ComponentPropsWithoutRef,
   createContext,
@@ -20,7 +22,7 @@ import {
 } from 'react-hook-form';
 
 import { Label } from '@/components/ui/Label';
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 const Form = FormProvider;
 
@@ -173,7 +175,11 @@ const FormMessage = forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-[0.8rem] font-medium text-destructive', className)}
+      className={cn(
+        'text-[0.8rem] font-medium',
+        className,
+        error ? 'text-error' : 'text-destructive',
+      )}
       {...props}
     >
       {body}

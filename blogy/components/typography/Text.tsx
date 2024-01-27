@@ -2,7 +2,7 @@ import { createElement, ReactNode } from 'react';
 
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/utils/app.utils';
 
 import {
   ButtonPaletteColor,

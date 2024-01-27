@@ -1,6 +1,6 @@
 import { type MetadataRoute } from 'next';
 
-import { getAbsoluteUrl } from '@/utils/utils';
+import { getAbsoluteUrl } from '@/utils/app.utils';
 
 const sitemap = (): MetadataRoute.Sitemap => {
   // TODO: add another dynamic route with db request here

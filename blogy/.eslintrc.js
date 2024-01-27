@@ -29,6 +29,7 @@ module.exports = {
     'max-len': 'off',
     "consistent-return": "off",
     "react/no-array-index-key": "off",
+    "no-restricted-syntax" : "off",
     // -- see: https://github.com/prettier/eslint-plugin-prettier -- //
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
