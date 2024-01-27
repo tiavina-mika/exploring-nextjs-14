@@ -18,6 +18,7 @@ const ArticleForm = () => {
     onSubmit: createArticle,
     schema: ArticleSchema,
     t: tArticle,
+    successMessage: tArticle('message.success.added'),
   });
 
   return (

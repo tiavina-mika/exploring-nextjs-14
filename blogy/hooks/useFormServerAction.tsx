@@ -20,6 +20,7 @@ type Props<O> = {
   ) => Promise<IServerActionResponse<O> | null>;
   schema: any;
   t: (key: MessageKeys<any, any>) => string;
+  successMessage?: string;
 };
 
 interface ReturnedProps<I extends FieldValues, O> {
@@ -31,6 +32,7 @@ export const useFormServerAction = <FormInput extends FieldValues, FormOutput>({
   onSubmit,
   schema,
   t,
+  successMessage,
 }: Props<FormOutput>): ReturnedProps<FormInput, FormOutput> => {
   const tForm = useTranslations('Form');
 
@@ -44,6 +46,11 @@ export const useFormServerAction = <FormInput extends FieldValues, FormOutput>({
   } = form;
   console.log('errors: ', errors);
 
+  /**
+   * @description we need useFormState because we need to access to the data returned by the action
+   * @param onSubmit the action to be executed
+   * @param null the initial state
+   */
   const [state, action] = useFormState<
     IServerActionResponse<FormOutput> | null,
     FormData
@@ -54,18 +61,26 @@ export const useFormServerAction = <FormInput extends FieldValues, FormOutput>({
       return;
     }
 
-    // In case our form action returns `error` we can now `setError`s
+    /**
+     * In case our form action returns `error` we can now `setError`s
+     * and display the error message into the form for each corresponding field
+     */
     if (!state.success) {
       state.errors?.forEach((error: any) => {
         setError(error.path as FieldPath<FormInput>, {
+          // translate each error message by its key
+          // the error message is a translation key, ex: error.required
           message: tForm(error.message, { field: t(error.path) }),
         });
       });
       return;
     }
 
-    toast.success(t('message.success.added'));
-  }, [state, setError, tForm, t]);
+    if (!successMessage) return;
+    // only need toast notification for success
+    // the error is displayed into the form (see above)
+    toast.success(successMessage);
+  }, [state, setError, tForm, t, successMessage]);
 
   return {
     state,
