@@ -66,3 +66,5 @@ export type IServerActionResponse<T> =
       data: T;
     }
   | IActionError;
+
+export type IServerResponse<T> = T | IActionError;

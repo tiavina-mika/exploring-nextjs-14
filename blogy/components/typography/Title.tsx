@@ -1,4 +1,4 @@
-import { createElement, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode } from 'react';
 
 import { cva, VariantProps } from 'class-variance-authority';
 
@@ -20,7 +20,7 @@ export const titleVariants = cva('font-primary', {
   },
 });
 // --------- types --------- //
-type TitleProps = {
+export type TitleProps = {
   level?: TitleLevelType;
   children: ReactNode;
   color?: ButtonPaletteColor;
@@ -28,29 +28,22 @@ type TitleProps = {
 } & HTMLAttributes<HTMLHeadingElement> &
   VariantProps<typeof titleVariants>;
 
-type ElementProps = Pick<TitleProps, 'level' | 'children' | 'className'> &
-  HTMLAttributes<HTMLHeadingElement>;
-
-// --------- components --------- //
-const Heading = ({ level, children, ...props }: ElementProps) => {
-  if (!level) return null;
-  return createElement(level, props, children);
-};
-
-const Title = ({
-  children,
-  color = 'default',
-  className,
-  level = 'h1',
-  ...props
-}: TitleProps) => (
-  <Heading
-    className={cn(titleVariants({ color }), className, 'dark:text-white')}
-    level={level}
-    {...props}
-  >
-    {children}
-  </Heading>
+const Title = forwardRef<
+  HTMLHeadingElement,
+  HTMLAttributes<HTMLHeadingElement> & TitleProps
+>(
+  (
+    { children, color = 'default', className, level: Heading = 'h1', ...props },
+    ref,
+  ) => (
+    <Heading
+      ref={ref}
+      className={cn(titleVariants({ color }), className, 'dark:text-white')}
+      {...props}
+    >
+      {children}
+    </Heading>
+  ),
 );
 
 export default Title;

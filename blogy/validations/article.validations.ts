@@ -9,6 +9,6 @@ export const ArticleSchema = zfd.formData({
       // .min(1, tForm('error.required', { field: tArticle('title') }))
       // .max(3, tForm('error.max', { field: tArticle('title'), number: 75 })),
       .min(1, 'error.required')
-      .max(3, 'error.tooLong'),
+      .max(100, 'error.tooLong'),
   ),
 });

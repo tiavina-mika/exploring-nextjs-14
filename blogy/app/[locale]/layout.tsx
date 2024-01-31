@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import { Metadata } from 'next';
+import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { primaryFont } from '@/components/fonts';
@@ -56,17 +57,19 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
   return (
     <html lang={locale}>
       <body className={`${primaryFont} antialiased dark:bg-neutral-900`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NavBar />
-          <div>{children}</div>
-          <ToasterProvider />
-          <ViewportIndicator />
-        </ThemeProvider>
+        <ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavBar />
+            <div className="p-6">{children}</div>
+            <ToasterProvider />
+            <ViewportIndicator />
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

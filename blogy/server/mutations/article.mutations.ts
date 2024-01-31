@@ -1,6 +1,7 @@
 'use server';
 
 import { ArticleSchema } from '@/validations/article.validations';
+import { collections } from '@/utils/constants';
 import { setValues } from '@/utils/parse.utils';
 import { catchError } from '@/utils/utils';
 
@@ -9,7 +10,7 @@ import { IArticle } from '@/types/article.type';
 
 const ARTICLE_PROPERTIES = new Set<string>(['title']);
 
-const Article = Parse.Object.extend('Article');
+const Article = Parse.Object.extend(collections.Article);
 
 /**
  *

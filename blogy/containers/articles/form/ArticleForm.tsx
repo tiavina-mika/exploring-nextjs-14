@@ -1,6 +1,6 @@
 'use client';
 
-import { createArticle } from '@/server/actions/article.server.actions';
+import { createArticle } from '@/server/mutations/article.mutations';
 import { useTranslations } from 'next-intl';
 
 import TextField from '@/components/forms/fields/TextField';
