@@ -12,7 +12,7 @@ const Articles = () => {
   const { data: articles } = useQuery({
     queryKey: ['articles'],
     queryFn: getArticles,
-    select: (data) => (data as any).data,
+    // select: (data) => (data as any).data,
   });
 
   return (

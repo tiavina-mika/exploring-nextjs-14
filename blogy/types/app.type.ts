@@ -60,11 +60,7 @@ export type IActionError = {
   errors?: ITranslatedError[]; // list of translation key messages
 };
 
-export type IServerActionResponse<T> =
-  | {
-      success: true;
-      data: T;
-    }
-  | IActionError;
-
-export type IServerResponse<T> = T | IActionError;
+type IError = {
+  error: string;
+};
+export type IServerResponse<T> = T | IError;

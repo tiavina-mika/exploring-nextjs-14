@@ -32,8 +32,8 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
       <div>
         <Title>List of articles</Title>
       </div>
-      {!data.success ? (
-        <Text>{data.message}</Text>
+      {data.error ? (
+        <Text>{data.error}</Text>
       ) : (
         <ReactQueryServerHydration queryClient={queryClient}>
           {/* we do not need to pass the props */}
