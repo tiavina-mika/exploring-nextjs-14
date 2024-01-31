@@ -5,12 +5,12 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { primaryFont } from '@/components/fonts';
 import NavBar from '@/components/navBar/NavBar';
-import ThemeProvider from '@/components/ThemeProvider';
 import ToasterProvider from '@/components/ToasterProvider';
 import ViewportIndicator from '@/components/ViewportIndicator';
 import { Locale, locales } from '@/config/i18n';
 import { siteConfig } from '@/config/site';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
+import ThemeProvider from '@/providers/ThemeProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
