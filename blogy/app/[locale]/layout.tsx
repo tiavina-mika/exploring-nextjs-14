@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 import { Metadata } from 'next';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { primaryFont } from '@/components/fonts';
@@ -11,6 +10,7 @@ import ToasterProvider from '@/components/ToasterProvider';
 import ViewportIndicator from '@/components/ViewportIndicator';
 import { Locale, locales } from '@/config/i18n';
 import { siteConfig } from '@/config/site';
+import ReactQueryProvider from '@/providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -53,10 +53,15 @@ type Props = {
 };
 const RootLayout = ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
+  const isDev = process.env.NODE_ENV === 'development';
 
   return (
-    <html lang={locale}>
-      <body className={`${primaryFont} antialiased dark:bg-neutral-900`}>
+    // {/* @issue: https://stackoverflow.com/questions/75337953/what-causes-nextjs-warning-extra-attributes-from-the-server-data-new-gr-c-s-c */}
+    <html lang={locale} suppressHydrationWarning={isDev}>
+      <body
+        className={`${primaryFont} antialiased dark:bg-neutral-900`}
+        suppressHydrationWarning={isDev}
+      >
         <ReactQueryProvider>
           <ThemeProvider
             attribute="class"

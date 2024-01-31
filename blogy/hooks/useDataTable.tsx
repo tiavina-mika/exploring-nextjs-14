@@ -90,7 +90,6 @@ export const useDataTable = <TData, TValue>({
     (params: Record<string, string | number | null>) => {
       const newSearchParams = new URLSearchParams(searchParams?.toString());
 
-      // eslint-disable-next-line no-restricted-syntax
       for (const [key, value] of Object.entries(params)) {
         if (value === null) {
           newSearchParams.delete(key);
@@ -217,7 +216,7 @@ export const useDataTable = <TData, TValue>({
     };
 
     // Handle debounced searchable column filters
-    // eslint-disable-next-line no-restricted-syntax
+
     for (const column of debouncedSearchableColumnFilters) {
       if (typeof column.value === 'string') {
         Object.assign(newParamsObject, {
@@ -227,7 +226,7 @@ export const useDataTable = <TData, TValue>({
     }
 
     // Handle filterable column filters
-    // eslint-disable-next-line no-restricted-syntax
+
     for (const column of filterableColumnFilters) {
       if (typeof column.value === 'object' && Array.isArray(column.value)) {
         Object.assign(newParamsObject, { [column.id]: column.value.join('.') });
@@ -236,7 +235,7 @@ export const useDataTable = <TData, TValue>({
 
     // Remove deleted values
     /* @ts-expect-error */
-    // eslint-disable-next-line no-restricted-syntax
+
     for (const key of searchParams.keys()) {
       if (
         (searchableColumns.find((column) => column.id === key) &&

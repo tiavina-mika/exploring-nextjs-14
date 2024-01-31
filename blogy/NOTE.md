@@ -7,6 +7,7 @@
 [Tailwind tricks that would make your development comfortable](https://medium.com/@serpentarium13/tailwind-tricks-that-would-make-your-development-comfortable-72930590dd06)
 [](https://copyprogramming.com/howto/how-to-use-diferent-env-files-with-nextjs)
 [RHF with server components](https://nehalist.io/react-hook-form-with-nextjs-server-actions/)
+[Set up React Query with Nextjs](https://codevoweb.com/how-to-set-up-and-use-react-query-in-next-js-14/)
 
 ## Libs
 

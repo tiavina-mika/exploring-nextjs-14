@@ -35,6 +35,9 @@
     "save": "Save",
     "confirm": "Confirm"
   },
+  "Error": {
+    "unknown": "Something went wrong. Please try again later."
+  },
   "NavBar": {
     "home": "Home",
     "about": "About",
