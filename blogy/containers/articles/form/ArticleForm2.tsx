@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { createArticle } from '@/server/actions/article.server.actions';
+import { createArticle } from '@/server/mutations/article.mutations';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useFormState } from 'react-dom';

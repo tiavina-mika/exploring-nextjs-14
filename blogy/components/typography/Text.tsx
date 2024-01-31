@@ -1,4 +1,4 @@
-import { createElement, ReactNode } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode } from 'react';
 
 import { cva, VariantProps } from 'class-variance-authority';
 
@@ -146,43 +146,43 @@ export const textVariants = cva('font-primary', {
   ],
 });
 // --------- types --------- //
-type TextProps = {
+export type TextProps = {
   size?: TextSizeType;
   children: ReactNode;
-  component?: 'span' | 'p';
+  as?: 'span' | 'p';
   color?: ButtonPaletteColor;
   className?: string;
   palette?: SimplePaletteColorOptions;
 } & VariantProps<typeof textVariants>;
 
-type ElementProps = Pick<TextProps, 'component' | 'children' | 'className'>;
-
-// --------- components --------- //
-const TextElement = ({ component, children, ...props }: ElementProps) => {
-  if (!component) return null;
-  return createElement(component, props, children);
-};
-
-const Text = ({
-  children,
-  color = 'default',
-  palette = 'dark',
-  className,
-  size = 'md',
-  component = 'p',
-  ...props
-}: TextProps) => (
-  <TextElement
-    className={cn(
-      textVariants({ color, size, palette }),
+const Text = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement> & TextProps
+>(
+  (
+    {
+      children,
+      color = 'default',
+      palette = 'dark',
       className,
-      'dark:text-white',
-    )}
-    component={component}
-    {...props}
-  >
-    {children}
-  </TextElement>
+      size = 'md',
+      as: Component = 'p',
+      ...props
+    },
+    ref,
+  ) => (
+    <Component
+      ref={ref}
+      className={cn(
+        textVariants({ color, size, palette }),
+        className,
+        'dark:text-white',
+      )}
+      {...props}
+    >
+      {children}
+    </Component>
+  ),
 );
 
 export default Text;

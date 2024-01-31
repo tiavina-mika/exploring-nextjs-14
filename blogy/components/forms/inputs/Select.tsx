@@ -39,7 +39,7 @@ const Select = ({
   return (
     <div className={cn(fullWidth ? 'w-full' : 'w-[180px]', className)}>
       {label && (
-        <Text component="span" size={labelSize}>
+        <Text as="span" size={labelSize}>
           {label}
         </Text>
       )}

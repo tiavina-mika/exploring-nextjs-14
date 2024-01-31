@@ -44,7 +44,7 @@ const TextLink = ({
       target={isExternal ? '_blank' : undefined}
     >
       <Text
-        component="span"
+        as="span"
         className={cn('flex flex-row hover:opacity-90', className, {
           'underline': underline,
         })}

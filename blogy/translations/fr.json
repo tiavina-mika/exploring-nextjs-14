@@ -35,6 +35,9 @@
     "save": "Enregistrer",
     "confirm": "Confirmer"
   },
+  "Error": {
+    "unknown": "Une erreur s'est produite. Veuillez réessayer plus tard."
+  },
   "NavBar": {
     "home": "Accueil",
     "about": "À propos",
