@@ -81,7 +81,8 @@
       "error": {
         "added": "La création de l'article a échoué.",
         "deleted": "La suppression de l'article a échoué.",
-        "updated": "L'édition de l'article a échoué."
+        "updated": "L'édition de l'article a échoué.",
+        "notFound": "L'article n'a pas été trouvé."
       }
     }
   },
