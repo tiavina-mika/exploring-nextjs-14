@@ -81,7 +81,8 @@
       "error": {
         "added": "Article creation failed.",
         "deleted": "Article deletion failed.",
-        "updated": "Article updated failed."
+        "updated": "Article updated failed.",
+        "notFound": "Article not found."
       }
     }
   },

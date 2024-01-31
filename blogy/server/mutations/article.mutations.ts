@@ -9,6 +9,8 @@ import { setValues } from '@/utils/parse.utils';
 
 import { IArticle } from '@/types/article.type';
 
+import { getArticle } from '../queries/article.queries';
+
 const ARTICLE_PROPERTIES = new Set<string>(['title']);
 
 const Article = Parse.Object.extend(collections.Article);
@@ -24,3 +26,18 @@ export const createArticle = action(
     return savedArticle.toJSON();
   },
 );
+
+export const editArticle = async (
+  id: string,
+  values: FormData,
+): Promise<SafeAction<typeof ArticleSchema, IArticle> | undefined> => {
+  const parsedData = ArticleSchema.parse(values);
+
+  const article = await getArticle(id);
+
+  if (!article) return;
+
+  setValues(article, parsedData, ARTICLE_PROPERTIES);
+  const savedArticle = await (article as Parse.Attributes).save();
+  return savedArticle.toJSON();
+};
