@@ -1,0 +1,94 @@
+{
+  "Common": {
+    "greeting": "Bonjour",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "required": "Obligatoire"
+  },
+  "Form": {
+    "error": {
+      "invalidStringType": "Devrait être une chaîne de caractère",
+      "invalidNumberType": "Devrait être un nombre",
+      "invalidDateType": "Devrait être une date",
+      "invalidBooleanType": "Devrait être vrai ou faux",
+      "invalid": "{field} invalide",
+      "required": "{field} obligatoire",
+      "max": "Le {field} devrait avoir moins de {number} caractères",
+      "min": "Le {field} devrait avoir plus de {number} caractères",
+      "tooLong":"{field} trop long",
+      "tooShort":"{field} trop court",
+      "passwordNotMatch": "Les mot de passes ne se correspondent pas",
+      "fileSizeLessThan": "La taille du fichier doit être inférieure à {size}",
+      "thisFileTypeNotAllowed": "Ce type de fichier n'est pas autorisé",
+      "oneFileIsRequired": "Un seul fichier est requis",
+      "fileSizeMax": "La taille du fichier doit être inférieure à {size}",
+      "acceptedFileType": "{fileTypes} sont acceptés",
+      "tooManyFiles": "Le nombre de fichier est depassé",
+      "maxFilesAllowed": "{count} {file} max",
+      "invalidEmail": "Email invalid",
+      "requiredEmail": "Email obligatoire",
+      "passwordMax": "Le mot de passe devrait avoir moins de 64 caractères",
+      "passwordMin": "Le mot de passe devrait avoir plus de 8 caractères"
+    },
+    "save": "Enregistrer",
+    "confirm": "Confirmer"
+  },
+  "Error": {
+    "unknown": "Une erreur s'est produite. Veuillez réessayer plus tard."
+  },
+  "ServerError": {
+    "articleSave": "L'article n'a pas pu être enregistré."
+  },
+  "NavBar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "articles": "Articles",
+    "article": "Article"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer language",
+    "locale": "{locale, select, fr {Français} en {Anglais} other {Autres}}"
+  },
+  "Article": {
+    "title": "Titre",
+    "content": "Contenu",
+    "author": "Auteur",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le",
+    "actions": "Actions",
+    "create": "Créer un article",
+    "edit": "Modifier l'article",
+    "delete": "Supprimer l'article",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet article ?",
+    "deleteSuccess": "Article supprimé avec succès",
+    "deleteError": "Erreur lors de la suppression de l'article",
+    "createSuccess": "Article créé avec succès",
+    "createError": "Erreur lors de la création de l'article",
+    "updateSuccess": "Article mis à jour avec succès",
+    "updateError": "Erreur lors de la mise à jour de l'article",
+    "list": "Liste des articles",
+    "empty": "Aucun article trouvé",
+    "view": "Voir l'article",
+    "back": "Retour à la liste des articles",
+    "message": {
+      "success": {
+        "added": "Article ajouté avec succès.",
+        "deleted": "Article supprimé avec succès.",
+        "updated": "Article modifié avec succès."
+      },
+      "error": {
+        "added": "La création de l'article a échoué.",
+        "deleted": "La suppression de l'article a échoué.",
+        "updated": "L'édition de l'article a échoué.",
+        "notFound": "L'article n'a pas été trouvé."
+      }
+    }
+  },
+  "Test": {
+    "enterTitle": "Entrez un titre",
+    "titleDescription": "Quelques descriptions à propos du titre",
+    "titleError": "Le titre est obligatoire"
+  }
+}

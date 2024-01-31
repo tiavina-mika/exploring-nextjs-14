@@ -1,0 +1,94 @@
+{
+  "Common": {
+    "greeting": "Hello",
+    "edit": "Edit",
+    "add": "Add",
+    "delete": "Delete",
+    "save": "Save",
+    "required": "Required"
+  },
+  "Form": {
+    "error": {
+      "invalidStringType": "Excepted text",
+      "invalidNumberType": "Excepted number type",
+      "invalidDateType": "Excepted date type",
+      "invalidBooleanType": "Excepted boolean type",
+      "invalid": "Invalid {field}",
+      "required": "{field} required",
+      "max": "{field} must be less than {number} characters",
+      "min": "{field} must be greater than {number} characters",
+      "tooLong":"{field} too long",
+      "tooShort":"{field} too short",
+      "passwordNotMatch": "Password does not match",
+      "fileSizeLessThan": "File size should be less than {size}",
+      "thisFileTypeNotAllowed": "This file type is not allowed",
+      "oneFileIsRequired": "Only one file is required",
+      "fileSizeMax": "File size should be less than {size}",
+      "acceptedFileType": "{fileTypes} are accepted",
+      "tooManyFiles": "Too many files",
+      "maxFilesAllowed": "{count} {file} allowed",
+      "invalidEmail": "Invalid email",
+      "requiredEmail": "Required email",
+      "passwordMax": "Password must be less than 64 characters",
+      "passwordMin": "Password must be greater than 8 characters"
+    },
+    "save": "Save",
+    "confirm": "Confirm"
+  },
+  "Error": {
+    "unknown": "Something went wrong. Please try again later."
+  },
+  "ServerError": {
+    "articleSave": "The article could not be saved."
+  },
+  "NavBar": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles",
+    "article": "Article"
+  },
+  "LanguageSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, fr {French} en {English} other {Unknown}}"
+  },
+  "Article": {
+    "title": "Title",
+    "content": "Content",
+    "author": "Author",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "actions": "Actions",
+    "create": "Create article",
+    "edit": "Edit article",
+    "delete": "Delete article",
+    "deleteConfirm": "Are you sure you want to delete this article?",
+    "deleteSuccess": "Article deleted successfully",
+    "deleteError": "Error deleting article",
+    "createSuccess": "Article created successfully",
+    "createError": "Error creating article",
+    "updateSuccess": "Article updated successfully",
+    "updateError": "Error updating article",
+    "list": "Articles list",
+    "empty": "No articles found",
+    "view": "View article",
+    "back": "Back to articles list",
+    "message": {
+      "success": {
+        "added": "Article added successfully.",
+        "deleted": "Article deleted successfully.",
+        "updated": "Article updated successfully."
+      },
+      "error": {
+        "added": "Article creation failed.",
+        "deleted": "Article deletion failed.",
+        "updated": "Article updated failed.",
+        "notFound": "Article not found."
+      }
+    }
+  },
+  "Test": {
+    "enterTitle": "Enter title",
+    "titleDescription": "Some description about the title here.",
+    "titleError": "Title is required"
+  }
+}
