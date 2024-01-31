@@ -34,7 +34,7 @@ export const translatedPathnames = {
     fr: '/a-propos',
   },
   // Dynamic params are supported via square brackets
-  'articles': {
+  '/articles': {
     en: '/items',
     fr: '/articles',
   },
