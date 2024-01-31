@@ -40,6 +40,11 @@ export const isNull = (item: string | File): boolean => {
   }
 };
 
+/**
+ * TODO: remove this function, it's actually not used
+ * @param error
+ * @returns
+ */
 export const catchError = (error: unknown): IActionError => {
   if (error instanceof ZodError) {
     const errors = error.issues.map((issue: ZodIssue) => ({
