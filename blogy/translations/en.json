@@ -38,6 +38,9 @@
   "Error": {
     "unknown": "Something went wrong. Please try again later."
   },
+  "ServerError": {
+    "articleSave": "The article could not be saved."
+  },
   "NavBar": {
     "home": "Home",
     "about": "About",

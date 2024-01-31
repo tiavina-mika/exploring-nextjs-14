@@ -38,6 +38,9 @@
   "Error": {
     "unknown": "Une erreur s'est produite. Veuillez réessayer plus tard."
   },
+  "ServerError": {
+    "articleSave": "L'article n'a pas pu être enregistré."
+  },
   "NavBar": {
     "home": "Accueil",
     "about": "À propos",

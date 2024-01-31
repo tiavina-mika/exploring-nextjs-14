@@ -1,3 +1,5 @@
+import { FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { ZodError, ZodIssue } from 'zod';
 
 import { IActionError } from '@/types/app.type';
@@ -60,4 +62,35 @@ export const catchError = (error: unknown): IActionError => {
     success: false,
     message: 'Something went wrong, please try again later.',
   };
+};
+
+/**
+ * set the RHF errors from safe-action result and display it to the user
+ * @see: https://next-safe-action.dev/docs/usage-from-client/action-result-object
+ * @param form useForm
+ * @param result data return by safe-action
+ * @param tForm form translation (mainly error messages)
+ * @param t entity translation (article, user, ...)
+ */
+export const setFormError = <I extends FieldValues>(
+  form: UseFormReturn<I>,
+  result: any,
+  tForm: any,
+  t: any,
+) => {
+  // form errors
+  if (result.validationErrors) {
+    const errors = result.validationErrors;
+    Object.keys(errors).forEach((key) => {
+      form.setError(key as FieldPath<I>, {
+        type: 'manual',
+        message: tForm(errors[key][0], { field: t(key) }),
+      });
+    });
+  }
+
+  // server action error
+  if (result.serverError) {
+    toast.error(result.serverError);
+  }
 };
