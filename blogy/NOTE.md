@@ -33,6 +33,8 @@
 
 [Download Feather icons in svg format](https://feathericons.com/)
 
+### Open issuses:
+[Next .bind is not working with next-safe-action](https://github.com/TheEdoRan/next-safe-action/issues/60)
 ### Discussions
 [React useFormState vs RHF built-in](https://www.reddit.com/r/nextjs/comments/18b8z71/how_to_use_reacthookform_with_nextjs_server/)
 https://codesandbox.io/p/devbox/drawer-with-scale-forked-nx2glp?file=%2Fpackage.json

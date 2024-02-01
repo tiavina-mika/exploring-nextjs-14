@@ -87,9 +87,12 @@ export const setFormError = <I extends FieldValues>(
   if (result.validationErrors) {
     const errors = result.validationErrors;
     Object.keys(errors).forEach((key) => {
+      const errorMessage = key === "id"
+      ? tForm(errors[key][0]) // the id is not a field, so we don't need to specify the field name
+      : tForm(errors[key][0], { field: t(key) });
       form.setError(key as FieldPath<I>, {
         type: 'manual',
-        message: tForm(errors[key][0], { field: t(key) }),
+        message: errorMessage,
       });
     });
   }

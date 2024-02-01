@@ -3,7 +3,7 @@
 import { SafeAction } from 'next-safe-action';
 
 import { action } from '@/config/safeAction';
-import { ArticleSchema } from '@/validations/article.validations';
+import { ArticleSchema, EditArticleSchema } from '@/validations/article.validations';
 import { collections } from '@/utils/constants';
 import { setValues } from '@/utils/parse.utils';
 
@@ -27,17 +27,18 @@ export const createArticle = action(
   },
 );
 
-export const editArticle = async (
-  id: string,
-  values: FormData,
-): Promise<SafeAction<typeof ArticleSchema, IArticle> | undefined> => {
-  const parsedData = ArticleSchema.parse(values);
-
-  const article = await getArticle(id);
-
-  if (!article) return;
-
-  setValues(article, parsedData, ARTICLE_PROPERTIES);
-  const savedArticle = await (article as Parse.Attributes).save();
-  return savedArticle.toJSON();
-};
+export const editArticle = action(EditArticleSchema,
+  async (
+    values,
+  ): Promise<SafeAction<typeof EditArticleSchema, IArticle> | undefined> => {
+    const parsedData = EditArticleSchema.parse(values);
+  
+    const article = await getArticle(values.id);
+  
+    if (!article) return;
+  
+    setValues(article, parsedData, ARTICLE_PROPERTIES);
+    const savedArticle = await (article as Parse.Attributes).save();
+    return savedArticle.toJSON();
+  }
+);
