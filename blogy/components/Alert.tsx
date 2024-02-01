@@ -87,8 +87,9 @@ const Alert = ({
     <div
       className={cn(
         alertVariants({ variant, color }),
+        display ? 'flex' : 'hidden',
+        'flex-row justify-between items-center',
         className,
-        'flex flex-row justify-between items-center'
       )}
     >
       {message}
