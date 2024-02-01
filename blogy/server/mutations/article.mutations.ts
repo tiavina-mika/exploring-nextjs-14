@@ -10,8 +10,9 @@ import { setValues } from '@/utils/parse.utils';
 import { IArticle } from '@/types/article.type';
 
 import { getArticle } from '../queries/article.queries';
-import { revalidatePath } from 'next/cache';
+// import { revalidatePath } from 'next/cache';
 import { ROUTES } from '@/config/routes';
+import { revalidatePath } from 'next/cache';
 
 const ARTICLE_PROPERTIES = new Set<string>(['title']);
 
@@ -38,6 +39,11 @@ export const editArticle = action(EditArticleSchema,
   
     setValues(article, values, ARTICLE_PROPERTIES);
     const savedArticle = await (article as Parse.Attributes).save();
+
+    // reload cache
+    revalidatePath(ROUTES.articles.root)
+    revalidatePath(ROUTES.articles.edit(savedArticle.id).pathname)
+    revalidatePath(ROUTES.articles.preview(savedArticle.id).pathname)
     return savedArticle.toJSON();
   }
 );
