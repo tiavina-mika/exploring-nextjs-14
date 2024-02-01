@@ -8,7 +8,6 @@ import { getArticle } from '@/server/queries/article.queries';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
-import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 import TextField from '@/components/forms/fields/TextField';
@@ -38,23 +37,47 @@ const ArticleForm = ({ id }: Props) => {
     defaultValues: article ? { title: article.title } : {},
   });
 
-  const { execute: onCreate } = useAction(createArticle, {
-    onSuccess: (data) => {
-      router.push(ROUTES.articles.preview((data as any).objectId));
-    },
-    onError: (error) => {
-      setFormError<IArticleInput>(form, error, tForm, tArticle);
-    },
-  });
+  // @issue: https://github.com/TheEdoRan/next-safe-action/issues/60
+  // this working for creation but not with edition (with .bind(null, id))
+  // const { execute: onCreate } = useAction(createArticle, {
+  //   onSuccess: (data) => {
+  //     router.push(ROUTES.articles.preview((data as any).objectId));
+  //   },
+  //   onError: (error) => {
+  //     setFormError<IArticleInput>(form, error, tForm, tArticle);
+  //   },
+  // });
 
-  // for now for edition we only use next default server action
-  // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
-  const onEdit = editArticle.bind(null, id);
+  const onSubmit = async (values: FormData) => {
+    let data;
+    // ------- action process ------- //
+    if (id) {
+      // add the id to the form data values
+      values.append('id', id);
+      data = await editArticle(values);
+    } else {
+      data = await createArticle(values);
+    }
+
+    if (!data) return
+    // ------- success ------- //
+    if (data.data) {
+      const article = data.data ;
+      // go to preview
+      router.push(ROUTES.articles.preview((article as any).objectId));
+      return
+    }
+
+    // ------- error ------- //
+    // display error for each field
+    setFormError<IArticleInput>(form, data, tForm, tArticle);
+  }
 
   return (
     <Form
       form={form}
-      action={id ? onEdit : onCreate}
+      // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
+      action={onSubmit}
       primaryButtonText={tForm('save')}
     >
       <TextField name="title" label={tArticle('title')} required />
