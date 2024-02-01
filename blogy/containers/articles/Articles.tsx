@@ -13,8 +13,13 @@ import { IArticle } from '@/types/article.type';
 import { deleteArticle } from '@/server/mutations/article.mutations';
 import { useAction } from 'next-safe-action/hooks';
 import { hasServerActionFailed, isServerActionLoading } from '@/utils/utils';
+import Alert from '@/components/Alert';
+import Title from '@/components/typography/Title';
 
-const Articles = () => {
+type Props = {
+  tErrorDeletion?: string;
+}
+const Articles = ({ tErrorDeletion }: Props) => {
   const router = useRouter();
   // this is done because the data is prefetched on the server
   const { data: articles } = useQuery({
@@ -29,14 +34,14 @@ const Articles = () => {
   return (
     <div className="flexColumn gap-3">
       {/* {isPending ? <div className="h-8">loading...</div>} */}
-      {hasServerActionFailed(status) && <div className="h-8">error...</div>}
+      <Alert message={tErrorDeletion || ''} color="error" open={!!hasServerActionFailed(status)} />
       {isServerActionLoading(status) ? <div className="h-8">loading...</div> : Array.isArray(articles) &&
         articles.map((article: IArticle, index: number) => (
           <Card
             key={article.objectId + index}
-            className="flexRow stretchSelf center"
+            contentClassName="flex flex-row justify-between items-center align-stretch"
           >
-            {article.title}
+            <Title level="h5">{article.title}</Title>
             <div className="flexRow space-x-2">
               <IconButton onClick={() => goToEdition(article.objectId)}>
                 <NextIcon src="/icons/edit.svg" width={20} height={20} alt="" />
@@ -47,23 +52,6 @@ const Articles = () => {
             </div>
           </Card>
         ))}
-      {/* {Array.isArray(articles) &&
-        articles.map((article: IArticle, index: number) => (
-          <Card
-            key={article.objectId + index}
-            className="flexRow stretchSelf center"
-          >
-            {article.title}
-            <div className="flexRow space-x-2">
-              <IconButton onClick={() => goToEdition(article.objectId)}>
-                <NextIcon src="/icons/edit.svg" width={20} height={20} alt="" />
-              </IconButton>
-              <IconButton onClick={() => handleDelete(article.objectId)}>
-                <NextIcon src="/icons/trash.svg" width={20} height={20} alt="" />
-              </IconButton>
-            </div>
-          </Card>
-        ))} */}
     </div>
   );
 };

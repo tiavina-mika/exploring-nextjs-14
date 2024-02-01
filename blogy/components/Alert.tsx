@@ -5,7 +5,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/app.utils';
 
 import { ButtonProps } from './buttons/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import IconButton from './buttons/IconButton';
 import NextIcon from './NextIcon';
 
@@ -70,16 +70,22 @@ export const alertVariants = cva('rounded-md font-primary px-3 py-3', {
 export type AlertProps = {
   message: string;
   className?: string;
+  open?: boolean;
 } & Pick<ButtonProps, 'variant' | 'color'>
   & VariantProps<typeof alertVariants>;
 
 const Alert = ({
   message,
   className,
-  variant,
-  color
+  variant = 'contained',
+  color,
+  open = true
 }: AlertProps) => {
   const [display, setDisplay] = useState<boolean>(true);
+
+  useEffect(() => {
+    setDisplay(open);
+  }, [open])
 
   const onClose = () => setDisplay(false);
 
