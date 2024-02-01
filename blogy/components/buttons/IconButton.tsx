@@ -5,13 +5,15 @@ import { cn } from '@/utils/app.utils';
 type Props = {
   children: ReactNode;
   className?: string;
+  noHovered?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const IconButton = ({ children, className, ...props }: Props) => (
+const IconButton = ({ children, className, noHovered = false, ...props }: Props) => (
   <button
     className={cn(
-      'rounded-full bg-transparent p-4 transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800',
+      'rounded-full bg-transparent p-4 transition-colors duration-200 ease-in-out',
       className,
+      !noHovered && 'hover:bg-gray-100 dark:hover:bg-gray-800',
     )}
     type="button"
     {...props}

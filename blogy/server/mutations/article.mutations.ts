@@ -49,9 +49,7 @@ export const editArticle = action(EditArticleSchema,
 );
 
 export const deleteArticle = action(idSchema,
-  async (
-    id,
-  ): Promise<SafeAction<typeof idSchema, string> | undefined> => {
+  async (id): Promise<SafeAction<typeof idSchema, string> | undefined> => {
     const article = await getArticle(id);
   
     if (!article) return;
