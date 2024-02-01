@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { ZodError, ZodIssue } from 'zod';
 
 import { IActionError } from '@/types/app.type';
+import { HookActionStatus } from 'next-safe-action/hooks';
 
 export const filter = (
   object: Record<string, any>,
@@ -86,15 +87,30 @@ export const setFormError = <I extends FieldValues>(
   // form errors
   if (result.validationErrors) {
     const errors = result.validationErrors;
-    Object.keys(errors).forEach((key) => {
-      const errorMessage = key === "id"
-      ? tForm(errors[key][0]) // the id is not a field, so we don't need to specify the field name
-      : tForm(errors[key][0], { field: t(key) });
+    for (const key of Object.keys(errors)){
+      let errorMessage = '';
+
+      switch (key) {
+        // the id is not a field, so we don't need to specify the field name
+        case "id":
+          errorMessage = tForm(errors[key][0]);
+          break;
+        case "_root":
+          errorMessage = tForm('error.invalidInput');
+          break;
+        default:
+          errorMessage = tForm(errors[key][0], { field: t(key) });
+          break;
+      }
+      if (key === "_root") {
+        errorMessage = tForm('error.invalidInput');
+      }
+ 
       form.setError(key as FieldPath<I>, {
         type: 'manual',
         message: errorMessage,
       });
-    });
+    }
   }
 
   // server action error
@@ -102,3 +118,6 @@ export const setFormError = <I extends FieldValues>(
     toast.error(result.serverError);
   }
 };
+
+export const isServerActionLoading = (status: HookActionStatus): boolean => status === 'executing';
+export const hasServerActionFailed = (status: HookActionStatus): boolean => status === 'hasErrored';
