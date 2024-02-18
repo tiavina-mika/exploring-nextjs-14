@@ -31,7 +31,8 @@
       "requiredEmail": "Required email",
       "passwordMax": "Password must be less than 64 characters",
       "passwordMin": "Password must be greater than 8 characters",
-      "dataNotExist": "The data you are trying to edit does not exist"
+      "dataNotExist": "The data you are trying to edit does not exist",
+      "invalidInput": "Invalid input"
     },
     "save": "Save",
     "confirm": "Confirm"

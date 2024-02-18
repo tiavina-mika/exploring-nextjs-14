@@ -1,3 +1,4 @@
+import { alertVariants } from '../components/Alert';
 // tailwindcss default theme: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js#L773
 const defaultTheme = require('tailwindcss/defaultTheme');
 
@@ -20,25 +21,25 @@ export const theme = {
       foreground: 'hsl(var(--secondary-foreground))',
     },
     error: {
-      light: '#f87171',
+      light: '#fee2e2',
       DEFAULT: '#dc2626',
       dark: '#991b1b',
     },
     warning: {
-      light: '#fb923c',
+      light: '#ffedd5',
       DEFAULT: '#ea580c',
       dark: '#c2410c',
 
       'warning-foreground': 'hsl(var(--warning-foreground))',
     },
     success: {
-      light: '#86efac',
-      DEFAULT: '#22c55e',
+      light: '#dcfce7',
+      DEFAULT: '#16a34a',
       dark: '#15803d',
     },
     info: {
-      light: '#7dd3fc',
-      DEFAULT: '#3b82f6',
+      light: '#dbeafe',
+      DEFAULT: '#2563eb',
       dark: '#1e40af',
     },
 

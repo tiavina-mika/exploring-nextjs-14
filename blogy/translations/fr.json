@@ -31,8 +31,8 @@
       "requiredEmail": "Email obligatoire",
       "passwordMax": "Le mot de passe devrait avoir moins de 64 caractères",
       "passwordMin": "Le mot de passe devrait avoir plus de 8 caractères",
-      "dataNotExist": "Les données que vous essayez de modifier n'existent pas"
-
+      "dataNotExist": "Les données que vous essayez de modifier n'existent pas",
+      "invalidInput": "Données invalides"
     },
     "save": "Enregistrer",
     "confirm": "Confirmer"

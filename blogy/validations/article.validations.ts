@@ -20,3 +20,5 @@ export const EditArticleSchema = zfd.formData({
   // the name should be id beacause we need it in the error key translated message
   id: zfd.text(string({ errorMap }).min(1, 'error.dataNotExist')),
 });
+
+export const idSchema = string({ errorMap }).min(1, 'error.dataNotExist');

@@ -15,6 +15,7 @@ import Button from './buttons/Button';
 type Props = {
   children: ReactNode;
   className?: string;
+  contentClassName?: string;
   title?: string;
   description?: string;
   primaryButtonText?: string;
@@ -31,6 +32,7 @@ const Card = ({
   primaryButtonText,
   secondaryButtonText,
   buttonsDirection,
+  contentClassName,
   onPrimaryButtonClick,
   onSecondaryButtonClick,
 }: Props) => (
@@ -43,7 +45,7 @@ const Card = ({
           {description && <CardDescription>{description}</CardDescription>}
         </CardHeader>
       ))}
-    <CardContent>{children}</CardContent>
+    <CardContent className={contentClassName}>{children}</CardContent>
     {/* footer */}
     {onPrimaryButtonClick ||
       (onSecondaryButtonClick && (

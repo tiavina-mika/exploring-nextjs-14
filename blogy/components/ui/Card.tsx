@@ -66,7 +66,7 @@ const CardContent = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLDivElement> & WithChildrenProps
 >(({ className, children, ...props }, ref) => (
-  <div ref={ref} className={cn('p-6', className)} {...props}>
+  <div ref={ref} className={cn('p-4', className)} {...props}>
     {children}
   </div>
 ));

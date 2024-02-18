@@ -5,7 +5,7 @@ import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import en from "../translations/en.json";
 import fr from "../translations/fr.json";
 
-import ThemeProvider from '../components/ThemeProvider';
+import ThemeProvider from '../providers/ThemeProvider';
 import { defaultLocale, storybookLocalesOptions } from '../config/i18n';
 import { customViewports } from '../utils/viewports.utils';
 
