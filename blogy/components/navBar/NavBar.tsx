@@ -31,6 +31,10 @@ const NavBar = () => {
       label: 'Add Article',
       value: ROUTES.articles.add,
     },
+    {
+      label: 'Sign up',
+      value: ROUTES.signUp,
+    },
   ];
 
   return (

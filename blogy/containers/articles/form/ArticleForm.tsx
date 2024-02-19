@@ -53,7 +53,6 @@ const ArticleForm = ({ id }: Props) => {
     // ------- action process ------- //
     if (id) {
       // add the id to the form data values
-      values.append('id', id);
       data = await editArticle(values);
     } else {
       data = await createArticle(values);
@@ -62,9 +61,9 @@ const ArticleForm = ({ id }: Props) => {
     if (!data) return
     // ------- success ------- //
     if (data.data) {
-      const article = data.data ;
+      const article = data.data as any;
       // go to preview
-      router.push(ROUTES.articles.preview((article as any).objectId));
+      router.push(ROUTES.articles.preview(article.objectId));
       return
     }
 
@@ -80,6 +79,8 @@ const ArticleForm = ({ id }: Props) => {
       action={onSubmit}
       primaryButtonText={tForm('save')}
     >
+      {/* hide the id input */}
+      <input type="hidden" name="id" value={id} />
       <TextField name="title" label={tArticle('title')} required />
     </Form>
   );

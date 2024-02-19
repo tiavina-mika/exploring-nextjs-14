@@ -119,5 +119,9 @@ export const setFormError = <I extends FieldValues>(
   }
 };
 
+export const isCleanedString = (string: string | Record<string, any> | number): boolean => {
+  return !!(!string || typeof string !== 'string' || (string && string.trim().length === 0));
+};
+
 export const isServerActionLoading = (status: HookActionStatus): boolean => status === 'executing';
 export const hasServerActionFailed = (status: HookActionStatus): boolean => status === 'hasErrored';
