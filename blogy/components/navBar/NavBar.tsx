@@ -35,6 +35,10 @@ const NavBar = () => {
       label: 'Sign up',
       value: ROUTES.signUp,
     },
+    {
+      label: 'Login',
+      value: ROUTES.login,
+    },
   ];
 
   return (
