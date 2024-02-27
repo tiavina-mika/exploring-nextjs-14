@@ -16,7 +16,7 @@ nextApp
   .prepare()
   .then(() => {
     Parse.serverURL = serverUrl + '/parse';
-    Parse.initialize('next14');
+    Parse.initialize(process.env.PARSE_APP_ID);
     Parse.masterKey = 'local-master-key';
 
     global.Parse = Parse;
