@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Page = ({ params: { locale } }: Props) => {
-  const t = useTranslations('Common');
+  // const t = useTranslations('Common');
 
   console.log('SERVER', env.SERVER);
   console.log('NEXT_PUBLIC_CLIENT', env.NEXT_PUBLIC_CLIENT);
@@ -27,7 +27,7 @@ const Page = ({ params: { locale } }: Props) => {
       <div>
         <LanguageSwitcher />
       </div>
-      <div>{t('greeting')}</div>
+      {/* <div>{t('greeting')}</div> */}
     </main>
   );
 };

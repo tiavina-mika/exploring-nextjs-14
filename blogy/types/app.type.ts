@@ -11,7 +11,9 @@ export interface IDynamicRouteParams {
   params: Record<string, string>;
 }
 
-export type IMenu = ISelectOption<string | IDynamicRouteParams>;
+export type IMenu = ISelectOption<string | IDynamicRouteParams> & {
+  id?: string;
+};
 export interface INavBarSubMenuItem extends IMenu {
   title: string;
 }

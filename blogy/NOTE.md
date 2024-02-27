@@ -18,6 +18,8 @@
 [next-intl tuto](https://phrase.com/blog/posts/next-js-app-router-localization-next-intl/)
 [string-ts](https://github.com/gustavoguichard/string-ts)
 
+## Authentication
+[next-Auth (Google and GitHub)](https://medium.com/@rishipardeshi/authentication-with-nextjs-14-and-next-auth-b10fe7eb6407)
 ## Repos
 
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
@@ -33,6 +35,8 @@
 
 [Download Feather icons in svg format](https://feathericons.com/)
 
+### Open issuses:
+[Next .bind is not working with next-safe-action](https://github.com/TheEdoRan/next-safe-action/issues/60)
 ### Discussions
 [React useFormState vs RHF built-in](https://www.reddit.com/r/nextjs/comments/18b8z71/how_to_use_reacthookform_with_nextjs_server/)
 https://codesandbox.io/p/devbox/drawer-with-scale-forked-nx2glp?file=%2Fpackage.json
@@ -61,3 +65,4 @@ To add new translated routes:
 
 # Discussion
 [Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)
+[Multiple middleware (!follow the discussion closely)](https://github.com/vercel/next.js/discussions/62248)

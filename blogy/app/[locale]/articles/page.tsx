@@ -1,6 +1,6 @@
 import { getArticles } from '@/server/queries/article.queries';
 import { QueryClient } from '@tanstack/query-core';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import Text from '@/components/typography/Text';
 import Title from '@/components/typography/Title';
@@ -16,6 +16,8 @@ type Props = {
 
 const ArticlesPage = async ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
+
+  const t = await getTranslations('Article')
 
   const queryClient = new QueryClient();
 
@@ -37,7 +39,9 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
       ) : (
         <ReactQueryServerHydration queryClient={queryClient}>
           {/* we do not need to pass the props */}
-          <Articles />
+          <Articles
+            tErrorDeletion={t('message.error.deleted')}
+          />
         </ReactQueryServerHydration>
       )}
     </main>

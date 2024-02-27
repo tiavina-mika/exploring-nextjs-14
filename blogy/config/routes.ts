@@ -19,6 +19,9 @@ export const ROUTES = {
       params: { articleId },
     }),
   },
+  login: '/login',
+  signUp: '/signup',
+  logout: '/logout',
 };
 
 // and external paths, separated by locale.
@@ -32,6 +35,18 @@ export const translatedPathnames = {
   [ROUTES.about]: {
     en: '/about',
     fr: '/a-propos',
+  },
+  [ROUTES.login]: {
+    en: '/login',
+    fr: '/connexion',
+  },
+  [ROUTES.signUp]: {
+    en: '/signup',
+    fr: '/creation-compte',
+  },
+  [ROUTES.logout]: {
+    en: '/logout',
+    fr: '/deconnexion',
   },
   // Dynamic params are supported via square brackets
   '/articles': {

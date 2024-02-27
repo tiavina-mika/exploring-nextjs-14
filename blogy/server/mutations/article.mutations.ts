@@ -3,13 +3,16 @@
 import { SafeAction } from 'next-safe-action';
 
 import { action } from '@/config/safeAction';
-import { ArticleSchema } from '@/validations/article.validations';
+import { ArticleSchema, EditArticleSchema, idSchema } from '@/validations/article.validations';
 import { collections } from '@/utils/constants';
 import { setValues } from '@/utils/parse.utils';
 
 import { IArticle } from '@/types/article.type';
 
 import { getArticle } from '../queries/article.queries';
+// import { revalidatePath } from 'next/cache';
+import { ROUTES } from '@/config/routes';
+import { revalidatePath } from 'next/cache';
 
 const ARTICLE_PROPERTIES = new Set<string>(['title']);
 
@@ -18,26 +21,42 @@ const Article = Parse.Object.extend(collections.Article);
 export const createArticle = action(
   ArticleSchema,
   async (values): Promise<SafeAction<typeof ArticleSchema, IArticle>> => {
-    const parsedData = ArticleSchema.parse(values);
     const article = new Article();
 
-    setValues(article, parsedData, ARTICLE_PROPERTIES);
+    setValues(article, values, ARTICLE_PROPERTIES);
     const savedArticle = await article.save();
     return savedArticle.toJSON();
   },
 );
 
-export const editArticle = async (
-  id: string,
-  values: FormData,
-): Promise<SafeAction<typeof ArticleSchema, IArticle> | undefined> => {
-  const parsedData = ArticleSchema.parse(values);
+export const editArticle = action(EditArticleSchema,
+  async (
+    values,
+  ): Promise<SafeAction<typeof EditArticleSchema, IArticle> | undefined> => {
+    const article = await getArticle(values.id);
+  
+    if (!article) return;
+  
+    setValues(article, values, ARTICLE_PROPERTIES);
+    const savedArticle = await (article as Parse.Attributes).save();
 
-  const article = await getArticle(id);
+    // reload cache
+    revalidatePath(ROUTES.articles.root)
+    revalidatePath(ROUTES.articles.edit(savedArticle.id).pathname)
+    revalidatePath(ROUTES.articles.preview(savedArticle.id).pathname)
+    return savedArticle.toJSON();
+  }
+);
 
-  if (!article) return;
+export const deleteArticle = action(idSchema,
+  async (id): Promise<SafeAction<typeof idSchema, string> | undefined> => {
+    const article = await getArticle(id);
+  
+    if (!article) return;
+  
+    const deletedArticle = await (article as Parse.Attributes).destroy();
 
-  setValues(article, parsedData, ARTICLE_PROPERTIES);
-  const savedArticle = await (article as Parse.Attributes).save();
-  return savedArticle.toJSON();
-};
+    revalidatePath(ROUTES.articles.root);
+    return deletedArticle.id;
+  }
+);
