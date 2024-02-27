@@ -2,8 +2,15 @@
 
 import { signIn, signOut } from "@/config/auth";
 import { ROUTES } from "@/config/routes";
+import env from "@/env";
 import { AuthError } from "next-auth";
 
+/**
+ * signing using next auth credentials (email and password)
+ * @param prevState 
+ * @param formData 
+ * @returns 
+ */
 export const login = async (
   prevState: string | undefined,
   formData: FormData,
@@ -12,8 +19,6 @@ export const login = async (
     await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
-      // ...formData,
-      // redirect: false
       redirectTo: '/'
     });
   } catch (error) {
@@ -29,6 +34,10 @@ export const login = async (
   }
 }
 
+/**
+ * logout user to parse and next auth
+ * @returns 
+ */
 export const logout = async () => {
   try {
     // logout parse user
@@ -47,3 +56,26 @@ export const logout = async () => {
     throw error;
   }
 }
+
+/**
+ * get current user by session token
+ * we need to use REST for this because parse sdk doesn't support session token
+ * @param sessionToken 
+ * @returns 
+ */
+export const getCurrentUser = async (sessionToken: string) => {
+  try {
+    const response = await fetch(Parse.serverURL + '/users/me', {
+      method: 'GET',
+      headers: {
+        'X-Parse-Application-Id': env.PARSE_APP_ID,
+        'X-Parse-Session-Token': sessionToken,
+      }
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log('getCurrentUser error: ', error);
+  }
+};

@@ -7,6 +7,8 @@ import { IMenu } from '@/types/app.type';
 import Logo from './Logo';
 import NavBarLinks from './NavBarLinks';
 
+const filterMenus = (menus: IMenu[], pathIds: string[]): IMenu[] => menus.filter((menu: IMenu): boolean => !pathIds.includes(menu.id as string));
+
 type Props = {
   isLoggedIn: boolean;
 }
@@ -41,24 +43,29 @@ const NavBar = ({ isLoggedIn }: Props) => {
       id: 'add-article'
     },
     {
-      label: 'Sign up',
+      label: t('signUp'),
       value: ROUTES.signUp,
       id: 'sign-up'
     },
     {
-      label: 'Login',
+      label: t('login'),
       value: ROUTES.login,
       id: 'login'
     },
     {
-      label: 'Logout',
+      label: t('profile'),
+      value: ROUTES.profile,
+      id: 'profile'
+    },
+    {
+      label: t('logout'),
       value: ROUTES.logout,
       id: 'logout'
     },
   ];
 
-  const loggedInMenus: IMenu[] = menus.filter((menu: IMenu): boolean => !['login', 'sign-up'].includes(menu.id as string));
-  const loggedOutMenus: IMenu[] = menus.filter((menu: IMenu): boolean => !['profile', 'logout'].includes(menu.id as string));
+  const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
+  const loggedOutMenus: IMenu[] = filterMenus(menus, ['profile', 'logout']);
 
   return (
     <nav className="shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900">
