@@ -50,6 +50,11 @@ const NavBar = ({ isLoggedIn }: Props) => {
       value: ROUTES.login,
       id: 'login'
     },
+    {
+      label: 'Logout',
+      value: ROUTES.logout,
+      id: 'logout'
+    },
   ];
 
   const loggedInMenus: IMenu[] = menus.filter((menu: IMenu): boolean => !['login', 'sign-up'].includes(menu.id as string));
