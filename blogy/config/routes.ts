@@ -22,6 +22,7 @@ export const ROUTES = {
   login: '/login',
   signUp: '/signup',
   logout: '/logout',
+  profile: '/profile',
 };
 
 // and external paths, separated by locale.
@@ -47,6 +48,10 @@ export const translatedPathnames = {
   [ROUTES.logout]: {
     en: '/logout',
     fr: '/deconnexion',
+  },
+  [ROUTES.profile]: {
+    en: '/profile',
+    fr: '/profil',
   },
   // Dynamic params are supported via square brackets
   '/articles': {
