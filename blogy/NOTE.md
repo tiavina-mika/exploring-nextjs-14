@@ -18,6 +18,8 @@
 [next-intl tuto](https://phrase.com/blog/posts/next-js-app-router-localization-next-intl/)
 [string-ts](https://github.com/gustavoguichard/string-ts)
 
+## Authentication
+[next-Auth (Google and GitHub)](https://medium.com/@rishipardeshi/authentication-with-nextjs-14-and-next-auth-b10fe7eb6407)
 ## Repos
 
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
@@ -63,3 +65,4 @@ To add new translated routes:
 
 # Discussion
 [Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)
+[Multiple middleware (!follow the discussion closely)](https://github.com/vercel/next.js/discussions/62248)
