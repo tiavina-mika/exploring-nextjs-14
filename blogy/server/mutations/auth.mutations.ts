@@ -12,7 +12,8 @@ export const login = async (
       email: formData.get('email'),
       password: formData.get('password'),
       // ...formData,
-      redirect: false
+      // redirect: false
+      redirectTo: '/'
     });
   } catch (error) {
     if (error instanceof AuthError) {
