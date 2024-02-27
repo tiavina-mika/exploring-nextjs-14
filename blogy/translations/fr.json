@@ -47,7 +47,11 @@
     "home": "Accueil",
     "about": "À propos",
     "articles": "Articles",
-    "article": "Article"
+    "article": "Article",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "profile": "Profil"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
