@@ -6,8 +6,8 @@ export const authConfig = {
     signIn: ROUTES.login,
   },
   callbacks: {
+    // for now we do not need this
     authorized({ auth, request: { nextUrl } }) {
-      console.log('--------- auth: ', auth);
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
       if (isOnDashboard) {
