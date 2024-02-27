@@ -55,8 +55,8 @@ type Props = {
 const RootLayout = async ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   const isDev = process.env.NODE_ENV === 'development';
-  const session = await auth()
-  console.log('session: ', session);
+  const session = await auth();
+
   return (
     // {/* @issue: https://stackoverflow.com/questions/75337953/what-causes-nextjs-warning-extra-attributes-from-the-server-data-new-gr-c-s-c */}
     <html lang={locale} suppressHydrationWarning={isDev}>
@@ -71,7 +71,7 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
             enableSystem
             disableTransitionOnChange
           >
-            <NavBar />
+            <NavBar isLoggedIn={!!session} />
             <div className="p-6">{children}</div>
             <ToasterProvider />
             <ViewportIndicator />
