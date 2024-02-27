@@ -8,19 +8,19 @@ export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
-      async authorize(credentials) {
+      async authorize(credentials): Promise<IUser | null>{
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
           .safeParse(credentials);
 
-        if (parsedCredentials.success) {
-          const { email, password } = parsedCredentials.data;
-          const user = await Parse.User.logIn(email, password);
+        if (!parsedCredentials.success) return null;
 
-          if (!user) return null;
+        const { email, password } = parsedCredentials.data;
+        const user = await Parse.User.logIn(email, password);
 
-          return user.toJSON();
-        }
+        if (!user) return null;
+
+        return user.toJSON() as IUser;
       },
     }),
   ],
@@ -29,8 +29,8 @@ export const { auth, signIn, signOut } = NextAuth({
     //   console.log('signIn: ', { user, account, profile, email, credentials });
     //   return true
     // },
-    async jwt({ token, user }: { token: any, user: IUser }) {
-      if (user) {
+    async jwt({ token, user, account }: { token: any; user: IUser; account: any }) {
+      if (user && account && account.type === "credentials") {
         token.sessionToken = user.sessionToken;
         token.name = user.firstName + ' ' + user.lastName;
         token.id = user.objectId;
