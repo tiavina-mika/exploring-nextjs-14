@@ -50,6 +50,7 @@
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "next": "^14.0.2",
+    "next-auth": "^5.0.0-beta.11",
     "next-connect": "^1.0.0-next.4",
     "next-intl": "^3.4.5",
     "next-safe-action": "^6.0.2",

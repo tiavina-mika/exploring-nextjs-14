@@ -44,3 +44,7 @@ export const SignUpSchema = zfd.formData(
     path: ['passwordConfirmation'],
   })
 );
+
+export const LoginSchema = zfd.formData(
+  object(UserSchema)
+);
