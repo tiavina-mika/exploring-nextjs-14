@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn, signOut } from "@/config/auth";
+import { signIn, signOut } from "@/config/auth.config";
 import { ROUTES } from "@/config/routes";
 import env from "@/env";
 import { AuthError } from "next-auth";
