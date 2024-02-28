@@ -1,12 +1,10 @@
 import { locales, defaultLocale, localePrefix } from '@/config/i18n';
 import createMiddleware from 'next-intl/middleware';
-import NextAuth from 'next-auth';
 import { translatedPathnames } from './config/routes';
-import { authConfig } from './config/auth.config';
 
-// export const authMiddleware = NextAuth(authConfig).auth;
+import { auth } from './config/auth.config';
 
-export default createMiddleware({
+export default auth(createMiddleware({
   // A list of all locales that are supported
   locales,
   // Used when no locale matches
@@ -15,7 +13,7 @@ export default createMiddleware({
   // add prefix even with default locale
   localePrefix,
   pathnames: translatedPathnames
-});
+}));
  
 export const config = {
   // Match only internationalized pathnames
