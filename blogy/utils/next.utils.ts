@@ -55,9 +55,10 @@ type PathnameOutput = {
   protectedHomeRoute: string;
   isLogoutRoute: boolean;
   loginRoute: string;
+  logoutRoute: string;
   isProtectedRoutes: boolean;
 }
-export const getProtectedRoutesInfos = (pathname: string): PathnameOutput => {
+export const getRoutesFromMiddleware = (pathname: string): PathnameOutput => {
   const locale = getLocaleByPathname(pathname)
 
   // get all translated pathnames ex: { en: '/dashboard', fr: '/mon-espace-personel' }
@@ -82,5 +83,6 @@ export const getProtectedRoutesInfos = (pathname: string): PathnameOutput => {
     isLogoutRoute,
     protectedHomeRoute: `/${locale}/${currentTranslatedDashboardRoute}`,
     loginRoute: `/${locale}/${currentTranslatedLoginRoute}`,
+    logoutRoute: `/${locale}/${currentTranslatedLogoutRoute}`,
   };
 };
