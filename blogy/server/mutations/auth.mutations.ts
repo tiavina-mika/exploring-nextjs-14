@@ -62,6 +62,7 @@ export const logout = async () => {
 /**
  * get current user by session token
  * we need to use REST for this because parse sdk doesn't support session token
+ * if error, it returns: { code: 209, error: 'Session token is expired.' }
  * @param sessionToken 
  * @returns 
  */
