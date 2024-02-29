@@ -4,11 +4,11 @@ import { zfd } from 'zod-form-data';
 import { errorMap } from '@/config/zod';
 import { capitalizeFirstLetter } from '@/utils/user.utils';
 
-const PasswordFieldSchema = zfd.text(
-  string()
+export const PasswordFieldSchema = string()
   .min(8, 'error.min')
-  .max(64, 'error.max')
-);
+  .max(64, 'error.max');
+
+const PasswordFormDataFieldSchema = zfd.text(PasswordFieldSchema);
 
 const UserSchema = {
   email: zfd.text(
@@ -17,7 +17,7 @@ const UserSchema = {
       .max(120, 'error.max')
       .refine(value => value.toLowerCase())
   ),
-  password: PasswordFieldSchema,
+  password: PasswordFormDataFieldSchema,
 };
 
 const PasswordConfirmationFieldSchema = zfd.text(string().min(

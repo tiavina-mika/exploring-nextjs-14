@@ -12,7 +12,10 @@ declare module "next-auth" {
      * email: string;
      * id: string;
      */
-    user: {} & DefaultSession["user"],
+    user: {
+      // if the user is from parse server or other provider
+      origin?: "parse" | 'other';
+    } & DefaultSession["user"],
     token: string;
   }
 }

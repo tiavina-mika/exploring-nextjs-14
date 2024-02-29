@@ -11,7 +11,7 @@ import { Locale, locales } from '@/config/i18n';
 import { siteConfig } from '@/config/site';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
-import { auth } from '@/config/auth';
+import { auth } from '@/config/auth.config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

@@ -2,9 +2,9 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
-import { auth } from '@/config/auth';
 import { getCurrentUser } from '@/server/mutations/auth.mutations';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/Table';
+import { auth } from '@/config/auth.config';
 
 type Props = {
   params: {

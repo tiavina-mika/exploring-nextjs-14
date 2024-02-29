@@ -1,8 +1,9 @@
 'use server';
 
-import { signIn, signOut } from "@/config/auth";
+import { signIn, signOut } from "@/config/auth.config";
 import { ROUTES } from "@/config/routes";
 import env from "@/env";
+import { IUser } from "@/types/user.type";
 import { AuthError } from "next-auth";
 
 /**
@@ -40,10 +41,11 @@ export const login = async (
  */
 export const logout = async () => {
   try {
-    // logout parse user
-    await Parse.User.logOut();
     // logout next auth
     await signOut({ redirectTo: ROUTES.login});
+
+    // logout parse user
+    await Parse.User.logOut();
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -60,12 +62,21 @@ export const logout = async () => {
 /**
  * get current user by session token
  * we need to use REST for this because parse sdk doesn't support session token
+ * if error, it returns: { code: 209, error: 'Session token is expired.' }
  * @param sessionToken 
  * @returns 
  */
-export const getCurrentUser = async (sessionToken: string) => {
+export const getCurrentUser = async (sessionToken: string | undefined): Promise<IUser | null | void> => {
+  if (!sessionToken) return null;
   try {
-    const response = await fetch(Parse.serverURL + '/users/me', {
+    /**
+     * endpoint
+     * we are using directly endpoint/parse instead of Parse.serverUrl
+     * because sometimes we are using it outside of the parse sdk reach and the server action
+     */
+    const url = env.SERVER_URL + '/parse';
+
+    const response = await fetch(url + '/users/me', {
       method: 'GET',
       headers: {
         'X-Parse-Application-Id': env.PARSE_APP_ID,
@@ -73,9 +84,9 @@ export const getCurrentUser = async (sessionToken: string) => {
       }
     });
 
-    const data = await response.json();
-    return data;
+    const user = await response.json();
+    return user;
   } catch (error) {
-    console.log('getCurrentUser error: ', error);
+    console.log(' ------ getCurrentUser error: ', error);
   }
 };

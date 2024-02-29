@@ -62,6 +62,38 @@ To add new translated routes:
 - We use React `useFormState` for server actions with `action` instead of `onSubmit`
 - So this will use `FormData` instead of an `object`, this is utils when uploading a file for ex.
 
+### Next auth
+- next-auth token expiration is 30 days (refreshed every page request (+current date))
+- parse server token expiration is 1 year - 1 day
+- TODO: parse server token expiration should be the same as next-auth's expiration
+
+### Route
+- add protected routes other than "/dashboard" in next.utils.ts: 
+```javascript
+const nonDashboardProtectedRoutes = [translatedPathnames[ROUTES.profile]];
+```
+
+# Create translated page
+### create page
+- inside [locale] directory, create a directory (url) with page.ts and/or layout.tsx in it
+  ex: [locale]/about (this will create a dynamic translated route /fr/about or /en/about)
+- in routes.ts, add the route name in `ROUTES`
+  ex: ```javascript
+    const ROUTES = {
+      // ... other routes,
+      about: '/about'
+    }
+  ```javascript
+- then, use and add that key in `translatedRoutes` with each translated pathname
+  ```
+    const translatedRoutes = {
+      // ... other translatedRoutes,
+      [ROUTES.about]: {
+        en: '/about',
+        fr: '/a-propos',
+      },
+    }
+  ```
 
 # Discussion
 [Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)
