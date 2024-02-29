@@ -27,7 +27,7 @@ export const ROUTES = {
 };
 
 // and external paths, separated by locale.
-export const translatedPathnames = {
+export const translatedRoutes = {
   // If all locales use the same pathname, a
   // single external path can be provided.
   [ROUTES.home]: '/',
@@ -71,9 +71,6 @@ export const translatedPathnames = {
     en: '/dashboard/items/[articleId]/edit',
     fr: '/mon-espace-personel/articles/[articleId]/modifier',
   },
-
-  // we just need this to get the translated pathname
-  // it use in auth.config.ts to know if we are in dashboard (protected route)
   [ROUTES.dashboard]: {
     en: '/dashboard',
     fr: '/mon-espace-personel',
