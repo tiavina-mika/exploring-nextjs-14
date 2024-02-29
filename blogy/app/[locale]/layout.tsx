@@ -56,7 +56,6 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   const isDev = process.env.NODE_ENV === 'development';
   const session = await auth();
-  console.log('session: ', session);
 
   return (
     // {/* @issue: https://stackoverflow.com/questions/75337953/what-causes-nextjs-warning-extra-attributes-from-the-server-data-new-gr-c-s-c */}
