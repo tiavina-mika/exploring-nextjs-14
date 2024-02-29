@@ -23,6 +23,7 @@ export const ROUTES = {
   signUp: '/signup',
   logout: '/logout',
   profile: '/profile',
+  dashboard: '/dashboard',
 };
 
 // and external paths, separated by locale.
@@ -55,19 +56,26 @@ export const translatedPathnames = {
   },
   // Dynamic params are supported via square brackets
   '/articles': {
-    en: '/items',
-    fr: '/articles',
+    en: '/dashboard/items',
+    fr: '/mon-espace-personel/articles',
   },
   [ROUTES.articles.add]: {
-    en: '/items/add',
-    fr: '/articles/ajouter',
+    en: '/dashboard/items/add',
+    fr: '/mon-espace-personel/articles/ajouter',
   },
   [ROUTES.articles.preview().pathname]: {
-    en: '/items/[articleId]',
-    fr: '/articles/[articleId]',
+    en: '/dashboard/items/[articleId]',
+    fr: '/mon-espace-personel/articles/[articleId]',
   },
   [ROUTES.articles.edit().pathname]: {
-    en: '/items/[articleId]/edit',
-    fr: '/articles/[articleId]/modifier',
+    en: '/dashboard/items/[articleId]/edit',
+    fr: '/mon-espace-personel/articles/[articleId]/modifier',
+  },
+
+  // we just need this to get the translated pathname
+  // it use in auth.config.ts to know if we are in dashboard (protected route)
+  [ROUTES.dashboard]: {
+    en: '/dashboard',
+    fr: '/mon-espace-personel',
   },
 } satisfies Pathnames<typeof locales>;
