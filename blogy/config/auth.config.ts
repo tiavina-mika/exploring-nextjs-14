@@ -5,23 +5,47 @@ import Credentials from 'next-auth/providers/credentials';
 import { ROUTES } from './routes';
 import { IUser } from '@/types/user.type';
 import { z } from 'zod';
+import { getProtectedRoutesInfos } from '@/utils/next.utils';
+import { getCurrentUser } from '@/server/mutations/auth.mutations';
+import { PasswordFieldSchema } from '@/validations/auth.validations';
  
 export const authConfig = {
   pages: {
     signIn: ROUTES.login,
+    signOut: ROUTES.logout,
   },
   callbacks: {
-    // for now we do not need this
-    authorized({ auth, request: { nextUrl } }) {
-      console.log(' --------------------- auth: ', auth, nextUrl);
-      const isLoggedIn = !!auth?.user;
-      // const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      // if (isOnDashboard) {
-      //   if (isLoggedIn) return true;
-      //   return false; // Redirect unauthenticated users to login page
-      // } else if (isLoggedIn) {
-      //   return Response.redirect(new URL('/dashboard', nextUrl));
-      // }
+    async authorized({ auth, request: { nextUrl } }) {
+      const {
+        protectedHomeRoute,
+        isDashboard,
+        isLogoutRoute,
+        loginRoute,
+        isProtectedRoutes
+      } = getProtectedRoutesInfos(nextUrl.pathname);
+
+      // should not protect nor redirect logout route
+      if (isLogoutRoute) return false;
+
+      // get current user from database
+      // TODO: use auth.user.origin !== 'parse' to get user from other providers
+      const currentUser = await getCurrentUser(auth?.token);
+      const isLoggedIn = !!currentUser;
+
+      // redirect to login if not logged in in protected routes
+      if ((isDashboard || isProtectedRoutes)) {
+        if (isLoggedIn) return true;
+        return Response.redirect(new URL(loginRoute, nextUrl));
+      } else if (isLoggedIn) {
+        // if the url start with '/dashboard'
+        if (isDashboard) {
+          // go to /dashboard
+          return Response.redirect(new URL(protectedHomeRoute, nextUrl));
+        }
+
+        // let the current redirection if routes other than child of '/dashboard'
+        return true
+      }
       return true;
     },
   },
@@ -34,7 +58,7 @@ const customAuthConfig = {
     Credentials({
       async authorize(credentials): Promise<IUser | null>{
         const parsedCredentials = z
-          .object({ email: z.string().email(), password: z.string().min(6) })
+          .object({ email: z.string().email(), password: PasswordFieldSchema })
           .safeParse(credentials);
 
         if (!parsedCredentials.success) return null;
@@ -62,11 +86,13 @@ const customAuthConfig = {
 
       return token;
     },
-    async session({ token, session, user }: { token: any, session: any, user: IUser }) {
+    async session({ token, session }: { token: any, session: any, user: IUser }) {
       // login from parse server credentials
       if (token?.sessionToken) {
         session.token = token.sessionToken;
         session.user.id = token.id;
+        // user from parse server login
+        session.user.origin = 'parse';
       }
 
       return session;
