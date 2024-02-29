@@ -10,6 +10,7 @@ const env = createEnv({
     SERVER: z.string().min(1),
     NODE_ENV: z.enum(['development', 'test', 'production']),
     PARSE_APP_ID: z.string(),
+    SERVER_URL: z.string().url(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -31,6 +32,7 @@ const env = createEnv({
     SERVER: process.env.SERVER,
     NODE_ENV: process.env.NODE_ENV,
     PARSE_APP_ID: process.env.PARSE_APP_ID,
+    SERVER_URL: process.env.SERVER_URL,
 
     // -------- client -------- //
     NEXT_PUBLIC_CLIENT: process.env.NEXT_PUBLIC_CLIENT,
