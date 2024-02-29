@@ -12,7 +12,7 @@ type Props = {
   };
 };
 
-const Page = ({ params: { locale } }: Props) => {
+const HomePage = ({ params: { locale } }: Props) => {
   // const t = useTranslations('Common');
 
   console.log('SERVER', env.SERVER);
@@ -32,4 +32,4 @@ const Page = ({ params: { locale } }: Props) => {
   );
 };
 
-export default Page;
+export default HomePage;

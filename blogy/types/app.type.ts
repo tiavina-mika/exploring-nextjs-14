@@ -3,7 +3,7 @@ import { Dayjs } from 'dayjs';
 export interface ISelectOption<T = string> {
   value: T;
   label: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string }> | string;
 }
 
 export interface IDynamicRouteParams {

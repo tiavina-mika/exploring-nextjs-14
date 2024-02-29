@@ -13,13 +13,13 @@ const ToggleTheme = () => {
   return (
     <IconButton
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="relative"
+      className="relative p-2 rounded-md !border-gray-100 border"
     >
       <NextIcon
         alt=""
         src="/icons/sun.svg"
-        width={24}
-        height={24}
+        width={19}
+        height={19}
         className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
         aria-hidden="true"
       />
