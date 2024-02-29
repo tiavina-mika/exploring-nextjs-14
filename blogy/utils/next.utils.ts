@@ -2,7 +2,7 @@
 // https://github.com/whitecrownclown/merge-headers/blob/master/index.ts
 
 import { defaultLocale, locales } from "@/config/i18n";
-import { ROUTES, translatedPathnames } from "@/config/routes";
+import { ROUTES, translatedRoutes } from "@/config/routes";
 
 const isObject = (value: any) => {
   return value !== null && typeof value === "object";
@@ -62,10 +62,10 @@ export const getRoutesFromMiddleware = (pathname: string): PathnameOutput => {
   const locale = getLocaleByPathname(pathname)
 
   // get all translated pathnames ex: { en: '/dashboard', fr: '/mon-espace-personel' }
-  const dashboardRoutes = translatedPathnames[ROUTES.dashboard];
-  const logoutRoutes = translatedPathnames[ROUTES.logout];
-  const loginRoutes = translatedPathnames[ROUTES.login];
-  const nonDashboardProtectedRoutes = [translatedPathnames[ROUTES.profile]];
+  const dashboardRoutes = translatedRoutes[ROUTES.dashboard];
+  const logoutRoutes = translatedRoutes[ROUTES.logout];
+  const loginRoutes = translatedRoutes[ROUTES.login];
+  const nonDashboardProtectedRoutes = [translatedRoutes[ROUTES.profile]];
 
   // translated dashboard pathname for current locale
   const currentTranslatedDashboardRoute = (dashboardRoutes as any)[locale];
