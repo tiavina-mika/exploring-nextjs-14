@@ -13,6 +13,7 @@ import { TextSizeType } from '@/types/component.type';
 
 type Props = {
   className?: string;
+  inputClassName?: string;
   label?: string;
   placeholder?: string;
   error?: boolean;
@@ -31,6 +32,7 @@ const Select = ({
   className,
   onChange,
   disabled,
+  inputClassName,
   error,
   value,
   labelSize = 'sm',
@@ -48,7 +50,7 @@ const Select = ({
         defaultValue={value}
         disabled={disabled}
       >
-        <SelectTrigger className={cn('w-full', error && 'border-red-500')}>
+        <SelectTrigger className={cn('w-full', error && 'border-red-500', inputClassName)}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>
