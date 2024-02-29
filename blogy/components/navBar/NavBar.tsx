@@ -6,6 +6,9 @@ import { IMenu } from '@/types/app.type';
 
 import Logo from './Logo';
 import NavBarLinks from './NavBarLinks';
+import LanguageSwitcher from '../languages/LanguageSwitcher';
+import { cn } from '@/utils/app.utils';
+import ToggleTheme from '../ToggleTheme';
 
 const filterMenus = (menus: IMenu[], pathIds: string[]): IMenu[] => menus.filter((menu: IMenu): boolean => !pathIds.includes(menu.id as string));
 
@@ -72,6 +75,14 @@ const NavBar = ({ isLoggedIn }: Props) => {
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
         <Logo />
         <NavBarLinks menus={isLoggedIn ? loggedInMenus : loggedOutMenus} />
+        {/* responsive */}
+        <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
+          <LanguageSwitcher
+            className="w-[100px]"
+            inputClassName="border-gray-200"
+          />
+          <ToggleTheme />
+        </div>
       </div>
     </nav>
   );
