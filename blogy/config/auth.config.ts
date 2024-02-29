@@ -5,7 +5,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { ROUTES } from './routes';
 import { IUser } from '@/types/user.type';
 import { z } from 'zod';
-import { getProtectedRoutesInfos } from '@/utils/next.utils';
+import { getRoutesFromMiddleware } from '@/utils/next.utils';
 import { getCurrentUser } from '@/server/mutations/auth.mutations';
 import { PasswordFieldSchema } from '@/validations/auth.validations';
  
@@ -21,8 +21,9 @@ export const authConfig = {
         isDashboard,
         isLogoutRoute,
         loginRoute,
-        isProtectedRoutes
-      } = getProtectedRoutesInfos(nextUrl.pathname);
+        isProtectedRoutes,
+        logoutRoute
+      } = getRoutesFromMiddleware(nextUrl.pathname);
 
       // should not protect nor redirect logout route
       if (isLogoutRoute) return false;
@@ -30,11 +31,19 @@ export const authConfig = {
       // get current user from database
       // TODO: use auth.user.origin !== 'parse' to get user from other providers
       const currentUser = await getCurrentUser(auth?.token);
+
+      // if session error (expired, or invalid), redirect to logout
+      if (!!currentUser?.error) {
+        return Response.redirect(new URL(logoutRoute, nextUrl));
+      }
+
       const isLoggedIn = !!currentUser;
 
       // redirect to login if not logged in in protected routes
       if ((isDashboard || isProtectedRoutes)) {
+        // remain in the current route
         if (isLoggedIn) return true;
+        // go to login
         return Response.redirect(new URL(loginRoute, nextUrl));
       } else if (isLoggedIn) {
         // if the url start with '/dashboard'
@@ -46,6 +55,7 @@ export const authConfig = {
         // let the current redirection if routes other than child of '/dashboard'
         return true
       }
+
       return true;
     },
   },
@@ -57,12 +67,14 @@ const customAuthConfig = {
   providers: [
     Credentials({
       async authorize(credentials): Promise<IUser | null>{
+        // check if credentials are valid
         const parsedCredentials = z
           .object({ email: z.string().email(), password: PasswordFieldSchema })
           .safeParse(credentials);
 
         if (!parsedCredentials.success) return null;
 
+        // login with parse server
         const { email, password } = parsedCredentials.data;
         const user = await Parse.User.logIn(email, password);
 
