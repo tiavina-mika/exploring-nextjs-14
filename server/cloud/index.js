@@ -1,9 +1,16 @@
-// Parse.Cloud.beforeFind('Article', async (request) => {
-//   console.log("--- beforeFind ---");
-//   throw new Error("Error from beforeFind")
-// });
+Parse.Cloud.define('checkIfUserExists', async (request) => {
+  const { email } = request.params;
+  const user = await new Parse.Query(Parse.User)
+    .equalTo('username', email)
+    .first({ useMasterKey: true });
+  
+  return !!user;
+});
 
-// Parse.Cloud.beforeSave('Article', async (request) => {
-//   console.log("--- beforeFind ---");
-//   throw new Error("articleSave")
-// });
+Parse.Cloud.define('getUserByAuthId', async (request) => {
+  const { authId } = request.params;
+  const user = await new Parse.Query(Parse.User)
+    .equalTo('authId', authId)
+    .first({ useMasterKey: true });
+  return user;
+});

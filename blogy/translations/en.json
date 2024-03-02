@@ -170,5 +170,14 @@
       "passwordResetSuccess": "Password successfully reset",
       "welcomeTo": "Welcome to {{ app }}"
     }
+  },
+  "User": {
+    "haveNoAccountYet": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "createAnAccount": "Create an account",
+    "myProfile": "My profile",
+    "signUp": "Register",
+    "login": "Login",
+    "logout": "Logout"
   }
 }

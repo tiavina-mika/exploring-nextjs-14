@@ -66,3 +66,8 @@ type IError = {
   error: string;
 };
 export type IServerResponse<T> = T | IError;
+
+export interface IUploadedFile {
+  publicId: string;
+  url: string;
+}

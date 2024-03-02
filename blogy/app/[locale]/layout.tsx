@@ -12,6 +12,7 @@ import { siteConfig } from '@/config/site';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
 import { auth } from '@/config/auth.config';
+import NextAuthProvider from '@/providers/NextAuthProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -64,19 +65,21 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
         className={`${primaryFont} antialiased dark:bg-neutral-900`}
         suppressHydrationWarning={isDev}
       >
-        <ReactQueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavBar isLoggedIn={!!session} />
-            <div className="p-6">{children}</div>
-            <ToasterProvider />
-            <ViewportIndicator />
-          </ThemeProvider>
-        </ReactQueryProvider>
+        <NextAuthProvider>
+          <ReactQueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NavBar isLoggedIn={!!session} />
+              <div className="p-6">{children}</div>
+              <ToasterProvider />
+              <ViewportIndicator />
+            </ThemeProvider>
+          </ReactQueryProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
