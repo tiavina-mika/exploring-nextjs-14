@@ -20,8 +20,9 @@ export const config = {
   matcher: [
     '/',
     '/(fr|en)/:path*',
-      // Enable redirects that add missing locales
+    // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
-    '/((?!_next|_vercel|.*\\..*).*)'
+    // url with /api should not be translated
+    '/((?!api|_next|_vercel|.*\\..*).*)'
   ],
 };
