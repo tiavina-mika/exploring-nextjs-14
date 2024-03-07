@@ -17,22 +17,23 @@ type Props = {
 const SignUpPage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   const t = useTranslations('User');
+  const tAuth = useTranslations('Auth');
 
   return (
-    <>
-
-      <div>
-        <Title>{t('createAnAccount')}</Title>
-      </div>
-      <div>
-        <SignUpFormProvider />
+    <div className='flex flex-col items-center'>
+      <div  className='flex flex-col self-stretch space-y-2 items-center'>
+        <Title level="h2" className="text-2xl mb-3">{tAuth('createAnAccount')}</Title>
+        <div className="self-stretch">
+          <SignUpFormProvider />
+        </div>
         <div>
           <AuthLink text={t('login')} url={ROUTES.login} label={t('alreadyHaveAccount')} />
         </div>
-        {/* Google auth */}
-        <AuthWithProviders authType="signup" />
       </div>
-    </>
+
+      {/* Google auth */}
+      <AuthWithProviders authType="signUp" />
+    </div>
   );
 };
 
