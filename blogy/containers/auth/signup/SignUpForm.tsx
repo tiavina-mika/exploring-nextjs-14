@@ -15,6 +15,7 @@ import { ISignUpInput } from '@/types/auth.type';
 import { nextAuthSignInWithGoogle, signUp } from '@/server/mutations/auth.mutations';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import GoogleAuthButton from '@/components/buttons/GoogleAuthButton';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -50,10 +51,6 @@ const SignUpForm = () => {
     setFormError<ISignUpInput>(form, data, tForm, tAuth);
   }
 
-  const onGoogleSignIn = async () => {
-    await nextAuthSignInWithGoogle();
-  }
-
   return (
     <>
       <Form
@@ -77,7 +74,6 @@ const SignUpForm = () => {
           type="password"
         />
       </Form>
-      <button onClick={onGoogleSignIn}>Sign up with Google</button>
     </>
   );
 };

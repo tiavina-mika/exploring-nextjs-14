@@ -98,6 +98,10 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "signUpWithGoogle": "Créer un compte avec Google",
+    "signInWithGoogle": "Se connecter avec Google",
+    "or": "OU",
+    "loginToYourAccount": "Se connecter à votre compte",
     "firstName": "Prénom",
     "lastName": "Nom",
     "sex": "Sexe",
