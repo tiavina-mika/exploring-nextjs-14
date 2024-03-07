@@ -94,6 +94,10 @@ const customAuthConfig = {
       // --------------------------------- //
       // ---------- google auth ---------- //
       // --------------------------------- //
+      /**
+       * google auth does not know if we are login or sign up,
+       * so we should check it manually
+       */
       if (user && account?.provider === "google") {
         const defaultValues = {
           email: profile.email,
