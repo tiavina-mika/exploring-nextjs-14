@@ -4,7 +4,7 @@ import { signIn, signOut } from "@/config/auth.config";
 import { ROUTES } from "@/config/routes";
 import { action } from "@/config/safeAction";
 import env from "@/env";
-import { SignUpI, SignUpWithGoogleInput, SignUpWithGoogleToSaveInput } from "@/types/auth.type";
+import { ILoginInput, SignUpI, SignUpWithGoogleInput, SignUpWithGoogleToSaveInput } from "@/types/auth.type";
 import { IUser, PlatformEnum } from "@/types/user.type";
 import { setValues } from "@/utils/parse.utils";
 import { SignUpSchema } from "@/validations/auth.validations";
@@ -70,7 +70,7 @@ export const login = async (
   }
 }
 
-export const loginWithGoogle = async () => {
+export const nextAuthSignInWithGoogle = async () => {
   try {
     // await signIn('google', { callbackUrl: ROUTES.dashboard });
     await signIn('google');
@@ -107,6 +107,17 @@ export const signUpWiGoogle = async (values: SignUpWithGoogleInput, authId: stri
     return newUser;
   } catch (err) {
     console.log(' ----- signUpWiGoogle err', err);
+    throw err;
+  }
+}
+
+export const loginWithGoogle = async (values: ILoginInput): Promise<Parse.User> => {
+  try {
+    const user = await Parse.User.logIn(values.email, values.password);
+
+    return user;
+  } catch (err) {
+    console.log(' ----- loginWithGoogle err', err);
     throw err;
   }
 }
