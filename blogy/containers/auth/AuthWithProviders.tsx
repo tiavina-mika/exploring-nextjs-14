@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import GoogleAuthButton from '@/components/buttons/GoogleAuthButton';
 
 type Props = {
-  authType: 'login' | 'signup';
+  authType: 'login' | 'signUp';
 };
 const AuthWithProviders = ({ authType }: Props) => {
   const tAuth = useTranslations('Auth');

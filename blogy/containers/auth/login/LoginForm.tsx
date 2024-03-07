@@ -11,11 +11,10 @@ import { LoginSchema } from '@/validations/auth.validations';
 import { ILoginInput } from '@/types/auth.type';
 import { useFormState } from 'react-dom';
 import { login } from '@/server/mutations/auth.mutations';
+import Text from '@/components/typography/Text';
 
 const LoginForm = () => {
-  const tForm = useTranslations('Form');
   const tAuth = useTranslations('Auth');
-
 
   const form = useForm<ILoginInput>({
     resolver: zodResolver(LoginSchema),
@@ -28,7 +27,8 @@ const LoginForm = () => {
       <Form
         form={form}
         action={dispatch}
-        primaryButtonText={tForm('save')}
+        primaryButtonText={tAuth('login')}
+        className="space-y-3"
       >
         <TextField
           name="email"
@@ -38,17 +38,15 @@ const LoginForm = () => {
         />
         <TextField name="password" placeholder={tAuth('password')} required type="password" />
       </Form>
-      <div
-        className="flex h-8 items-end space-x-1"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {errorMessage && (
-          <>
-            <p className="text-sm text-red-500">{errorMessage}</p>
-          </>
-        )}
-      </div>
+      {errorMessage && (
+        <div
+          className="flex items-end space-x-1"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <Text className="text-sm" color="error">{errorMessage}</Text>
+        </div>
+      )}
     </div>
   );
 };
