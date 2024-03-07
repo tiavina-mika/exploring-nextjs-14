@@ -7,7 +7,7 @@ import { ROUTES } from './routes';
 import { IUser } from '@/types/user.type';
 import { z } from 'zod';
 import { getRoutesFromMiddleware } from '@/utils/next.utils';
-import { getCurrentUser, signUpWiGoogle } from '@/server/mutations/auth.mutations';
+import { getCurrentUser, loginWithGoogle, signUpWiGoogle } from '@/server/mutations/auth.mutations';
 import { PasswordFieldSchema } from '@/validations/auth.validations';
  
 export const authConfig = {
@@ -67,7 +67,7 @@ const customAuthConfig = {
   ...authConfig,
   providers: [
     Credentials({
-      async authorize(credentials): Promise<IUser | null>{
+      async authorize(credentials: { email: string; password: string }): Promise<IUser | null> {
         // check if credentials are valid
         const parsedCredentials = z
           .object({ email: z.string().email(), password: PasswordFieldSchema })
@@ -83,7 +83,7 @@ const customAuthConfig = {
 
         return user.toJSON() as IUser;
       },
-    }),
+    } as any),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -95,22 +95,39 @@ const customAuthConfig = {
       // ---------- google auth ---------- //
       // --------------------------------- //
       if (user && account?.provider === "google") {
+        const defaultValues = {
+          email: profile.email,
+          password: account.providerAccountId,
+        }
+
+        const isUserExists = await Parse.Cloud.run('checkIfUserExists', { email: defaultValues.email });
+
+        // ------------------------------- //
+        // ------------ login ------------ //
+        // ------------------------------- //
+        if (isUserExists) {
+          const loggedInUser = await loginWithGoogle(defaultValues);
+
+          user.id = loggedInUser.id;
+          user.token = loggedInUser.getSessionToken();
+
+          return true;
+        };
+        
+        // ------------------------------- //
+        // ------------ signup ----------- //
+        // ------------------------------- //
         const values = {
+          ...defaultValues,
           firstName: profile.given_name,
           lastName: profile.family_name,
-          email: profile.email,
           image: {
             url: profile.picture,
             publicId: user.id,
           },
-          password: account.providerAccountId,
           verified: profile.email_verified,
         };
 
-        const isUserExists = await Parse.Cloud.run('checkIfUserExists', { email: values.email });
-
-        if (isUserExists) return true;
-        
         // create the account to the database
         const newUser = await signUpWiGoogle(values, profile.sub);
 
@@ -119,19 +136,22 @@ const customAuthConfig = {
 
         return !!newUser;
       }
+
       return true;
     },
     async jwt({ token, user, account }: { token: any; user: IUser; account: any }) {
-      if (user && account && account.type === "credentials") {
-        token.sessionToken = user.sessionToken;
-        token.name = user.firstName + ' ' + user.lastName;
-        token.id = user.objectId;
-        token.provider = 'parse';
-      } else if (user && account && account.provider === "google") {
-        token.sessionToken = user.token;
-        token.name = user.name;
-        token.id = user.id; // random not fixed id
-        token.provider = 'google';
+      if (user) {
+        if (account && account.type === "credentials") {
+          token.sessionToken = user.sessionToken;
+          token.name = user.firstName + ' ' + user.lastName;
+          token.id = user.objectId;
+          token.provider = 'parse';
+        } else if (account && account.provider === "google") {
+          token.sessionToken = user.token;
+          token.name = user.name;
+          token.id = user.id; // random not fixed id
+          token.provider = 'google';
+        }
       }
 
       return token;
@@ -144,11 +164,6 @@ const customAuthConfig = {
       return session;
     },
     ...authConfig.callbacks,
-  },
-  events: {
-    async linkAccount({ user, account, profile }: any) {
-      console.log('yo link account', user, account, profile);
-    }
   },
 }
 
