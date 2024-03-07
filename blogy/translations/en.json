@@ -98,6 +98,10 @@
     "titleError": "Title is required"
   },
   "Auth": {
+    "signUpWithGoogle": "Sign up with Google",
+    "signInWithGoogle": "Login with Google",
+    "or": "OR",
+    "loginToYourAccount": "Login to your account",
     "firstName": "First name",
     "lastName": "Last name",
     "sex": "Sex",
