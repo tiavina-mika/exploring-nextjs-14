@@ -12,10 +12,9 @@ import { setFormError } from '@/utils/utils';
 
 import { SignUpSchema } from '@/validations/auth.validations';
 import { ISignUpInput } from '@/types/auth.type';
-import { nextAuthSignInWithGoogle, signUp } from '@/server/mutations/auth.mutations';
+import { signUp } from '@/server/mutations/auth.mutations';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import GoogleAuthButton from '@/components/buttons/GoogleAuthButton';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -57,6 +56,7 @@ const SignUpForm = () => {
         form={form}
         action={onSubmit}
         primaryButtonText={tForm('save')}
+        className="space-y-3"
       >
         <TextField
           name="email"
