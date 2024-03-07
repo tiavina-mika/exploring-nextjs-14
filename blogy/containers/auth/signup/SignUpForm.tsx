@@ -12,7 +12,7 @@ import { setFormError } from '@/utils/utils';
 
 import { SignUpSchema } from '@/validations/auth.validations';
 import { ISignUpInput } from '@/types/auth.type';
-import { loginWithGoogle, signUp } from '@/server/mutations/auth.mutations';
+import { nextAuthSignInWithGoogle, signUp } from '@/server/mutations/auth.mutations';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 
@@ -51,7 +51,7 @@ const SignUpForm = () => {
   }
 
   const onGoogleSignIn = async () => {
-    await loginWithGoogle();
+    await nextAuthSignInWithGoogle();
   }
 
   return (
