@@ -6,6 +6,7 @@ import SignUpFormProvider from '@/containers/auth/signup/SignUpFormProvider';
 import AuthLink from '@/containers/auth/AuthLink';
 import { ROUTES } from '@/config/routes';
 import { useTranslations } from 'next-intl';
+import AuthWithProviders from '@/containers/auth/AuthWithProviders';
 
 type Props = {
   params: {
@@ -18,7 +19,8 @@ const SignUpPage = ({ params: { locale } }: Props) => {
   const t = useTranslations('User');
 
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <>
+
       <div>
         <Title>{t('createAnAccount')}</Title>
       </div>
@@ -27,8 +29,10 @@ const SignUpPage = ({ params: { locale } }: Props) => {
         <div>
           <AuthLink text={t('login')} url={ROUTES.login} label={t('alreadyHaveAccount')} />
         </div>
+        {/* Google auth */}
+        <AuthWithProviders authType="signup" />
       </div>
-    </main>
+    </>
   );
 };
 
