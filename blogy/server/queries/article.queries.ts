@@ -33,8 +33,6 @@ export const getArticle = async (
 
 export const getArticles = async (): Promise<IServerResponse<IArticle[]>> => {
   try {
-    await new Promise(resolve => setTimeout(resolve, 100000))
-
     const query = new Parse.Query(collections.Article);
     const articles = await query.find();
     const articlesJson = articles.map((article: Parse.Attributes) =>
