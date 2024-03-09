@@ -7,7 +7,30 @@ import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
 import Articles from '@/containers/articles/Articles';
 import ReactQueryServerHydration from '@/providers/ReactQueryServerHydration';
+import { Metadata } from 'next';
 
+// ----------------------------- //
+// -------- metadata ----------- //
+// ----------------------------- //
+type MetaDataProps = {
+  params: { locale: Locale }
+}
+
+export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Promise<Metadata> => {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata',
+  });
+
+  return {
+    title: t('articles.metaTitle'),
+    description: t('articles.metaDescription'),
+  };
+}
+
+// ----------------------------- //
+// ------------ page ----------- //
+// ----------------------------- //
 type Props = {
   params: {
     locale: Locale;
