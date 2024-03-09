@@ -196,6 +196,18 @@
     "home": {
       "metaTitle": "Accueil",
       "metaDescription": "Blogy est une simple application web utilisant NextJs, elle sert de modèle open source pour les applications NextJs 14."
+    },
+    "profile": {
+      "metaTitle": "Mon profil",
+      "metaDescription": "Les infos sur mon profil"
+    },
+    "dashboard": {
+      "metaTitle": "Tableau de bord",
+      "metaDescription": "Mon espace personnel où je peux accéder à toutes mes données et gérer mon compte."
+    },
+    "articles": {
+      "metaTitle": "Mes articles",
+      "metaDescription": "Liste de tous les articles que j'ai écrits avec passion."
     }
   }
 }
