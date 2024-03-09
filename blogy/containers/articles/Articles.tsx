@@ -30,6 +30,7 @@ const Articles = ({ tErrorDeletion }: Props) => {
   const { execute: handleDelete, status } = useAction(deleteArticle);
 
   const goToEdition = (id: string) => router.push(ROUTES.articles.edit(id));
+  const goToPreview = (id: string) => router.push(ROUTES.articles.preview(id));
 
   return (
     <div className="flexColumn gap-3">
@@ -43,6 +44,9 @@ const Articles = ({ tErrorDeletion }: Props) => {
           >
             <Title level="h5">{article.title}</Title>
             <div className="flexRow space-x-2">
+              <IconButton onClick={() => goToPreview(article.objectId)}>
+                <NextIcon src="/icons/eye.svg" width={20} height={20} alt="" />
+              </IconButton>
               <IconButton onClick={() => goToEdition(article.objectId)}>
                 <NextIcon src="/icons/edit.svg" width={20} height={20} alt="" />
               </IconButton>
