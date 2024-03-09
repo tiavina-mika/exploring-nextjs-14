@@ -92,7 +92,11 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
               disableTransitionOnChange
             >
               <NavBar isLoggedIn={!!session} />
-              <div className="p-6">{children}</div>
+              <main className="flex flex-col items-center justify-center">
+                <div className="max-w-screen-xl w-full py-8">
+                  {children}
+                </div>
+              </main>
               <ToasterProvider />
               <ViewportIndicator />
             </ThemeProvider>
