@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { Metadata } from 'next';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import { primaryFont } from '@/components/fonts';
 import NavBar from '@/components/navBar/NavBar';
@@ -14,34 +14,45 @@ import ThemeProvider from '@/providers/ThemeProvider';
 import { auth } from '@/config/auth.config';
 import NextAuthProvider from '@/providers/NextAuthProvider';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: ['nextjs', 'react', 'react server components', 'nodejs'],
-  authors: [
-    {
-      name: siteConfig.author,
-      url: 'https://www.linkedin.com/in/tiavina-michael-ralainirina/',
+type MetaDataProps = {
+  params: { locale: Locale }
+}
+
+export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Promise<Metadata> => {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata',
+  });
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: siteConfig.name,
+      template: `%s - ${siteConfig.name}`,
     },
-  ],
-  creator: siteConfig.author,
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
-  icons: {
-    icon: '/icon.png',
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-};
+    description: t('home.metaDescription'),
+    keywords: ['nextjs', 'react', 'react server components', 'nodejs', 'nextjs14', 'server actions'],
+    authors: [
+      {
+        name: siteConfig.author,
+        url: 'https://www.linkedin.com/in/tiavina-michael-ralainirina/',
+      },
+    ],
+    creator: siteConfig.author,
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: siteConfig.url,
+      title: siteConfig.name,
+      description: siteConfig.description,
+      siteName: siteConfig.name,
+    },
+    icons: {
+      icon: '/icon.png',
+    },
+    manifest: `${siteConfig.url}/site.webmanifest`,
+  };
+}
 
 export const generateStaticParams = () => {
   return locales.map((locale: Locale) => ({ locale }));
@@ -53,6 +64,7 @@ type Props = {
     locale: Locale;
   };
 };
+
 const RootLayout = async ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   const isDev = process.env.NODE_ENV === 'development';
