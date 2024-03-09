@@ -26,7 +26,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
   });
 
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <>
       <div>
         <Title>Edit Article {articleId}</Title>
       </div>
@@ -35,7 +35,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
           <ArticleFormProvider id={articleId} />
         </ReactQueryServerHydration>
       </div>
-    </main>
+    </>
   );
 };
 
