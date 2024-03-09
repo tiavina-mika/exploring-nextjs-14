@@ -7,7 +7,6 @@ import { IMenu } from '@/types/app.type';
 import Logo from './Logo';
 import NavBarLinks from './NavBarLinks';
 import LanguageSwitcher from '../languages/LanguageSwitcher';
-import { cn } from '@/utils/app.utils';
 import ToggleTheme from '../ToggleTheme';
 import AccountMenu from './AccountMenu';
 
@@ -36,11 +35,11 @@ const NavBar = ({ isLoggedIn }: Props) => {
       value: ROUTES.about,
       id: 'about',
     },
-    {
-      label: 'Preview Article',
-      value: ROUTES.articles.preview('1'),
-      id: 'preview-article',
-    },
+    // {
+    //   label: 'Preview Article',
+    //   value: ROUTES.articles.preview('1'),
+    //   id: 'preview-article',
+    // },
     {
       label: 'Add Article',
       value: ROUTES.articles.add,
@@ -88,7 +87,6 @@ const NavBar = ({ isLoggedIn }: Props) => {
           />
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
-
         </div>
       </div>
     </nav>
