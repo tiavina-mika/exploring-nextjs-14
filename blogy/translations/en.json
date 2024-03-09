@@ -196,6 +196,18 @@
     "home": {
       "metaTitle": "Home",
       "metaDescription": "Blogy is a simple web application using NextJs, it serves as a open source boilerplate for NextJs 14 applications."
+    },
+    "profile": {
+      "metaTitle": "My profile",
+      "metaDescription": "My beautiful profile"
+    },
+    "dashboard": {
+      "metaTitle": "My personal space",
+      "metaDescription": "My personal space where I can access all my data and manage my account."
+    },
+    "articles": {
+      "metaTitle": "My articles",
+      "metaDescription": "Articles I have written with passion."
     }
   }
 }
