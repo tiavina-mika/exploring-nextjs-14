@@ -55,20 +55,20 @@ export const translatedRoutes = {
     fr: '/profil',
   },
   // Dynamic params are supported via square brackets
-  '/articles': {
-    en: '/dashboard/items',
+  [ROUTES.articles.root]: {
+    en: '/dashboard/articles',
     fr: '/mon-espace-personel/articles',
   },
   [ROUTES.articles.add]: {
-    en: '/dashboard/items/add',
+    en: '/dashboard/articles/add',
     fr: '/mon-espace-personel/articles/ajouter',
   },
   [ROUTES.articles.preview().pathname]: {
-    en: '/dashboard/items/[articleId]',
+    en: '/dashboard/articles/[articleId]',
     fr: '/mon-espace-personel/articles/[articleId]',
   },
   [ROUTES.articles.edit().pathname]: {
-    en: '/dashboard/items/[articleId]/edit',
+    en: '/dashboard/articles/[articleId]/edit',
     fr: '/mon-espace-personel/articles/[articleId]/modifier',
   },
   [ROUTES.dashboard]: {
