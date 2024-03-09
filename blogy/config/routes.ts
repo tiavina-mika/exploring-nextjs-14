@@ -7,15 +7,15 @@ export const ROUTES = {
   home: '/',
   about: '/about',
   articles: {
-    root: '/articles',
-    add: '/articles/add',
+    root: '/dashboard/articles',
+    add: '/dashboard/articles/add',
     // do not need the params when used with translatedPathnames
     preview: (articleId?: string) => ({
-      pathname: '/articles/[articleId]',
+      pathname: '/dashboard/articles/[articleId]',
       params: { articleId },
     }),
     edit: (articleId?: string) => ({
-      pathname: '/articles/[articleId]/edit',
+      pathname: '/dashboard/articles/[articleId]/edit',
       params: { articleId },
     }),
   },
