@@ -14,14 +14,14 @@ const AddArticlePage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <>
       <div>
         <Title>Add articles</Title>
       </div>
       <div>
         <ArticleFormProvider />
       </div>
-    </main>
+    </>
   );
 };
 
