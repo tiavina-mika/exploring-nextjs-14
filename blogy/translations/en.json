@@ -183,5 +183,19 @@
     "signUp": "Register",
     "login": "Login",
     "logout": "Logout"
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Sign in",
+      "metaDescription": "Seamlessly sign in to your account with our user-friendly login process."
+    },
+    "signUp": {
+      "metaTitle": "Sign up",
+      "metaDescription": "Effortlessly create an account through our intuitive sign-up process."
+    },
+    "home": {
+      "metaTitle": "Home",
+      "metaDescription": "Blogy is a simple web application using NextJs, it serves as a open source boilerplate for NextJs 14 applications."
+    }
   }
 }
