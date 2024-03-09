@@ -9,6 +9,9 @@ import { useTranslations } from 'next-intl';
 import AuthWithProviders from '@/containers/auth/AuthWithProviders';
 import { Metadata } from 'next';
 
+// ----------------------------- //
+// -------- metadata ----------- //
+// ----------------------------- //
 type MetaDataProps = {
   params: { locale: Locale }
 }
@@ -25,6 +28,9 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
   };
 }
 
+// ----------------------------- //
+// ------------ page ----------- //
+// ----------------------------- //
 type Props = {
   params: {
     locale: Locale;
