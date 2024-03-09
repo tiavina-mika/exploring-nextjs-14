@@ -35,11 +35,11 @@ const ArticlePage = ({ params: { locale, articleId } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <>
       <div>
         <Title>Article preview {articleId}</Title>
       </div>
-    </main>
+    </>
   );
 };
 
