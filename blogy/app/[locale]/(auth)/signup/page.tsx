@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
@@ -7,6 +7,23 @@ import AuthLink from '@/containers/auth/AuthLink';
 import { ROUTES } from '@/config/routes';
 import { useTranslations } from 'next-intl';
 import AuthWithProviders from '@/containers/auth/AuthWithProviders';
+import { Metadata } from 'next';
+
+type MetaDataProps = {
+  params: { locale: Locale }
+}
+
+export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Promise<Metadata> => {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata',
+  });
+
+  return {
+    title: t('signUp.metaTitle'),
+    description: t('signUp.metaDescription'),
+  };
+}
 
 type Props = {
   params: {
