@@ -14,6 +14,9 @@ import ThemeProvider from '@/providers/ThemeProvider';
 import { auth } from '@/config/auth.config';
 import NextAuthProvider from '@/providers/NextAuthProvider';
 
+// ----------------------------- //
+// -------- metadata ----------- //
+// ----------------------------- //
 type MetaDataProps = {
   params: { locale: Locale }
 }
@@ -58,6 +61,9 @@ export const generateStaticParams = () => {
   return locales.map((locale: Locale) => ({ locale }));
 };
 
+// ----------------------------- //
+// ------------ page ----------- //
+// ----------------------------- //
 type Props = {
   children: ReactNode;
   params: {
