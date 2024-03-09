@@ -9,6 +9,7 @@ import NavBarLinks from './NavBarLinks';
 import LanguageSwitcher from '../languages/LanguageSwitcher';
 import ToggleTheme from '../ToggleTheme';
 import AccountMenu from './AccountMenu';
+import TextLink from '../typography/TextLink';
 
 const filterMenus = (menus: IMenu[], pathIds: string[]): IMenu[] => menus.filter((menu: IMenu): boolean => !pathIds.includes(menu.id as string));
 
@@ -45,16 +46,16 @@ const NavBar = ({ isLoggedIn }: Props) => {
       value: ROUTES.articles.add,
       id: 'add-article'
     },
-    {
-      label: t('signUp'),
-      value: ROUTES.signUp,
-      id: 'sign-up'
-    },
-    {
-      label: t('login'),
-      value: ROUTES.login,
-      id: 'login'
-    },
+    // {
+    //   label: t('signUp'),
+    //   value: ROUTES.signUp,
+    //   id: 'sign-up'
+    // },
+    // {
+    //   label: t('login'),
+    //   value: ROUTES.login,
+    //   id: 'login'
+    // },
   ];
 
   const accountMenus: IMenu[] = [
@@ -72,6 +73,15 @@ const NavBar = ({ isLoggedIn }: Props) => {
     },
   ];
 
+  
+  const rightMenus: IMenu[] = [
+    {
+      label: t('login'),
+      value: ROUTES.login,
+      id: 'login'
+    },
+  ];
+
   const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
 
   return (
@@ -81,6 +91,18 @@ const NavBar = ({ isLoggedIn }: Props) => {
         <NavBarLinks menus={isLoggedIn ? [...loggedInMenus, ...accountMenus] : menus} />
         {/* responsive */}
         <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
+          <div className="hidden md:flex flex-row">
+            {rightMenus.map((menu: IMenu, index: number) => (
+              <TextLink
+                href={menu.value}
+                underline={false}
+                key={index}
+              >
+                {menu.label}
+              </TextLink>
+            ))}
+
+          </div>
           <LanguageSwitcher
             className="w-[100px]"
             inputClassName="border-gray-200"
