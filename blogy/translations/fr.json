@@ -183,5 +183,19 @@
     "signUp": "Créer un compte",
     "login": "Se connecter",
     "logout": "Se déconnecter"
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Se connecter",
+      "metaDescription": "Connectez-vous à votre compte pour accéder à toutes les fonctionnalités de notre application."
+    },
+    "signUp": {
+      "metaTitle": "Créer un compte",
+      "metaDescription": "Créer facilement un compte à travers notre processus d'inscription intuitif."
+    },
+    "home": {
+      "metaTitle": "Accueil",
+      "metaDescription": "Blogy est une simple application web utilisant NextJs, elle sert de modèle open source pour les applications NextJs 14."
+    }
   }
 }
