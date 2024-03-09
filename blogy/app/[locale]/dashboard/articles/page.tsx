@@ -53,7 +53,7 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
   const data = queryClient.getQueryData(['articles']) as any;
 
   return (
-    <main>
+    <>
       <div>
         <Title>List of articles</Title>
       </div>
@@ -67,7 +67,7 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
           />
         </ReactQueryServerHydration>
       )}
-    </main>
+    </>
   );
 };
 
