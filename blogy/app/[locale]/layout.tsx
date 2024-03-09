@@ -44,7 +44,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
       locale: 'en_US',
       url: siteConfig.url,
       title: siteConfig.name,
-      description: siteConfig.description,
+      description: t('home.metaDescription'),
       siteName: siteConfig.name,
     },
     icons: {
