@@ -45,7 +45,9 @@ const Card = ({
           {description && <CardDescription>{description}</CardDescription>}
         </CardHeader>
       ))}
-    <CardContent className={contentClassName}>{children}</CardContent>
+    <CardContent className={contentClassName}>
+      {children}
+    </CardContent>
     {/* footer */}
     {onPrimaryButtonClick ||
       (onSecondaryButtonClick && (

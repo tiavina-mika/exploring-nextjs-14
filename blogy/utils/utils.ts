@@ -5,6 +5,10 @@ import { HookActionStatus } from 'next-safe-action/hooks';
 
 import { IActionError } from '@/types/app.type';
 
+export const cutText = (str: string, length: number): string => {
+  return str.length > length ? `${str.substring(0, length)}...` : str;
+}
+
 export const filter = (
   object: Record<string, any>,
   names: Record<string, any>,

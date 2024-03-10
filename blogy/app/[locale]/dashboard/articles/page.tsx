@@ -10,6 +10,8 @@ import ReactQueryServerHydration from '@/providers/ReactQueryServerHydration';
 import { Metadata } from 'next';
 import Pagination from '@/components/Pagination';
 import { getPaginatedQuery } from '@/utils/app.utils';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { ROUTES } from '@/config/routes';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -60,10 +62,15 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   const data = queryClient.getQueryData(['articles']) as any;
 
   return (
-    <>
-      <div>
-        <Title>List of articles</Title>
-      </div>
+    <div className="space-y-4">
+      <Breadcrumbs
+        segments={[
+          {
+            title: 'Articles',
+            href: (ROUTES.articles as any).root,
+          },
+        ]}
+      />
       {data.error ? (
         <Text>{data.error}</Text>
       ) : (
@@ -82,7 +89,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
           />
         </ReactQueryServerHydration>
       )}
-    </>
+    </div>
   );
 };
 
