@@ -10,6 +10,7 @@ import LanguageSwitcher from '../languages/LanguageSwitcher';
 import ToggleTheme from '../ToggleTheme';
 import AccountMenu from './AccountMenu';
 import TextLink from '../typography/TextLink';
+import { getIsResponsiveScreens } from '@/server/responsive.server';
 
 const filterMenus = (menus: IMenu[], pathIds: string[]): IMenu[] => menus.filter((menu: IMenu): boolean => !pathIds.includes(menu.id as string));
 
@@ -19,6 +20,8 @@ type Props = {
 
 const NavBar = ({ isLoggedIn }: Props) => {
   const t = useTranslations('NavBar');
+
+  const { isTabletDown } = getIsResponsiveScreens();
 
   const menus: IMenu[] = [
     {
@@ -84,11 +87,24 @@ const NavBar = ({ isLoggedIn }: Props) => {
 
   const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
 
+  const getMenus = () => {
+    if (isLoggedIn) {
+      return [...loggedInMenus, ...accountMenus];
+    }
+
+    // add the right menus to the drawer if the screen is tablet down
+    if (isTabletDown) {
+      return [...menus, ...rightMenus];
+    }
+
+    return menus;
+  }
+
   return (
     <nav className="shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
         <Logo />
-        <NavBarLinks menus={isLoggedIn ? [...loggedInMenus, ...accountMenus] : menus} />
+        <NavBarLinks menus={getMenus()} />
         {/* responsive */}
         <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
           <div className="hidden md:flex flex-row">
