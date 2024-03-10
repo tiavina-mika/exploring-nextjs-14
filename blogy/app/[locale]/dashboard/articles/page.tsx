@@ -1,12 +1,9 @@
 import { getArticles } from '@/server/queries/article.queries';
-import { QueryClient } from '@tanstack/query-core';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import Text from '@/components/typography/Text';
-import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
 import Articles from '@/containers/articles/Articles';
-import ReactQueryServerHydration from '@/providers/ReactQueryServerHydration';
 import { Metadata } from 'next';
 import Pagination from '@/components/Pagination';
 import { getPaginatedQuery } from '@/utils/app.utils';
@@ -51,15 +48,8 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
 
   const t = await getTranslations('Article')
 
-  const queryClient = new QueryClient();
-
   // preload the data from server
-  await queryClient.prefetchQuery({
-    queryKey: ['articles'],
-    queryFn: () => getArticles(getPaginatedQuery(perPage, page)),
-  });
-
-  const data = queryClient.getQueryData(['articles']) as any;
+  const data = await getArticles(getPaginatedQuery(perPage, page));
 
   return (
     <div className="space-y-4">
@@ -71,23 +61,21 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
           },
         ]}
       />
-      {data.error ? (
-        <Text>{data.error}</Text>
+      {(data as any).error ? (
+        <Text>{(data as any).error}</Text>
       ) : (
-        <ReactQueryServerHydration queryClient={queryClient}>
-          {/* we do not need to pass the props */}
+        <>
           <Articles
             tErrorDeletion={t('message.error.deleted')}
-            page={page}
-            perPage={perPage}
+            articles={(data as any).articles}
           />
           <Pagination
             page={page}
-            total={data.count}
+            total={(data as any).count}
             perPage={perPage}
             className="mt-4"
-          />
-        </ReactQueryServerHydration>
+          />   
+        </>
       )}
     </div>
   );
