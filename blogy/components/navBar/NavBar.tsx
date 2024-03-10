@@ -104,7 +104,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
     <nav className="shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
         <Logo />
-        <NavBarLinks menus={getMenus()} />
+        <NavBarLinks menus={getMenus()} className="-order-1 md:order-1" />
         {/* responsive */}
         <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
           <div className="hidden md:flex flex-row">
