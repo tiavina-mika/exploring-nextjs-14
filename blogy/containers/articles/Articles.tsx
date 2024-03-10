@@ -1,8 +1,5 @@
 'use client';
 
-import { getArticles } from '@/server/queries/article.queries';
-import { useQuery } from '@tanstack/react-query';
-
 import IconButton from '@/components/buttons/IconButton';
 import Card from '@/components/Card';
 import NextIcon from '@/components/NextIcon';
@@ -15,21 +12,13 @@ import { useAction } from 'next-safe-action/hooks';
 import { hasServerActionFailed, isServerActionLoading } from '@/utils/utils';
 import Alert from '@/components/Alert';
 import Title from '@/components/typography/Title';
-import { IPagination } from '@/types/app.type';
-import { PAGINATION } from '@/utils/constants';
-import { getPaginatedQuery } from '@/utils/app.utils';
 
 type Props = {
   tErrorDeletion?: string;
-} & IPagination;
-const Articles = ({ tErrorDeletion, page, perPage = PAGINATION.perPage }: Props) => {
+  articles: IArticle[];
+};
+const Articles = ({ tErrorDeletion, articles }: Props) => {
   const router = useRouter();
-
-  // this is done because the data is prefetched on the server
-  const { data } = useQuery({
-    queryKey: ['articles'],
-    queryFn: () => getArticles(getPaginatedQuery(perPage, page)),
-  });
 
   const { execute: handleDelete, status } = useAction(deleteArticle);
 
@@ -41,8 +30,8 @@ const Articles = ({ tErrorDeletion, page, perPage = PAGINATION.perPage }: Props)
       {/* {isPending ? <div className="h-8">loading...</div>} */}
       <Alert message={tErrorDeletion || ''} color="error" open={hasServerActionFailed(status)} />
       <div className="flex flex-row gap-3">
-        {isServerActionLoading(status) ? <div className="h-8">loading...</div> : Array.isArray((data as any).articles) &&
-          (data as any).articles.map((article: IArticle, index: number) => (
+        {isServerActionLoading(status) ? <div className="h-8">loading...</div> : Array.isArray(articles) &&
+          articles.map((article: IArticle, index: number) => (
             <Card
               key={article.objectId + index}
               contentClassName="flex flex-row justify-between items-center align-stretch self-stretch flex-1"
