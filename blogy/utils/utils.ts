@@ -124,4 +124,7 @@ export const isCleanedString = (string: string | Record<string, any> | number): 
 };
 
 export const isServerActionLoading = (status: HookActionStatus): boolean => status === 'executing';
-export const hasServerActionFailed = (status: HookActionStatus): boolean => status === 'hasErrored';
+export const hasServerActionFailed = (status: HookActionStatus): boolean => {
+  if (!status) return false;
+  return status === 'hasErrored';
+};
