@@ -49,9 +49,8 @@ type Props = {
 
 const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   unstable_setRequestLocale(locale);
-  const parseSearchParams = paginationSearchParamsSchema.parse(searchParams);
-  console.log('parseSearchParams: ', parseSearchParams);
-  const page = parseInt(parseSearchParams.page, 10) || 1;
+  const parsedSearchParams = paginationSearchParamsSchema.parse(searchParams);
+  const page = parseInt(parsedSearchParams.page, 10) || 1;
 
   const t = await getTranslations('Article')
 
