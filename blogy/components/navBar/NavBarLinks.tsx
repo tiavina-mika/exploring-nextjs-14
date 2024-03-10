@@ -11,14 +11,15 @@ import NavBarItem from './NavBarItem';
 
 type Props = {
   menus: IMenu[];
+  className?: string;
 };
-const NavBarLinks = ({ menus }: Props) => {
+const NavBarLinks = ({ menus, className }: Props) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const toggleMenu = () => setOpenMenu(!openMenu);
 
   return (
-    <>
+    <div className={className}>
       <MobileOpenMenuIcon onClick={toggleMenu} />
       <div
         className={cn(
@@ -41,7 +42,7 @@ const NavBarLinks = ({ menus }: Props) => {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 
