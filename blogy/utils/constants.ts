@@ -6,4 +6,6 @@ export const collections = {
 };
 
 export const DISABLE_USER_ACCOUNT_CONFIRMATION = false;
-
+export const PAGINATION = {
+  perPage: 1,
+}
