@@ -1,11 +1,11 @@
 import { getArticle } from '@/server/queries/article.queries';
-import { QueryClient } from '@tanstack/query-core';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
 import ArticleFormProvider from '@/containers/articles/form/ArticleFormProvider';
-import ReactQueryServerHydration from '@/providers/ReactQueryServerHydration';
+import { notFound } from 'next/navigation';
+import { IArticle } from '@/types/article.type';
 
 type Props = {
   params: {
@@ -17,13 +17,11 @@ type Props = {
 const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
   unstable_setRequestLocale(locale);
 
-  const queryClient = new QueryClient();
+  const article = await  getArticle(articleId, true);
 
-  // preload the data from server
-  await queryClient.prefetchQuery({
-    queryKey: ['article', articleId],
-    queryFn: () => getArticle(articleId, true),
-  });
+  if (!article) {
+    notFound();
+  }
 
   return (
     <>
@@ -31,9 +29,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
         <Title>Edit Article {articleId}</Title>
       </div>
       <div>
-        <ReactQueryServerHydration queryClient={queryClient}>
-          <ArticleFormProvider id={articleId} />
-        </ReactQueryServerHydration>
+        <ArticleFormProvider article={article as IArticle} />
       </div>
     </>
   );
