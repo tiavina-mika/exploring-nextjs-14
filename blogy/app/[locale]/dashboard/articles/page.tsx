@@ -78,6 +78,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
             page={page}
             total={data.count}
             perPage={perPage}
+            className="mt-4"
           />
         </ReactQueryServerHydration>
       )}
