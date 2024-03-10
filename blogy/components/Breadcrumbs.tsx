@@ -36,7 +36,7 @@ export const Breadcrumbs = ({
     <nav
       aria-label="breadcrumbs"
       className={cn(
-        "flex w-full items-center overflow-auto text-sm font-medium text-muted-foreground",
+        "flex w-full items-center overflow-auto text-sm font-medium text-muted-foreground mb-4 md:mb-8",
         className,
       )}
       {...props}
@@ -50,8 +50,8 @@ export const Breadcrumbs = ({
               aria-current={isLastSegment ? "page" : undefined}
               href={segment.href}
               className={cn(
-                "truncate transition-colors hover:opacity-70 font-normal text-sm",
-                isLastSegment ? "text-gray-500 font-normal" : "text-primary",
+                "truncate transition-colors hover:opacity-70 font-normal text-md",
+                isLastSegment ? "text-gray-800 font-bold" : "text-gray-600 font-normal",
               )}
               underline={false}
             >
@@ -62,7 +62,7 @@ export const Breadcrumbs = ({
             {!isLastSegment && (
               <NextIcon
                 alt=""
-                src={`/icons/${separator || 'chevrons-right'}.svg`}
+                src={`/icons/${separator || 'chevron-right'}.svg`}
                 width={14}
                 height={14}
                 aria-hidden="true"
