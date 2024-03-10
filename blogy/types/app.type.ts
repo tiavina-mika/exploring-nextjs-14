@@ -71,3 +71,13 @@ export interface IUploadedFile {
   publicId: string;
   url: string;
 }
+
+export interface IPagination {
+  page: number;
+  perPage?: number;
+}
+
+export interface IPaginationQuery {
+  limit: number;
+  skip: number;
+}

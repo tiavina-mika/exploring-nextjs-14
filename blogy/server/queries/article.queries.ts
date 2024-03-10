@@ -31,14 +31,27 @@ export const getArticle = async (
   }
 };
 
-export const getArticles = async (): Promise<IServerResponse<IArticle[]>> => {
+type ArticlePaginationInput = {
+  limit: number;
+  skip: number;
+}
+export const getArticles = async ({ limit, skip }: ArticlePaginationInput): Promise<IServerResponse<{ articles: IArticle[], count: number }>> => {
   try {
-    const query = new Parse.Query(collections.Article);
-    const articles = await query.find();
+    const query = new Parse.Query(collections.Article)
+      .limit(limit)
+      .skip(skip)
+      .descending('updatedAt');
+
+    const result = await query.withCount().find() as any;
+    const articles = result.results as Parse.Attributes[];
     const articlesJson = articles.map((article: Parse.Attributes) =>
       article.toJSON(),
     );
-    return articlesJson;
+
+    return {
+      articles: articlesJson,
+      count: result.count
+    };
   } catch (e) {
     return { error: (e as Error).message };
   }

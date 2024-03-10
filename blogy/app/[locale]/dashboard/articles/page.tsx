@@ -8,6 +8,8 @@ import { Locale } from '@/config/i18n';
 import Articles from '@/containers/articles/Articles';
 import ReactQueryServerHydration from '@/providers/ReactQueryServerHydration';
 import { Metadata } from 'next';
+import Pagination from '@/components/Pagination';
+import { getPaginatedQuery } from '@/utils/app.utils';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -35,10 +37,15 @@ type Props = {
   params: {
     locale: Locale;
   };
+  searchParams : {
+    page: string;
+  }
 };
 
-const ArticlesPage = async ({ params: { locale } }: Props) => {
+const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   unstable_setRequestLocale(locale);
+  const perPage = 1;
+  const page = parseInt(searchParams.page, 10) || 1;
 
   const t = await getTranslations('Article')
 
@@ -47,7 +54,7 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
   // preload the data from server
   await queryClient.prefetchQuery({
     queryKey: ['articles'],
-    queryFn: getArticles,
+    queryFn: () => getArticles(getPaginatedQuery(perPage, page)),
   });
 
   const data = queryClient.getQueryData(['articles']) as any;
@@ -64,6 +71,14 @@ const ArticlesPage = async ({ params: { locale } }: Props) => {
           {/* we do not need to pass the props */}
           <Articles
             tErrorDeletion={t('message.error.deleted')}
+            page={page}
+            perPage={perPage}
+          />
+          <Pagination
+            page={page}
+            total={data.count}
+            perPage={perPage}
+            className="mt-4"
           />
         </ReactQueryServerHydration>
       )}
