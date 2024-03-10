@@ -56,7 +56,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   const data = await getArticles(getPaginatedQuery(perPage, page));
 
   return (
-    <div className="space-y-4">
+    <div>
       <Breadcrumbs
         segments={[
           {
