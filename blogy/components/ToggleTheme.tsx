@@ -28,7 +28,7 @@ const ToggleTheme = () => {
         src="/icons/moon.svg"
         width={24}
         height={24}
-        className="absolute top-[15px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        className="absolute top-[5px] left-[5px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
         aria-hidden="true"
       />
 
