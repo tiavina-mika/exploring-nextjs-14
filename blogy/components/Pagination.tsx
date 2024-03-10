@@ -1,11 +1,15 @@
 import { IPagination } from "@/types/app.type";
 import TextLink from "./typography/TextLink"
 import { PAGINATION } from "@/utils/constants";
+import NextIcon from "./NextIcon";
+import { ReactNode } from "react";
+import { cn } from "@/utils/app.utils";
 
 type Props = {
   total: number;
+  className?: string;
 } & IPagination;
-const Pagination = ({ page, total, perPage = PAGINATION.perPage }: Props) => {
+const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Props) => {
   page = !page || page < 1 ? 1 : page;
 
   const totalPages = Math.ceil(total / perPage);
@@ -22,15 +26,26 @@ const Pagination = ({ page, total, perPage = PAGINATION.perPage }: Props) => {
     }
   }
 
+  const renderArrow = (position: 'left' | 'right'): ReactNode => {
+    return (
+      <NextIcon
+        alt=""
+        src={`/icons/chevrons-${position}.svg`}
+        width={18}
+        height={18}
+      />
+    )
+  }
+
   return (
-    <div className="flex border-[1px] gap-4 rounded-[10px] border-light-green p-4">
+    <div className={cn('flex items-center gap-4 rounded-[10px] p-4', className)}>
       {page === 1 ? (
-        <div className="opacity-60" aria-disabled="true">
-          Previous
+        <div className="opacity-50" aria-disabled="true">
+          {renderArrow('left')}
         </div>
       ) : (
-        <TextLink href={`?page=${prevPage}`} aria-label="Previous Page">
-          Previous
+        <TextLink href={`?page=${prevPage}`} aria-label="Previous Page" underline={false} >
+          {renderArrow('left')}
         </TextLink>
       )}
 
@@ -39,22 +54,23 @@ const Pagination = ({ page, total, perPage = PAGINATION.perPage }: Props) => {
           key={index}
           className={
             page === pageNumber
-              ? "bg-green-500 fw-bold px-2 rounded-md text-black"
-              : "hover:bg-green-500 px-1 rounded-md"
+              ? "bg-primary fw-bold px-2 rounded-md text-white"
+              : "hover:text-primary px-1 rounded-md"
           }
           href={`?page=${pageNumber}`}
+          underline={false}
         >
           {pageNumber}
         </TextLink>
       ))}
 
       {page === totalPages ? (
-        <div className="opacity-60" aria-disabled="true">
-          Next
+        <div className="opacity-50" aria-disabled="true">
+          {renderArrow('right')}
         </div>
       ) : (
-        <TextLink href={`?page=${nextPage}`} aria-label="Next Page">
-          Next
+        <TextLink href={`?page=${nextPage}`} aria-label="Next Page"  underline={false}>
+          {renderArrow('right')}
         </TextLink>
       )}
     </div>
