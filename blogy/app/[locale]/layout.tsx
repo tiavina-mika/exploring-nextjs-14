@@ -9,7 +9,6 @@ import ToasterProvider from '@/components/ToasterProvider';
 import ViewportIndicator from '@/components/ViewportIndicator';
 import { Locale, locales } from '@/config/i18n';
 import { siteConfig } from '@/config/site';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
 import { auth } from '@/config/auth.config';
 import NextAuthProvider from '@/providers/NextAuthProvider';
@@ -84,23 +83,21 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
         suppressHydrationWarning={isDev}
       >
         <NextAuthProvider>
-          <ReactQueryProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <NavBar isLoggedIn={!!session} />
-              <main className="flex flex-col items-center justify-center">
-                <div className="max-w-screen-xl w-full py-8">
-                  {children}
-                </div>
-              </main>
-              <ToasterProvider />
-              <ViewportIndicator />
-            </ThemeProvider>
-          </ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavBar isLoggedIn={!!session} />
+            <main className="flex flex-col items-center justify-center">
+              <div className="max-w-screen-xl w-full py-8">
+                {children}
+              </div>
+            </main>
+            <ToasterProvider />
+            <ViewportIndicator />
+          </ThemeProvider>
         </NextAuthProvider>
       </body>
     </html>
