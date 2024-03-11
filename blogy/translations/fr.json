@@ -101,6 +101,10 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "request": "Demander",
+    "passwordResetRequest": "Demande de réinitialisation du mot de passe",
+    "returnTo": "Retour à la",
+    "connection": "Connexion",
     "isAccountVerified": "Adresse email déjà vérifiée?",
     "emailVerification": "Verification de l'email",
     "verifyYourEmail": "Verifier votre email",
@@ -220,6 +224,10 @@
     "verifyAccount": {
       "metaTitle": "Verifier le compte",
       "metaDescription": "Verifier le compte en entrant le code envoyé par email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Mot de passe oublié",
+      "metaDescription": "Envoyer la demande de réinitialisation du mot de passe."
     }
   }
 }
