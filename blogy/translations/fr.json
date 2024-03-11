@@ -8,7 +8,8 @@
     "required": "Obligatoire",
     "name": "Nom",
     "updatedAtDate": "Date de mise à jour",
-    "newest": "Le plus recent"
+    "newest": "Le plus recent",
+    "confirm": "Confirmer"
   },
   "Form": {
     "error": {
