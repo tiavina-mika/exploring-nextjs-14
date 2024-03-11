@@ -24,6 +24,7 @@ export const ROUTES = {
   logout: '/logout',
   verifyAccount: '/verify-account',
   forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
   profile: '/profile',
   dashboard: '/dashboard',
 };
@@ -60,6 +61,12 @@ export const translatedRoutes = {
     en: '/forgot-password',
     fr: '/mot-de-passe-oublie',
   },
+  [ROUTES.resetPassword]: {
+    en: ROUTES.resetPassword,
+    fr: '/reinitialiser-mot-de-passe',
+  },
+
+  
   [ROUTES.profile]: {
     en: '/profile',
     fr: '/profil',
