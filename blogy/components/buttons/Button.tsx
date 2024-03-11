@@ -15,6 +15,7 @@ export const buttonVariants = cva('rounded-md font-primary', {
     variant: {
       contained: 'text-white',
       outlined: 'border-solid border',
+      text: 'bg-transparent hover:bg-gray-50 dark:hover:bg-transparent dark:hover:opacity-70',
     },
     color: {
       primary: '',
@@ -102,6 +103,42 @@ export const buttonVariants = cva('rounded-md font-primary', {
       variant: 'outlined',
       color: 'default',
       class: 'border-gray-400 text-gray-400',
+    },
+    // text
+    {
+      variant: 'text',
+      color: 'primary',
+      class: 'text-primary',
+    },
+    {
+      variant: 'text',
+      color: 'secondary',
+      class: 'text-secondary',
+    },
+    {
+      variant: 'text',
+      color: 'error',
+      class: 'text-error',
+    },
+    {
+      variant: 'text',
+      color: 'success',
+      class: 'text-success',
+    },
+    {
+      variant: 'text',
+      color: 'info',
+      class: 'text-info',
+    },
+    {
+      variant: 'text',
+      color: 'warning',
+      class: 'text-warning',
+    },
+    {
+      variant: 'text',
+      color: 'default',
+      class: 'text-gray-400',
     },
   ],
 });
