@@ -101,6 +101,7 @@
     "titleError": "Title is required"
   },
   "Auth": {
+    "emailSent": "An email has been sent to you.",
     "request": "Request",
     "passwordResetRequest": "Password reset request",
     "returnTo": "Return to",
@@ -228,6 +229,10 @@
     "forgotPassword": {
       "metaTitle": "Forgot password",
       "metaDescription": "Send forgot password request to email."
+    },
+    "resetPassword": {
+      "metaTitle": "Reset password",
+      "metaDescription": "Reset password with new one."
     }
   }
 }
