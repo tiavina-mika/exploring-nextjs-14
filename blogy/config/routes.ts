@@ -23,6 +23,7 @@ export const ROUTES = {
   signUp: '/signup',
   logout: '/logout',
   verifyAccount: '/verify-account',
+  forgotPassword: '/forgot-password',
   profile: '/profile',
   dashboard: '/dashboard',
 };
@@ -54,6 +55,10 @@ export const translatedRoutes = {
   [ROUTES.verifyAccount]: {
     en: '/verify-account',
     fr: '/verifier-compte',
+  },
+  [ROUTES.forgotPassword]: {
+    en: '/forgot-password',
+    fr: '/mot-de-passe-oublie',
   },
   [ROUTES.profile]: {
     en: '/profile',

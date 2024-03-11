@@ -9,6 +9,8 @@ import { Metadata } from 'next';
 import VerifyAccountFormProvider from '@/containers/auth/verifyAccount/VerifyAccountFormProvider';
 import Text from '@/components/typography/Text';
 import Button from '@/components/buttons/Button';
+import EmailResetPasswordFormProvider from '@/containers/auth/email/EmailResetPasswordFormProvider';
+import { uncapitalize } from 'string-ts';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -24,8 +26,8 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
   });
 
   return {
-    title: t('verifyAccount.metaTitle'),
-    description: t('verifyAccount.metaDescription'),
+    title: t('forgotPassword.metaTitle'),
+    description: t('forgotPassword.metaDescription'),
   };
 }
 
@@ -38,9 +40,8 @@ type Props = {
   };
 };
 
-const VerifyAccountPage = ({ params: { locale } }: Props) => {
+const ForgotPasswordPage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
-  const t = useTranslations('User');
   const tAuth = useTranslations('Auth');
 
   return (
@@ -48,33 +49,23 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
       <div  className='flex flex-col self-stretch space-y-2 items-center'>
         {/* titles */}
         <div className="flex flex-col items-center mb-8 gap-3">
-          <Title level="h2" className="text-2xl">
-            {tAuth('emailVerification')}
+          <Title level="h2" className="text-2xl text-center">
+            {tAuth('passwordResetRequest')}
           </Title>
-          <Text>
-            {tAuth('enterCodeReceivedByEmail')}
-          </Text>
         </div>
 
         {/* form */}
-        <div className="self-stretch flex justify-center">
-          <VerifyAccountFormProvider />
-        </div>
-
-        {/* resend button */}
-        <div className="flex justify-center text-center mt-4">
-          <Button variant="text" className="flex items-center cursor-pointer">
-            <span className="font-bold">{tAuth('resendCode')}</span>
-          </Button>
+        <div className="self-stretch">
+          <EmailResetPasswordFormProvider />
         </div>
 
         {/* link to login page */}
         <div className="!mt-8">
-          <AuthLink text={t('login')} url={ROUTES.login} label={tAuth('isAccountVerified')} />
+          <AuthLink text={uncapitalize(tAuth('connection'))} url={ROUTES.login} label={tAuth('returnTo')} />
         </div>
       </div>
     </div>
   );
 };
 
-export default VerifyAccountPage;
+export default ForgotPasswordPage;

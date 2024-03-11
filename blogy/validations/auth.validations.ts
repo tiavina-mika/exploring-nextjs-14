@@ -10,13 +10,13 @@ export const PasswordFieldSchema = string()
 
 const PasswordFormDataFieldSchema = zfd.text(PasswordFieldSchema);
 
+const EmailFieldSchema = string()
+  .email({ message: 'error.required' })
+  .max(120, 'error.max')
+  .refine(value => value.toLowerCase());
+
 const UserSchema = {
-  email: zfd.text(
-    string()
-      .email({ message: 'error.required' })
-      .max(120, 'error.max')
-      .refine(value => value.toLowerCase())
-  ),
+  email: zfd.text(EmailFieldSchema),
   password: PasswordFormDataFieldSchema,
 };
 
@@ -48,3 +48,7 @@ export const SignUpSchema = zfd.formData(
 export const LoginSchema = zfd.formData(
   object(UserSchema)
 );
+
+export const EmailSchema = zfd.formData({
+  email: EmailFieldSchema
+});

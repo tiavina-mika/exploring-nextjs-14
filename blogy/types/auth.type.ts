@@ -1,4 +1,4 @@
-import { LoginSchema, SignUpSchema } from "@/validations/auth.validations";
+import { EmailSchema, LoginSchema, SignUpSchema } from "@/validations/auth.validations";
 import { IAuthProvider, IPlatform } from "./user.type";
 import { z } from "zod";
 import { IUploadedFile } from "./app.type";
@@ -21,3 +21,5 @@ export interface SignUpWithGoogleInput extends Omit<ISignUpInput, 'passwordConfi
 export interface SignUpWithGoogleToSaveInput extends SignUpWithGoogleInput, IExtendedSignUpInput {
   authId: string;
 };
+
+export type EmailInput = z.infer<typeof EmailSchema>;

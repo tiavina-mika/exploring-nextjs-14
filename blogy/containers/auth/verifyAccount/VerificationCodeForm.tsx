@@ -7,7 +7,6 @@ const VerificationCodeForm = () => {
     console.log('code', code);
   }
 
-
   return (
     <CodeVerification onComplete={handleCodeVerification} />
   );
