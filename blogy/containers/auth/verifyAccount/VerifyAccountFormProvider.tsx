@@ -1,12 +1,12 @@
 import TranslationClientProvider from '@/components/TranslationClientProvider';
 
-import VerifyAccountForm from './VerifyAccountForm';
+import VerificationCodeForm from './VerificationCodeForm';
 
 
 const VerifyAccountFormProvider = () => {
   return (
     <TranslationClientProvider rootKeys={['Form', 'Auth']}>
-      <VerifyAccountForm />
+      <VerificationCodeForm />
     </TranslationClientProvider>
   );
 };
