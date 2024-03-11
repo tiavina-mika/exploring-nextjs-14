@@ -101,6 +101,7 @@
     "titleError": "Title is required"
   },
   "Auth": {
+    "isAccountVerified": "Email already verified?",
     "emailVerification": "Email verification",
     "verifyYourEmail": "Verify your email",
     "enterCode": "Enter the code you received by email",
