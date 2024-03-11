@@ -9,8 +9,6 @@ import { Metadata } from 'next';
 import EmailResetPasswordFormProvider from '@/containers/auth/email/EmailResetPasswordFormProvider';
 import { uncapitalize } from 'string-ts';
 import Alert from '@/components/Alert';
-import ResetPasswordFormProvider from '@/containers/auth/resetPassword/ResetPasswordFormProvider';
-import ResendCodeButton from '@/containers/auth/ResendCodeButton';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -55,19 +53,11 @@ const ForgotPasswordPage = ({ params: { locale } }: Props) => {
         </div>
 
         <div className="!mb-4">
-          <Alert color="success" message={tAuth('emailSent')} variant="outlined" canBeClosed={false} />
+          <Alert color="success" message="Un email a été envoyé à votre adresse email." variant="outlined" canBeClosed={false} />
         </div>
-
         {/* form */}
         <div className="self-stretch">
-          <ResetPasswordFormProvider />
-        </div>
-
-        {/* resend button */}
-        <div className="flex justify-center text-center mt-4">
-          <ResendCodeButton>
-            {tAuth('resendCode')}
-          </ResendCodeButton>
+          <EmailResetPasswordFormProvider />
         </div>
 
         {/* link to login page */}
