@@ -101,6 +101,10 @@
     "titleError": "Title is required"
   },
   "Auth": {
+    "request": "Request",
+    "passwordResetRequest": "Password reset request",
+    "returnTo": "Return to",
+    "connection": "login",
     "isAccountVerified": "Email already verified?",
     "emailVerification": "Email verification",
     "verifyYourEmail": "Verify your email",
@@ -220,6 +224,10 @@
     "verifyAccount": {
       "metaTitle": "Verify account",
       "metaDescription": "Verify account by entering the code you received by email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Forgot password",
+      "metaDescription": "Send forgot password request to email."
     }
   }
 }
