@@ -87,7 +87,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
 
   const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
 
-  const getMenus = () => {
+  const getMainMenus = () => {
     if (isLoggedIn) {
       return [...loggedInMenus, ...accountMenus];
     }
@@ -100,15 +100,25 @@ const NavBar = ({ isLoggedIn }: Props) => {
     return menus;
   }
 
+  const getRightMenus = () => {
+    if (isLoggedIn) {
+      const loggedInMenus: IMenu[] = filterMenus(rightMenus, ['login', 'sign-up']);
+
+      return loggedInMenus;
+    }
+
+    return rightMenus;
+  }
+
   return (
     <nav className="shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
         <Logo />
-        <NavBarLinks menus={getMenus()} className="-order-1 md:order-1" />
+        <NavBarLinks menus={getMainMenus()} className="-order-1 md:order-1" />
         {/* responsive */}
         <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
           <div className="hidden md:flex flex-row">
-            {rightMenus.map((menu: IMenu, index: number) => (
+            {getRightMenus().map((menu: IMenu, index: number) => (
               <TextLink
                 href={menu.value}
                 underline={false}
