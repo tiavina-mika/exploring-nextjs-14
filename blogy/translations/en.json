@@ -101,6 +101,10 @@
     "titleError": "Title is required"
   },
   "Auth": {
+    "emailVerification": "Email verification",
+    "verifyYourEmail": "Verify your email",
+    "enterCode": "Enter the code you received by email",
+    "enterCodeReceivedByEmail": "Enter the code you received at your email address",
     "signUpWithGoogle": "Sign up with Google",
     "signInWithGoogle": "Login with Google",
     "or": "OR",
@@ -211,6 +215,10 @@
     "articles": {
       "metaTitle": "My articles",
       "metaDescription": "Articles I have written with passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verify account",
+      "metaDescription": "Verify account by entering the code you received by email."
     }
   }
 }
