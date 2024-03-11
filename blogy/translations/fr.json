@@ -101,6 +101,7 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "isAccountVerified": "Adresse email déjà vérifiée?",
     "emailVerification": "Verification de l'email",
     "verifyYourEmail": "Verifier votre email",
     "enterCode": "Entrez le code que vous avez reçu par email",
