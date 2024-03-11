@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import { Dayjs, extend } from 'dayjs';
 
 export interface ISelectOption<T = string> {
   value: T;
@@ -74,10 +74,22 @@ export interface IUploadedFile {
 
 export interface IPagination {
   page: number;
-  perPage?: number;
+  perPage: number;
 }
 
-export interface IPaginationQuery {
+export interface IListFilter extends IPagination {
+  field: string;
+  order: 'asc' | 'desc';
+}
+
+export interface IPaginationQuery extends IListFilter {
   limit: number;
   skip: number;
 }
+
+export interface ISort {
+  field: string;
+  order: 'asc' | 'desc';
+}
+
+export interface ISearchParams extends Pick<IPagination, 'page'>, ISort {};
