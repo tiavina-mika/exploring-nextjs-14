@@ -22,6 +22,7 @@ export const ROUTES = {
   login: '/login',
   signUp: '/signup',
   logout: '/logout',
+  verifyAccount: '/verify-account',
   profile: '/profile',
   dashboard: '/dashboard',
 };
@@ -49,6 +50,10 @@ export const translatedRoutes = {
   [ROUTES.logout]: {
     en: '/logout',
     fr: '/deconnexion',
+  },
+  [ROUTES.verifyAccount]: {
+    en: '/verify-account',
+    fr: '/verifier-compte',
   },
   [ROUTES.profile]: {
     en: '/profile',
