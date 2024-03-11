@@ -5,7 +5,10 @@
     "add": "Add",
     "delete": "Delete",
     "save": "Save",
-    "required": "Required"
+    "required": "Required",
+    "name": "Name",
+    "updatedAtDate": "Updated at date",
+    "newest": "Newest"
   },
   "Form": {
     "error": {
