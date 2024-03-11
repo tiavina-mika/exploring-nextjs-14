@@ -28,6 +28,12 @@ const Pagination = ({ page, total, className, searchParams, perPage = PAGINATION
     }
   }
 
+  /**
+   * add other (than page) query string to the url
+   * ex: ?field=updatedAt&order=asc&page=2 instead of just ?page=2
+   * @param page 
+   * @returns 
+   */
   const getPaginatedUrl = (page: number): string => {
     if (!searchParams) {
       return `?page=${page.toString()}`
