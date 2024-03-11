@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
 import VerifyAccountFormProvider from '@/containers/auth/verifyAccount/VerifyAccountFormProvider';
 import Text from '@/components/typography/Text';
+import Button from '@/components/buttons/Button';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -45,6 +46,7 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
   return (
     <div className='flex flex-col items-center'>
       <div  className='flex flex-col self-stretch space-y-2 items-center'>
+        {/* titles */}
         <div className="flex flex-col items-center mb-8 gap-3">
           <Title level="h2" className="text-2xl">
             {tAuth('emailVerification')}
@@ -53,11 +55,22 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
             {tAuth('enterCodeReceivedByEmail')}
           </Text>
         </div>
+
+        {/* form */}
         <div className="self-stretch flex justify-center">
           <VerifyAccountFormProvider />
         </div>
-        <div className="mt-4">
-          <AuthLink text={t('login')} url={ROUTES.login} label={t('alreadyHaveAccount')} />
+
+        {/* resend button */}
+        <div className="flex justify-center text-center mt-4">
+          <Button variant="text" className="flex items-center cursor-pointer">
+            <span className="font-bold">Resend code</span>
+          </Button>
+        </div>
+
+        {/* link to login page */}
+        <div className="mt-8">
+          <AuthLink text={t('login')} url={ROUTES.login} label={tAuth('isAccountVerified')} />
         </div>
       </div>
     </div>
