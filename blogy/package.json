@@ -61,6 +61,7 @@
     "react-hook-form": "^7.49.3",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
+    "react-verification-input": "^4.1.1",
     "react-wrap-balancer": "^1.1.0",
     "string-ts": "^2.0.0",
     "tailwind-merge": "^2.2.0",
