@@ -11,6 +11,7 @@ import Text from '@/components/typography/Text';
 import Button from '@/components/buttons/Button';
 import EmailResetPasswordFormProvider from '@/containers/auth/email/EmailResetPasswordFormProvider';
 import { uncapitalize } from 'string-ts';
+import Alert from '@/components/Alert';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -54,6 +55,9 @@ const ForgotPasswordPage = ({ params: { locale } }: Props) => {
           </Title>
         </div>
 
+        <div className="!mb-4">
+          <Alert color="success" message="Un email a été envoyé à votre adresse email." variant="outlined" canBeClosed={false} />
+        </div>
         {/* form */}
         <div className="self-stretch">
           <EmailResetPasswordFormProvider />
