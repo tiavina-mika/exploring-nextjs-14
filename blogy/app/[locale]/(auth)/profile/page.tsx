@@ -39,7 +39,7 @@ type Props = {
 const ProfilePage = async ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
 
-  const t = await getTranslations('Auth')
+  const t = await getTranslations('Auth');
   const session = await auth();
   const currentUser = await getCurrentUser(session?.token as string);
 
