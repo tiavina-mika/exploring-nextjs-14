@@ -7,8 +7,8 @@ import { ISelectOption } from '@/types/app.type';
 import NextIcon from '@/components/NextIcon';
 import IconButton from '@/components/buttons/IconButton';
 import Select from '@/components/forms/inputs/Select';
-import { usePathname, useRouter } from 'next/navigation';
 import { createQueryString } from '@/utils/next.utils';
+import { usePathname, useRouter } from '@/config/navigation';
 
 type Props = {
   className?: string;
