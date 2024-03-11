@@ -69,7 +69,7 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
         </div>
 
         {/* link to login page */}
-        <div className="mt-8">
+        <div className="!mt-8">
           <AuthLink text={t('login')} url={ROUTES.login} label={tAuth('isAccountVerified')} />
         </div>
       </div>
