@@ -64,7 +64,7 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
         {/* resend button */}
         <div className="flex justify-center text-center mt-4">
           <Button variant="text" className="flex items-center cursor-pointer">
-            <span className="font-bold">Resend code</span>
+            <span className="font-bold">{tAuth('resendCode')}</span>
           </Button>
         </div>
 
