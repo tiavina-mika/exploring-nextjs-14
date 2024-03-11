@@ -101,6 +101,10 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "emailVerification": "Verification de l'email",
+    "verifyYourEmail": "Verifier votre email",
+    "enterCode": "Entrez le code que vous avez reçu par email",
+    "enterCodeReceivedByEmail": "Entrez le code que vous avez reçu par email",
     "signUpWithGoogle": "Créer un compte avec Google",
     "signInWithGoogle": "Se connecter avec Google",
     "or": "OU",
@@ -211,6 +215,10 @@
     "articles": {
       "metaTitle": "Mes articles",
       "metaDescription": "Liste de tous les articles que j'ai écrits avec passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verifier le compte",
+      "metaDescription": "Verifier le compte en entrant le code envoyé par email."
     }
   }
 }
