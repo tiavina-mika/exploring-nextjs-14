@@ -71,6 +71,7 @@ export type AlertProps = {
   message: string;
   className?: string;
   open?: boolean;
+  canBeClosed?: boolean;
 } & Pick<ButtonProps, 'variant' | 'color'>
   & VariantProps<typeof alertVariants>;
 
@@ -79,6 +80,7 @@ const Alert = ({
   className,
   variant = 'contained',
   color,
+  canBeClosed = true,
   open = true
 }: AlertProps) => {
   const [display, setDisplay] = useState<boolean>(true);
@@ -99,9 +101,11 @@ const Alert = ({
       )}
     >
       {message}
-      <IconButton onClick={onClose} noHovered className='p-1'>
-        <NextIcon src={variant === 'contained' ? '/icons/x2-white.svg' : '/icons/x2.svg'} width={16} height={16} alt="" />
-      </IconButton>
+      {canBeClosed && (
+        <IconButton onClick={onClose} noHovered className='p-1'>
+          <NextIcon src={variant === 'contained' ? '/icons/x2-white.svg' : '/icons/x2.svg'} width={16} height={16} alt="" />
+        </IconButton>
+      )}
     </div>
   )
 };
