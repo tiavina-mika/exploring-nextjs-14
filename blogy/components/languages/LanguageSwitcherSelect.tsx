@@ -27,6 +27,7 @@ const LanguageSwitcherSelect = ({ defaultValue, options, className, inputClassNa
       router.replace(pathname, { locale: value });
     });
   };
+  
   return (
     <Select
       onChange={onSelectChange}
