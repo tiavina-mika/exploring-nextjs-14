@@ -86,3 +86,22 @@ export const getRoutesFromMiddleware = (pathname: string): PathnameOutput => {
     logoutRoute: `/${locale}/${currentTranslatedLogoutRoute}`,
   };
 };
+
+/**
+ * create url query string from object
+ * ex: { field: 'updatedAt', order: 'asc' } -> ?field=updatedAt&order=asc
+ */
+type DefaultQSParams = Record<string, string | number | null>;
+export const createQueryString = <T = DefaultQSParams>(values: T) => {
+  const newSearchParams = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(values as T as DefaultQSParams)) {
+    if (value === null) {
+      newSearchParams.delete(key);
+    } else {
+      newSearchParams.set(key, String(value));
+    }
+  }
+
+  return newSearchParams.toString();
+}
