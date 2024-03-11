@@ -9,6 +9,8 @@ import { Metadata } from 'next';
 import EmailResetPasswordFormProvider from '@/containers/auth/email/EmailResetPasswordFormProvider';
 import { uncapitalize } from 'string-ts';
 import Alert from '@/components/Alert';
+import ResetPasswordFormProvider from '@/containers/auth/resetPassword/ResetPasswordFormProvider';
+import ResendCodeButton from '@/containers/auth/ResendCodeButton';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -24,8 +26,8 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
   });
 
   return {
-    title: t('forgotPassword.metaTitle'),
-    description: t('forgotPassword.metaDescription'),
+    title: t('resetPassword.metaTitle'),
+    description: t('resetPassword.metaDescription'),
   };
 }
 
@@ -48,16 +50,24 @@ const ForgotPasswordPage = ({ params: { locale } }: Props) => {
         {/* titles */}
         <div className="flex flex-col items-center mb-8 gap-3">
           <Title level="h2" className="text-2xl text-center">
-            {tAuth('passwordResetRequest')}
+            {tAuth('resetPassword')}
           </Title>
         </div>
 
         <div className="!mb-4">
-          <Alert color="success" message="Un email a été envoyé à votre adresse email." variant="outlined" canBeClosed={false} />
+          <Alert color="success" message={tAuth('messages.passwordResetSuccessfully')} variant="outlined" canBeClosed={false} />
         </div>
+
         {/* form */}
         <div className="self-stretch">
-          <EmailResetPasswordFormProvider />
+          <ResetPasswordFormProvider />
+        </div>
+
+        {/* resend button */}
+        <div className="flex justify-center text-center mt-4">
+          <ResendCodeButton>
+            {tAuth('resendCode')}
+          </ResendCodeButton>
         </div>
 
         {/* link to login page */}

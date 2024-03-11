@@ -45,6 +45,21 @@ export const SignUpSchema = zfd.formData(
   })
 );
 
+export const ResetPasswordSchema = zfd.formData(
+  object({
+    newPassword: PasswordFieldSchema,
+    newPasswordConfirmation: string().min(
+      1,
+      'error.required',
+    ),
+  })
+  // compare the password and confirm password fields
+  .refine(value => value.newPassword === value.newPasswordConfirmation, {
+    message: 'form.error.passwordNotMatch',
+    path: ['newPasswordConfirmation'],
+  }) 
+);
+
 export const LoginSchema = zfd.formData(
   object(UserSchema)
 );

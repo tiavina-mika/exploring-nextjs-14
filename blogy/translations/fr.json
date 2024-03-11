@@ -8,7 +8,8 @@
     "required": "Obligatoire",
     "name": "Nom",
     "updatedAtDate": "Date de mise à jour",
-    "newest": "Le plus recent"
+    "newest": "Le plus recent",
+    "confirm": "Confirmer"
   },
   "Form": {
     "error": {
@@ -101,6 +102,7 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "emailSent": "Un email a été envoyé à votre adresse email",
     "request": "Demander",
     "passwordResetRequest": "Demande de réinitialisation du mot de passe",
     "returnTo": "Retour à la",
@@ -228,6 +230,10 @@
     "forgotPassword": {
       "metaTitle": "Mot de passe oublié",
       "metaDescription": "Envoyer la demande de réinitialisation du mot de passe."
+    },
+    "resetPassword": {
+      "metaTitle": "Réinitialiser mot de passe",
+      "metaDescription": "Reinitialiser le mot de passe avec un nouveau."
     }
   }
 }
