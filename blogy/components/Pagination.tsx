@@ -4,12 +4,14 @@ import { PAGINATION } from "@/utils/constants";
 import NextIcon from "./NextIcon";
 import { ReactNode } from "react";
 import { cn } from "@/utils/app.utils";
+import { createQueryString } from "@/utils/next.utils";
 
 type Props = {
   total: number;
   className?: string;
+  searchParams?: Record<string, string>;
 } & IPagination;
-const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Props) => {
+const Pagination = ({ page, total, className, searchParams, perPage = PAGINATION.perPage }: Props) => {
   page = !page || page < 1 ? 1 : page;
 
   const totalPages = Math.ceil(total / perPage);
@@ -24,6 +26,14 @@ const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Pr
     if (i >= 1 && i <= totalPages) {
       pageNumbers.push(i);
     }
+  }
+
+  const getPaginatedUrl = (page: number): string => {
+    if (!searchParams) {
+      return `?page=${page.toString()}`
+    }
+
+    return `?${createQueryString({ ...searchParams, page })}`;
   }
 
   const renderArrow = (position: 'left' | 'right'): ReactNode => {
@@ -44,7 +54,7 @@ const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Pr
           {renderArrow('left')}
         </div>
       ) : (
-        <TextLink href={`?page=${prevPage}`} aria-label="Previous Page" underline={false} >
+        <TextLink href={getPaginatedUrl(prevPage)} aria-label="Previous Page" underline={false} >
           {renderArrow('left')}
         </TextLink>
       )}
@@ -57,7 +67,7 @@ const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Pr
               ? "bg-primary fw-bold px-2 rounded-md text-white"
               : "hover:text-primary px-1 rounded-md"
           }
-          href={`?page=${pageNumber}`}
+          href={getPaginatedUrl(pageNumber)}
           underline={false}
         >
           {pageNumber}
@@ -69,7 +79,7 @@ const Pagination = ({ page, total, className, perPage = PAGINATION.perPage }: Pr
           {renderArrow('right')}
         </div>
       ) : (
-        <TextLink href={`?page=${nextPage}`} aria-label="Next Page"  underline={false}>
+        <TextLink href={getPaginatedUrl(nextPage)} aria-label="Next Page"  underline={false}>
           {renderArrow('right')}
         </TextLink>
       )}
