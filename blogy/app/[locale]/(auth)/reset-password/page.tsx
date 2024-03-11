@@ -9,6 +9,8 @@ import { Metadata } from 'next';
 import EmailResetPasswordFormProvider from '@/containers/auth/email/EmailResetPasswordFormProvider';
 import { uncapitalize } from 'string-ts';
 import Alert from '@/components/Alert';
+import ResetPasswordFormProvider from '@/containers/auth/resetPassword/ResetPasswordFormProvider';
+import ResendCodeButton from '@/containers/auth/ResendCodeButton';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -38,7 +40,7 @@ type Props = {
   };
 };
 
-const ResetPasswordPage = ({ params: { locale } }: Props) => {
+const ForgotPasswordPage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   const tAuth = useTranslations('Auth');
 
@@ -53,11 +55,19 @@ const ResetPasswordPage = ({ params: { locale } }: Props) => {
         </div>
 
         <div className="!mb-4">
-          <Alert color="success" message="Un email a été envoyé à votre adresse email." variant="outlined" canBeClosed={false} />
+          <Alert color="success" message={tAuth('messages.passwordResetSuccessfully')} variant="outlined" canBeClosed={false} />
         </div>
+
         {/* form */}
         <div className="self-stretch">
-          <EmailResetPasswordFormProvider />
+          <ResetPasswordFormProvider />
+        </div>
+
+        {/* resend button */}
+        <div className="flex justify-center text-center mt-4">
+          <ResendCodeButton>
+            {tAuth('resendCode')}
+          </ResendCodeButton>
         </div>
 
         {/* link to login page */}
@@ -69,4 +79,4 @@ const ResetPasswordPage = ({ params: { locale } }: Props) => {
   );
 };
 
-export default ResetPasswordPage;
+export default ForgotPasswordPage;
