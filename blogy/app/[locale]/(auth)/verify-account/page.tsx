@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
 import VerifyAccountFormProvider from '@/containers/auth/verifyAccount/VerifyAccountFormProvider';
 import Text from '@/components/typography/Text';
-import Button from '@/components/buttons/Button';
+import ResendCodeButton from '@/containers/auth/ResendCodeButton';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -63,9 +63,9 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
 
         {/* resend button */}
         <div className="flex justify-center text-center mt-4">
-          <Button variant="text" className="flex items-center cursor-pointer">
-            <span className="font-bold">{tAuth('resendCode')}</span>
-          </Button>
+          <ResendCodeButton>
+            {tAuth('resendCode')}
+          </ResendCodeButton>
         </div>
 
         {/* link to login page */}
