@@ -64,6 +64,7 @@ export const ResetPasswordSchema = zfd.formData(
 export const LoginSchema = zfd.formData(
   object({
     ...UserSchema,
+    // the redirect url should be a valid url and starts with the current browser url
     redirect: zfd.text(string().url().startsWith(getTranslatedAbsoluteUrl()).optional()),
   })
 );
