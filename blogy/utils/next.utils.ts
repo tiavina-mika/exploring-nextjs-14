@@ -2,7 +2,8 @@
 // https://github.com/whitecrownclown/merge-headers/blob/master/index.ts
 
 import { defaultLocale, locales } from "@/config/i18n";
-import { ROUTES, translatedRoutes } from "@/config/routes";
+import { ITranslatedPathnames, ROUTES, translatedRoutes } from "@/config/routes";
+import { Pathnames } from "next-intl/navigation";
 
 const isObject = (value: any) => {
   return value !== null && typeof value === "object";
@@ -62,20 +63,20 @@ export const getRoutesFromMiddleware = (pathname: string): PathnameOutput => {
   const locale = getLocaleByPathname(pathname)
 
   // get all translated pathnames ex: { en: '/dashboard', fr: '/mon-espace-personel' }
-  const dashboardRoutes = translatedRoutes[ROUTES.dashboard];
-  const logoutRoutes = translatedRoutes[ROUTES.logout];
-  const loginRoutes = translatedRoutes[ROUTES.login];
-  const nonDashboardProtectedRoutes = [translatedRoutes[ROUTES.profile]];
+  const dashboardRoutes = translatedRoutes[ROUTES.dashboard] as ITranslatedPathnames;
+  const logoutRoutes = translatedRoutes[ROUTES.logout] as ITranslatedPathnames;
+  const loginRoutes = translatedRoutes[ROUTES.login] as ITranslatedPathnames;
+  const nonDashboardProtectedRoutes = [translatedRoutes[ROUTES.profile]] as ITranslatedPathnames[];
 
   // translated dashboard pathname for current locale
-  const currentTranslatedDashboardRoute = (dashboardRoutes as any)[locale];
-  const currentTranslatedLogoutRoute = (logoutRoutes as any)[locale];
-  const currentTranslatedLoginRoute = (loginRoutes as any)[locale];
+  const currentTranslatedDashboardRoute = dashboardRoutes[locale] as string;
+  const currentTranslatedLogoutRoute = logoutRoutes[locale] as string;
+  const currentTranslatedLoginRoute = loginRoutes[locale] as string;
 
   const isDashboard = pathname.includes(currentTranslatedDashboardRoute);
   const isLogoutRoute = pathname.includes(currentTranslatedLogoutRoute);
 
-  const isProtectedRoutes = nonDashboardProtectedRoutes.some((route): boolean => pathname.includes((route as any)[locale]));
+  const isProtectedRoutes = nonDashboardProtectedRoutes.some((route): boolean => pathname.includes(route[locale] as string));
 
   return {
     isDashboard,
