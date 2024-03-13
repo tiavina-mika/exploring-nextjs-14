@@ -76,7 +76,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   }));
 
   return (
-    <div>
+    <div className="space-y-4">
       <div>
         <Breadcrumbs
           segments={[
