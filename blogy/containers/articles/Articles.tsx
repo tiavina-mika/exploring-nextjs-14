@@ -12,6 +12,7 @@ import { useAction } from 'next-safe-action/hooks';
 import { hasServerActionFailed, isServerActionLoading } from '@/utils/utils';
 import Alert from '@/components/Alert';
 import Title from '@/components/typography/Title';
+import TextLink from '@/components/typography/TextLink';
 
 type Props = {
   tErrorDeletion?: string;
@@ -23,7 +24,7 @@ const Articles = ({ tErrorDeletion, articles }: Props) => {
   const { execute: handleDelete, status } = useAction(deleteArticle);
 
   const goToEdition = (id: string) => router.push(ROUTES.articles.edit(id));
-  const goToPreview = (id: string) => router.push(ROUTES.articles.preview(id));
+  // const goToPreview = (id: string) => router.push(ROUTES.articles.preview(id));
 
   return (
     <div className="flexColumn gap-3">
@@ -37,13 +38,14 @@ const Articles = ({ tErrorDeletion, articles }: Props) => {
               contentClassName="flex flex-row justify-between items-center align-stretch self-stretch flex-1"
               className="flex flex-col self-stretch"
             >
-              <div className="flex-1 self-stretch flex flex-row items-center">
-                <Title level="h5">{article.title}</Title>
-              </div>
+              {/* text */}
+              <TextLink href={ROUTES.articles.preview(article.objectId)} underline={false}>
+                <div className="flex-1 self-stretch flex flex-row items-center">
+                  <Title level="h5">{article.title}</Title>
+                </div>
+              </TextLink>
+              {/* actions */}
               <div className="flex flex-row items-center self-stretch">
-                <IconButton onClick={() => goToPreview(article.objectId)} className="p-2">
-                  <NextIcon src="/icons/eye.svg" width={18} height={18} alt="" />
-                </IconButton>
                 <IconButton onClick={() => goToEdition(article.objectId)} className="p-2">
                   <NextIcon src="/icons/edit.svg" width={18} height={18} alt="" />
                 </IconButton>
