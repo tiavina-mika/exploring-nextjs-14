@@ -11,6 +11,14 @@
     "newest": "Newest",
     "confirm": "Confirm"
   },
+  "Contact": {
+    "email": "Email",
+    "emailSent": "An email has been sent to you.",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "contactUs": "Contact us"
+  },
   "Form": {
     "error": {
       "invalidStringType": "Excepted text",
@@ -55,7 +63,8 @@
     "signUp": "Register",
     "login": "Login",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "contactUs": "Contact us"
   },
   "LanguageSwitcher": {
     "label": "Change language",
@@ -234,6 +243,10 @@
     "resetPassword": {
       "metaTitle": "Reset password",
       "metaDescription": "Reset password with new one."
+    },
+    "contact": {
+      "metaTitle": "Contact us",
+      "metaDescription": "Contact us for help, for information or for suggestion. {appName} service will be happy to help you."
     }
   }
 }
