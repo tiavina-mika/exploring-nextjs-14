@@ -79,12 +79,14 @@ export interface IPagination {
   perPage: number;
 }
 
-export interface IListFilter extends IPagination {
+interface IOrder  {
   field: string;
   order: 'asc' | 'desc';
 }
 
-export interface IPaginationQuery extends IListFilter {
+export interface IListFilter extends IPagination, IOrder {}
+
+export interface IPaginationQuery extends IOrder {
   limit: number;
   skip: number;
 }
