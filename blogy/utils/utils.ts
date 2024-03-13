@@ -103,11 +103,9 @@ export const setFormError = <I extends FieldValues>(
           errorMessage = tForm('error.invalidInput');
           break;
         default:
+          // t('...') here is the form field label, ex: "Name required"
           errorMessage = tForm(errors[key][0], { field: t(key) });
           break;
-      }
-      if (key === "_root") {
-        errorMessage = tForm('error.invalidInput');
       }
  
       form.setError(key as FieldPath<I>, {
