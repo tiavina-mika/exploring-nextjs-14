@@ -39,6 +39,11 @@ const NavBar = ({ isLoggedIn }: Props) => {
       value: ROUTES.about,
       id: 'about',
     },
+    {
+      label: t('contactUs'),
+      value: ROUTES.contact,
+      id: 'contact',
+    },
     // {
     //   label: 'Preview Article',
     //   value: ROUTES.articles.preview('1'),
