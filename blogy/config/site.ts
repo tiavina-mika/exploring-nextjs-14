@@ -7,6 +7,7 @@ export const siteConfig = {
   url: env.NEXT_PUBLIC_APP_URL,
   links: { github: 'https://github.com/tiavina-mika' },
   author: AUTHOR_USERNAME,
+  senderEmail: 'tikskun@gmail.com',
 };
 
 export type SiteConfig = typeof siteConfig;
