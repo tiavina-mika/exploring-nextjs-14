@@ -25,11 +25,11 @@ const ContactForm = () => {
 
   const form = useForm<IContactInput>({
     resolver: zodResolver(ContactSchema),
-    defaultValues: { email: '', subject: '', message: '' }
+    defaultValues: { email: '', name: '', message: '' }
   });
 
   const onSubmit = async (values: FormData) => {
-    window.location.href = `mailto:${siteConfig.senderEmail}?subject=${values.get("subject")}&body=${values.get("message")}`;
+    window.location.href = `mailto:${siteConfig.senderEmail}?subject=${tContact('subject')}&body=${values.get("message")}`;
     const data = await createContact(values) as any;
     form.reset();
 
@@ -65,8 +65,8 @@ const ContactForm = () => {
           type="email"
         />
         <TextField
-          name="subject"
-          placeholder={tContact('subject')}
+          name="name"
+          placeholder={tContact('name')}
           required
         />
         <Textarea
