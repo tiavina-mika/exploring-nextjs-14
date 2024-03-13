@@ -13,6 +13,9 @@ import { PAGINATION } from '@/utils/constants';
 import { paginationSearchParamsSchema } from '@/validations/app.validations';
 import SortArticles from '@/containers/articles/SortArticles';
 import { ISearchParams, ISelectOption } from '@/types/app.type';
+import TextLink from '@/components/typography/TextLink';
+import Button from '@/components/buttons/Button';
+import NextIcon from '@/components/NextIcon';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -77,16 +80,32 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
 
   return (
     <div className="space-y-4">
-      <div>
-        <Breadcrumbs
-          segments={[
-            {
-              title: 'Articles',
-              href: (ROUTES.articles as any).root,
-            },
-          ]}
-        />
-        <SortArticles searchParams={parsedSearchParams} options={options} />
+      <div className="flex justify-between items-center">
+        <div>
+          <Breadcrumbs
+            segments={[
+              {
+                title: 'Articles',
+                href: (ROUTES.articles as any).root,
+              },
+            ]}
+          />
+          <SortArticles searchParams={parsedSearchParams} options={options} />
+        </div>
+        <div>
+          <Button>
+            <TextLink href={(ROUTES.articles as any).add} className="text-weight" underline={false}>
+              <NextIcon
+                alt=""
+                src="/icons/plus-white.svg"
+                width={18}
+                height={18}
+                className="mr-2"
+              />
+              {tArticle('create')}
+            </TextLink>
+          </Button>
+        </div>
       </div>
       {(data as any).error ? (
         <Text>{(data as any).error}</Text>
