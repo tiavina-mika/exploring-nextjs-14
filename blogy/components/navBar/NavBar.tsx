@@ -49,11 +49,6 @@ const NavBar = ({ isLoggedIn }: Props) => {
     //   value: ROUTES.articles.preview('1'),
     //   id: 'preview-article',
     // },
-    {
-      label: 'Add Article',
-      value: ROUTES.articles.add,
-      id: 'add-article'
-    },
     // {
     //   label: t('signUp'),
     //   value: ROUTES.signUp,
@@ -75,6 +70,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
     },
     {
       label: t('logout'),
+      // the logout url will be added a redirection url search params (see: AccountMenu.tsx)
       value: ROUTES.logout,
       icon: '/icons/power.svg',
       id: 'logout'
