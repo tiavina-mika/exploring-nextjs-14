@@ -1,17 +1,37 @@
 'use client';
-import { useRouter } from "@/config/navigation";
+import { usePathname, useRouter } from "@/config/navigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/DropdownMenu"
-import { ROUTES } from "@/config/routes";
 import NextIcon from "../NextIcon";
 import { IMenu } from "@/types/app.type";
 import { Fragment } from "react";
+import { getAbsoluteUrl, getTranslatedAbsoluteUrl } from "@/utils/app.utils";
+import { useParams } from "next/navigation";
+import { ROUTES } from "@/config/routes";
+
+/**
+ * add redirect query to logout url
+ * @param menu 
+ * @param fullUrl 
+ * @returns 
+ */
+const getRedirectionUrl = (menu: IMenu, fullUrl: string): IMenu['value'] => {
+  // add the current (full) url to redirect to it after logout
+  if (menu.id === "logout") {
+    return menu.value + '?redirect=' + fullUrl;
+  }
+
+  return menu.value;
+}
 
 type Props = {
   menus: IMenu[];
 }
 const AccountMenu = ({ menus }: Props) => {
   const router = useRouter();
-
+  const pathname = usePathname() as string;
+  const params = useParams() as Record<string, string>;
+  const currentFullUrl = getTranslatedAbsoluteUrl(pathname, params);
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="hidden md:block !focus-visible:ring-transparent">
@@ -28,7 +48,7 @@ const AccountMenu = ({ menus }: Props) => {
         {menus.map((menu: IMenu, index: number) => (
           <Fragment key={index}>
             {menu.id === "logout" && <DropdownMenuSeparator />}
-            <DropdownMenuItem onClick={() => router.push(menu.value)}>
+            <DropdownMenuItem onClick={() => router.push(getRedirectionUrl(menu, currentFullUrl))}>
               {menu.icon && (
                 <NextIcon
                   alt=""
