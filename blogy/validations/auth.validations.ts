@@ -10,7 +10,7 @@ export const PasswordFieldSchema = string()
 
 const PasswordFormDataFieldSchema = zfd.text(PasswordFieldSchema);
 
-const EmailFieldSchema = string()
+export const EmailFieldSchema = string()
   .email({ message: 'error.required' })
   .max(120, 'error.max')
   .refine(value => value.toLowerCase());
