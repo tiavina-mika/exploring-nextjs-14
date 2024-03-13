@@ -1,11 +1,9 @@
 import env from '@/env';
-import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import LanguageSwitcher from '@/components/languages/LanguageSwitcher';
 import ToggleTheme from '@/components/ToggleTheme';
 import { Locale } from '@/config/i18n';
-import { getIsResponsiveScreens } from '@/server/responsive.server';
 
 type Props = {
   params: {

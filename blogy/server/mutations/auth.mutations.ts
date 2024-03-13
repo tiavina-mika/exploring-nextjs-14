@@ -51,11 +51,13 @@ export const login = async (
   prevState: string | undefined,
   formData: FormData,
 ) => {
+  console.log(' ---------- formData.get(): ', formData.get('redirect'));
+
   try {
     await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
-      redirectTo: '/'
+      redirectTo: formData.get('redirect') as string || "/"
     });
   } catch (error) {
     if (error instanceof AuthError) {
@@ -134,12 +136,15 @@ export const getUserByAuthId = async (authId: string): Promise<Parse.User | unde
 }
 /**
  * logout user to parse and next auth
+ * if there is a redirect, it will redirect to the given url
+ * if not go to home
  * @returns 
  */
-export const logout = async () => {
+export const logout = async (redirect?: string | null) => {
   try {
+    const redirectionUrl = redirect ? `${ROUTES.login}?redirect=${redirect}` : ROUTES.login;
     // logout next auth
-    await signOut({ redirectTo: ROUTES.login});
+    await signOut({ redirectTo: redirectionUrl });
 
     // logout parse user
     await Parse.User.logOut();

@@ -12,9 +12,11 @@ import { ILoginInput } from '@/types/auth.type';
 import { useFormState } from 'react-dom';
 import { login } from '@/server/mutations/auth.mutations';
 import Text from '@/components/typography/Text';
+import { useSearchParams } from 'next/navigation';
 
 const LoginForm = () => {
   const tAuth = useTranslations('Auth');
+  const searchParams = useSearchParams();
 
   const form = useForm<ILoginInput>({
     resolver: zodResolver(LoginSchema),
@@ -30,6 +32,8 @@ const LoginForm = () => {
         primaryButtonText={tAuth('login')}
         className="space-y-3"
       >
+        {/* input for redirection from url search params */}
+        {searchParams?.get('redirect') && <input type="hidden" name="redirect" value={searchParams.get('redirect') || '/'} />}
         <TextField
           name="email"
           placeholder={tAuth('email')}

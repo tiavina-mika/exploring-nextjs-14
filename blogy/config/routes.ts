@@ -2,6 +2,8 @@ import { Pathnames } from 'next-intl/navigation';
 
 import { locales } from './i18n';
 
+export type ITranslatedPathnames = Pathnames<typeof locales>;
+
 // the key used for routers and translated pathnames
 export const ROUTES = {
   home: '/',
@@ -34,7 +36,10 @@ export const ROUTES = {
 export const translatedRoutes = {
   // If all locales use the same pathname, a
   // single external path can be provided.
-  [ROUTES.home]: '/',
+  [ROUTES.home]: {
+    en: '/',
+    fr: '/'
+  },
 
   // If locales use different paths, you can
   // specify each external path per locale.
@@ -98,4 +103,4 @@ export const translatedRoutes = {
     en: ROUTES.dashboard,
     fr: '/mon-espace-personel',
   },
-} satisfies Pathnames<typeof locales>;
+} satisfies ITranslatedPathnames;

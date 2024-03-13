@@ -3,6 +3,7 @@ import { zfd } from 'zod-form-data';
 
 import { errorMap } from '@/config/zod';
 import { capitalizeFirstLetter } from '@/utils/user.utils';
+import { getTranslatedAbsoluteUrl } from '@/utils/app.utils';
 
 export const PasswordFieldSchema = string()
   .min(8, 'error.min')
@@ -61,7 +62,11 @@ export const ResetPasswordSchema = zfd.formData(
 );
 
 export const LoginSchema = zfd.formData(
-  object(UserSchema)
+  object({
+    ...UserSchema,
+    // the redirect url should be a valid url and starts with the current browser url
+    redirect: zfd.text(string().url().startsWith(getTranslatedAbsoluteUrl()).optional()),
+  })
 );
 
 export const EmailSchema = zfd.formData({
