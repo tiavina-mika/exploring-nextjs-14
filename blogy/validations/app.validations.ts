@@ -13,8 +13,7 @@ export const paginationSearchParamsSchema = z.object({
 export const ContactSchema = zfd.formData(
   z.object({
     email: EmailFieldSchema,
-    subject:  zfd.text(z.string({ errorMap })
-      .min(1,'error.required')
+    name:  zfd.text(z.string({ errorMap })
       .max(112, 'error.max')
       .transform(capitalize)),
     message: zfd.text(z.string({ errorMap })
