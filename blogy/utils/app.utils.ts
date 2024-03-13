@@ -5,7 +5,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { COOKIES } from './constants';
 import { Locale, defaultLocale } from '@/config/i18n';
-import { ITranslatedPathnames, translatedRoutes } from '@/config/routes';
+import { ITranslatedPathnames, ROUTES, translatedRoutes } from '@/config/routes';
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
@@ -25,11 +25,12 @@ export const getAbsoluteUrl = (path?: string): string => {
 
 /**
  * get the current url browser
+ * if no path, the home url will be returned
  * @param params ex: { locale: 'fr', articleId: '1' } 
  * @param path 
  * @returns 
  */
-export const getTranslatedAbsoluteUrl = (path: string, params?: Record<string, string>): string => {
+export const getTranslatedAbsoluteUrl = (path = ROUTES.home, params?: Record<string, string>): string => {
   const locale = getCurrentLocale(params?.locale);
   const routes = translatedRoutes[path] as ITranslatedPathnames;
   const pathname = routes[locale] as string;
