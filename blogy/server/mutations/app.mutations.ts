@@ -7,7 +7,7 @@ import { setValues } from "@/utils/parse.utils";
 import { ContactSchema } from "@/validations/app.validations";
 import { SafeAction } from "next-safe-action";
 
-const CONTACT_PROPERTIES = new Set(['email', 'subject', 'message', 'platform']);
+const CONTACT_PROPERTIES = new Set(['email', 'name', 'message', 'platform']);
 
 const Contact = Parse.Object.extend(collections.Contact);
 
