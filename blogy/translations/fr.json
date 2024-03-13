@@ -11,6 +11,14 @@
     "newest": "Le plus recent",
     "confirm": "Confirmer"
   },
+  "Contact": {
+    "email": "Email",
+    "emailSent": "Un email a été envoyé à votre adresse email",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer",
+    "contactUs": "Contactez-nous"
+  },
   "Form": {
     "error": {
       "invalidStringType": "Devrait être une chaîne de caractère",
@@ -55,7 +63,8 @@
     "signUp": "Créer un compte",
     "login": "Se connecter",
     "logout": "Se déconnecter",
-    "profile": "Profil"
+    "profile": "Profil",
+    "contactUs": "Contactez-nous"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
@@ -234,6 +243,10 @@
     "resetPassword": {
       "metaTitle": "Réinitialiser mot de passe",
       "metaDescription": "Reinitialiser le mot de passe avec un nouveau."
+    },
+    "contact": {
+      "metaTitle": "Contactez-nous",
+      "metaDescription": "Contactez-nous pour obtenir de l'aide, des informations ou des suggestions. Le service {appName} se fera un plaisir de vous aider."
     }
   }
 }
