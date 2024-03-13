@@ -14,10 +14,11 @@
   "Contact": {
     "email": "Email",
     "emailSent": "An email has been sent to you.",
-    "subject": "Subject",
+    "name": "Your name",
     "message": "Message",
     "send": "Send",
-    "contactUs": "Contact us"
+    "contactUs": "Contact us",
+    "subject": "From website contact form"
   },
   "Form": {
     "error": {
