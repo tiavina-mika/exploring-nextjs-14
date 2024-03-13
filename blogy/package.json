@@ -42,6 +42,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
+    "cookies-next": "^4.1.1",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dayjs": "^1.11.10",
