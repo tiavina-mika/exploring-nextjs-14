@@ -31,7 +31,6 @@ const TextLink = ({
   href,
   translate = true,
   underline = true,
-  ...textProps
 }: TextLinkProps) => {
   const Component = translate ? TranslatedLink : Link;
   return (
@@ -44,11 +43,10 @@ const TextLink = ({
       target={isExternal ? '_blank' : undefined}
     >
       <Text
-        as="span"
+        as={"span" as any}
         className={cn('flex flex-row hover:opacity-90', className, {
           'underline': underline,
         })}
-        {...textProps}
       >
         {isExternal ? (
           <Balancer as="span">

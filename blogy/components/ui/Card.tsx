@@ -64,11 +64,9 @@ CardDescription.displayName = 'CardDescription';
 
 const CardContent = forwardRef<
   HTMLDivElement,
-  HTMLAttributes<HTMLDivElement> & WithChildrenProps
->(({ className, children, ...props }, ref) => (
-  <div ref={ref} className={cn('p-4', className)} {...props}>
-    {children}
-  </div>
+  HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn('p-4', className)} {...props} />
 ));
 CardContent.displayName = 'CardContent';
 

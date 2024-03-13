@@ -1,9 +1,11 @@
-import { Dayjs } from 'dayjs';
+import { ContactSchema } from '@/validations/app.validations';
+import { Dayjs, extend } from 'dayjs';
+import { z } from 'zod';
 
 export interface ISelectOption<T = string> {
   value: T;
   label: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string }> | string;
 }
 
 export interface IDynamicRouteParams {
@@ -66,3 +68,35 @@ type IError = {
   error: string;
 };
 export type IServerResponse<T> = T | IError;
+
+export interface IUploadedFile {
+  publicId: string;
+  url: string;
+}
+
+export interface IPagination {
+  page: number;
+  perPage: number;
+}
+
+interface IOrder  {
+  field: string;
+  order: 'asc' | 'desc';
+}
+
+export interface IListFilter extends IPagination, IOrder {}
+
+export interface IPaginationQuery extends IOrder {
+  limit: number;
+  skip: number;
+}
+
+export interface ISort {
+  field: string;
+  order: 'asc' | 'desc';
+}
+
+export interface ISearchParams extends Pick<IPagination, 'page'>, ISort {};
+
+export type IContactInput = z.infer<typeof ContactSchema>;
+

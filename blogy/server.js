@@ -7,20 +7,19 @@ const dev = process.env.NODE_ENV !== 'production';
 const hostname = 'localhost';
 const port = 9001;
 // when using middleware `hostname` and `port` must be provided below
-const nextApp = next({ dev, hostname, port });
+const nextApp = next({ dev, port });
 const handle = nextApp.getRequestHandler();
-
-const serverUrl = 'http://localhost:1341';
 
 nextApp
   .prepare()
   .then(() => {
+    const serverUrl = process.env.SERVER_URL;
+
     Parse.serverURL = serverUrl + '/parse';
     Parse.initialize(process.env.PARSE_APP_ID);
     Parse.masterKey = 'local-master-key';
 
     global.Parse = Parse;
-
     const app = express();
 
     app.use(cors());

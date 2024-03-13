@@ -1,9 +1,13 @@
 import { FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { ZodError, ZodIssue } from 'zod';
+import { HookActionStatus } from 'next-safe-action/hooks';
 
 import { IActionError } from '@/types/app.type';
-import { HookActionStatus } from 'next-safe-action/hooks';
+
+export const cutText = (str: string, length: number): string => {
+  return str.length > length ? `${str.substring(0, length)}...` : str;
+}
 
 export const filter = (
   object: Record<string, any>,
@@ -99,11 +103,9 @@ export const setFormError = <I extends FieldValues>(
           errorMessage = tForm('error.invalidInput');
           break;
         default:
+          // t('...') here is the form field label, ex: "Name required"
           errorMessage = tForm(errors[key][0], { field: t(key) });
           break;
-      }
-      if (key === "_root") {
-        errorMessage = tForm('error.invalidInput');
       }
  
       form.setError(key as FieldPath<I>, {
@@ -124,4 +126,7 @@ export const isCleanedString = (string: string | Record<string, any> | number): 
 };
 
 export const isServerActionLoading = (status: HookActionStatus): boolean => status === 'executing';
-export const hasServerActionFailed = (status: HookActionStatus): boolean => status === 'hasErrored';
+export const hasServerActionFailed = (status: HookActionStatus): boolean => {
+  if (!status) return false;
+  return status === 'hasErrored';
+};

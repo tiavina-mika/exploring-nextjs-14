@@ -10,6 +10,9 @@ const env = createEnv({
     SERVER: z.string().min(1),
     NODE_ENV: z.enum(['development', 'test', 'production']),
     PARSE_APP_ID: z.string(),
+    SERVER_URL: z.string().url(),
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -31,6 +34,9 @@ const env = createEnv({
     SERVER: process.env.SERVER,
     NODE_ENV: process.env.NODE_ENV,
     PARSE_APP_ID: process.env.PARSE_APP_ID,
+    SERVER_URL: process.env.SERVER_URL,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
 
     // -------- client -------- //
     NEXT_PUBLIC_CLIENT: process.env.NEXT_PUBLIC_CLIENT,

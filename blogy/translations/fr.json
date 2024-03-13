@@ -5,7 +5,20 @@
     "add": "Ajouter",
     "delete": "Supprimer",
     "save": "Enregistrer",
-    "required": "Obligatoire"
+    "required": "Obligatoire",
+    "name": "Nom",
+    "updatedAtDate": "Date de mise à jour",
+    "newest": "Le plus recent",
+    "confirm": "Confirmer"
+  },
+  "Contact": {
+    "email": "Email",
+    "emailSent": "Un email a été envoyé à votre adresse email",
+    "name": "Votre nom",
+    "message": "Message",
+    "send": "Envoyer",
+    "contactUs": "Contactez-nous",
+    "subject": "Formulaire de contact du site"
   },
   "Form": {
     "error": {
@@ -51,7 +64,8 @@
     "signUp": "Créer un compte",
     "login": "Se connecter",
     "logout": "Se déconnecter",
-    "profile": "Profil"
+    "profile": "Profil",
+    "contactUs": "Contactez-nous"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
@@ -98,6 +112,20 @@
     "titleError": "Le titre est obligatoire"
   },
   "Auth": {
+    "emailSent": "Un email a été envoyé à votre adresse email",
+    "request": "Demander",
+    "passwordResetRequest": "Demande de réinitialisation du mot de passe",
+    "returnTo": "Retour à la",
+    "connection": "Connexion",
+    "isAccountVerified": "Adresse email déjà vérifiée?",
+    "emailVerification": "Verification de l'email",
+    "verifyYourEmail": "Verifier votre email",
+    "enterCode": "Entrez le code que vous avez reçu par email",
+    "enterCodeReceivedByEmail": "Entrez le code que vous avez reçu par email",
+    "signUpWithGoogle": "Créer un compte avec Google",
+    "signInWithGoogle": "Se connecter avec Google",
+    "or": "OU",
+    "loginToYourAccount": "Se connecter à votre compte",
     "firstName": "Prénom",
     "lastName": "Nom",
     "sex": "Sexe",
@@ -169,6 +197,57 @@
       "passwordReset": "Nouveau password modifié",
       "passwordResetSuccess": "Mot de passe réinitialisé avec succès",
       "welcomeTo": "Bienvenu sur {{ app }}"
+    }
+  },
+  "User": {
+    "haveNoAccountYet": "Vous n'avez pas de compte?",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "createAnAccount": "Créer un compte",
+    "myProfile": "Mon profil",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter"
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Se connecter",
+      "metaDescription": "Connectez-vous à votre compte pour accéder à toutes les fonctionnalités de notre application."
+    },
+    "signUp": {
+      "metaTitle": "Créer un compte",
+      "metaDescription": "Créer facilement un compte à travers notre processus d'inscription intuitif."
+    },
+    "home": {
+      "metaTitle": "Accueil",
+      "metaDescription": "Blogy est une simple application web utilisant NextJs, elle sert de modèle open source pour les applications NextJs 14."
+    },
+    "profile": {
+      "metaTitle": "Mon profil",
+      "metaDescription": "Les infos sur mon profil"
+    },
+    "dashboard": {
+      "metaTitle": "Tableau de bord",
+      "metaDescription": "Mon espace personnel où je peux accéder à toutes mes données et gérer mon compte."
+    },
+    "articles": {
+      "metaTitle": "Mes articles",
+      "metaDescription": "Liste de tous les articles que j'ai écrits avec passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verifier le compte",
+      "metaDescription": "Verifier le compte en entrant le code envoyé par email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Mot de passe oublié",
+      "metaDescription": "Envoyer la demande de réinitialisation du mot de passe."
+    },
+    "resetPassword": {
+      "metaTitle": "Réinitialiser mot de passe",
+      "metaDescription": "Reinitialiser le mot de passe avec un nouveau."
+    },
+    "contact": {
+      "metaTitle": "Contactez-nous",
+      "metaDescription": "Contactez-nous pour obtenir de l'aide, des informations ou des suggestions. Le service {appName} se fera un plaisir de vous aider."
     }
   }
 }

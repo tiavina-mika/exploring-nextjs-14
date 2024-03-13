@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { collections } from '@/utils/constants';
 
-import { IServerResponse } from '@/types/app.type';
+import { IPaginationQuery, IServerResponse } from '@/types/app.type';
 import { IArticle } from '@/types/article.type';
 
 export const getArticle = async (
@@ -31,14 +31,30 @@ export const getArticle = async (
   }
 };
 
-export const getArticles = async (): Promise<IServerResponse<IArticle[]>> => {
+export const getArticles = async ({ limit, skip, field, order }: IPaginationQuery): Promise<IServerResponse<{ articles: IArticle[], count: number }>> => {
   try {
-    const query = new Parse.Query(collections.Article);
-    const articles = await query.find();
+    const query = new Parse.Query(collections.Article)
+      .limit(limit)
+      .skip(skip)
+    
+    if (field) {
+      if (order === 'asc') {
+        query.ascending(field);
+      } else {
+        query.descending(field);
+      }
+    }
+
+    const result = await query.withCount().find() as any;
+    const articles = result.results as Parse.Attributes[];
     const articlesJson = articles.map((article: Parse.Attributes) =>
       article.toJSON(),
     );
-    return articlesJson;
+
+    return {
+      articles: articlesJson,
+      count: result.count
+    };
   } catch (e) {
     return { error: (e as Error).message };
   }

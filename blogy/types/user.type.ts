@@ -1,5 +1,7 @@
 import { Attributes } from "parse";
+import { IUploadedFile } from "./app.type";
 
+export type IAuthProvider = "credentials" | "google"
 export interface IUser extends Attributes {
   objectId: string;
   email: string;
@@ -9,6 +11,8 @@ export interface IUser extends Attributes {
   firstName?: string;
   lastName: string;
   banned?: boolean;
+  image?: IUploadedFile;
+  authProvider?: IAuthProvider;
 }
 
 export enum PlatformEnum {

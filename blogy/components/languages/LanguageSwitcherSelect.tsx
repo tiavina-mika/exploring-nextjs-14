@@ -13,9 +13,11 @@ import Select from '../forms/inputs/Select';
 type Props = {
   defaultValue: Locale;
   options: ISelectOption<Locale>[];
+  className?: string;
+  inputClassName?: string;
 };
 
-const LanguageSwitcherSelect = ({ defaultValue, options }: Props) => {
+const LanguageSwitcherSelect = ({ defaultValue, options, className, inputClassName }: Props) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -25,6 +27,7 @@ const LanguageSwitcherSelect = ({ defaultValue, options }: Props) => {
       router.replace(pathname, { locale: value });
     });
   };
+  
   return (
     <Select
       onChange={onSelectChange}
@@ -32,7 +35,8 @@ const LanguageSwitcherSelect = ({ defaultValue, options }: Props) => {
       options={options}
       className={cn({
         'transition-opacity [&:disabled]:opacity-30': isPending,
-      })}
+      }, className)}
+      inputClassName={inputClassName}
     />
   );
 };

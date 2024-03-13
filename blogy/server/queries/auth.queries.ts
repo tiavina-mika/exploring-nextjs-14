@@ -31,15 +31,7 @@ export const getUser = async (
   }
 };
 
-export const getArticles = async (): Promise<IServerResponse<IArticle[]>> => {
-  try {
-    const query = new Parse.Query(collections.Article);
-    const articles = await query.find();
-    const articlesJson = articles.map((article: Parse.Attributes) =>
-      article.toJSON(),
-    );
-    return articlesJson;
-  } catch (e) {
-    return { error: (e as Error).message };
-  }
-};
+export const checkIfUserExists = async (email: string): Promise<boolean> => {
+  const isUserExists = await Parse.Cloud.run('checkIfUserExists', { email });
+  return isUserExists;
+}

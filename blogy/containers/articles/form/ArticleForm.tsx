@@ -4,9 +4,7 @@ import {
   createArticle,
   editArticle,
 } from '@/server/mutations/article.mutations';
-import { getArticle } from '@/server/queries/article.queries';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
@@ -17,20 +15,15 @@ import { ROUTES } from '@/config/routes';
 import { ArticleSchema } from '@/validations/article.validations';
 import { setFormError } from '@/utils/utils';
 
-import { IArticleInput } from '@/types/article.type';
+import { IArticle, IArticleInput } from '@/types/article.type';
 
 type Props = {
-  id?: string;
+  article?: IArticle;
 };
-const ArticleForm = ({ id }: Props) => {
+const ArticleForm = ({ article }: Props) => {
   const router = useRouter();
   const tForm = useTranslations('Form');
   const tArticle = useTranslations('Article');
-
-  const { data: article } = useQuery({
-    queryKey: ['article', id],
-    queryFn: (): any => id && getArticle(id, true),
-  });
 
   const form = useForm<IArticleInput>({
     resolver: zodResolver(ArticleSchema),
@@ -51,7 +44,7 @@ const ArticleForm = ({ id }: Props) => {
   const onSubmit = async (values: FormData) => {
     let data;
     // ------- action process ------- //
-    if (id) {
+    if (article) {
       // add the id to the form data values
       data = await editArticle(values);
     } else {
@@ -80,7 +73,7 @@ const ArticleForm = ({ id }: Props) => {
       primaryButtonText={tForm('save')}
     >
       {/* hide the id input */}
-      <input type="hidden" name="id" value={id} />
+      {article && <input type="hidden" name="id" value={article.id} />}
       <TextField name="title" label={tArticle('title')} required />
     </Form>
   );

@@ -1,14 +1,15 @@
 import TranslationClientProvider from '@/components/TranslationClientProvider';
 
 import ArticleForm from './ArticleForm';
+import { IArticle } from '@/types/article.type';
 
 type Props = {
-  id?: string;
+  article?: IArticle;
 };
-const ArticleFormProvider = ({ id }: Props) => {
+const ArticleFormProvider = ({ article }: Props) => {
   return (
     <TranslationClientProvider rootKeys={['Form', 'Article']}>
-      <ArticleForm id={id} />
+      <ArticleForm article={article} />
     </TranslationClientProvider>
   );
 };

@@ -30,9 +30,14 @@ const TextField = ({ name, label, description, ...inputProps }: Props) => {
       name={name}
       render={({ field }) => (
         <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
+          {label && <FormLabel>{label} {inputProps.required && '*'}</FormLabel>}
           <FormControl>
-            <Input {...inputProps} {...field} error={!!errors[name]?.message} />
+            <Input
+              {...inputProps}
+              {...field}
+              error={!!errors[name]?.message}
+              placeholder={inputProps.placeholder && inputProps.required ? `${inputProps.placeholder} *` : inputProps.placeholder}
+            />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
