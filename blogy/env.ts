@@ -41,7 +41,6 @@ const env = createEnv({
     // -------- client -------- //
     NEXT_PUBLIC_CLIENT: process.env.NEXT_PUBLIC_CLIENT,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-    
   },
 });
 
