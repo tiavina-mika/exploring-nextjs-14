@@ -1,4 +1,6 @@
+import { ContactSchema } from '@/validations/app.validations';
 import { Dayjs, extend } from 'dayjs';
+import { z } from 'zod';
 
 export interface ISelectOption<T = string> {
   value: T;
@@ -93,3 +95,6 @@ export interface ISort {
 }
 
 export interface ISearchParams extends Pick<IPagination, 'page'>, ISort {};
+
+export type IContactInput = z.infer<typeof ContactSchema>;
+
