@@ -14,6 +14,7 @@ const Logo = () => {
         width={62}
         height={22}
         className="dark:block hidden"
+        priority
       />
       {/* dark logo */}
       <Image
@@ -22,6 +23,7 @@ const Logo = () => {
         width={62}
         height={22}
         className="dark:hidden block"
+        priority
       />
     </TextLink>
   );
