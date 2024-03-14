@@ -4,6 +4,7 @@ import Title from "./typography/Title";
 import { siteConfig } from "@/config/site";
 import { useTranslations } from "next-intl";
 import Text from "./typography/Text";
+import LanguageSwitcher from "./languages/LanguageSwitcher";
 
 type ISocial = {
   label: string;
@@ -123,13 +124,21 @@ const Footer = () => {
                   <a href={siteConfig.social.website} className="hover:underline">Mik</a>. {t('allRightReserved')}.
                 </Text>
                 {/* socials */}
-                <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
                   {socials.map((social: ISocial) => (
                     <a key={social.id} href={(siteConfig.social as any)[social.id]} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                       {social.icon}
                     </a>
                   ))}
                 </div>
+                <div className="mt-4 md:mt-0">
+                  <LanguageSwitcher
+                    className="w-[120px]"
+                    inputClassName="border-none"
+                  />
+                </div>
+                {/* langage switcher */}
+
             </div>
         </div>
     </footer>
