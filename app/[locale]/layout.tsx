@@ -38,7 +38,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
     authors: [
       {
         name: siteConfig.author,
-        url: 'https://www.linkedin.com/in/tiavina-michael-ralainirina/',
+        url: siteConfig.social.linkedIn,
       },
     ],
     creator: siteConfig.author,
@@ -51,7 +51,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
       siteName: siteConfig.name,
     },
     icons: {
-      icon: '/icon.png',
+      icon: '/favicon.ico',
     },
     manifest: `${siteConfig.url}/site.webmanifest`,
   };
