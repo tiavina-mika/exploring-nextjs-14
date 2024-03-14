@@ -120,8 +120,8 @@ const Footer = () => {
             <hr className=" border-gray-200 dark:border-gray-700 lg:my-8 relative md:absolute md:left-0 md:right-0 md:bottom-10" />
 
             <div className="sm:flex sm:items-center sm:justify-between mt-4 md:mt-12">
-                <Text as="span" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}{" "}
-                  <a href={siteConfig.social.website} className="hover:underline">Mik</a>. {t('allRightReserved')}.
+                <Text as="span" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}.{" "}
+                  {t('allRightReserved')}.
                 </Text>
                 {/* socials */}
                 <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
