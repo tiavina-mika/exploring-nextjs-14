@@ -9,7 +9,11 @@
     "name": "Name",
     "updatedAtDate": "Updated at date",
     "newest": "Newest",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "allRightReserved": "All rights reserved",
+    "ourWebsite": "Our website",
+    "getInTouch": "Get in touch",
+    "legal": "Legal"
   },
   "Contact": {
     "email": "Email",
@@ -65,7 +69,9 @@
     "login": "Login",
     "logout": "Logout",
     "profile": "Profile",
-    "contactUs": "Contact us"
+    "contactUs": "Contact us",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "LanguageSwitcher": {
     "label": "Change language",

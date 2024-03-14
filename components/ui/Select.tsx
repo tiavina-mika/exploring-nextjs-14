@@ -30,9 +30,9 @@ const SelectTrigger = forwardRef<
     <SelectPrimitive.Icon asChild>
       <NextIcon
         alt=""
-        src="/icons/fa-caret-sort.svg"
-        width={7}
-        height={7}
+        src="/icons/chevron-down.svg"
+        width={16}
+        height={16}
         className="opacity-50"
       />
     </SelectPrimitive.Icon>
