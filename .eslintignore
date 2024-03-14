@@ -5,3 +5,4 @@ postcss.config.js
 next.config.js
 prettier.config.js
 middleware.ts
+backend/*
