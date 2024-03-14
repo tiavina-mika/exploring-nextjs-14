@@ -10,6 +10,7 @@ import { cn } from '@/utils/app.utils';
 
 import { ISelectOption } from '@/types/app.type';
 import { TextSizeType } from '@/types/component.type';
+import NextIcon from '@/components/NextIcon';
 
 type Props = {
   className?: string;
@@ -56,7 +57,10 @@ const Select = ({
         <SelectContent>
           {options.map((option) => (
             <SelectItem key={option.value} value={option.value}>
-              {option.label}
+              <div className="flex items-center">
+                {option.icon && <NextIcon alt={option.label} src={option.icon as string} width={12} height={12} className="mr-2" />}
+                {option.label}
+              </div>
             </SelectItem>
           ))}
         </SelectContent>
