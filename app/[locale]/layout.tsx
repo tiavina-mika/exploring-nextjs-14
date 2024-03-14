@@ -93,9 +93,7 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
             <main className="flex flex-col items-center justify-between min-h-screen">
               <div className="self-stretch flex flex-col items-center">
                 <NavBar isLoggedIn={!!session} className="self-stretch" />
-                <div className="max-w-screen-xl w-full py-8">
-                  {children}
-                </div>
+                {children}
               </div>
               <Footer />
             </main>
