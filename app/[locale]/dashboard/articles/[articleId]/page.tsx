@@ -15,6 +15,7 @@ const getCachedArticle = cache(async (articleId: string) => {
   const article = await getArticle(articleId) as Parse.Object | undefined;
   return article;
 })
+
 // ----------------------------- //
 // -------- metadata ----------- //
 // ----------------------------- //
