@@ -9,7 +9,12 @@ import { notFound } from 'next/navigation';
 import Text from '@/components/typography/Text';
 import Card from '@/components/Card';
 import { titleCase } from "string-ts";
+import { cache } from 'react';
 
+const getCachedArticle = cache(async (articleId: string) => {
+  const article = await getArticle(articleId) as Parse.Object | undefined;
+  return article;
+})
 // ----------------------------- //
 // -------- metadata ----------- //
 // ----------------------------- //
@@ -21,7 +26,7 @@ type Props = {
 };
 
 export const generateMetadata = async ({ params: { articleId }}: Props): Promise<Metadata> => {
-  const article = await getArticle(articleId) as Parse.Object | undefined;
+  const article = await getCachedArticle(articleId);
 
   if (!article) return {};
 
@@ -37,7 +42,7 @@ export const generateMetadata = async ({ params: { articleId }}: Props): Promise
 const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
   unstable_setRequestLocale(locale);
 
-  const article = await getArticle(articleId) as Parse.Object | undefined;
+  const article = await getCachedArticle(articleId);
 
   if (!article) {
     notFound();
@@ -61,7 +66,7 @@ const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
         <div className="flex flex-row gap-4">
           <Text as="span" className="font-medium">Title</Text>
           <Text as="span">{article.get('title')}</Text>
-        </div>  
+        </div>
       </Card>
     </div>
   );
