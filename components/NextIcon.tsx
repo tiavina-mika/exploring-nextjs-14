@@ -16,7 +16,6 @@ const NextIcon = ({
 }: Props) => (
   <Image
     {...props}
-    priority
     src={src}
     height={height}
     width={width}
