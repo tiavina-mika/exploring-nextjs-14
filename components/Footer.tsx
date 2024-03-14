@@ -50,9 +50,9 @@ const Footer = () => {
   const tNavBar = useTranslations('NavBar');
 
   return (
-    <footer className="self-stretch p-4 bg-white sm:p-6 dark:bg-gray-800 relative">
+    <footer className="self-stretch p-4 bg-white  dark:bg-gray-800 relative">
         {/* separator */}
-        <hr className=" border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:-top-12" />
+        <hr className=" border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:-top-8" />
         {/* content */}
         <div className="mx-auto max-w-screen-xl mt-4 md:mt-0">
             <div className="md:flex md:justify-between mb-4 md:mb-0">
@@ -117,7 +117,7 @@ const Footer = () => {
                 </div>
             </div>
             {/* separator */}
-            <hr className=" border-gray-200 dark:border-gray-700 lg:my-8 relative md:absolute md:left-0 md:right-0 md:bottom-8" />
+            <hr className=" border-gray-200 dark:border-gray-700 lg:my-8 relative md:absolute md:left-0 md:right-0 md:bottom-10" />
 
             <div className="sm:flex sm:items-center sm:justify-between mt-4 md:mt-12">
                 <Text as="span" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}{" "}
@@ -131,14 +131,13 @@ const Footer = () => {
                     </a>
                   ))}
                 </div>
+                {/* language switcher */}
                 <div className="mt-4 md:mt-0">
                   <LanguageSwitcher
                     className="w-[120px]"
                     inputClassName="border-none"
                   />
                 </div>
-                {/* langage switcher */}
-
             </div>
         </div>
     </footer>
