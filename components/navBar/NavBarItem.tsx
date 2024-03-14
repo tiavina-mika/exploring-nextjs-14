@@ -31,7 +31,7 @@ const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
         href={href}
         className={cn(
           {
-            'text-primary': isLinkActive(currentPath as string, href),
+            'text-primary dark:!text-primary': isLinkActive(currentPath as string, href),
           },
           className,
           'flex flex-row justify-between py-3 md:py-0'
