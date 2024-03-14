@@ -6,7 +6,6 @@ import { IMenu } from '@/types/app.type';
 
 import Logo from './Logo';
 import NavBarLinks from './NavBarLinks';
-import LanguageSwitcher from '../languages/LanguageSwitcher';
 import ToggleTheme from '../ToggleTheme';
 import AccountMenu from './AccountMenu';
 import TextLink from '../typography/TextLink';
@@ -132,10 +131,6 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
             ))}
 
           </div>
-          <LanguageSwitcher
-            className="w-[100px]"
-            inputClassName="border-gray-200"
-          />
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
         </div>
