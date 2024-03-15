@@ -73,20 +73,20 @@ const HomePage = ({ params: { locale } }: Props) => {
         </div>
       </header>
 
-      <Container as="section" className="flex items-center gap-9 min-h-[500px] md:px-20">
+      <Container as="section" className="flex items-center gap-9 min-h-[500px] md:px-20" withSpacingY={false}>
         {sections.map((section) => (
           <div key={section.title} className="flex flex-col gap-4 items-center">
-            <Title level="h2" className="md:text-center md:text-3xl font-bold">{section.title}</Title>
+            <Title level="h2" className="md:text-center md:text-3xl font-bold !leading-tight">{section.title}</Title>
             <Text className="md:text-center md:text-md">{section.description}</Text>
           </div>
         ))}
       </Container>
 
       <div className="flex md:justify-center bg-gray-200 self-stretch py-36">
-        <Container className="flex items-center gap-9" maxWidth="lg">
+        <Container className="flex items-center gap-9" maxWidth="lg" withSpacingY={false}>
           {/* left */}
           <div className="flex-1 stretchSelf flex flex-col md:items-center gap-6">
-            <Title level="h2" className="md:text-5xl font-bold">
+            <Title level="h2" className="md:text-5xl font-bold !leading-snug">
               A super interesting title here
             </Title>
             <Text className="text-xl">
