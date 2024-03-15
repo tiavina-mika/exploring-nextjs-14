@@ -4,6 +4,7 @@ import { Locale } from '@/config/i18n';
 import ArticleFormProvider from '@/containers/articles/form/ArticleFormProvider';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ROUTES } from '@/config/routes';
+import Container from '@/components/Container';
 
 type Props = {
   params: {
@@ -17,7 +18,7 @@ const AddArticlePage = async ({ params: { locale } }: Props) => {
   const t = await getTranslations('Article');
 
   return (
-    <div>
+    <Container className="flex justify-between items-center">
       <div className="flex justify-between items-center">
         <Breadcrumbs
           segments={[
@@ -35,7 +36,7 @@ const AddArticlePage = async ({ params: { locale } }: Props) => {
       <div>
         <ArticleFormProvider />
       </div>
-    </div>
+    </Container>
   );
 };
 
