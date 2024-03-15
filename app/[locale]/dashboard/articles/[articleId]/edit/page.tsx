@@ -10,6 +10,7 @@ import { ROUTES } from '@/config/routes';
 import { cache } from 'react';
 import { Metadata } from 'next';
 import { titleCase } from 'string-ts';
+import Container from '@/components/Container';
 
 const getCachedArticle = cache(async (articleId: string) => {
   const article = await getArticle(articleId, true) as IArticle | undefined;
@@ -50,7 +51,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
   }
 
   return (
-    <>
+    <Container>
       <div>
         <Breadcrumbs
           segments={[
@@ -68,7 +69,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
       <div>
         <ArticleFormProvider article={article as IArticle} />
       </div>
-    </>
+    </Container>
   );
 };
 
