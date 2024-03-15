@@ -12,6 +12,7 @@ const Schema = {
       .min(1, 'error.required')
       .max(100, 'error.tooLong'),
   ),
+  active: zfd.checkbox({ trueValue: "true" }),
 }
 export const ArticleSchema = zfd.formData(Schema);
 export const EditArticleSchema = zfd.formData({
