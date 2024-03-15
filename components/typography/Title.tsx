@@ -15,8 +15,11 @@ export const titleVariants = cva('font-primary', {
       error: 'text-error',
       info: 'text-info',
       warning: 'text-warning',
-      default: 'text-black',
+      default: 'text-default',
     },
+  },
+  defaultVariants: {
+    color: "default",
   },
 });
 // --------- types --------- //
