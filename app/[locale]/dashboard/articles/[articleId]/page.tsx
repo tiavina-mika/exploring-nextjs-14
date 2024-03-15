@@ -10,6 +10,7 @@ import Text from '@/components/typography/Text';
 import Card from '@/components/Card';
 import { titleCase } from "string-ts";
 import { cache } from 'react';
+import Container from '@/components/Container';
 
 const getCachedArticle = cache(async (articleId: string) => {
   const article = await getArticle(articleId) as Parse.Object | undefined;
@@ -50,7 +51,7 @@ const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <Container className="flex flex-col">
       <Breadcrumbs
         segments={[
           {
@@ -69,7 +70,7 @@ const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
           <Text as="span">{article.get('title')}</Text>
         </div>
       </Card>
-    </div>
+    </Container>
   );
 };
 
