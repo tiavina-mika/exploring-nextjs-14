@@ -14,7 +14,7 @@ export const theme = {
     },
     secondary: {
       light: '#c084fc',
-      DEFAULT: '#9333ea',
+      DEFAULT: '#00112c',
       dark: '#581c87',
 
       // shadcn
@@ -42,7 +42,11 @@ export const theme = {
       DEFAULT: '#2563eb',
       dark: '#1e40af',
     },
-
+    default: {
+      light: '#00112c',
+      DEFAULT: '#00112c',
+      dark: '#00112c',
+    },
     // shadcn theme
     border: 'hsl(var(--border))',
     input: 'hsl(var(--input))',
