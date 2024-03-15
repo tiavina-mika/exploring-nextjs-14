@@ -19,7 +19,7 @@ export const textVariants = cva('font-primary', {
       error: 'text-error',
       info: 'text-info',
       warning: 'text-warning',
-      default: 'text-black',
+      default: 'text-secondary',
     },
     size: {
       xl: 'text-xl',
@@ -69,7 +69,7 @@ export const textVariants = cva('font-primary', {
     {
       palette: 'dark',
       color: 'default',
-      class: 'text-black',
+      class: 'text-default',
     },
     // light
     {
@@ -105,7 +105,7 @@ export const textVariants = cva('font-primary', {
     {
       palette: 'light',
       color: 'default',
-      class: 'text-gray-400',
+      class: 'text-default-light',
     },
     // main
     {
@@ -141,9 +141,12 @@ export const textVariants = cva('font-primary', {
     {
       palette: 'main',
       color: 'default',
-      class: 'text-gray-600',
+      class: 'text-default',
     },
   ],
+  defaultVariants: {
+    color: "default",
+  },
 });
 // --------- types --------- //
 export type TextProps = {
