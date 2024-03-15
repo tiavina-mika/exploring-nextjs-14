@@ -14,7 +14,7 @@ import { getArticle } from '../queries/article.queries';
 import { ROUTES } from '@/config/routes';
 import { revalidatePath } from 'next/cache';
 
-const ARTICLE_PROPERTIES = new Set<string>(['title']);
+const ARTICLE_PROPERTIES = new Set<string>(['title', 'active']);
 
 const Article = Parse.Object.extend(collections.Article);
 
@@ -33,11 +33,15 @@ export const editArticle = action(EditArticleSchema,
   async (
     values,
   ): Promise<SafeAction<typeof EditArticleSchema, IArticle> | undefined> => {
+    console.log('editArticle values: ', values);
+
     const article = await getArticle(values.id);
-  
+
     if (!article) return;
-  
-    setValues(article, values, ARTICLE_PROPERTIES);
+
+    const newValues = { ...values, active: !!values.active };
+
+    setValues(article, newValues, ARTICLE_PROPERTIES);
     const savedArticle = await (article as Parse.Attributes).save();
 
     // reload cache
@@ -51,9 +55,9 @@ export const editArticle = action(EditArticleSchema,
 export const deleteArticle = action(idSchema,
   async (id): Promise<SafeAction<typeof idSchema, string> | undefined> => {
     const article = await getArticle(id);
-  
+
     if (!article) return;
-  
+
     const deletedArticle = await (article as Parse.Attributes).destroy();
 
     revalidatePath(ROUTES.articles.root);
