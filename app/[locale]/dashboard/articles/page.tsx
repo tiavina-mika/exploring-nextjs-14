@@ -16,6 +16,7 @@ import { ISearchParams, ISelectOption } from '@/types/app.type';
 import TextLink from '@/components/typography/TextLink';
 import Button from '@/components/buttons/Button';
 import NextIcon from '@/components/NextIcon';
+import Container from '@/components/Container';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -79,7 +80,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   }));
 
   return (
-    <div className="space-y-4">
+    <Container className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <Breadcrumbs
@@ -121,10 +122,10 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
             perPage={perPage}
             className="mt-4"
             searchParams={parsedSearchParams}
-          />   
+          />
         </>
       )}
-    </div>
+    </Container>
   );
 };
 
