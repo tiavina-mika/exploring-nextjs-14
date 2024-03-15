@@ -15,7 +15,7 @@ const Checkbox = forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      'peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+      'peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary-light data-[state=checked]:text-primary-foreground',
       className,
     )}
     {...props}
@@ -23,7 +23,7 @@ const Checkbox = forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn('flex items-center justify-center text-current')}
     >
-      <NextIcon alt="" src="/icons/check.svg" width={6} height={6} />
+      <NextIcon alt="" src="/icons/check.svg" width={9} height={9} />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));
