@@ -16,6 +16,14 @@ import { ArticleSchema } from '@/validations/article.validations';
 import { setFormError } from '@/utils/utils';
 
 import { IArticle, IArticleInput } from '@/types/article.type';
+import CheckboxField from '@/components/forms/fields/CheckboxField';
+
+const getInitialValues = (article: IArticle | undefined) => {
+  if (article) {
+    return { title: article.title, active: article.active };
+  }
+  return { active: false }
+};
 
 type Props = {
   article?: IArticle;
@@ -27,7 +35,7 @@ const ArticleForm = ({ article }: Props) => {
 
   const form = useForm<IArticleInput>({
     resolver: zodResolver(ArticleSchema),
-    defaultValues: article ? { title: article.title } : {},
+    defaultValues: getInitialValues(article),
   });
 
   // @issue: https://github.com/TheEdoRan/next-safe-action/issues/60
@@ -73,8 +81,9 @@ const ArticleForm = ({ article }: Props) => {
       primaryButtonText={tForm('save')}
     >
       {/* hide the id input */}
-      {article && <input type="hidden" name="id" value={article.id} />}
+      {article && <input type="hidden" name="id" value={article.objectId} />}
       <TextField name="title" label={tArticle('title')} required />
+      <CheckboxField name="active" label={tArticle('publish')} description={tArticle('publishDescription')} />
     </Form>
   );
 };
