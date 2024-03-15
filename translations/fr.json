@@ -98,6 +98,8 @@
     "empty": "Aucun article trouvé",
     "view": "Voir l'article",
     "back": "Retour à la liste des articles",
+    "publish": "Publier",
+    "publishDescription": "Les articles publiées s'affichent sur le site",
     "message": {
       "success": {
         "added": "Article ajouté avec succès.",
