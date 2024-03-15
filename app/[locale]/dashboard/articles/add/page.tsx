@@ -18,7 +18,7 @@ const AddArticlePage = async ({ params: { locale } }: Props) => {
   const t = await getTranslations('Article');
 
   return (
-    <Container className="flex justify-between items-center">
+    <Container className="flex flex-col">
       <div className="flex justify-between items-center">
         <Breadcrumbs
           segments={[
