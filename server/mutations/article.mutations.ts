@@ -13,7 +13,6 @@ import { getArticle } from '../queries/article.queries';
 import { ROUTES } from '@/config/routes';
 import { revalidatePath } from 'next/cache';
 import { idSchema } from '@/validations/app.validations';
-import { getSelectOptionValues } from '@/utils/utils';
 
 const ARTICLE_PROPERTIES = new Set<string>(['title', 'active', 'categories']);
 
@@ -22,13 +21,9 @@ const Article = Parse.Object.extend(collections.Article);
 export const createArticle = action(
   ArticleSchema,
   async (values): Promise<SafeAction<typeof ArticleSchema, IArticle>> => {
-    const newValues = {
-      ...values,
-      categories: getSelectOptionValues(values.categories),
-    }
     const article = new Article();
 
-    setValues(article, newValues, ARTICLE_PROPERTIES);
+    setValues(article, values, ARTICLE_PROPERTIES);
     const savedArticle = await article.save();
     return savedArticle.toJSON();
   },
@@ -46,7 +41,6 @@ export const editArticle = action(EditArticleSchema,
     const newValues = {
       ...values,
       active: !!values.active,
-      categories: getSelectOptionValues(values.categories)
     };
 
     setValues(article, newValues, ARTICLE_PROPERTIES);
