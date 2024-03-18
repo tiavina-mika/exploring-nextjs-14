@@ -78,6 +78,17 @@
     "locale": "{locale, select, fr {French} en {English} other {Unknown}}"
   },
   "Article": {
+    "categories": "Categories",
+    "philosophy": "Philosophy",
+    "science": "Science",
+    "technology": "Technology",
+    "geopolitics": "Geopolitics",
+    "sport": "Sport",
+    "religion": "Religion",
+    "history": "History",
+    "economy": "Economy",
+    "cinema": "Cinema",
+    "literature": "Literature",
     "title": "Title",
     "content": "Content",
     "author": "Author",
