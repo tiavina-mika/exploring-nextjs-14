@@ -3,7 +3,7 @@
 import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/Command';
 import { Command as CommandPrimitive, useCommandState } from 'cmdk';
 import { useEffect, forwardRef, Ref, useRef, useState, useImperativeHandle, useCallback, KeyboardEvent, useMemo, ComponentProps, ReactNode, ComponentPropsWithoutRef } from 'react';
-import { cn } from '@/utils/app.utils';
+import { cn, getSelectOptionByValue } from '@/utils/app.utils';
 import { Badge } from '@/components/ui/Badge';
 import NextIcon from '@/components/NextIcon';
 
@@ -116,11 +116,6 @@ const removePickedOption = (groupOption: GroupOption, picked: string[]) => {
     cloneOption[key] = value.filter((val) => !picked.find((p) => p === val.value));
   }
   return cloneOption;
-}
-
-const getOptionByValue = (options: IMultiOptionSelect[], value: string, key = "label") => {
-  const option = options.find((option: IMultiOptionSelect) => option.value === value);
-  return option ? option[key] : '';
 }
 
 /**
@@ -365,14 +360,14 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                     'data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground',
                     badgeClassName,
                   )}
-                  data-fixed={getOptionByValue(arrayOptions || [], option, 'fixed')}
+                  data-fixed={getSelectOptionByValue(arrayOptions || [], option, 'fixed')}
                   data-disabled={disabled}
                 >
-                  {getOptionByValue(arrayOptions || [], option)}
+                  {getSelectOptionByValue(arrayOptions || [], option)}
                   <button
                     className={cn(
                       'ml-2 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
-                      (disabled || getOptionByValue(arrayOptions || [], option, 'fixed')) && 'hidden',
+                      (disabled || getSelectOptionByValue(arrayOptions || [], option, 'fixed')) && 'hidden',
                     )}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
