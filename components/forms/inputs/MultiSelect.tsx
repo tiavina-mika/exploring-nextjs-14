@@ -21,7 +21,7 @@ interface GroupOption {
 }
 
 interface MultiSelectProps {
-  value?: IMultiOptionSelect[];
+  value?: string[];
   defaultOptions?: IMultiOptionSelect[];
   /** manually controlled options */
   options?: IMultiOptionSelect[];
@@ -39,7 +39,7 @@ interface MultiSelectProps {
   triggerSearchOnFocus?: boolean;
   /** async search */
   onSearch?: (value: string) => Promise<IMultiOptionSelect[]>;
-  onChange?: (options: IMultiOptionSelect[]) => void;
+  onChange?: (options: string[]) => void;
   /** Limit the maximum number of selected options. */
   maxSelected?: number;
   /** When the number of selected options exceeds the limit, the onMaxSelected will be called. */
@@ -70,7 +70,7 @@ interface MultiSelectProps {
 }
 
 export interface MultiSelectRef {
-  selectedValue: IMultiOptionSelect[];
+  selectedValue: string[];
   input: HTMLInputElement;
 }
 
@@ -109,13 +109,18 @@ const transToGroupOption = (options: IMultiOptionSelect[], groupBy?: string) => 
   return groupOption;
 }
 
-const removePickedOption = (groupOption: GroupOption, picked: IMultiOptionSelect[]) => {
+const removePickedOption = (groupOption: GroupOption, picked: string[]) => {
   const cloneOption = JSON.parse(JSON.stringify(groupOption)) as GroupOption;
 
   for (const [key, value] of Object.entries(cloneOption)) {
-    cloneOption[key] = value.filter((val) => !picked.find((p) => p.value === val.value));
+    cloneOption[key] = value.filter((val) => !picked.find((p) => p === val.value));
   }
   return cloneOption;
+}
+
+const getOptionByValue = (options: IMultiOptionSelect[], value: string, key = "label") => {
+  const option = options.find((option: IMultiOptionSelect) => option.value === value);
+  return option ? option[key] : '';
 }
 
 /**
@@ -176,7 +181,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
     const [open, setOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const [selected, setSelected] = useState<IMultiOptionSelect[]>(value || []);
+    const [selected, setSelected] = useState<string[]>(value || []);
     const [options, setOptions] = useState<GroupOption>(
       transToGroupOption(arrayDefaultOptions, groupBy),
     );
@@ -193,8 +198,8 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
     );
 
     const handleUnselect = useCallback(
-      (option: IMultiOptionSelect) => {
-        const newOptions = selected.filter((s) => s.value !== option.value);
+      (currentValue: string) => {
+        const newOptions = selected.filter((s) => s !== currentValue);
         setSelected(newOptions);
         onChange?.(newOptions);
       },
@@ -276,7 +281,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
               return;
             }
             setInputValue('');
-            const newOptions = [...selected, { value, label: value }];
+            const newOptions = [...selected, value];
             setSelected(newOptions);
             onChange?.(newOptions);
           }}
@@ -354,7 +359,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
             {selected.map((option) => {
               return (
                 <Badge
-                  key={option.value}
+                  key={option}
                   className={cn(
                     'data-[disabled]:bg-muted-foreground data-[disabled]:text-muted data-[disabled]:hover:bg-muted-foreground',
                     'data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground',
@@ -363,11 +368,11 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                   data-fixed={option.fixed}
                   data-disabled={disabled}
                 >
-                  {option.label}
+                  {getOptionByValue(arrayOptions || [], option)}
                   <button
                     className={cn(
                       'ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
-                      (disabled || option.fixed) && 'hidden',
+                      (disabled || getOptionByValue(arrayOptions || [], option, 'fixed')) && 'hidden',
                     )}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
@@ -447,7 +452,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                                   return;
                                 }
                                 setInputValue('');
-                                const newOptions = [...selected, option];
+                                const newOptions = [...selected, option.value];
                                 setSelected(newOptions);
                                 onChange?.(newOptions);
                               }}
