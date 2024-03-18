@@ -17,12 +17,25 @@ import { setFormError } from '@/utils/utils';
 
 import { IArticle, IArticleInput } from '@/types/article.type';
 import CheckboxField from '@/components/forms/fields/CheckboxField';
+import { useMemo } from 'react';
+import MultiSelectField from '@/components/forms/fields/MultiSelectField';
 
+// form initial values for creation or edition
 const getInitialValues = (article: IArticle | undefined) => {
+  // edition
   if (article) {
-    return { title: article.title, active: article.active };
+    return {
+      title: article.title,
+      active: article.active,
+      categories: article.categories || [],
+    };
   }
-  return { active: false }
+
+  // creation
+  return {
+    active: false,
+    categories: [],
+  }
 };
 
 type Props = {
@@ -38,6 +51,51 @@ const ArticleForm = ({ article }: Props) => {
     defaultValues: getInitialValues(article),
   });
 
+  const categoriesOptions = useMemo(() => {
+    return [
+      {
+        label: tArticle('philosophy'),
+        value: "philosophy",
+      },
+      {
+        label: tArticle('science'),
+        value: "science",
+      },
+      {
+        label: tArticle('technology'),
+        value: "technology",
+      },
+      {
+        label: tArticle('geopolitics'),
+        value: "geopolitics",
+      },
+      {
+        label: tArticle('sport'),
+        value: "sport",
+      },
+      {
+        label: tArticle('religion'),
+        value: "religion",
+      },
+      {
+        label: tArticle('history'),
+        value: "history",
+      },
+      {
+        label: tArticle('economy'),
+        value: "economy",
+      },
+      {
+        label: tArticle('cinema'),
+        value: "cinema",
+      },
+      {
+        label: tArticle('literature'),
+        value: "literature",
+      },
+    ]
+  }, [tArticle])
+
   // @issue: https://github.com/TheEdoRan/next-safe-action/issues/60
   // this working for creation but not with edition (with .bind(null, id))
   // const { execute: onCreate } = useAction(createArticle, {
@@ -49,12 +107,12 @@ const ArticleForm = ({ article }: Props) => {
   //   },
   // });
 
-  const onSubmit = async (values: FormData) => {
+  const onSubmit = async (values: IArticleInput) => {
     let data;
     // ------- action process ------- //
     if (article) {
       // add the id to the form data values
-      data = await editArticle(values);
+      data = await editArticle({ ...values, id: article.objectId });
     } else {
       data = await createArticle(values);
     }
@@ -76,14 +134,14 @@ const ArticleForm = ({ article }: Props) => {
   return (
     <Form
       form={form}
-      // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
+      schema={ArticleSchema}
       action={onSubmit}
       primaryButtonText={tForm('save')}
     >
       {/* hide the id input */}
-      {article && <input type="hidden" name="id" value={article.objectId} />}
       <TextField name="title" label={tArticle('title')} required />
       <CheckboxField name="active" label={tArticle('publish')} description={tArticle('publishDescription')} />
+      <MultiSelectField name="categories" label={tArticle('categories')} options={categoriesOptions} />
     </Form>
   );
 };
