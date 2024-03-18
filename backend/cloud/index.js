@@ -3,7 +3,7 @@ Parse.Cloud.define('checkIfUserExists', async (request) => {
   const user = await new Parse.Query(Parse.User)
     .equalTo('username', email)
     .first({ useMasterKey: true });
-  
+
   return !!user;
 });
 
@@ -14,3 +14,7 @@ Parse.Cloud.define('getUserByAuthId', async (request) => {
     .first({ useMasterKey: true });
   return user;
 });
+
+// Parse.Cloud.beforeSave('Article', async (request) => {
+//   throw new Error('articleSave');
+// });
