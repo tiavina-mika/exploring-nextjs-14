@@ -23,3 +23,11 @@ export const ContactSchema = zfd.formData(
     ),
   })
 );
+
+export const MultipleSelectSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+  disable: z.boolean().optional(),
+});
+
+export const idSchema = z.string({ errorMap }).min(1, 'error.dataNotExist');
