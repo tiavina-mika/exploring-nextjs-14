@@ -5,6 +5,8 @@ import ArticleFormProvider from '@/containers/articles/form/ArticleFormProvider'
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ROUTES } from '@/config/routes';
 import Container from '@/components/Container';
+import TranslationClientProvider from '@/components/TranslationClientProvider';
+import ArticleMoreMenus from '@/containers/articles/ArticleMoreMenus';
 
 type Props = {
   params: {
@@ -32,6 +34,11 @@ const AddArticlePage = async ({ params: { locale } }: Props) => {
             },
           ]}
         />
+
+        {/* pass the translated key from the server to a client component */}
+        <TranslationClientProvider rootKeys={['Common', 'Article']}>
+          <ArticleMoreMenus currentAction="create" />
+        </TranslationClientProvider>
       </div>
       <div>
         <ArticleFormProvider />
