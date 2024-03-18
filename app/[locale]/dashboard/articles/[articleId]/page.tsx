@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import { Locale } from '@/config/i18n';
 import { Metadata } from 'next';
@@ -11,6 +11,8 @@ import Card from '@/components/Card';
 import { titleCase } from "string-ts";
 import { cache } from 'react';
 import Container from '@/components/Container';
+import { getArticleCategoriesOptions } from '@/utils/article.utils';
+import { getSelectOptionByValue } from '@/utils/app.utils';
 
 const getCachedArticle = cache(async (articleId: string) => {
   const article = await getArticle(articleId) as Parse.Object | undefined;
@@ -43,12 +45,16 @@ export const generateMetadata = async ({ params: { articleId }}: Props): Promise
 // ----------------------------- //
 const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
   unstable_setRequestLocale(locale);
+  const t = await getTranslations('Article');
 
   const article = await getCachedArticle(articleId);
 
   if (!article) {
     notFound();
   }
+
+  const categoriesOptions = getArticleCategoriesOptions(t);
+  const categories = article.get('categories')?.map((category: string) => getSelectOptionByValue(categoriesOptions, category, 'label'))
 
   return (
     <Container className="flex flex-col">
@@ -64,11 +70,17 @@ const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
           },
         ]}
       />
-      <Card>
-        <div className="flex flex-row gap-4">
-          <Text as="span" className="font-medium">Title</Text>
+      <Card className="md:w-full self-stretch" contentClassName="space-y-3">
+        <div className="flex flex-row items-center gap-6">
+          <Text as="span" className="font-bold">{t('title')}</Text>
           <Text as="span">{article.get('title')}</Text>
         </div>
+        {article.has('categories') && article.get('categories').length > 0 && (
+          <div className="flex flex-row items-center gap-12">
+            <Text as="span" className="font-bold">{t('categories')}</Text>
+            <Text as="span">{categories.join(', ')}</Text>
+          </div>
+        )}
       </Card>
     </Container>
   );
