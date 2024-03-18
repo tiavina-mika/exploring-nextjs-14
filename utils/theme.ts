@@ -1,4 +1,3 @@
-import { alertVariants } from '../components/Alert';
 // tailwindcss default theme: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js#L773
 const defaultTheme = require('tailwindcss/defaultTheme');
 
