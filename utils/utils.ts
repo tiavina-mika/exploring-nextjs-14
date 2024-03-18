@@ -130,5 +130,3 @@ export const hasServerActionFailed = (status: HookActionStatus): boolean => {
   if (!status) return false;
   return status === 'hasErrored';
 };
-
-export const getSelectOptionValues = (options: ISelectOption[]) => options.map((option: ISelectOption) => option.value)
