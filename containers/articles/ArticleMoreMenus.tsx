@@ -57,11 +57,6 @@ const ArticleMoreMenus = ({ articleId, currentAction }: Props) => {
         onClick: () => goToEdition(articleId),
         id: 'edit',
       },
-      {
-        label: t('deleteSomething', { value: tArticle('theArticle') }),
-        onClick: () => goToEdition(articleId),
-        id: 'delete'
-      },
       ...defaultOptions,
     ];
 
