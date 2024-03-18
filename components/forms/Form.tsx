@@ -4,6 +4,7 @@ import { Form as FormProvider } from '@/components/ui/Form';
 import { cn } from '@/utils/app.utils';
 
 import FormSubmitButton from './FormSubmitButton';
+import { Schema } from 'zod';
 
 type Props = {
   formId?: string;
@@ -16,7 +17,31 @@ type Props = {
   className?: string;
   disabled?: boolean;
   loading?: boolean;
+  schema: Schema<any, any>,
 };
+
+/**
+ * use dual onSubmit and action to handle form submission
+ * when the form is valid, the action will be called, else the onSubmit will be called
+ * validate the form when submitting the form (with form.trigger() or schema.safeParse())
+ * @issue: https://github.com/react-hook-form/react-hook-form/issues/10391
+ * @param param0
+ * @returns
+ */
+const getOtherProps = ({ form, action, schema, onSubmit }: Pick<Props, 'form' | 'action' | 'schema' | 'onSubmit'>) => {
+  // once the form is valid, return the action (server action)
+  if (form.formState.isValid && action) {
+    return {
+      // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
+      action: () => action(schema.parse(form.getValues())),
+    }
+  }
+
+  // client side submit
+  return {
+    onSubmit: onSubmit || form.handleSubmit(() => {})
+  }
+}
 
 const Form = ({
   formId,
@@ -28,15 +53,15 @@ const Form = ({
   className,
   buttonClassName,
   loading,
+  schema,
   disabled = false,
 }: Props) => {
   return (
     <FormProvider {...form}>
       <form
-        onSubmit={onSubmit}
-        action={action}
         id={formId}
         className={cn('space-y-6', className)}
+        {...getOtherProps({ form, action, schema, onSubmit })}
       >
         {children}
 
