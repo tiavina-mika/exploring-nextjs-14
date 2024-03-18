@@ -1,25 +1,18 @@
-import { string } from 'zod';
-import { zfd } from 'zod-form-data';
+import { array, boolean, object, string } from 'zod';
 
 import { errorMap } from '@/config/zod';
+import { MultipleSelectSchema, idSchema } from './app.validations';
 
-// the main schema used for creation and edition
-const Schema = {
-  title: zfd.text(
-    string({ errorMap })
-      // .min(1, tForm('error.required', { field: tArticle('title') }))
-      // .max(3, tForm('error.max', { field: tArticle('title'), number: 75 })),
-      .min(1, 'error.required')
-      .max(100, 'error.tooLong'),
-  ),
-  active: zfd.checkbox({ trueValue: "true" }),
-}
-export const ArticleSchema = zfd.formData(Schema);
-export const EditArticleSchema = zfd.formData({
-  ...Schema,
+export const ArticleSchema = object({
+	title: string({ errorMap })
+      .min(1, 'error.required'),
+  active: boolean().optional(),
+	categories: array(MultipleSelectSchema).min(1, "error.required")
+})
+
+export const EditArticleSchema = ArticleSchema.extend({
   // add id to edit in form values
-  // the name should be id beacause we need it in the error key translated message
-  id: zfd.text(string({ errorMap }).min(1, 'error.dataNotExist')),
+  // the name should be exactly "id" because we need it in the error key translated message
+  id: idSchema,
 });
 
-export const idSchema = string({ errorMap }).min(1, 'error.dataNotExist');
