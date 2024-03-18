@@ -95,6 +95,7 @@ const ArticleForm = ({ article }: Props) => {
       schema={ArticleSchema}
       action={onSubmit}
       primaryButtonText={tForm('save')}
+      useFormData={false}
     >
       {/* hide the id input */}
       <TextField name="title" label={tArticle('title')} required />
