@@ -37,14 +37,16 @@ const ArticleMoreMenus = ({ articleId, currentAction }: Props) => {
       {
         label: t('returnToList'),
         onClick: goToList,
+        id: 'list'
       },
       {
         label: t('addSomething', { value: tArticle('anArticle') }),
         onClick: goToCreation,
+        id: 'create'
       },
     ];
 
-    if (!articleId) return defaultOptions;
+    if (!articleId) return defaultOptions.filter((option) => (option as any).id !== currentAction);
 
     const options = [
       {
