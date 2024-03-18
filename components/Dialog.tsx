@@ -9,10 +9,11 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/Dialog"
+import { DialogProps } from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import { ReactNode } from "react"
 
-type Props = {
+export type CustomDialogProps = {
   children: ReactNode;
   title?: boolean;
   description?: boolean;
@@ -20,12 +21,13 @@ type Props = {
   confirmButtonText?: string;
   withCancelButton?: boolean;
   trigger?: ReactNode;
-}
-const Dialog = ({ children, title, description, trigger, cancelButtonText, confirmButtonText, withCancelButton = true }: Props) => {
+} & DialogProps;
+
+const Dialog = ({ children, title, description, trigger, cancelButtonText, confirmButtonText, withCancelButton = true, ...props }: CustomDialogProps) => {
   const t = useTranslations("Common");
 
   return (
-    <UIDialog>
+    <UIDialog {...props}>
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
