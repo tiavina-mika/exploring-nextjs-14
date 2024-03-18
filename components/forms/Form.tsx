@@ -17,7 +17,9 @@ type Props = {
   className?: string;
   disabled?: boolean;
   loading?: boolean;
-  schema: Schema<any, any>,
+  schema?: Schema<any, any>;
+  // use form data (from form action) instead of form.getValues()
+  useFormData?: boolean;
 };
 
 /**
@@ -28,12 +30,14 @@ type Props = {
  * @param param0
  * @returns
  */
-const getOtherProps = ({ form, action, schema, onSubmit }: Pick<Props, 'form' | 'action' | 'schema' | 'onSubmit'>) => {
+const getOtherProps = ({ form, action, schema, onSubmit, useFormData }: Pick<Props, 'form' | 'action' | 'schema' | 'onSubmit' | 'useFormData'>) => {
+  if (useFormData && action) return { action };
+
   // once the form is valid, return the action (server action)
-  if (form.formState.isValid && action) {
+  if (form.formState.isValid) {
     return {
       // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
-      action: () => action(schema.parse(form.getValues())),
+      action: () => action(schema?.parse(form.getValues())),
     }
   }
 
@@ -54,6 +58,7 @@ const Form = ({
   buttonClassName,
   loading,
   schema,
+  useFormData = true,
   disabled = false,
 }: Props) => {
   return (
@@ -61,7 +66,7 @@ const Form = ({
       <form
         id={formId}
         className={cn('space-y-6', className)}
-        {...getOtherProps({ form, action, schema, onSubmit })}
+        {...getOtherProps({ form, action, schema, onSubmit, useFormData })}
       >
         {children}
 

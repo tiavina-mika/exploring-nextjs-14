@@ -3,7 +3,7 @@
 import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/Command';
 import { Command as CommandPrimitive, useCommandState } from 'cmdk';
 import { useEffect, forwardRef, Ref, useRef, useState, useImperativeHandle, useCallback, KeyboardEvent, useMemo, ComponentProps, ReactNode, ComponentPropsWithoutRef } from 'react';
-import { cn } from '@/utils/app.utils';
+import { cn, getSelectOptionByValue } from '@/utils/app.utils';
 import { Badge } from '@/components/ui/Badge';
 import NextIcon from '@/components/NextIcon';
 
@@ -21,7 +21,7 @@ interface GroupOption {
 }
 
 interface MultiSelectProps {
-  value?: IMultiOptionSelect[];
+  value?: string[];
   defaultOptions?: IMultiOptionSelect[];
   /** manually controlled options */
   options?: IMultiOptionSelect[];
@@ -39,7 +39,7 @@ interface MultiSelectProps {
   triggerSearchOnFocus?: boolean;
   /** async search */
   onSearch?: (value: string) => Promise<IMultiOptionSelect[]>;
-  onChange?: (options: IMultiOptionSelect[]) => void;
+  onChange?: (options: string[]) => void;
   /** Limit the maximum number of selected options. */
   maxSelected?: number;
   /** When the number of selected options exceeds the limit, the onMaxSelected will be called. */
@@ -70,7 +70,7 @@ interface MultiSelectProps {
 }
 
 export interface MultiSelectRef {
-  selectedValue: IMultiOptionSelect[];
+  selectedValue: string[];
   input: HTMLInputElement;
 }
 
@@ -109,11 +109,11 @@ const transToGroupOption = (options: IMultiOptionSelect[], groupBy?: string) => 
   return groupOption;
 }
 
-const removePickedOption = (groupOption: GroupOption, picked: IMultiOptionSelect[]) => {
+const removePickedOption = (groupOption: GroupOption, picked: string[]) => {
   const cloneOption = JSON.parse(JSON.stringify(groupOption)) as GroupOption;
 
   for (const [key, value] of Object.entries(cloneOption)) {
-    cloneOption[key] = value.filter((val) => !picked.find((p) => p.value === val.value));
+    cloneOption[key] = value.filter((val) => !picked.find((p) => p === val.value));
   }
   return cloneOption;
 }
@@ -176,7 +176,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
     const [open, setOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const [selected, setSelected] = useState<IMultiOptionSelect[]>(value || []);
+    const [selected, setSelected] = useState<string[]>(value || []);
     const [options, setOptions] = useState<GroupOption>(
       transToGroupOption(arrayDefaultOptions, groupBy),
     );
@@ -193,8 +193,8 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
     );
 
     const handleUnselect = useCallback(
-      (option: IMultiOptionSelect) => {
-        const newOptions = selected.filter((s) => s.value !== option.value);
+      (currentValue: string) => {
+        const newOptions = selected.filter((s) => s !== currentValue);
         setSelected(newOptions);
         onChange?.(newOptions);
       },
@@ -276,7 +276,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
               return;
             }
             setInputValue('');
-            const newOptions = [...selected, { value, label: value }];
+            const newOptions = [...selected, value];
             setSelected(newOptions);
             onChange?.(newOptions);
           }}
@@ -351,23 +351,23 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
           )}
         >
           <div className="flex flex-wrap gap-1">
-            {selected.map((option) => {
+            {selected.length > 0 && selected.map((option) => {
               return (
                 <Badge
-                  key={option.value}
+                  key={option}
                   className={cn(
                     'data-[disabled]:bg-muted-foreground data-[disabled]:text-muted data-[disabled]:hover:bg-muted-foreground',
                     'data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground',
                     badgeClassName,
                   )}
-                  data-fixed={option.fixed}
+                  data-fixed={getSelectOptionByValue(arrayOptions || [], option, 'fixed')}
                   data-disabled={disabled}
                 >
-                  {option.label}
+                  {getSelectOptionByValue(arrayOptions || [], option)}
                   <button
                     className={cn(
-                      'ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
-                      (disabled || option.fixed) && 'hidden',
+                      'ml-2 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
+                      (disabled || getSelectOptionByValue(arrayOptions || [], option, 'fixed')) && 'hidden',
                     )}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
@@ -382,9 +382,9 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                   >
                     <NextIcon
                       alt="close"
-                      width={6}
-                      height={6}
-                      src="/icons/x2.svg"
+                      width={16}
+                      height={16}
+                      src="/icons/x2-white.svg"
                       className="text-muted-foreground hover:text-foreground"
                     />
                   </button>
@@ -412,7 +412,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
               }}
               placeholder={hidePlaceholderWhenSelected && selected.length !== 0 ? '' : placeholder}
               className={cn(
-                'ml-2 flex-1 bg-transparent outline-none placeholder:text-muted-foreground',
+                'ml-2 flex-1 bg-transparent outline-none placeholder:text-muted-foreground border-none focus:ring-0',
                 inputProps?.className,
               )}
             />
@@ -420,7 +420,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
         </div>
         <div className="relative mt-2">
           {open && (
-            <CommandList className="absolute top-0 z-10 w-full rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+            <CommandList className="absolute top-0 z-10 w-full rounded-md border bg-white dark:bg-default text-popover-foreground shadow-md outline-none animate-in">
               {isLoading ? (
                 <>{loadingIndicator}</>
               ) : (
@@ -447,7 +447,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                                   return;
                                 }
                                 setInputValue('');
-                                const newOptions = [...selected, option];
+                                const newOptions = [...selected, option.value];
                                 setSelected(newOptions);
                                 onChange?.(newOptions);
                               }}

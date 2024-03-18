@@ -11,6 +11,8 @@ import { cache } from 'react';
 import { Metadata } from 'next';
 import { titleCase } from 'string-ts';
 import Container from '@/components/Container';
+import TranslationClientProvider from '@/components/TranslationClientProvider';
+import ArticleMoreMenus from '@/containers/articles/ArticleMoreMenus';
 
 const getCachedArticle = cache(async (articleId: string) => {
   const article = await getArticle(articleId, true) as IArticle | undefined;
@@ -52,7 +54,7 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
 
   return (
     <Container>
-      <div>
+      <div className="self-stretch flex flex-row justify-between">
         <Breadcrumbs
           segments={[
             {
@@ -65,6 +67,11 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
             },
           ]}
         />
+
+        {/* pass the translated key from the server to a client component */}
+        <TranslationClientProvider rootKeys={['Common', 'Article']}>
+          <ArticleMoreMenus articleId={article.objectId} currentAction="edit" />
+        </TranslationClientProvider>
       </div>
       <div>
         <ArticleFormProvider article={article as IArticle} />

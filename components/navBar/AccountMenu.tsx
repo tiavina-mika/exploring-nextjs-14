@@ -10,9 +10,9 @@ import { ROUTES } from "@/config/routes";
 
 /**
  * add redirect query to logout url
- * @param menu 
- * @param fullUrl 
- * @returns 
+ * @param menu
+ * @param fullUrl
+ * @returns
  */
 const getRedirectionUrl = (menu: IMenu, fullUrl: string): IMenu['value'] => {
   // add the current (full) url to redirect to it after logout
@@ -31,7 +31,7 @@ const AccountMenu = ({ menus }: Props) => {
   const pathname = usePathname() as string;
   const params = useParams() as Record<string, string>;
   const currentFullUrl = getTranslatedAbsoluteUrl(pathname, params);
-  
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="hidden md:block !focus-visible:ring-transparent">
@@ -44,7 +44,7 @@ const AccountMenu = ({ menus }: Props) => {
           className="mr-2 text-muted-foreground/70 focus-visible:ring-transparent"
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="px-4 py-3">
+      <DropdownMenuContent className="px-4 py-3" onCloseAutoFocus={(e) => e.preventDefault()}>
         {menus.map((menu: IMenu, index: number) => (
           <Fragment key={index}>
             {menu.id === "logout" && <DropdownMenuSeparator />}

@@ -1,13 +1,13 @@
 import { array, boolean, object, string } from 'zod';
 
 import { errorMap } from '@/config/zod';
-import { MultipleSelectSchema, idSchema } from './app.validations';
+import { idSchema } from './app.validations';
 
 export const ArticleSchema = object({
 	title: string({ errorMap })
       .min(1, 'error.required'),
   active: boolean().optional(),
-	categories: array(MultipleSelectSchema).min(1, "error.required")
+	categories: array(string()).min(1, "error.required")
 })
 
 export const EditArticleSchema = ArticleSchema.extend({
