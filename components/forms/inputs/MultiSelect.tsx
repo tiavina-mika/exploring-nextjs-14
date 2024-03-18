@@ -356,7 +356,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
           )}
         >
           <div className="flex flex-wrap gap-1">
-            {selected.map((option) => {
+            {selected.length > 0 && selected.map((option) => {
               return (
                 <Badge
                   key={option}
@@ -365,13 +365,13 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                     'data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground',
                     badgeClassName,
                   )}
-                  data-fixed={option.fixed}
+                  data-fixed={getOptionByValue(arrayOptions || [], option, 'fixed')}
                   data-disabled={disabled}
                 >
                   {getOptionByValue(arrayOptions || [], option)}
                   <button
                     className={cn(
-                      'ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
+                      'ml-2 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2',
                       (disabled || getOptionByValue(arrayOptions || [], option, 'fixed')) && 'hidden',
                     )}
                     onKeyDown={(e) => {
@@ -387,9 +387,9 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                   >
                     <NextIcon
                       alt="close"
-                      width={6}
-                      height={6}
-                      src="/icons/x2.svg"
+                      width={16}
+                      height={16}
+                      src="/icons/x2-white.svg"
                       className="text-muted-foreground hover:text-foreground"
                     />
                   </button>
@@ -417,7 +417,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
               }}
               placeholder={hidePlaceholderWhenSelected && selected.length !== 0 ? '' : placeholder}
               className={cn(
-                'ml-2 flex-1 bg-transparent outline-none placeholder:text-muted-foreground',
+                'ml-2 flex-1 bg-transparent outline-none placeholder:text-muted-foreground border-none focus:ring-0',
                 inputProps?.className,
               )}
             />
@@ -425,7 +425,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
         </div>
         <div className="relative mt-2">
           {open && (
-            <CommandList className="absolute top-0 z-10 w-full rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+            <CommandList className="absolute top-0 z-10 w-full rounded-md border bg-white dark:bg-default text-popover-foreground shadow-md outline-none animate-in">
               {isLoading ? (
                 <>{loadingIndicator}</>
               ) : (
