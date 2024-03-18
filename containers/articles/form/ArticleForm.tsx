@@ -19,6 +19,7 @@ import { IArticle, IArticleInput } from '@/types/article.type';
 import CheckboxField from '@/components/forms/fields/CheckboxField';
 import { useMemo } from 'react';
 import MultiSelectField from '@/components/forms/fields/MultiSelectField';
+import { getArticleCategoriesOptions } from '@/utils/article.utils';
 
 // form initial values for creation or edition
 const getInitialValues = (article: IArticle | undefined) => {
@@ -51,50 +52,7 @@ const ArticleForm = ({ article }: Props) => {
     defaultValues: getInitialValues(article),
   });
 
-  const categoriesOptions = useMemo(() => {
-    return [
-      {
-        label: tArticle('philosophy'),
-        value: "philosophy",
-      },
-      {
-        label: tArticle('science'),
-        value: "science",
-      },
-      {
-        label: tArticle('technology'),
-        value: "technology",
-      },
-      {
-        label: tArticle('geopolitics'),
-        value: "geopolitics",
-      },
-      {
-        label: tArticle('sport'),
-        value: "sport",
-      },
-      {
-        label: tArticle('religion'),
-        value: "religion",
-      },
-      {
-        label: tArticle('history'),
-        value: "history",
-      },
-      {
-        label: tArticle('economy'),
-        value: "economy",
-      },
-      {
-        label: tArticle('cinema'),
-        value: "cinema",
-      },
-      {
-        label: tArticle('literature'),
-        value: "literature",
-      },
-    ]
-  }, [tArticle])
+  const categoriesOptions = getArticleCategoriesOptions(tArticle)
 
   // @issue: https://github.com/TheEdoRan/next-safe-action/issues/60
   // this working for creation but not with edition (with .bind(null, id))
