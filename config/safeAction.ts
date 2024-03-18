@@ -12,6 +12,7 @@ const handleReturnedServerError = async (e: Error) => {
 
   if (e instanceof Parse.Error) {
     // the message from the server should be a translation key
+    // that will be translated on the client
     return t(e.message as any);
   }
 
