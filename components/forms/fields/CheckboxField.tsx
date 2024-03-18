@@ -21,7 +21,6 @@ type Props = {
 const CheckboxField = ({ name, label, description }: Props) => {
   const {
     control,
-    formState: { errors },
   } = useFormContext();
 
   return (
@@ -40,9 +39,8 @@ const CheckboxField = ({ name, label, description }: Props) => {
           <div className="space-y-2 leading-none">
             {label && <FormLabel>{label}</FormLabel>}
             {description && <FormDescription>{description}</FormDescription>}
-            {errors[name] && <FormDescription className="text-error dark:text-error-light">{(errors as any)[name]?.message}</FormDescription>}
+            <FormMessage />
           </div>
-          <FormMessage />
         </FormItem>
       )}
     />
