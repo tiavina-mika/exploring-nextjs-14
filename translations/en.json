@@ -13,7 +13,13 @@
     "allRightReserved": "All rights reserved",
     "ourWebsite": "Our website",
     "getInTouch": "Get in touch",
-    "legal": "Legal"
+    "legal": "Legal",
+    "cancel": "Cancel",
+    "addSomething": "Add {value}",
+    "seeSomething": "See {value}",
+    "editSomething": "Edit {value}",
+    "deleteSomething": "Delete {value}",
+    "returnToList": "Return to list"
   },
   "Contact": {
     "email": "Email",
@@ -78,6 +84,8 @@
     "locale": "{locale, select, fr {French} en {English} other {Unknown}}"
   },
   "Article": {
+    "anArticle": "an article",
+    "theArticle": "the article",
     "categories": "Categories",
     "philosophy": "Philosophy",
     "science": "Science",
