@@ -14,6 +14,11 @@ export interface IMenuItem {
   id?: string;
 }
 
+export interface IInfo {
+  title: string;
+  description: string;
+  icon?: string;
+}
 export interface IDynamicRouteParams {
   pathname: 'string';
   params: Record<string, string>;
