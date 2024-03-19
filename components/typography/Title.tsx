@@ -41,7 +41,18 @@ const Title = forwardRef<
   ) => (
     <Heading
       ref={ref}
-      className={cn(titleVariants({ color }), className, 'dark:text-white')}
+      className={cn(
+        titleVariants({ color }),
+        className,
+        'dark:text-white',
+        {
+          'text-xl': Heading === 'h1',
+          'text-lg': Heading === 'h2',
+          'text-base': Heading === 'h3',
+          'text-sm': Heading === 'h4' || Heading === 'h5',
+          'text-xs': Heading === 'h6',
+        }
+      )}
       {...props}
     >
       {children}
