@@ -3,22 +3,13 @@ import env from '@/env';
 import { IListFilter, IPaginationQuery } from '@/types/app.type';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { COOKIES } from './constants';
-import { Locale, defaultLocale } from '@/config/i18n';
 import { ITranslatedPathnames, ROUTES, translatedRoutes } from '@/config/routes';
 import { IMultiOptionSelect } from '@/components/forms/inputs/MultiSelect';
+import { getCurrentLocale } from './translation.utils';
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
-/**
- * get current local from cookies, url or default config
- * @param defaultLocal
- * @returns
- */
-const getCurrentLocale = (defaultLocal?: Locale | undefined | string) => {
-  const locale = defaultLocal || getCookie(COOKIES.locale) || defaultLocale;
-  return locale;
-}
+
 
 export const getAbsoluteUrl = (path?: string): string => {
   return `${env.NEXT_PUBLIC_APP_URL}${path}`;
