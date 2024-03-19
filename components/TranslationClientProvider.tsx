@@ -2,35 +2,13 @@
 
 import { ReactNode } from 'react';
 
-import en from '@/translations/en.json';
-import fr from '@/translations/fr.json';
-import pick from 'lodash/pick';
 import {
-  AbstractIntlMessages,
   NextIntlClientProvider,
   useLocale,
 } from 'next-intl';
 
-import { defaultLocale, Locale } from '@/config/i18n';
-
-// Create a mapping from locale identifiers
-// to the specific imported JSON modules
-const localeMessages = {
-  'fr': fr,
-  'en': en,
-};
-
-const getMessages = (locale: Locale, rootKeys: string[]) => {
-  const messages: AbstractIntlMessages =
-    (localeMessages as any)[locale] || defaultLocale;
-
-  const values = {};
-  rootKeys.forEach((key: string) => {
-    (values as any)[key] = pick(messages, key)[key];
-  });
-
-  return values;
-};
+import { Locale } from '@/config/i18n';
+import { getTranslatedMessages } from '@/utils/translation.utils';
 
 type Props = {
   children: ReactNode;
@@ -42,7 +20,7 @@ const TranslationClientProvider: any = ({ children, rootKeys = [] }: Props) => {
   return (
     <NextIntlClientProvider
       locale={locale}
-      messages={getMessages(locale, rootKeys)}
+      messages={getTranslatedMessages(locale)}
       timeZone="UTC"
     >
       {children}
