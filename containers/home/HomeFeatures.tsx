@@ -11,7 +11,7 @@ type Props = {
 const HomeFeatures = ({ sections }: Props) => {
   return (
     <div className="flex md:justify-center bg-gray-200 self-stretch py-36">
-      <Container className="flex items-center flex-col md:flex-row gap-16" maxWidth="xl" withSpacingY={false}>
+      <Container className="flex items-center flex-col lg:flex-row gap-16" maxWidth="lg" withSpacingY={false}>
         {/* left */}
         <div className="flex-1 stretchSelf flex flex-col md:items-center gap-6">
           <Title level="h2" className="md:text-5xl font-bold !leading-snug">
@@ -46,9 +46,12 @@ const HomeFeatures = ({ sections }: Props) => {
           </div>
         </div>
         {/* right */}
-        <div className="flex-1">
-          <Image alt="phone" src="/images/phone-right.png" width={400} height={400}
-          // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        <div className="flex md:justify-end">
+          <Image
+            alt="phone"
+            src="/images/phone-right.png"
+            width={400}
+            height={400}
           />
         </div>
       </Container>
