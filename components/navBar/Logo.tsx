@@ -9,7 +9,7 @@ const Logo = () => {
     >
       {/* light logo */}
       <Image
-        src="logo-white.svg"
+        src="/logo-white.svg"
         alt="Tiavina Michael Ralainirina"
         width={62}
         height={22}
@@ -18,7 +18,7 @@ const Logo = () => {
       />
       {/* dark logo */}
       <Image
-        src="logo.svg"
+        src="/logo.svg"
         alt="Tiavina Michael Ralainirina"
         width={62}
         height={22}
