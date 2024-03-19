@@ -16,6 +16,28 @@ import { ArticleSchema } from '@/validations/article.validations';
 import { setFormError } from '@/utils/utils';
 
 import { IArticle, IArticleInput } from '@/types/article.type';
+import CheckboxField from '@/components/forms/fields/CheckboxField';
+import { useMemo } from 'react';
+import MultiSelectField from '@/components/forms/fields/MultiSelectField';
+import { getArticleCategoriesOptions } from '@/utils/article.utils';
+
+// form initial values for creation or edition
+const getInitialValues = (article: IArticle | undefined) => {
+  // edition
+  if (article) {
+    return {
+      title: article.title,
+      active: article.active,
+      categories: article.categories || [],
+    };
+  }
+
+  // creation
+  return {
+    active: false,
+    categories: [],
+  }
+};
 
 type Props = {
   article?: IArticle;
@@ -27,8 +49,10 @@ const ArticleForm = ({ article }: Props) => {
 
   const form = useForm<IArticleInput>({
     resolver: zodResolver(ArticleSchema),
-    defaultValues: article ? { title: article.title } : {},
+    defaultValues: getInitialValues(article),
   });
+
+  const categoriesOptions = getArticleCategoriesOptions(tArticle)
 
   // @issue: https://github.com/TheEdoRan/next-safe-action/issues/60
   // this working for creation but not with edition (with .bind(null, id))
@@ -41,12 +65,12 @@ const ArticleForm = ({ article }: Props) => {
   //   },
   // });
 
-  const onSubmit = async (values: FormData) => {
+  const onSubmit = async (values: IArticleInput) => {
     let data;
     // ------- action process ------- //
     if (article) {
       // add the id to the form data values
-      data = await editArticle(values);
+      data = await editArticle({ ...values, id: article.objectId });
     } else {
       data = await createArticle(values);
     }
@@ -68,13 +92,15 @@ const ArticleForm = ({ article }: Props) => {
   return (
     <Form
       form={form}
-      // @see: https://github.com/TheEdoRan/next-safe-action/issues/29
+      schema={ArticleSchema}
       action={onSubmit}
       primaryButtonText={tForm('save')}
+      useFormData={false}
     >
       {/* hide the id input */}
-      {article && <input type="hidden" name="id" value={article.id} />}
       <TextField name="title" label={tArticle('title')} required />
+      <CheckboxField name="active" label={tArticle('publish')} description={tArticle('publishDescription')} />
+      <MultiSelectField name="categories" label={tArticle('categories')} options={categoriesOptions} />
     </Form>
   );
 };

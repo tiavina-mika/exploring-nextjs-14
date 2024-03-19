@@ -14,6 +14,7 @@ const LanguageSwitcher = ({ className, inputClassName }: Props) => {
   const options = locales.map((locale: Locale) => ({
     label: t('locale', { locale }),
     value: locale,
+    icon: `/icons/flags/${locale}.svg`,
   }));
 
   return (

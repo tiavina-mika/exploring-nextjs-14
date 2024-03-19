@@ -151,7 +151,7 @@ const FormDescription = forwardRef<HTMLParagraphElement, FormDescriptionProps>(
         className={cn(
           'text-[0.8rem] text-muted-foreground',
           className,
-          error && 'text-error',
+          error && 'text-error dark:text-error-light',
         )}
         {...props}
       />

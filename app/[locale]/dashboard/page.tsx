@@ -36,11 +36,9 @@ const DashboardHomePage = async ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <main>
-      <div>
-        <Title>Dashboard home page</Title>
-      </div>
-    </main>
+    <div>
+      <Title>Dashboard home page</Title>
+    </div>
   );
 };
 

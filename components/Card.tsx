@@ -36,7 +36,7 @@ const Card = ({
   onPrimaryButtonClick,
   onSecondaryButtonClick,
 }: Props) => (
-  <UICard className={cn('w-[350px]', className)}>
+  <UICard className={cn('w-full md:w-[350px]', className)}>
     {/* title and description */}
     {title ||
       (description && (

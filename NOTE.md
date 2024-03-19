@@ -68,7 +68,7 @@ To add new translated routes:
 - TODO: parse server token expiration should be the same as next-auth's expiration
 
 ### Route
-- add protected routes other than "/dashboard" in next.utils.ts: 
+- add protected routes other than "/dashboard" in next.utils.ts:
 ```javascript
 const nonDashboardProtectedRoutes = [translatedPathnames[ROUTES.profile]];
 ```
@@ -98,3 +98,18 @@ const nonDashboardProtectedRoutes = [translatedPathnames[ROUTES.profile]];
 # Discussion
 [Detect screen size in middleware](https://stackoverflow.com/questions/76155066/how-can-i-serve-a-static-page-with-responsive-design-in-next-js-without-affectin)
 [Multiple middleware (!follow the discussion closely)](https://github.com/vercel/next.js/discussions/62248)
+
+# Issues
+### React Hook Form + Zod + form action & server action
+(Issue and discussions)[https://github.com/react-hook-form/react-hook-form/issues/10391]
+(Repo with solutions)[https://github.com/ezanglo/react-hook-form-server-actions], use direction in the component or with a custom hook (I choose the component, it's simple to implement)
+
+ * use dual onSubmit and action to handle form submission
+ * when the form is valid, the action will be called, else the onSubmit will be called
+ * validate the form when submitting the form (with form.trigger() or schema.safeParse())
+ * @issue: https://github.com/react-hook-form/react-hook-form/issues/10391
+
+### Zod translated errors with next-intl
+(Repo with solution)[https://github.com/gcascio/next-intl-zod]
+(Explanation)[https://www.gcasc.io/blog/next-intl-zod]
+(Discussion)[https://stackoverflow.com/questions/77367244/a-solution-to-translating-zod-error-messages-using-next-intl]

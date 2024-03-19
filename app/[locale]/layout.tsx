@@ -12,6 +12,7 @@ import { siteConfig } from '@/config/site';
 import ThemeProvider from '@/providers/ThemeProvider';
 import { auth } from '@/config/auth.config';
 import NextAuthProvider from '@/providers/NextAuthProvider';
+import Footer from '@/components/Footer';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -37,7 +38,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
     authors: [
       {
         name: siteConfig.author,
-        url: 'https://www.linkedin.com/in/tiavina-michael-ralainirina/',
+        url: siteConfig.social.linkedIn,
       },
     ],
     creator: siteConfig.author,
@@ -50,7 +51,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
       siteName: siteConfig.name,
     },
     icons: {
-      icon: '/icon.png',
+      icon: '/favicon.ico',
     },
     manifest: `${siteConfig.url}/site.webmanifest`,
   };
@@ -89,11 +90,12 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
             enableSystem
             disableTransitionOnChange
           >
-            <NavBar isLoggedIn={!!session} />
-            <main className="flex flex-col items-center justify-center">
-              <div className="max-w-screen-xl w-full py-8">
+            <main className="flex flex-col items-center justify-between min-h-screen">
+              <div className="self-stretch flex flex-col items-center">
+                <NavBar isLoggedIn={!!session} className="self-stretch" />
                 {children}
               </div>
+              <Footer />
             </main>
             <ToasterProvider />
             <ViewportIndicator />

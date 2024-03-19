@@ -9,7 +9,17 @@
     "name": "Nom",
     "updatedAtDate": "Date de mise à jour",
     "newest": "Le plus recent",
-    "confirm": "Confirmer"
+    "confirm": "Confirmer",
+    "allRightReserved": "Tous droits réservés",
+    "ourWebsite": "Notre site web",
+    "getInTouch": "Rester en contact",
+    "legal": "Legale",
+    "cancel": "Annuler",
+    "addSomething": "Ajouter {value}",
+    "seeSomething": "Voir {value}",
+    "editSomething": "Modifier {value}",
+    "deleteSomething": "Supprimer {value}",
+    "returnToList": "Retourner à la liste"
   },
   "Contact": {
     "email": "Email",
@@ -65,13 +75,28 @@
     "login": "Se connecter",
     "logout": "Se déconnecter",
     "profile": "Profil",
-    "contactUs": "Contactez-nous"
+    "contactUs": "Contactez-nous",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
     "locale": "{locale, select, fr {Français} en {Anglais} other {Autres}}"
   },
   "Article": {
+    "anArticle": "un article",
+    "theArticle": "l'article",
+    "categories": "Categories",
+    "philosophy": "Philosophie",
+    "science": "Science",
+    "technology": "Technologie",
+    "geopolitics": "Geopolitiques",
+    "sport": "Sport",
+    "religion": "Religion",
+    "history": "Histoire",
+    "economy": "Economie",
+    "cinema": "Cinema",
+    "literature": "Literature",
     "title": "Titre",
     "content": "Contenu",
     "author": "Auteur",
@@ -92,6 +117,8 @@
     "empty": "Aucun article trouvé",
     "view": "Voir l'article",
     "back": "Retour à la liste des articles",
+    "publish": "Publier",
+    "publishDescription": "Les articles publiées s'affichent sur le site",
     "message": {
       "success": {
         "added": "Article ajouté avec succès.",

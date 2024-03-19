@@ -8,6 +8,17 @@ export interface ISelectOption<T = string> {
   icon?: React.ComponentType<{ className?: string }> | string;
 }
 
+export interface IMenuItem {
+  label: string;
+  onClick: () => void;
+  id?: string;
+}
+
+export interface IInfo {
+  title: string;
+  description: string;
+  icon?: string;
+}
 export interface IDynamicRouteParams {
   pathname: 'string';
   params: Record<string, string>;

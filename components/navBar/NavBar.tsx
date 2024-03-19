@@ -6,19 +6,20 @@ import { IMenu } from '@/types/app.type';
 
 import Logo from './Logo';
 import NavBarLinks from './NavBarLinks';
-import LanguageSwitcher from '../languages/LanguageSwitcher';
 import ToggleTheme from '../ToggleTheme';
 import AccountMenu from './AccountMenu';
 import TextLink from '../typography/TextLink';
 import { getIsResponsiveScreens } from '@/server/responsive.server';
+import { cn } from '@/utils/app.utils';
 
 const filterMenus = (menus: IMenu[], pathIds: string[]): IMenu[] => menus.filter((menu: IMenu): boolean => !pathIds.includes(menu.id as string));
 
 type Props = {
   isLoggedIn: boolean;
+  className?: string;
 }
 
-const NavBar = ({ isLoggedIn }: Props) => {
+const NavBar = ({ isLoggedIn, className }: Props) => {
   const t = useTranslations('NavBar');
 
   const { isTabletDown } = getIsResponsiveScreens();
@@ -77,7 +78,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
     },
   ];
 
-  
+
   const rightMenus: IMenu[] = [
     {
       label: t('login'),
@@ -112,7 +113,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
   }
 
   return (
-    <nav className="shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900">
+    <nav className={cn('shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900', className)}>
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
         <Logo />
         <NavBarLinks menus={getMainMenus()} className="-order-1 md:order-1" />
@@ -130,10 +131,6 @@ const NavBar = ({ isLoggedIn }: Props) => {
             ))}
 
           </div>
-          <LanguageSwitcher
-            className="w-[100px]"
-            inputClassName="border-gray-200"
-          />
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
         </div>

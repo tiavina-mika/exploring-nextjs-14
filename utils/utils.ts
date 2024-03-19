@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { ZodError, ZodIssue } from 'zod';
 import { HookActionStatus } from 'next-safe-action/hooks';
 
-import { IActionError } from '@/types/app.type';
+import { IActionError, ISelectOption } from '@/types/app.type';
 
 export const cutText = (str: string, length: number): string => {
   return str.length > length ? `${str.substring(0, length)}...` : str;
@@ -107,7 +107,7 @@ export const setFormError = <I extends FieldValues>(
           errorMessage = tForm(errors[key][0], { field: t(key) });
           break;
       }
- 
+
       form.setError(key as FieldPath<I>, {
         type: 'manual',
         message: errorMessage,

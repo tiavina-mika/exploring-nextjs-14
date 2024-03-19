@@ -1,9 +1,43 @@
-import env from '@/env';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
-import LanguageSwitcher from '@/components/languages/LanguageSwitcher';
-import ToggleTheme from '@/components/ToggleTheme';
 import { Locale } from '@/config/i18n';
+import HomeHeader from '@/containers/home/HomeHeader';
+import { IInfo } from '@/types/app.type';
+import HomeAdvantages from '@/containers/home/HomeAdvantages';
+import HomeFeatures from '@/containers/home/HomeFeatures';
+
+const advantages: IInfo[] = [
+  {
+    title: "Voluptas doloribus asperiores ipsum",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus asperiores quaerat aperiam. Quidem harum omnis beatae ipsum"
+  },
+  {
+    title: "Quidem harum omnis beatae",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus aperiam. Quidem harum omnis beatae ipsum"
+  },
+  {
+    title: "omnis beatae ipsum soluta adipisicing",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus aperiam. Quidem harum omnis beatae ipsum"
+  }
+];
+
+const features = [
+  {
+    icon: "/icons/eye-off.svg",
+    title: "Voluptas doloribus asperiores",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus beatae ipsum"
+  },
+  {
+    icon: "/icons/google.svg",
+    title: "Quidem harum omnis beatae",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus aperiam."
+  },
+  {
+    icon: "/icons/user.svg",
+    title: "omnis beatae ipsum soluta",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloribus aperiam."
+  }
+];
 
 type Props = {
   params: {
@@ -12,23 +46,14 @@ type Props = {
 };
 
 const HomePage = ({ params: { locale } }: Props) => {
-  // const t = useTranslations('Common');
-
-  console.log('SERVER', env.SERVER);
-  console.log('NEXT_PUBLIC_CLIENT', env.NEXT_PUBLIC_CLIENT);
   unstable_setRequestLocale(locale);
 
-
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div>
-        <ToggleTheme />
-      </div>
-      <div>
-        <LanguageSwitcher />
-      </div>
-      {/* <div>{t('greeting')}</div> */}
-    </main>
+    <div className="self-stretch flex flex-col md:items-center">
+      <HomeHeader />
+      <HomeAdvantages sections={advantages} />
+      <HomeFeatures sections={features} />
+    </div>
   );
 };
 
