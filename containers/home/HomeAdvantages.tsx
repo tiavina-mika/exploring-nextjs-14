@@ -8,11 +8,11 @@ type Props = {
 }
 const HomeAdvantages = ({ sections }: Props) => {
   return (
-    <Container as="section" className="flex items-center gap-9 min-h-[500px] md:px-20" withSpacingY={false}>
+    <Container as="section" className="flex flex-col lg:flex-row md:items-center gap-6 lg:gap-9 py-12 lg:py-0 lg:min-h-[500px] lg:px-20" withSpacingY={false}>
       {sections.map((section) => (
-        <div key={section.title} className="flex flex-col gap-4 items-center">
-          <Title level="h2" className="md:text-center md:text-3xl font-bold !leading-tight">{section.title}</Title>
-          <Text className="md:text-center md:text-md">{section.description}</Text>
+        <div key={section.title} className="flex flex-col gap-2 lg:gap-4 lg:items-center">
+          <Title level="h2" className="lg:text-center lg:text-3xl font-bold !leading-tight">{section.title}</Title>
+          <Text className="lg:text-center lg:text-md">{section.description}</Text>
         </div>
       ))}
     </Container>
