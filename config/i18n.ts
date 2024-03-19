@@ -18,18 +18,26 @@ export const locales = ['fr', 'en'] as const;
 export const defaultLocale = locales[1];
 export const localePrefix = 'always'; // Default
 
-export const storybookLocalesOptions = ['fr', 'en'].map((locale) => ({
+export const storybookLocalesOptions = locales.map((locale) => ({
   value: locale,
   title: getLocalLabel(locale) as string,
 }));
 
 export type Locale = (typeof locales)[number];
 
+/**
+ * load the translations json files for the given locale
+ */
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
 
   return {
-    messages: (await import(`../translations/${locale}.json`)).default,
+    messages: {
+      ...(await import(`../translations/${locale}/app.json`)).default,
+      ...(await import(`../translations/${locale}/article.json`)).default,
+      ...(await import(`../translations/${locale}/auth.json`)).default,
+      ...(await import(`../translations/${locale}/common.json`)).default,
+    },
   };
 });
