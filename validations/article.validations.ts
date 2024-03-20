@@ -1,6 +1,6 @@
 import { array, boolean, object, string } from 'zod';
 
-import { errorMap } from '@/config/zod';
+import { errorMap } from '@/config/zod/zod';
 import { idSchema } from './app.validations';
 
 export const ArticleSchema = object({
