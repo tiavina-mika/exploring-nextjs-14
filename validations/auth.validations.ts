@@ -1,7 +1,7 @@
 import { object, string } from 'zod';
 import { zfd } from 'zod-form-data';
 
-import { errorMap } from '@/config/zod';
+import { errorMap } from '@/config/zod/zod';
 import { capitalizeFirstLetter } from '@/utils/user.utils';
 import { getTranslatedAbsoluteUrl } from '@/utils/app.utils';
 
@@ -58,7 +58,7 @@ export const ResetPasswordSchema = zfd.formData(
   .refine(value => value.newPassword === value.newPasswordConfirmation, {
     message: 'form.error.passwordNotMatch',
     path: ['newPasswordConfirmation'],
-  }) 
+  })
 );
 
 export const LoginSchema = zfd.formData(
