@@ -17,7 +17,6 @@ import { setFormError } from '@/utils/utils';
 
 import { IArticle, IArticleInput } from '@/types/article.type';
 import CheckboxField from '@/components/forms/fields/CheckboxField';
-import { useMemo } from 'react';
 import MultiSelectField from '@/components/forms/fields/MultiSelectField';
 import { getArticleCategoriesOptions } from '@/utils/article.utils';
 
