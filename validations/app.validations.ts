@@ -1,7 +1,7 @@
 import { capitalize } from "string-ts";
 import { z } from "zod";
 import { zfd } from "zod-form-data";
-import { errorMap } from '@/config/zod';
+import { errorMap } from '@/config/zod/zod';
 import { EmailFieldSchema } from "./auth.validations";
 
 export const paginationSearchParamsSchema = z.object({
