@@ -19,6 +19,7 @@ import { IArticle, IArticleInput } from '@/types/article.type';
 import CheckboxField from '@/components/forms/fields/CheckboxField';
 import MultiSelectField from '@/components/forms/fields/MultiSelectField';
 import { getArticleCategoriesOptions } from '@/utils/article.utils';
+import { useI18nZodErrors } from '@/config/zod/useTranslatedZodError';
 
 // form initial values for creation or edition
 const getInitialValues = (article: IArticle | undefined) => {
@@ -45,6 +46,7 @@ const ArticleForm = ({ article }: Props) => {
   const router = useRouter();
   const tForm = useTranslations('Form');
   const tArticle = useTranslations('Article');
+  useI18nZodErrors();
 
   const form = useForm<IArticleInput>({
     resolver: zodResolver(ArticleSchema),
