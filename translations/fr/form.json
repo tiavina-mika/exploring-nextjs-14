@@ -1,9 +1,9 @@
 {
   "Form": {
-    "title": "Titre",
-    "content": "Contenu",
-    "active": "Actif",
-    "categories": "Categories",
+    "title": "Le titre",
+    "content": "Le contenu",
+    "active": "Ce champ",
+    "categories": "Les categories",
     "error": {
       "invalidStringType": "Devrait être une chaîne de caractère",
       "invalidNumberType": "Devrait être un nombre",
