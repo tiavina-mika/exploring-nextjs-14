@@ -4,8 +4,7 @@ import { idSchema } from './app.validations';
 
 export const ArticleSchema = object({
 	title: string()
-      .min(1)
-      .max(2),
+      .min(1),
   active: boolean().optional(),
 	categories: array(string()).min(1)
 })
