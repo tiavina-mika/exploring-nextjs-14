@@ -45,11 +45,17 @@ const Title = forwardRef<
         titleVariants({ color }),
         className,
         'dark:text-white',
+        /**
+         * mobile size, for mobile+, it's defined in theme
+         * because there is no way to define responsive font-size there
+         * @see /utils/theme.ts
+         */
         {
-          'text-xl': Heading === 'h1',
-          'text-lg': Heading === 'h2',
-          'text-base': Heading === 'h3',
-          'text-sm': Heading === 'h4' || Heading === 'h5',
+          'text-3xl': Heading === 'h1',
+          'text-xl': Heading === 'h2',
+          'text-lg': Heading === 'h3',
+          'text-base': Heading === 'h4',
+          'text-sm': Heading === 'h5',
           'text-xs': Heading === 'h6',
         }
       )}

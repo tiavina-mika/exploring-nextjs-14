@@ -1,10 +1,12 @@
-import { ROUTES } from "@/config/routes";
+ import { ROUTES } from "@/config/routes";
 import TextLink from "./typography/TextLink";
 import Title from "./typography/Title";
 import { siteConfig } from "@/config/site";
 import { useTranslations } from "next-intl";
 import Text from "./typography/Text";
 import LanguageSwitcher from "./languages/LanguageSwitcher";
+import { ReactNode } from "react";
+import Container from "./Container";
 
 type ISocial = {
   label: string;
@@ -45,101 +47,119 @@ const socials: ISocial[] = [
   },
 ];
 
+type FooterTitleProps = {
+  children: ReactNode;
+}
+const FooterTitle = ({ children }: FooterTitleProps) => {
+  return (
+    <Title level="h3" className="mb-6 sm:mb-3 md:mb-6 font-semibold text-gray-900 uppercase dark:text-white">
+      {children}
+    </Title>
+  )
+}
+
 const Footer = () => {
   const t = useTranslations('Common');
   const tNavBar = useTranslations('NavBar');
 
   return (
-    <footer className="self-stretch p-4 md:pt-12 bg-white  dark:bg-gray-800 relative">
-        {/* separator */}
-        <hr className=" border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:top-0" />
-        {/* content */}
-        <div className="mx-auto max-w-screen-xl mt-4 md:mt-0">
-            <div className="md:flex md:justify-between mb-4 md:mb-0">
-                {/* <div className="flex-1 mb-6 md:mb-0">
-                    <TextLink href="/" underline={false}>
-                      Mik.
-                    </TextLink>
-                </div> */}
-                <div className="flex-1 grid grid-cols-1 gap-8 md:gap-6 sm:grid-cols-2 md:grid-cols-3">
-                    <div>
-                        <Title level="h2" className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                          {t('getInTouch')}
-                        </Title>
-                        <ul className="text-gray-600 dark:text-gray-400 space-y-4">
-                            <li>
-                              <TextLink href={siteConfig.contact.phone} underline={false} className="hover:underline">
-                                {siteConfig.contact.phone}
-                              </TextLink>
-                            </li>
-                            <li>
-                              <TextLink href={`mailto:${siteConfig.contact.email}`} underline={false} className="hover:underline">
-                                {siteConfig.contact.email}
-                              </TextLink>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <Title level="h2" className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                          {t('legal')}
-                        </Title>
-                        <ul className="text-gray-600 dark:text-gray-400 space-y-4">
-                            <li className="mb-4">
-                                <TextLink href="/" underline={false} className="hover:underline">Privacy Policy</TextLink>
-                            </li>
-                            <li>
-                                <TextLink href="/" underline={false} className="hover:underline">Terms &amp; Conditions</TextLink>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                      <Title className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        {t('ourWebsite')}
-                      </Title>
-                      <ul className="text-gray-600 dark:text-gray-400 space-y-4">
-                        <li className="mb-4">
-                          <TextLink href={ROUTES.about} underline={false} className="hover:underline">
-                            {tNavBar('about')}
-                          </TextLink>
-                        </li>
-                        <li>
-                          <TextLink href={ROUTES.about} underline={false} className="hover:underline">
-                            {tNavBar('blog')}
-                          </TextLink>
-                        </li>
-                        <li>
-                          <TextLink href={ROUTES.contact} underline={false} className="hover:underline">
-                            {tNavBar('contact')}
-                          </TextLink>
-                        </li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-            {/* separator */}
-            <hr className=" border-gray-200 dark:border-gray-700 lg:my-8 relative md:absolute md:left-0 md:right-0 md:bottom-10" />
+    <footer className="self-stretch flex flex-col items-center sm:pt-4 md:pt-12 dark:bg-gray-800 relative">
+      {/* separator */}
+      <hr className="hidden md:visible border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:top-0" />
 
-            <div className="sm:flex sm:items-center sm:justify-between mt-4 md:mt-12">
-                <Text as="span" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}.{" "}
-                  {t('allRightReserved')}.
-                </Text>
-                {/* socials */}
-                <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
-                  {socials.map((social: ISocial) => (
-                    <a key={social.id} href={(siteConfig.social as any)[social.id]} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                      {social.icon}
-                    </a>
-                  ))}
+      {/* content */}
+      <Container maxWidth="lg" className="mt-4 md:mt-0">
+        <div className="md:flex md:justify-between mb-4 md:mb-0">
+            {/* <div className="flex-1 mb-6 md:mb-0">
+                <TextLink href="/" underline={false}>
+                  Mik.
+                </TextLink>
+            </div> */}
+            <div className="flex-1 grid grid-cols-1 gap-8 md:gap-6 sm:grid-cols-2 md:grid-cols-3">
+                <div>
+                  <div>
+                    <FooterTitle>
+                      {t('getInTouch')}
+                    </FooterTitle>
+                    <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
+                        <li>
+                          <TextLink href={siteConfig.contact.phone} underline={false} className="hover:underline">
+                            {siteConfig.contact.phone}
+                          </TextLink>
+                        </li>
+                        <li>
+                          <TextLink href={`mailto:${siteConfig.contact.email}`} underline={false} className="hover:underline">
+                            {siteConfig.contact.email}
+                          </TextLink>
+                        </li>
+                    </ul>
+                  </div>
                 </div>
-                {/* language switcher */}
-                <div className="mt-4 md:mt-0">
-                  <LanguageSwitcher
-                    className="w-[120px]"
-                    inputClassName="border-none"
-                  />
+                <div className="flex flex-col md:items-center">
+                  <div>
+                      <FooterTitle>
+                        {t('legal')}
+                      </FooterTitle>
+                      <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
+                          <li className="mb-4">
+                              <TextLink href="/" underline={false} className="hover:underline">Privacy Policy</TextLink>
+                          </li>
+                          <li>
+                              <TextLink href="/" underline={false} className="hover:underline">Terms &amp; Conditions</TextLink>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
+                <div className="flex flex-col md:items-end">
+                  <div>
+                    <FooterTitle>
+                      {t('ourWebsite')}
+                    </FooterTitle>
+                    <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
+                      <li className="mb-4">
+                        <TextLink href={ROUTES.about} underline={false} className="hover:underline">
+                          {tNavBar('about')}
+                        </TextLink>
+                      </li>
+                      <li>
+                        <TextLink href={ROUTES.about} underline={false} className="hover:underline">
+                          {tNavBar('blog')}
+                        </TextLink>
+                      </li>
+                      <li>
+                        <TextLink href={ROUTES.contact} underline={false} className="hover:underline">
+                          {tNavBar('contact')}
+                        </TextLink>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
             </div>
         </div>
+        {/* separator */}
+        <hr className=" border-gray-200 dark:border-gray-700 lg:my-8 relative md:absolute md:left-0 md:right-0 md:bottom-10" />
+
+        <div className="sm:flex sm:items-center sm:justify-between mt-4 sm:mt-1 md:mt-12">
+          <Text as="span" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}.{" "}
+            {t('allRightReserved')}.
+          </Text>
+          {/* socials */}
+          <div className="flex mt-4 space-x-6 justify-between sm:justify-center md:mt-0">
+            {socials.map((social: ISocial) => (
+              <a key={social.id} href={(siteConfig.social as any)[social.id]} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                {social.icon}
+              </a>
+            ))}
+          </div>
+          {/* language switcher */}
+          <div className="mt-4 md:mt-0">
+            <LanguageSwitcher
+              className="w-[120px]"
+              inputClassName="border-none"
+            />
+          </div>
+        </div>
+      </Container>
     </footer>
   );
 }
