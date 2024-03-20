@@ -54,8 +54,6 @@ To add new language:
 - `config/i18n.ts` in `getRequestConfig()` and locales
 - `utils/translation.utils` in `getTranslatedMessages()`
 - `middleware.ts` in `config`
-- `global.d.ts`
-- `global.d.ts`
 - add new language translation in `/translations/` directory
 
 
