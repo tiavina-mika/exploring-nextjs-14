@@ -15,6 +15,7 @@ import frForm from '@/translations/fr/form.json';
 
 import { getCookie } from 'cookies-next';
 import { COOKIES } from './constants';
+import { AbstractIntlMessages } from 'next-intl';
 
 /**
  * get current local from cookies, url or default config
@@ -31,7 +32,7 @@ export const getCurrentLocale = (defaultLocal?: Locale | undefined | string) => 
  * @param locale
  * @returns
  */
-export const getTranslatedMessages = (locale: string) => {
+export const getTranslatedMessages = (locale: string): AbstractIntlMessages => {
   switch (locale) {
     case 'en':
       return {
