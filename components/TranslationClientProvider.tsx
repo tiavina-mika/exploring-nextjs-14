@@ -1,48 +1,35 @@
-'use client';
-
 import { ReactNode } from 'react';
 
-import en from '@/translations/en.json';
-import fr from '@/translations/fr.json';
-import pick from 'lodash/pick';
 import {
-  AbstractIntlMessages,
   NextIntlClientProvider,
   useLocale,
+  useMessages,
 } from 'next-intl';
 
-import { defaultLocale, Locale } from '@/config/i18n';
+import { Locale } from '@/config/i18n';
+import { pick } from 'lodash';
 
-// Create a mapping from locale identifiers
-// to the specific imported JSON modules
-const localeMessages = {
-  'fr': fr,
-  'en': en,
-};
-
-const getMessages = (locale: Locale, rootKeys: string[]) => {
-  const messages: AbstractIntlMessages =
-    (localeMessages as any)[locale] || defaultLocale;
-
-  const values = {};
-  rootKeys.forEach((key: string) => {
-    (values as any)[key] = pick(messages, key)[key];
-  });
-
-  return values;
-};
-
+/**
+ * get only a selected translated messages by its keys
+ * so thant we doesn't have to load all the translations in the client
+ * ex: get only Common, Form, ...
+ * @param locale
+ * @param rootKeys
+ * @returns
+ */
 type Props = {
   children: ReactNode;
   rootKeys: string[];
 };
+
 const TranslationClientProvider: any = ({ children, rootKeys = [] }: Props) => {
   const locale = useLocale() as Locale;
+  const messages = useMessages();
 
   return (
     <NextIntlClientProvider
       locale={locale}
-      messages={getMessages(locale, rootKeys)}
+      messages={pick(messages, rootKeys)}
       timeZone="UTC"
     >
       {children}

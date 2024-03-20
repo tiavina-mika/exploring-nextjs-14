@@ -1,0 +1,24 @@
+{
+  "Common": {
+    "greeting": "Hello",
+    "edit": "Edit",
+    "add": "Add",
+    "delete": "Delete",
+    "save": "Save",
+    "required": "Required",
+    "name": "Name",
+    "updatedAtDate": "Updated at date",
+    "newest": "Newest",
+    "confirm": "Confirm",
+    "allRightReserved": "All rights reserved",
+    "ourWebsite": "Our website",
+    "getInTouch": "Get in touch",
+    "legal": "Legal",
+    "cancel": "Cancel",
+    "addSomething": "Add {value}",
+    "seeSomething": "See {value}",
+    "editSomething": "Edit {value}",
+    "deleteSomething": "Delete {value}",
+    "returnToList": "Return to list"
+  }
+}

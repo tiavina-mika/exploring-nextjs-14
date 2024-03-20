@@ -1,0 +1,85 @@
+{
+  "Contact": {
+    "email": "Email",
+    "emailSent": "An email has been sent to you.",
+    "name": "Your name",
+    "message": "Message",
+    "send": "Send",
+    "contactUs": "Contact us",
+    "subject": "From website contact form"
+  },
+  "Error": {
+    "unknown": "Something went wrong. Please try again later."
+  },
+  "ServerError": {
+    "articleSave": "The article could not be saved."
+  },
+  "NavBar": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles",
+    "article": "Article",
+    "signUp": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "contactUs": "Contact us",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "LanguageSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, fr {French} en {English} other {Unknown}}"
+  },
+  "User": {
+    "haveNoAccountYet": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "createAnAccount": "Create an account",
+    "myProfile": "My profile",
+    "signUp": "Register",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Sign in",
+      "metaDescription": "Seamlessly sign in to your account with our user-friendly login process."
+    },
+    "signUp": {
+      "metaTitle": "Sign up",
+      "metaDescription": "Effortlessly create an account through our intuitive sign-up process."
+    },
+    "home": {
+      "metaTitle": "Home",
+      "metaDescription": "Blogy is a simple web application using NextJs, it serves as a open source boilerplate for NextJs 14 applications."
+    },
+    "profile": {
+      "metaTitle": "My profile",
+      "metaDescription": "My beautiful profile"
+    },
+    "dashboard": {
+      "metaTitle": "My personal space",
+      "metaDescription": "My personal space where I can access all my data and manage my account."
+    },
+    "articles": {
+      "metaTitle": "My articles",
+      "metaDescription": "Articles I have written with passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verify account",
+      "metaDescription": "Verify account by entering the code you received by email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Forgot password",
+      "metaDescription": "Send forgot password request to email."
+    },
+    "resetPassword": {
+      "metaTitle": "Reset password",
+      "metaDescription": "Reset password with new one."
+    },
+    "contact": {
+      "metaTitle": "Contact us",
+      "metaDescription": "Contact us for help, for information or for suggestion. {appName} service will be happy to help you."
+    }
+  }
+}

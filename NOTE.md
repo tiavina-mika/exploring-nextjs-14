@@ -20,6 +20,7 @@
 
 ## Authentication
 [next-Auth (Google and GitHub)](https://medium.com/@rishipardeshi/authentication-with-nextjs-14-and-next-auth-b10fe7eb6407)
+
 ## Repos
 
 [Next 14 starter](https://github.com/Kiranism/next-shadcn-dashboard-starter)
@@ -50,9 +51,12 @@ https://github.com/typicode/husky/issues/851
 # Config
 ## next-intel
 To add new language:
-- /config/i18n.ts
-- /middleware.ts
-- add new language translation in /translations
+- `global.d.ts`
+- `config/i18n.ts` in `getRequestConfig()` and locales
+- `utils/translation.utils` in `getTranslatedMessages()`
+- `middleware.ts` in `config`
+- add new language translation in `/translations/` directory
+
 
 To add new translated routes:
 - add the translated route to /config/routes.ts
@@ -61,6 +65,11 @@ To add new translated routes:
 ### React Hook Form
 - We use React `useFormState` for server actions with `action` instead of `onSubmit`
 - So this will use `FormData` instead of an `object`, this is utils when uploading a file for ex.
+
+### zod + next-intl
+- To translate the client form error message, use `useI18nZodErrors()` in the form
+- the translation key is `"Zod"`
+- For the server action translated erros message, it use the default zod errors for now.
 
 ### Next auth
 - next-auth token expiration is 30 days (refreshed every page request (+current date))

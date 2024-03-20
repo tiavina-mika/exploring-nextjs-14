@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 import TextField from '@/components/forms/fields/TextField';
 import Form from '@/components/forms/Form';
-import { errorMap } from '@/config/zod';
+import { errorMap } from '@/config/zod/zod';
 
 export const DemoSchema = (tForm?: any, tDemo?: any) => {
   return z.object({

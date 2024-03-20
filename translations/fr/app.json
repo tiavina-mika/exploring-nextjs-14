@@ -1,0 +1,85 @@
+{
+  "Contact": {
+    "email": "Email",
+    "emailSent": "Un email a été envoyé à votre adresse email",
+    "name": "Votre nom",
+    "message": "Message",
+    "send": "Envoyer",
+    "contactUs": "Contactez-nous",
+    "subject": "Formulaire de contact du site"
+  },
+  "Error": {
+    "unknown": "Une erreur s'est produite. Veuillez réessayer plus tard."
+  },
+  "ServerError": {
+    "articleSave": "L'article n'a pas pu être enregistré."
+  },
+  "NavBar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "articles": "Articles",
+    "article": "Article",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "profile": "Profil",
+    "contactUs": "Contactez-nous",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer language",
+    "locale": "{locale, select, fr {Français} en {Anglais} other {Autres}}"
+  },
+  "User": {
+    "haveNoAccountYet": "Vous n'avez pas de compte?",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "createAnAccount": "Créer un compte",
+    "myProfile": "Mon profil",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter"
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Se connecter",
+      "metaDescription": "Connectez-vous à votre compte pour accéder à toutes les fonctionnalités de notre application."
+    },
+    "signUp": {
+      "metaTitle": "Créer un compte",
+      "metaDescription": "Créer facilement un compte à travers notre processus d'inscription intuitif."
+    },
+    "home": {
+      "metaTitle": "Accueil",
+      "metaDescription": "Blogy est une simple application web utilisant NextJs, elle sert de modèle open source pour les applications NextJs 14."
+    },
+    "profile": {
+      "metaTitle": "Mon profil",
+      "metaDescription": "Les infos sur mon profil"
+    },
+    "dashboard": {
+      "metaTitle": "Tableau de bord",
+      "metaDescription": "Mon espace personnel où je peux accéder à toutes mes données et gérer mon compte."
+    },
+    "articles": {
+      "metaTitle": "Mes articles",
+      "metaDescription": "Liste de tous les articles que j'ai écrits avec passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verifier le compte",
+      "metaDescription": "Verifier le compte en entrant le code envoyé par email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Mot de passe oublié",
+      "metaDescription": "Envoyer la demande de réinitialisation du mot de passe."
+    },
+    "resetPassword": {
+      "metaTitle": "Réinitialiser mot de passe",
+      "metaDescription": "Reinitialiser le mot de passe avec un nouveau."
+    },
+    "contact": {
+      "metaTitle": "Contactez-nous",
+      "metaDescription": "Contactez-nous pour obtenir de l'aide, des informations ou des suggestions. Le service {appName} se fera un plaisir de vous aider."
+    }
+  }
+}
