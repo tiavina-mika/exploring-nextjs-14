@@ -50,7 +50,7 @@ https://github.com/typicode/husky/issues/851
 # Config
 ## next-intel
 To add new language:
-- `global.d.ts`
+- `global.d.ts` 
 - `config/i18n.ts` in `getRequestConfig()` and locales
 - `utils/translation.utils` in `getTranslatedMessages()`
 - `middleware.ts` in `config`
