@@ -38,6 +38,7 @@ export default getRequestConfig(async ({ locale }) => {
       ...(await import(`../translations/${locale}/article.json`)).default,
       ...(await import(`../translations/${locale}/auth.json`)).default,
       ...(await import(`../translations/${locale}/common.json`)).default,
+      ...(await import(`../translations/${locale}/zod.json`)).default,
     },
   };
 });
