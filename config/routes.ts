@@ -30,6 +30,7 @@ export const ROUTES = {
   profile: '/profile',
   dashboard: '/dashboard',
   contact: '/contact-us',
+  faq: '/faq',
 };
 
 // and external paths, separated by locale.
@@ -77,7 +78,10 @@ export const translatedRoutes = {
     fr: '/reinitialiser-mot-de-passe',
   },
 
-  
+  [ROUTES.faq]: {
+    en: ROUTES.faq,
+    fr: '/faq',
+  },
   [ROUTES.profile]: {
     en: ROUTES.profile,
     fr: '/profil',

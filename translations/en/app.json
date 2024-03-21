@@ -15,6 +15,7 @@
     "articleSave": "The article could not be saved."
   },
   "NavBar": {
+    "faq": "FAQs",
     "home": "Home",
     "about": "About",
     "articles": "Articles",
@@ -39,6 +40,26 @@
     "signUp": "Register",
     "login": "Login",
     "logout": "Logout"
+  },
+  "Faq": {
+    "have-questions": "Questions?",
+    "read-faq": "Read our {faq}.",
+    "title": "FAQs",
+    "faq": "Frequently asked questions"
+  },
+  "Faqs": {
+    "1": {
+      "summary": "How can I install everything and get started immediately?",
+      "details": "Please visit the README.md file in my GitHub repository, where you'll always find the most current information about the project along with easy installation instructions."
+    },
+    "2": {
+      "summary": "Why should I choose Blogy as my Next.js 14 starter?",
+      "details": "The answer is simple: to prevent you from hopping between different starters. In fact, you can stop searching now. With Blogy, you are presented with unlimited possibilities. You can create anything you desire; all the necessary tools are already prepared, just for you."
+    },
+    "3": {
+      "summary": "How long it takes to develop this starter?",
+      "details": "Developing something as ambitious and complex as Next.js 14 obviously takes a lot of time, especially since the project is primarily developed by just one person.I'm working on it since January 2024 (3 months from now). I have already worked with the previous version of Next.js, so I had a good starting point, even so there are several changes in Next.js since then. I'm also using the latest technologies and best practices, so it's a time-consuming process."
+    }
   },
   "Metadata": {
     "login": {
@@ -80,6 +101,10 @@
     "contact": {
       "metaTitle": "Contact us",
       "metaDescription": "Contact us for help, for information or for suggestion. {appName} service will be happy to help you."
+    },
+    "faq": {
+      "metaTitle": "Frequently asked questions in {appName}",
+      "metaDescription": "Questions everybody asked."
     }
   }
 }
