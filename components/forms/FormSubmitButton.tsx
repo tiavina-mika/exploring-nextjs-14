@@ -3,6 +3,7 @@
 import { useFormStatus } from 'react-dom';
 
 import Button, { ButtonProps } from '../buttons/Button';
+import Loading from '../Loading';
 
 type Props = {
   text: string;
@@ -18,7 +19,7 @@ const FormSubmitButton = ({ text, loading, ...props }: Props) => {
 
   return (
     <Button variant="contained" type="submit" fullWidth {...props}>
-      {loading || pending ? '...loading' : text}
+      {loading || pending ? <Loading /> : text}
     </Button>
   );
 };
