@@ -15,6 +15,7 @@
     "articleSave": "L'article n'a pas pu être enregistré."
   },
   "NavBar": {
+    "faq": "FAQ",
     "home": "Accueil",
     "about": "À propos",
     "articles": "Articles",
@@ -39,6 +40,26 @@
     "signUp": "Créer un compte",
     "login": "Se connecter",
     "logout": "Se déconnecter"
+  },
+  "Faq": {
+    "have-questions": "Questions?",
+    "read-faq": "Lire notre {faq}.",
+    "title": "FAQ",
+    "faq": "Questions posées fréquemment"
+  },
+  "Faqs" : {
+    "1": {
+      "summary": "Comment puis-je tout installer et commencer immédiatement ?",
+      "details": "Veuillez visiter le fichier README.md dans mon repo GitHub, où vous trouverez toujours les informations les plus récentes sur le projet ainsi que des instructions d'installation simples."
+    },
+    "2": {
+      "summary": "Pourquoi devrais-je choisir Blogy comme starter Next.js 14 ?",
+      "details": "La réponse est simple : pour vous éviter de passer d'une entrée à l'autre. En fait, vous pouvez arrêter de chercher maintenant. Avec Blogy, des possibilités illimitées vous sont proposées. Vous pouvez créer tout ce que vous désirez ; tous les outils nécessaires sont déjà préparé, rien que pour vous."
+    },
+    "3" : {
+      "summary": "Combien de temps faut-il pour développer ce starter ?",
+      "details": "Développer quelque chose d'aussi ambitieux et complexe que Next.js 14 prend évidemment beaucoup de temps, d'autant plus que le projet est principalement développé par une seule personne. J'y travaille depuis janvier 2024 (depuis 3 mois) . J'ai déjà travaillé avec les versions précédentes de Next.js, j'avais donc un bon point de départ, même s'il y a eu plusieurs changements dans Next.js depuis. J'utilise également les dernières technologies et les meilleures pratiques, c'est donc un processus qui prend du temps."
+    }
   },
   "Metadata": {
     "login": {
@@ -80,6 +101,10 @@
     "contact": {
       "metaTitle": "Contactez-nous",
       "metaDescription": "Contactez-nous pour obtenir de l'aide, des informations ou des suggestions. Le service {appName} se fera un plaisir de vous aider."
+    },
+    "faq": {
+      "metaTitle": "Questions fréquemment posées {appName}",
+      "metaDescription": "Questions que tout le monde pose."
     }
   }
 }

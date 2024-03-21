@@ -19,6 +19,8 @@
     "seeSomething": "Voir {value}",
     "editSomething": "Modifier {value}",
     "deleteSomething": "Supprimer {value}",
-    "returnToList": "Retourner à la liste"
+    "returnToList": "Retourner à la liste",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsAndConditions": "Termes et conditions"
   }
 }

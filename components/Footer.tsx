@@ -7,6 +7,7 @@ import Text from "./typography/Text";
 import LanguageSwitcher from "./languages/LanguageSwitcher";
 import { ReactNode } from "react";
 import Container from "./Container";
+import { cn } from "@/utils/app.utils";
 
 type ISocial = {
   label: string;
@@ -62,6 +63,56 @@ const Footer = () => {
   const t = useTranslations('Common');
   const tNavBar = useTranslations('NavBar');
 
+  const footers = [
+    {
+      title: t('getInTouch'),
+      items: [
+        {
+          label: siteConfig.contact.phone,
+          href: `tel:${siteConfig.contact.phone}`
+        },
+        {
+          label: siteConfig.contact.email,
+          href: `mailto:${siteConfig.contact.email}`
+        }
+      ]
+    },
+    {
+      title: t('legal'),
+      items: [
+        {
+          label: t('privacyPolicy'),
+          href: ROUTES.about
+        },
+        {
+          label: t('termsAndConditions'),
+          href: ROUTES.about
+        }
+      ]
+    },
+    {
+      title: t('ourWebsite'),
+      items: [
+        {
+          label: tNavBar('about'),
+          href: ROUTES.about
+        },
+        {
+          label: tNavBar('blog'),
+          href: ROUTES.about
+        },
+        {
+          label: tNavBar('contact'),
+          href: ROUTES.contact
+        },
+        {
+          label: tNavBar('faq'),
+          href: ROUTES.faq
+        }
+      ]
+    }
+  ]
+
   return (
     <footer className="self-stretch flex flex-col items-center sm:pt-4 md:pt-12 dark:bg-gray-800 relative">
       {/* separator */}
@@ -75,65 +126,27 @@ const Footer = () => {
                   Mik.
                 </TextLink>
             </div> */}
+            {/* <div className="flex-1 flex bg-info"> */}
             <div className="flex-1 grid grid-cols-1 gap-8 md:gap-6 sm:grid-cols-2 md:grid-cols-3">
-                <div>
+              {footers.map((footer, index) => (
+                <div key={index} className={cn('flex flex-col', { 'md:items-center': index === 1, 'md:items-end': index === footers.length - 1 })}>
                   <div>
                     <FooterTitle>
-                      {t('getInTouch')}
+                      {footer.title}
                     </FooterTitle>
                     <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
-                        <li>
-                          <TextLink href={siteConfig.contact.phone} underline={false} className="hover:underline">
-                            {siteConfig.contact.phone}
+                      {footer.items.map((item, subIndex) => (
+                        <li key={index + "" + subIndex}>
+                          <TextLink href={item.href} underline={false} className="hover:underline">
+                            {item.label}
                           </TextLink>
                         </li>
-                        <li>
-                          <TextLink href={`mailto:${siteConfig.contact.email}`} underline={false} className="hover:underline">
-                            {siteConfig.contact.email}
-                          </TextLink>
-                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
-                <div className="flex flex-col md:items-center">
-                  <div>
-                      <FooterTitle>
-                        {t('legal')}
-                      </FooterTitle>
-                      <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
-                          <li className="mb-4">
-                              <TextLink href="/" underline={false} className="hover:underline">Privacy Policy</TextLink>
-                          </li>
-                          <li>
-                              <TextLink href="/" underline={false} className="hover:underline">Terms &amp; Conditions</TextLink>
-                          </li>
-                      </ul>
-                  </div>
-                </div>
-                <div className="flex flex-col md:items-end">
-                  <div>
-                    <FooterTitle>
-                      {t('ourWebsite')}
-                    </FooterTitle>
-                    <ul className="text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-3 md:space-y-4">
-                      <li className="mb-4">
-                        <TextLink href={ROUTES.about} underline={false} className="hover:underline">
-                          {tNavBar('about')}
-                        </TextLink>
-                      </li>
-                      <li>
-                        <TextLink href={ROUTES.about} underline={false} className="hover:underline">
-                          {tNavBar('blog')}
-                        </TextLink>
-                      </li>
-                      <li>
-                        <TextLink href={ROUTES.contact} underline={false} className="hover:underline">
-                          {tNavBar('contact')}
-                        </TextLink>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              ))}
+
             </div>
         </div>
         {/* separator */}
