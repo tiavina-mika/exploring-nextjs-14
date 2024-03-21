@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import Container from '@/components/Container';
 import Text from '@/components/typography/Text';
+import { APP_NAME } from '@/utils/constants';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -21,7 +22,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
   });
 
   return {
-    title: t('faq.metaTitle'),
+    title: t('faq.metaTitle', { appName: APP_NAME }),
     description: t('faq.metaDescription'),
   };
 }
@@ -37,12 +38,11 @@ type Props = {
 
 const FaqPage = ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
-
   const t = useTranslations('Faqs');
   const tFaq = useTranslations('Faq');
 
   // Set items according to the "faq"
-  // entries in your en-us.json file
+  // entries in your en.json file
   const items = [1, 2, 3] as const;
 
   type FaqNumber = (typeof items)[number];

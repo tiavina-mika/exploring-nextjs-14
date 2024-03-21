@@ -2,8 +2,9 @@
 // https://github.com/whitecrownclown/merge-headers/blob/master/index.ts
 
 import { defaultLocale, locales } from "@/config/i18n";
-import { ITranslatedPathnames, ROUTES, translatedRoutes } from "@/config/routes";
+import { ITranslatedPathnames, ROUTES, nonSEORoutes, translatedRoutes } from "@/config/routes";
 import { Pathnames } from "next-intl/navigation";
+import { getTranslatedAbsoluteUrl } from "./app.utils";
 
 const isObject = (value: any) => {
   return value !== null && typeof value === "object";
@@ -34,8 +35,8 @@ export const mergeHeaders = (...sources: HeadersInit[]) => {
 /**
  * get local from url
  * ex: /en/dashboard -> en
- * @param pathname 
- * @returns 
+ * @param pathname
+ * @returns
  */
 export const getLocaleByPathname = (pathname: string): string => {
   let locale = pathname.split('/')[1];
@@ -48,8 +49,8 @@ export const getLocaleByPathname = (pathname: string): string => {
 
 /**
  * check if we are in dashboard or other protected routes
- * @param pathname 
- * @returns 
+ * @param pathname
+ * @returns
  */
 type PathnameOutput = {
   isDashboard: boolean;
@@ -105,4 +106,35 @@ export const createQueryString = <T = DefaultQSParams>(values: T) => {
   }
 
   return newSearchParams.toString();
+}
+
+/**
+ * get all possible translated urls
+ * @returns
+ */
+export const getAllTranslatedUrls = () => {
+  const nonDynamicUrls = []
+  const dynamicUrls = []
+  for (const key of Object.keys(translatedRoutes)) {
+    const isNonSEORoute = !!nonSEORoutes.find((route) => key.includes(route));
+    const isWithDynamicParams = key.includes('[');
+
+    // non dynamic and non SEO routes
+    // 'http://localhost:9001/en/about', 'http://localhost:9001/fr/a-propos'
+    if (!isWithDynamicParams && !isNonSEORoute) {
+      for (const locale of Object.keys(translatedRoutes[key])) {
+        const url = getTranslatedAbsoluteUrl(key, { locale });
+        nonDynamicUrls.push(url);
+      }
+    // dynamic urls
+    // ex: 'http://localhost:9001/en/article/my-article', 'http://localhost:9001/fr/article/mon-article'
+    } else if (isWithDynamicParams && !isNonSEORoute) {
+      for (const locale of Object.keys(translatedRoutes[key])) {
+        const url = getTranslatedAbsoluteUrl(key, { locale });
+        dynamicUrls.push(url);
+      }
+    }
+  }
+
+  return { nonDynamicUrls, dynamicUrls };
 }

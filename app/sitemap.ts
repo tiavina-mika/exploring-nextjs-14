@@ -1,22 +1,14 @@
 import { type MetadataRoute } from 'next';
 
-import { getTranslatedAbsoluteUrl } from '@/utils/app.utils';
-import { ROUTES } from '@/config/routes';
+import { getAllTranslatedUrls } from '@/utils/next.utils';
 
 const sitemap = (): MetadataRoute.Sitemap => {
   // TODO: add another dynamic route with db request
-  getTranslatedAbsoluteUrl(ROUTES.articles.root)
-  const routes = [
-    '',
-    ROUTES.articles.root,
-    ROUTES.faq,
-    ROUTES.about,
-    ROUTES.contact,
-    ROUTES.login,
-    ROUTES.signUp,
-    ROUTES.resetPassword,
-  ].map((route) => ({
-    url: getTranslatedAbsoluteUrl(route),
+  const { nonDynamicUrls } = getAllTranslatedUrls();
+
+  const routes = nonDynamicUrls.map((route) => ({
+    url: route,
+    // url: getTranslatedAbsoluteUrl(route),
     lastModified: new Date().toISOString(),
   }));
 
