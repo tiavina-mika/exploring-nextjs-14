@@ -48,7 +48,7 @@ const TextLink = ({
         as={"span" as any}
         className={cn('flex flex-row hover:opacity-90', className, {
           'underline': underline && variant === 'text',
-          'bg-primary text-white rounded-sm px-3 py-1 hover:opacity-75': variant === 'button',
+          'bg-primary text-white rounded-sm md:rounded-md px-3 py-1 md:py-2 hover:opacity-75': variant === 'button',
         })}
       >
         {isExternal ? (

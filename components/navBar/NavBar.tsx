@@ -129,13 +129,14 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
                 href={menu.value}
                 underline={false}
                 key={index}
+                variant={menu.id === "login" ? 'button' : 'text'}
               >
                 {menu.label}
               </TextLink>
             ))}
           </div>
           <TextLink href={ROUTES.login} variant="button" className="block md:hidden">
-            Login
+            {t('login')}
           </TextLink>
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
