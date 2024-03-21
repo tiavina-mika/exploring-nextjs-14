@@ -33,6 +33,14 @@ export const ROUTES = {
   faq: '/faq',
 };
 
+export const nonSEORoutes = [
+  ROUTES.logout,
+  ROUTES.verifyAccount,
+  ROUTES.forgotPassword,
+  ROUTES.resetPassword,
+  ROUTES.dashboard,
+];
+
 // and external paths, separated by locale.
 export const translatedRoutes = {
   // If all locales use the same pathname, a
