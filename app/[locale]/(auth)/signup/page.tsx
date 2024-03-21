@@ -45,7 +45,7 @@ const SignUpPage = ({ params: { locale } }: Props) => {
   return (
     <div className='flex flex-col items-center'>
       <div  className='flex flex-col self-stretch space-y-2 items-center'>
-        <Title level="h2" className="text-2xl mb-3">{tAuth('createAnAccount')}</Title>
+        <Title level="h2" className="md:text-2xl mb-3 md:text-center">{tAuth('createAnAccount')}</Title>
         <div className="self-stretch">
           <SignUpFormProvider />
         </div>

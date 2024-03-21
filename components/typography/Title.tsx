@@ -44,7 +44,7 @@ const Title = forwardRef<
       className={cn(
         titleVariants({ color }),
         className,
-        'dark:text-white md:text-center',
+        'dark:text-white',
         /**
          * mobile size, for mobile+, it's defined in theme
          * because there is no way to define responsive font-size there

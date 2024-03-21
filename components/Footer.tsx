@@ -52,7 +52,7 @@ type FooterTitleProps = {
 }
 const FooterTitle = ({ children }: FooterTitleProps) => {
   return (
-    <Title level="h3" className="mb-6 sm:mb-3 md:mb-6 font-semibold text-gray-900 uppercase dark:text-white">
+    <Title level="h3" className="mb-6 sm:mb-3 md:mb-6 font-semibold text-gray-900 uppercase dark:text-white md:text-lef">
       {children}
     </Title>
   )
