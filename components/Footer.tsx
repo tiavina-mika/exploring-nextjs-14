@@ -65,7 +65,7 @@ const Footer = () => {
   return (
     <footer className="self-stretch flex flex-col items-center sm:pt-4 md:pt-12 dark:bg-gray-800 relative">
       {/* separator */}
-      <hr className="hidden md:visible border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:top-0" />
+      <hr className="hidden md:block border-gray-200 dark:border-gray-700 relative md:absolute md:left-0 md:right-0 md:top-0" />
 
       {/* content */}
       <Container maxWidth="lg" className="mt-4 md:mt-0">
