@@ -134,7 +134,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
               </TextLink>
             ))}
           </div>
-          <TextLink href={ROUTES.login} variant="button">
+          <TextLink href={ROUTES.login} variant="button" className="block md:hidden">
             Login
           </TextLink>
           <ToggleTheme />
