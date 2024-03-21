@@ -27,8 +27,7 @@ const HomeFeatures = ({ sections }: Props) => {
                   <div className="pr-6 py-2">
                     <NextIcon
                       alt={section.title}
-                      width={32}
-                      height={32}
+                      size={32}
                       src={section.icon}
                     />
                   </div>

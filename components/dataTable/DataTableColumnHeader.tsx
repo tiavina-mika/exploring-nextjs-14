@@ -50,8 +50,7 @@ export const DataTableColumnHeader = <TData, TValue>({
               <NextIcon
                 alt=""
                 src="/icons/arrow-down.svg"
-                width={6}
-                height={6}
+                size={6}
                 aria-hidden="true"
                 className="ml-2"
               />
@@ -59,8 +58,7 @@ export const DataTableColumnHeader = <TData, TValue>({
               <NextIcon
                 alt=""
                 src="/icons/arrow-up.svg"
-                width={6}
-                height={6}
+                size={6}
                 aria-hidden="true"
                 className="ml-2"
               />
@@ -68,8 +66,7 @@ export const DataTableColumnHeader = <TData, TValue>({
               <NextIcon
                 alt=""
                 src="/icons/fa-caret-sort.svg"
-                width={6}
-                height={6}
+                size={6}
                 aria-hidden="true"
                 className="ml-2"
               />
@@ -85,7 +82,6 @@ export const DataTableColumnHeader = <TData, TValue>({
               alt=""
               src="/icons/arrow-up.svg"
               width={3.5}
-              height={3.5}
               aria-hidden="true"
               className="mr-2 text-muted-foreground/70"
             />
@@ -99,7 +95,6 @@ export const DataTableColumnHeader = <TData, TValue>({
               alt=""
               src="/icons/arrow-down.svg"
               width={3.5}
-              height={3.5}
               aria-hidden="true"
               className="mr-2 text-muted-foreground/70"
             />
@@ -113,8 +108,7 @@ export const DataTableColumnHeader = <TData, TValue>({
             <NextIcon
               alt=""
               src="/icons/eye-off.svg"
-              width={3.5}
-              height={3.5}
+              size={3.5}
               aria-hidden="true"
               className="mr-2 text-muted-foreground/70"
             />

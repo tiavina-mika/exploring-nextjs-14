@@ -97,10 +97,8 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
           <Button>
             <TextLink href={(ROUTES.articles as any).add} className="text-weight" underline={false}>
               <NextIcon
-                alt=""
                 src="/icons/plus-white.svg"
-                width={18}
-                height={18}
+                size={18}
                 className="mr-2"
               />
               {tArticle('create')}

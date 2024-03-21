@@ -47,10 +47,10 @@ const Articles = ({ tErrorDeletion, articles }: Props) => {
               {/* actions */}
               <div className="flex flex-row items-center self-stretch">
                 <IconButton onClick={() => goToEdition(article.objectId)} className="p-2">
-                  <NextIcon src="/icons/edit.svg" width={18} height={18} alt="" />
+                  <NextIcon src="/icons/edit.svg" size={18} />
                 </IconButton>
                 <IconButton onClick={() => handleDelete(article.objectId)} className="p-2">
-                  <NextIcon src="/icons/trash.svg" width={18} height={18} alt="" />
+                  <NextIcon src="/icons/trash.svg" size={18} />
                 </IconButton>
               </div>
             </Card>

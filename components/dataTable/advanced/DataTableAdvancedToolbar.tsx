@@ -93,10 +93,8 @@ export const DataTableAdvancedToolbar = <TData,>({
             >
               Filter
               <NextIcon
-                alt=""
                 src="/icons/check.svg"
-                width={6}
-                height={6}
+                size={6}
                 className=" ml-2 opacity-50"
                 aria-hidden="true"
               />
@@ -148,10 +146,8 @@ export const DataTableAdvancedToolbar = <TData,>({
               className="rounded-full"
             >
               <NextIcon
-                alt=""
                 src="/icons/plus.svg"
-                width={6}
-                height={6}
+                size={6}
                 className="mr-2 opacity-50"
                 aria-hidden="true"
               />

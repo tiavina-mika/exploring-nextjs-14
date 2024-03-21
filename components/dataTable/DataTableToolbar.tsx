@@ -81,10 +81,8 @@ const DataTableToolbar = <TData,>({
           >
             Reset
             <NextIcon
-              alt=""
               src="/icons/check.svg"
-              width={6}
-              height={6}
+              size={6}
               className="ml-2"
               aria-hidden="true"
             />
@@ -106,10 +104,8 @@ const DataTableToolbar = <TData,>({
             disabled={isPending}
           >
             <NextIcon
-              alt=""
               src="/icons/plus-circle.svg"
-              width={18}
-              height={18}
+              size={18}
               className="mr-2"
               aria-hidden="true"
             />
@@ -126,10 +122,8 @@ const DataTableToolbar = <TData,>({
               )}
             >
               <NextIcon
-                alt=""
                 src="/icons/plus-circle.svg"
-                width={18}
-                height={18}
+                size={18}
                 aria-hidden="true"
               />
               New

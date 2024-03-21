@@ -61,10 +61,8 @@ export const Breadcrumbs = ({
             </TextLink>
             {!isLastSegment && (
               <NextIcon
-                alt=""
                 src={`/icons/${separator || 'chevron-right'}.svg`}
-                width={14}
-                height={14}
+                size={14}
                 aria-hidden="true"
                 className="mx-2"
               />

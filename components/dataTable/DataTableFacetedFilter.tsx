@@ -48,8 +48,7 @@ const DataTableFacetedFilter = <TData, TValue>({
               <NextIcon
                 alt=""
                 src="/icons/plus-circle.svg"
-                width={6}
-                height={6}
+                size={6}
                 aria-hidden="true"
               />
               {title}
@@ -122,8 +121,7 @@ const DataTableFacetedFilter = <TData, TValue>({
                           <NextIcon
                             alt=""
                             src="/icons/check.svg"
-                            width={18}
-                            height={18}
+                            size={18}
                             aria-hidden="true"
                           />
                         </div>
@@ -194,8 +192,7 @@ const DataTableFacetedFilter = <TData, TValue>({
                       <NextIcon
                         alt=""
                         src="/icons/check.svg"
-                        width={18}
-                        height={18}
+                        size={18}
                         aria-hidden="true"
                       />
                     </div>

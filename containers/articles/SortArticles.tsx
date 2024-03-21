@@ -37,7 +37,7 @@ const SortArticles = ({ className, inputClassName, searchParams, options }: Prop
   const handleChange = (value: string) => {
     const state = { ...searchParams, field: value };
     handleSort(state);
-    
+
   };
 
   const toggleSort = () => {
@@ -56,7 +56,7 @@ const SortArticles = ({ className, inputClassName, searchParams, options }: Prop
       />
       <div>
         <IconButton onClick={toggleSort}>
-          <NextIcon src={`/icons/arrow-${order === 'asc' ? 'up' : 'down'}.svg`} width={18} height={18} alt="" />
+          <NextIcon src={`/icons/arrow-${order === 'asc' ? 'up' : 'down'}.svg`} size={18} />
         </IconButton>
       </div>
     </div>

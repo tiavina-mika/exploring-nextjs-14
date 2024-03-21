@@ -260,10 +260,8 @@ export const MultiFilterRow = <TData,>({
         <DropdownMenuTrigger asChild>
           <IconButton className="size-8 shrink-0">
             <NextIcon
-              alt=""
               src="/icons/more-horizontal.svg"
-              width={6}
-              height={6}
+              size={6}
               aria-hidden="true"
             />
           </IconButton>
@@ -277,10 +275,8 @@ export const MultiFilterRow = <TData,>({
             }}
           >
             <NextIcon
-              alt=""
               src="/icons/trash.svg"
-              width={6}
-              height={6}
+              size={6}
               className="mr-2"
               aria-hidden="true"
             />
@@ -301,10 +297,8 @@ export const MultiFilterRow = <TData,>({
             }}
           >
             <NextIcon
-              alt=""
               src="/icons/copy.svg"
-              width={6}
-              height={6}
+              size={6}
               className="mr-2"
               aria-hidden="true"
             />
@@ -337,10 +331,8 @@ export const DataTableMultiFilter = <TData,>({
       <PopoverTrigger asChild>
         <Button variant="outlined" className="h-7 truncate rounded-full">
           <NextIcon
-            alt=""
             src="/icons/align-center.svg"
-            width={5}
-            height={5}
+            size={5}
             className="mr-2"
             aria-hidden="true"
           />

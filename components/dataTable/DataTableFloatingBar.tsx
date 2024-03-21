@@ -38,8 +38,7 @@ const DataTableFloatingBar = <TData,>({
         <NextIcon
           alt=""
           src="/icons/x2.svg"
-          width={6}
-          height={6}
+          size={6}
           aria-hidden="true"
         />
       </IconButton>

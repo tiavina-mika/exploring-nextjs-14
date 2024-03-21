@@ -133,8 +133,10 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
                 {menu.label}
               </TextLink>
             ))}
-
           </div>
+          <TextLink href={ROUTES.login} variant="button">
+            Login
+          </TextLink>
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
         </div>

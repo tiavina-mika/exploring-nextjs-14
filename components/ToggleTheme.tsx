@@ -18,16 +18,14 @@ const ToggleTheme = () => {
       <NextIcon
         alt=""
         src="/icons/sun.svg"
-        width={19}
-        height={19}
+        size={19}
         className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
         aria-hidden="true"
       />
       <NextIcon
         alt=""
         src="/icons/moon.svg"
-        width={24}
-        height={24}
+        size={24}
         className="absolute top-[5px] left-[5px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
         aria-hidden="true"
       />

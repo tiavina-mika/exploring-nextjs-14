@@ -40,10 +40,8 @@ const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
       >
         {label}
         <NextIcon
-          alt=""
           src="/icons/chevron-right.svg"
-          width={18}
-          height={18}
+          size={18}
           className="opacity-50 inline-block md:hidden"
         />
       </TextLink>

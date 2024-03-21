@@ -46,10 +46,8 @@ const DataTableAdvancedFilter = <TData,>({
           <Button variant="outlined" role="combobox" className="capitalize">
             Filter
             <NextIcon
-              alt=""
               src="/icons/fa-caret-sort.svg"
-              width={6}
-              height={6}
+              size={6}
               className="ml-2 shrink-0 opacity-50"
               aria-hidden="true"
             />
@@ -80,19 +78,15 @@ const DataTableAdvancedFilter = <TData,>({
               >
                 {option.items.length > 0 ? (
                   <NextIcon
-                    alt=""
                     src="/icons/chevron-down.svg"
-                    width={6}
-                    height={6}
+                    size={6}
                     className="mr-2"
                     aria-hidden="true"
                   />
                 ) : (
                   <NextIcon
-                    alt=""
                     src="/icons/text.svg"
-                    width={6}
-                    height={6}
+                    size={6}
                     className="mr-2"
                     aria-hidden="true"
                   />
@@ -119,10 +113,8 @@ const DataTableAdvancedFilter = <TData,>({
               }}
             >
               <NextIcon
-                alt=""
                 src="/icons/plus.svg"
-                width={6}
-                height={6}
+                size={6}
                 className="mr-2 opacity-50"
                 aria-hidden="true"
               />

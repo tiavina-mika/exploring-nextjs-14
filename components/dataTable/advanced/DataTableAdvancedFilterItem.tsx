@@ -181,10 +181,8 @@ const DataTableAdvancedFilterItem = <TData,>({
             }}
           >
             <NextIcon
-              alt=""
               src="/icons/trash.svg"
-              width={6}
-              height={6}
+              size={6}
               aria-hidden="true"
             />
           </IconButton>

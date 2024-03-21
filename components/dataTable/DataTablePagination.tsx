@@ -59,10 +59,8 @@ const DataTablePagination = <TData,>({
             disabled={!table.getCanPreviousPage()}
           >
             <NextIcon
-              alt=""
               src="/icons/chevrons-left.svg"
-              width={6}
-              height={6}
+              size={6}
               aria-hidden="true"
             />
           </IconButton>
@@ -73,10 +71,8 @@ const DataTablePagination = <TData,>({
             disabled={!table.getCanPreviousPage()}
           >
             <NextIcon
-              alt=""
               src="/icons/chevron-left.svg"
               width={6}
-              height={6}
               aria-hidden="true"
             />
           </IconButton>
@@ -87,10 +83,8 @@ const DataTablePagination = <TData,>({
             disabled={!table.getCanNextPage()}
           >
             <NextIcon
-              alt=""
               src="/icons/chevron-right.svg"
               width={6}
-              height={6}
               aria-hidden="true"
             />
           </IconButton>
@@ -101,10 +95,8 @@ const DataTablePagination = <TData,>({
             disabled={!table.getCanNextPage()}
           >
             <NextIcon
-              alt=""
               src="/icons/chevrons-right.svg"
               width={6}
-              height={6}
               aria-hidden="true"
             />
           </IconButton>
