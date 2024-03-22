@@ -2,7 +2,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import { Locale } from '@/config/i18n';
 import { Metadata } from 'next';
-
 import { ROUTES } from '@/config/routes';
 
 import { ISearchParams } from '@/types/app.type';
@@ -30,6 +29,7 @@ export const generateMetadata = async ({ params: { locale }}: MetaDataProps): Pr
 // ----------------------------- //
 // ------------ page ----------- //
 // ----------------------------- //
+
 type Props = {
   params: {
     locale: Locale;
@@ -49,7 +49,6 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
         },
       ]}
       searchParams={searchParams}
-      write
     />
   );
 };

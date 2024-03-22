@@ -15,6 +15,8 @@ type BreadcrumbsProps = ComponentPropsWithoutRef<"nav"> & {
   truncationLength?: number;
 };
 
+export type IBreadCrumbSegment = BreadcrumbsProps['segments'];
+
 export const Breadcrumbs = ({
   segments,
   separator,

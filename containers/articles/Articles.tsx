@@ -17,8 +17,10 @@ import TextLink from '@/components/typography/TextLink';
 type Props = {
   tErrorDeletion?: string;
   articles: IArticle[];
+  write?: boolean;
 };
-const Articles = ({ tErrorDeletion, articles }: Props) => {
+
+const Articles = ({ tErrorDeletion, articles, write = false }: Props) => {
   const router = useRouter();
 
   const { execute: handleDelete, status } = useAction(deleteArticle);
@@ -45,14 +47,16 @@ const Articles = ({ tErrorDeletion, articles }: Props) => {
                 </div>
               </TextLink>
               {/* actions */}
-              <div className="flex flex-row items-center self-stretch">
-                <IconButton onClick={() => goToEdition(article.objectId)} className="p-2">
-                  <NextIcon src="/icons/edit.svg" size={18} />
-                </IconButton>
-                <IconButton onClick={() => handleDelete(article.objectId)} className="p-2">
-                  <NextIcon src="/icons/trash.svg" size={18} />
-                </IconButton>
-              </div>
+              {write && (
+                <div className="flex flex-row items-center self-stretch">
+                  <IconButton onClick={() => goToEdition(article.objectId)} className="p-2">
+                    <NextIcon src="/icons/edit.svg" size={18} />
+                  </IconButton>
+                  <IconButton onClick={() => handleDelete(article.objectId)} className="p-2">
+                    <NextIcon src="/icons/trash.svg" size={18} />
+                  </IconButton>
+                </div>
+              )}
             </Card>
           ))}
       </div>
