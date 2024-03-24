@@ -59,7 +59,7 @@ const ArticleForm = ({ article }: Props) => {
   // this working for creation but not with edition (with .bind(null, id))
   // const { execute: onCreate } = useAction(createArticle, {
   //   onSuccess: (data) => {
-  //     router.push(ROUTES.articles.preview((data as any).objectId));
+  //     router.push(ROUTES.private.articles.preview((data as any).objectId));
   //   },
   //   onError: (error) => {
   //     setFormError<IArticleInput>(form, error, tForm, tArticle);
@@ -81,7 +81,7 @@ const ArticleForm = ({ article }: Props) => {
     if (data.data) {
       const article = data.data as any;
       // go to preview
-      router.push(ROUTES.articles.preview(article.objectId));
+      router.push(ROUTES.private.articles.preview(article.objectId));
       return
     }
 
