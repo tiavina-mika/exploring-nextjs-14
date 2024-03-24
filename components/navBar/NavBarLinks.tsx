@@ -8,12 +8,15 @@ import { IMenu } from '@/types/app.type';
 
 import MobileOpenMenuIcon from './MobileOpenMenuIcon';
 import NavBarItem from './NavBarItem';
+import ToggleTheme from '../ToggleTheme';
+import Text from '../typography/Text';
 
 type Props = {
   menus: IMenu[];
   className?: string;
+  tChangeTheme: string;
 };
-const NavBarLinks = ({ menus, className }: Props) => {
+const NavBarLinks = ({ menus, className, tChangeTheme }: Props) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const toggleMenu = () => setOpenMenu(!openMenu);
@@ -43,6 +46,12 @@ const NavBarLinks = ({ menus, className }: Props) => {
               })}
             />
           ))}
+          <li key="toggle-theme" className="flex items-center gap-2 absolute bottom-4 md:hidden">
+            <ToggleTheme />
+            <Text>
+              {tChangeTheme}
+            </Text>
+          </li>
         </ul>
       </div>
     </div>
