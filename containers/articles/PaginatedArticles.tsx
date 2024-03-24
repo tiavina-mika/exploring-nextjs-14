@@ -62,6 +62,7 @@ const PaginatedArticles = async ({ searchParams, breadcrumbs, write }: Props) =>
         <div>
           <Breadcrumbs
             segments={breadcrumbs}
+            isPrivateRoute={write}
           />
           <SortArticles searchParams={parsedSearchParams} options={options} />
         </div>
@@ -69,7 +70,7 @@ const PaginatedArticles = async ({ searchParams, breadcrumbs, write }: Props) =>
         {write && (
           <div>
             <Button>
-              <TextLink href={(ROUTES.articles as any).add} className="text-weight" underline={false}>
+              <TextLink href={(ROUTES.private.articles as any).add} className="text-weight" underline={false}>
                 <NextIcon
                   src="/icons/plus-white.svg"
                   size={18}
