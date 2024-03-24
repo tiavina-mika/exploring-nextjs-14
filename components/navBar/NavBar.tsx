@@ -47,7 +47,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
     },
     // {
     //   label: 'Preview Article',
-    //   value: ROUTES.articles.preview('1'),
+    //   value: ROUTES.private.articles.preview('1'),
     //   id: 'preview-article',
     // },
     // {
