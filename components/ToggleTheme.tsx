@@ -6,14 +6,18 @@ import { useTheme } from 'next-themes';
 
 import IconButton from './buttons/IconButton';
 import NextIcon from './NextIcon';
+import { cn } from '@/utils/app.utils';
 
-const ToggleTheme = () => {
+type Props = {
+  className?: string;
+};
+const ToggleTheme = ({ className }: Props) => {
   const { theme, setTheme } = useTheme();
 
   return (
     <IconButton
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="relative p-2 rounded-md !border-gray-100 border"
+      className={cn('relative p-2 rounded-md !border-gray-100 dark:!border-gray-500 border', className)}
     >
       <NextIcon
         alt=""
