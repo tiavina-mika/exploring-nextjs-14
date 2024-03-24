@@ -27,7 +27,8 @@
     "contactUs": "Contact us",
     "blog": "Blog",
     "contact": "Contact",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "myArticles": "My articles"
   },
   "LanguageSwitcher": {
     "label": "Change language",
