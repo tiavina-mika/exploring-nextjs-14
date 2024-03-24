@@ -45,9 +45,9 @@ const VerifyAccountPage = ({ params: { locale } }: Props) => {
 
   return (
     <div className='flex flex-col items-center'>
-      <div  className='flex flex-col self-stretch space-y-2 items-center'>
+      <div  className='flex flex-col self-stretch space-y-2 md:items-center'>
         {/* titles */}
-        <div className="flex flex-col items-center mb-8 gap-3">
+        <div className="flex flex-col md:items-center mb-8 gap-3">
           <Title level="h2" className="text-2xl md:text-center">
             {tAuth('emailVerification')}
           </Title>
