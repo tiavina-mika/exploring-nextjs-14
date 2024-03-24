@@ -25,8 +25,8 @@ const Articles = ({ tErrorDeletion, articles, write = false }: Props) => {
 
   const { execute: handleDelete, status } = useAction(deleteArticle);
 
-  const goToEdition = (id: string) => router.push(ROUTES.articles.edit(id));
-  // const goToPreview = (id: string) => router.push(ROUTES.articles.preview(id));
+  const goToEdition = (id: string) => router.push(ROUTES.private.articles.edit(id));
+  // const goToPreview = (id: string) => router.push(ROUTES.private.articles.preview(id));
 
   return (
     <div className="flexColumn gap-3">
@@ -41,7 +41,7 @@ const Articles = ({ tErrorDeletion, articles, write = false }: Props) => {
               className="flex flex-col self-stretch"
             >
               {/* text */}
-              <TextLink href={ROUTES.articles.preview(article.objectId)} underline={false}>
+              <TextLink href={ROUTES.private.articles.preview(article.objectId)} underline={false}>
                 <div className="flex-1 self-stretch flex flex-row items-center">
                   <Title level="h5">{article.title}</Title>
                 </div>
