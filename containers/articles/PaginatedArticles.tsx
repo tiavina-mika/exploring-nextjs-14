@@ -57,7 +57,7 @@ const PaginatedArticles = async ({ searchParams, breadcrumbs, write }: Props) =>
   }));
 
   return (
-    <Container className="space-y-4">
+    <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <Breadcrumbs
@@ -101,7 +101,7 @@ const PaginatedArticles = async ({ searchParams, breadcrumbs, write }: Props) =>
           />
         </>
       )}
-    </Container>
+    </div>
   );
 };
 
