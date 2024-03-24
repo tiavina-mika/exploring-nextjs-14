@@ -16,7 +16,7 @@ const AuthLayout = async ({ children, params: { locale } }: Props) => {
 
   return (
     <Container className="flex justify-center pt-0 md:pb-10">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5">
+      <div className="pt-4 relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5">
         {children}
       </div>
     </Container>
