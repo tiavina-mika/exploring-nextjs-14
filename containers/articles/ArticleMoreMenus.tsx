@@ -27,10 +27,10 @@ const ArticleMoreMenus = ({ articleId, currentAction }: Props) => {
 
   const router = useRouter();
 
-  const goToPreview = (value: string) => router.push(ROUTES.articles.preview(value));
-  const goToEdition = (value: string) => router.push(ROUTES.articles.edit(value));
-  const goToCreation = () => router.push(ROUTES.articles.add);
-  const goToList = () => router.push(ROUTES.articles.root);
+  const goToPreview = (value: string) => router.push(ROUTES.private.articles.preview(value));
+  const goToEdition = (value: string) => router.push(ROUTES.private.articles.edit(value));
+  const goToCreation = () => router.push(ROUTES.private.articles.add);
+  const goToList = () => router.push(ROUTES.private.articles.root);
 
   const menus: IMenuItem[] = useMemo(() => {
     const defaultOptions = [
