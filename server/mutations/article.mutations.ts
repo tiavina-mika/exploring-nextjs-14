@@ -47,9 +47,9 @@ export const editArticle = action(EditArticleSchema,
     const savedArticle = await (article as Parse.Attributes).save();
 
     // reload cache
-    revalidatePath(ROUTES.articles.root)
-    revalidatePath(ROUTES.articles.edit(savedArticle.id).pathname)
-    revalidatePath(ROUTES.articles.preview(savedArticle.id).pathname)
+    revalidatePath(ROUTES.private.articles.root)
+    revalidatePath(ROUTES.private.articles.edit(savedArticle.id).pathname)
+    revalidatePath(ROUTES.private.articles.preview(savedArticle.id).pathname)
     return savedArticle.toJSON();
   }
 );
@@ -62,7 +62,7 @@ export const deleteArticle = action(idSchema,
 
     const deletedArticle = await (article as Parse.Attributes).destroy();
 
-    revalidatePath(ROUTES.articles.root);
+    revalidatePath(ROUTES.private.articles.root);
     return deletedArticle.id;
   }
 );
