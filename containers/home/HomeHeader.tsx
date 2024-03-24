@@ -5,7 +5,10 @@ import Container from '@/components/Container';
 
 const HomeHeader = () => {
   return (
-    <Container className="flex flex-col items-center" rootClassName="self-stretch justify-center min-h-[350px] md:min-h-[500px] bg-gray-200">
+    <Container
+      className="flex flex-col items-center"
+      rootClassName="self-stretch justify-center min-h-[300px] md:min-h-[500px] border-b border-error border-b-1 md:border-0 md:bg-gray-200"
+    >
       <div className="max-w-md">
         <div className="self-stretch flex flex-col lg:items-center gap-4 md:gap-8">
           <Title level="h1" className="lg!text-6xl font-extrabold">
