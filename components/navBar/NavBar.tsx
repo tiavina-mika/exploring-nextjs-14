@@ -70,6 +70,12 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
       id: 'profile'
     },
     {
+      label: t('dashboard'),
+      value: ROUTES.dashboard,
+      icon: '/icons/layout.svg',
+      id: 'dashboard'
+    },
+    {
       label: t('logout'),
       // the logout url will be added a redirection url search params (see: AccountMenu.tsx)
       value: ROUTES.logout,
