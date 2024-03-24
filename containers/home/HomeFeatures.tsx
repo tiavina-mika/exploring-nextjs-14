@@ -10,7 +10,7 @@ type Props = {
 }
 const HomeFeatures = ({ sections }: Props) => {
   return (
-    <div className="flex md:justify-center bg-gray-200 self-stretch py-10 md:py-20 lg:py-36">
+    <div className="flex md:justify-center md:bg-gray-200 self-stretch py-10 md:py-20 lg:py-36">
       <Container className="flex items-center flex-col lg:flex-row gap-16" maxWidth="lg" withSpacingY={false}>
         {/* left */}
         <div className="flex-1 stretchSelf flex flex-col gap-6">
