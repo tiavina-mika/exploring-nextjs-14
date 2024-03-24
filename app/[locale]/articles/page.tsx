@@ -6,6 +6,7 @@ import { ROUTES } from '@/config/routes';
 
 import { ISearchParams } from '@/types/app.type';
 import PaginatedArticles from '@/containers/articles/PaginatedArticles';
+import Container from '@/components/Container';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -41,15 +42,17 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <PaginatedArticles
-      breadcrumbs={[
-        {
-          title: 'Articles',
-          href: (ROUTES.private.articles as any).root,
-        },
-      ]}
-      searchParams={searchParams}
-    />
+    <Container className="space-y-4">
+      <PaginatedArticles
+        breadcrumbs={[
+          {
+            title: 'Articles',
+            href: (ROUTES.private.articles as any).root,
+          },
+        ]}
+        searchParams={searchParams}
+      />
+    </Container>
   );
 };
 
