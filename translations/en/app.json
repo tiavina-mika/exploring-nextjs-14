@@ -28,7 +28,8 @@
     "blog": "Blog",
     "contact": "Contact",
     "dashboard": "Dashboard",
-    "myArticles": "My articles"
+    "myArticles": "My articles",
+    "toggleTheme": "Toggle theme"
   },
   "LanguageSwitcher": {
     "label": "Change language",
