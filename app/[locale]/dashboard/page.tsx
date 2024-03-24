@@ -1,8 +1,8 @@
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
-import Title from '@/components/typography/Title';
 import { Locale } from '@/config/i18n';
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 // ----------------------------- //
 // -------- metadata ----------- //
@@ -37,7 +37,10 @@ const DashboardHomePage = async ({ params: { locale } }: Props) => {
 
   return (
     <div>
-      <Title>Dashboard home page</Title>
+        <Breadcrumbs
+          segments={[]}
+          isPrivateRoute
+        />
     </div>
   );
 };
