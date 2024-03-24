@@ -99,12 +99,12 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
     },
   ];
 
+  // not show login and sign-up if the user is logged in
   const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
 
   const getMainMenus = () => {
     if (isLoggedIn) {
       return [...loggedInMenus, ...accountMenus];
-      // return [...loggedInMenus, ...accountMenus];
     }
 
     // add the right menus to the drawer if the screen is tablet down
