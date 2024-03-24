@@ -37,7 +37,7 @@ const NavBarLinks = ({ menus, className }: Props) => {
               href={menu.value}
               label={menu.label}
               // hide profile and logout on desktop since it is already in the dropdown
-              className={cn({ 'md:hidden': ['profile', 'logout'].includes(menu.id as string)})}
+              className={cn({ 'md:hidden': ['profile', 'logout', 'dashboard'].includes(menu.id as string)})}
             />
           ))}
         </ul>
