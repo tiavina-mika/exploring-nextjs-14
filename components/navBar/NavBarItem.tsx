@@ -22,8 +22,9 @@ type Props = {
   className?: string;
   rootClassName?: string;
   withArrow?: boolean;
+  onClick?: () => void;
 } & TextLinkProps;
-const NavBarItem = ({ label, href, className, rootClassName, withArrow = false, ...linkProps }: Props) => {
+const NavBarItem = ({ label, href, className, rootClassName, onClick, withArrow = false, ...linkProps }: Props) => {
   const currentPath = usePathname();
 
   return (
@@ -39,6 +40,7 @@ const NavBarItem = ({ label, href, className, rootClassName, withArrow = false, 
           'flex flex-row justify-between py-3 md:py-0'
         )}
         underline={false}
+        onClick={onClick}
       >
         {label}
         <NextIcon
