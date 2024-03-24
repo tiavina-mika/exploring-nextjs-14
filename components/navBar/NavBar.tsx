@@ -131,7 +131,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
         <div className="flex md:justify-between items-center md:flex-1">
           <Logo />
           <div className="md:flex-1 flex md:justify-center -order-1 md:order-1">
-            <NavBarLinks menus={getMainMenus()} />
+            <NavBarLinks menus={getMainMenus()} tChangeTheme={t('toggleTheme')} />
           </div>
         </div>
         {/* responsive */}
@@ -154,7 +154,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
               {t('login')}
             </TextLink>
           )}
-          <ToggleTheme />
+          <ToggleTheme className="hidden md:block" />
           <AccountMenu menus={accountMenus} />
         </div>
       </div>
