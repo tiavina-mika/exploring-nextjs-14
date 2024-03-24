@@ -128,7 +128,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
   return (
     <nav className={cn('shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900', className)}>
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
-        <div className="flex md:justify-between items-center md:flex-1">
+        <div className="flex md:justify-between items-center md:flex-1 gap-2">
           <Logo />
           <div className="md:flex-1 flex md:justify-center -order-1 md:order-1">
             <NavBarLinks menus={getMainMenus()} tChangeTheme={t('toggleTheme')} />
