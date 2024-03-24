@@ -59,11 +59,11 @@ const EditArticlePage = async ({ params: { locale, articleId } }: Props) => {
           segments={[
             {
               title: 'Articles',
-              href: (ROUTES.articles as any).root,
+              href: (ROUTES.private.articles as any).root,
             },
             {
               title: t('edit') + ' ' + article.title,
-              href: ROUTES.articles.preview(article.objectId),
+              href: ROUTES.private.articles.preview(article.objectId),
             },
           ]}
         />
