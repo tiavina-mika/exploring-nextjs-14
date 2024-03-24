@@ -7,7 +7,7 @@ const MobileOpenMenuIcon = ({ onClick }: Props) => {
     <button
       data-collapse-toggle="navbar-default"
       type="button"
-      className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+      className="flex items-center justify-cente h-5 w-5 rounded-lg text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
       aria-controls="navbar-default"
       aria-expanded="false"
       onClick={onClick}
