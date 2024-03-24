@@ -44,7 +44,7 @@ const ContactPage = ({ params: { locale } }: Props) => {
     <Container className="flex justify-center md:h-screen pt-0 md:pt-32">
       <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
         <div className='flex flex-col items-center'>
-          <div  className='flex flex-col self-stretch space-y-2 items-center'>
+          <div  className='flex flex-col self-stretch space-y-2 md:items-center'>
             <Title level="h2" className="text-2xl mb-3">{t('contactUs')}</Title>
             <div className="self-stretch">
               <ContactFormProvider />
