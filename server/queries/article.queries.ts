@@ -6,6 +6,11 @@ import { collections } from '@/utils/constants';
 
 import { IPaginationQuery, IServerResponse } from '@/types/app.type';
 import { IArticle } from '@/types/article.type';
+import { locales } from '@/config/i18n';
+import { getAbsoluteUrl } from '@/utils/app.utils';
+import { MetadataRoute } from 'next';
+import { ROUTES, translatedRoutes } from '@/config/routes';
+import { retrievePathnameFromDynamicPathname } from '@/utils/next.utils';
 
 export const getArticle = async (
   id: string,
@@ -36,7 +41,7 @@ export const getArticles = async ({ limit, skip, field, order }: IPaginationQuer
     const query = new Parse.Query(collections.Article)
       .limit(limit)
       .skip(skip)
-    
+
     if (field) {
       if (order === 'asc') {
         query.ascending(field);
@@ -59,3 +64,29 @@ export const getArticles = async ({ limit, skip, field, order }: IPaginationQuer
     return { error: (e as Error).message };
   }
 };
+
+/**
+ * generate sitemap for all articles
+ * it's used in sitemap.ts
+ * @returns
+ */
+export const generateArticlesSitemap = async (): Promise<MetadataRoute.Sitemap> => {
+  const siteMaps: MetadataRoute.Sitemap = [];
+
+  const articlesPath = retrievePathnameFromDynamicPathname(ROUTES.articles.preview().pathname)
+
+  await new Parse.Query(collections.Article)
+  .each(async (article: Parse.Object) => {
+    locales.forEach((locale) => {
+      // [ROUTES.articles.preview().pathname][locale]
+
+      siteMaps.push({
+        url: getAbsoluteUrl(`/${locale}${articlesPath}${article.id}`),
+
+        lastModified: article.updatedAt,
+      });
+    })
+  })
+
+  return siteMaps;
+}
