@@ -68,7 +68,7 @@ const FaqPage = ({ params: { locale } }: Props) => {
                 {item}. {t(summaryKey)}
               </Title>
               <div>
-                <Text className="text-gray-500 dark:text-gray-400 text-base md:text-lg">
+                <Text className="text-gray-500 dark:!text-gray-200 text-base md:text-lg">
                   {t(detailsKey)}
                 </Text>
               </div>
