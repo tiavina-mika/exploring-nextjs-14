@@ -20,12 +20,14 @@ type Props = {
   label: IMenu['label'];
   href: IMenu['value'];
   className?: string;
+  rootClassName?: string;
+  withArrow?: boolean;
 } & TextLinkProps;
-const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
+const NavBarItem = ({ label, href, className, rootClassName, withArrow = false, ...linkProps }: Props) => {
   const currentPath = usePathname();
 
   return (
-    <li className="border-b border-gray-100 md:border-b-0">
+    <li className={cn('border-b border-gray-100 md:border-b-0', rootClassName)}>
       <TextLink
         {...linkProps}
         href={href}
@@ -42,7 +44,9 @@ const NavBarItem = ({ label, href, className, ...linkProps }: Props) => {
         <NextIcon
           src="/icons/chevron-right.svg"
           size={18}
-          className="opacity-50 inline-block md:hidden"
+          className={cn('opacity-50 ', {
+            'inline-block md:hidden': !withArrow,
+          })}
         />
       </TextLink>
     </li>
