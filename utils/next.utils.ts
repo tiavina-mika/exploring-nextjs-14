@@ -3,7 +3,6 @@
 
 import { defaultLocale, locales } from "@/config/i18n";
 import { ITranslatedPathnames, ROUTES, nonSEORoutes, translatedRoutes } from "@/config/routes";
-import { Pathnames } from "next-intl/navigation";
 import { getTranslatedAbsoluteUrl } from "./app.utils";
 
 const isObject = (value: any) => {
@@ -137,4 +136,20 @@ export const getAllTranslatedUrls = () => {
   }
 
   return { nonDynamicUrls, dynamicUrls };
+}
+
+/**
+ * ex: /articles/[articleId] -> /articles
+ * @param route
+ * @returns
+ */
+export const retrievePathnameFromDynamicPathname = (route: string): string => {
+  const translatedPath = Object.keys(translatedRoutes).find((translatedRoute) => translatedRoute === route);
+
+  if (!translatedPath) return '/';
+
+  const paths = translatedPath.split('[');
+  const path = paths?.[0];
+
+  return path;
 }
