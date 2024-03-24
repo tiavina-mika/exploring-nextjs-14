@@ -45,6 +45,12 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
       value: ROUTES.contact,
       id: 'contact',
     },
+    {
+      label: t('myArticles'),
+      value: ROUTES.private.articles.root,
+      id: 'myArticles',
+      display: "mobile"
+    },
     // {
     //   label: 'Preview Article',
     //   value: ROUTES.private.articles.preview('1'),
@@ -98,6 +104,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
   const getMainMenus = () => {
     if (isLoggedIn) {
       return [...loggedInMenus, ...accountMenus];
+      // return [...loggedInMenus, ...accountMenus];
     }
 
     // add the right menus to the drawer if the screen is tablet down
@@ -141,9 +148,12 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
               </TextLink>
             ))}
           </div>
-          <TextLink href={ROUTES.login} variant="button" className="block md:hidden">
-            {t('login')}
-          </TextLink>
+          {/* logged in button in mobile */}
+          {!isLoggedIn && (
+            <TextLink href={ROUTES.login} variant="button" className="block md:hidden">
+              {t('login')}
+            </TextLink>
+          )}
           <ToggleTheme />
           <AccountMenu menus={accountMenus} />
         </div>

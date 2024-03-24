@@ -50,7 +50,7 @@ const DashboardLayout = async ({ children, params: { locale } }: Props) => {
 
   return (
     <div className="flex flex-1 self-stretch">
-      <Sidebar />
+      <Sidebar className="hidden md:block" />
       <div className="flex flex-col flex-1 p-4">
         {children}
       </div>

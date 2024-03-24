@@ -3,8 +3,13 @@ import { useTranslations } from "next-intl";
 import { ROUTES } from "@/config/routes";
 import NavBarItem from "../navBar/NavBarItem";
 import { Fragment } from "react";
+import { cn } from "@/utils/app.utils";
 
-const Sidebar = () => {
+type Props = {
+  className?: string;
+}
+
+const Sidebar = ({ className }: Props) => {
   const t = useTranslations('NavBar');
   const menus: IMenu[] = [
     {
@@ -20,7 +25,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside id="default-sidebar" className="md:min-h-[800px] self-stretch z-40 w-64 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <aside
+      id="default-sidebar"
+      className={cn("md:min-h-[800px] self-stretch z-40 w-64 transition-transform -translate-x-full sm:translate-x-0", className)}
+      aria-label="Sidebar"
+    >
       <div className="h-full bg-gray-50 dark:bg-gray-800 py-4 overflow-y-auto rounded-sm">
         <ul className="space-y-4 font-medium">
           {menus.map((menu: IMenu, index: number) => (
