@@ -39,6 +39,7 @@ const NavBarLinks = ({ menus, className, tChangeTheme }: Props) => {
               key={menu.label + index}
               href={menu.value}
               label={menu.label}
+              onClick={toggleMenu}
               // hide profile and logout on desktop since it is already in the dropdown
               className={cn({
                 'md:hidden': ['profile', 'logout', 'dashboard'].includes(menu.id as string),
