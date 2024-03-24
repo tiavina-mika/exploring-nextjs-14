@@ -28,7 +28,8 @@
     "blog": "Blog",
     "contact": "Contact",
     "dashboard": "Mon espace personnel",
-    "myArticles": "Mes articles"
+    "myArticles": "Mes articles",
+    "toggleTheme": "Changer de thème"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
