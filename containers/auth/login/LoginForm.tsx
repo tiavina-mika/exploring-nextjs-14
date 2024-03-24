@@ -13,6 +13,7 @@ import { useFormState } from 'react-dom';
 import { login } from '@/server/mutations/auth.mutations';
 import Text from '@/components/typography/Text';
 import { useSearchParams } from 'next/navigation';
+import { ROUTES } from '@/config/routes';
 
 const LoginForm = () => {
   const tAuth = useTranslations('Auth');
@@ -33,7 +34,7 @@ const LoginForm = () => {
         className="space-y-3"
       >
         {/* input for redirection from url search params */}
-        {searchParams?.get('redirect') && <input type="hidden" name="redirect" value={searchParams.get('redirect') || '/'} />}
+        {searchParams?.get('redirect') && <input type="hidden" name="redirect" value={searchParams.get('redirect') || ROUTES.dashboard} />}
         <TextField
           name="email"
           placeholder={tAuth('email')}
