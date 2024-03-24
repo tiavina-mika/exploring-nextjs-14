@@ -37,7 +37,7 @@ type Props = {
   searchParams : ISearchParams;
 };
 
-const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
+const PrivateArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
@@ -45,7 +45,7 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
       breadcrumbs={[
         {
           title: 'Articles',
-          href: (ROUTES.articles as any).root,
+          href: (ROUTES.private.articles as any).root,
         },
       ]}
       searchParams={searchParams}
@@ -54,4 +54,4 @@ const ArticlesPage = async ({ params: { locale }, searchParams }: Props) => {
   );
 };
 
-export default ArticlesPage;
+export default PrivateArticlesPage;
