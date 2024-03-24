@@ -26,7 +26,8 @@
     "profile": "Profil",
     "contactUs": "Contactez-nous",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "dashboard": "Mon espace personnel"
   },
   "LanguageSwitcher": {
     "label": "Changer language",
