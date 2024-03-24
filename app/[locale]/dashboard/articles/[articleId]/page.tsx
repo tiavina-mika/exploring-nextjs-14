@@ -66,11 +66,11 @@ const ArticlePage = async ({ params: { locale, articleId } }: Props) => {
           segments={[
             {
               title: 'Articles',
-              href: (ROUTES.articles as any).root,
+              href: (ROUTES.private.articles as any).root,
             },
             {
               title: article.get('title'),
-              href: ROUTES.articles.preview(article.id),
+              href: ROUTES.private.articles.preview(article.id),
             },
           ]}
         />

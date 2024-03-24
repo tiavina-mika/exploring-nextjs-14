@@ -8,19 +8,6 @@ export type ITranslatedPathnames = Pathnames<typeof locales>;
 export const ROUTES = {
   home: '/',
   about: '/about',
-  articles: {
-    root: '/dashboard/articles',
-    add: '/dashboard/articles/add',
-    // do not need the params when used with translatedPathnames
-    preview: (articleId?: string) => ({
-      pathname: '/dashboard/articles/[articleId]',
-      params: { articleId },
-    }),
-    edit: (articleId?: string) => ({
-      pathname: '/dashboard/articles/[articleId]/edit',
-      params: { articleId },
-    }),
-  },
   login: '/login',
   signUp: '/signup',
   logout: '/logout',
@@ -31,6 +18,29 @@ export const ROUTES = {
   dashboard: '/dashboard',
   contact: '/contact-us',
   faq: '/faq',
+  articles: {
+    root: '/articles',
+    // do not need the params when used with translatedPathnames
+    preview: (articleId?: string) => ({
+      pathname: '/articles/[articleId]',
+      params: { articleId },
+    }),
+  },
+  private: {
+    articles: {
+      root: '/dashboard/articles',
+      add: '/dashboard/articles/add',
+      // do not need the params when used with translatedPathnames
+      preview: (articleId?: string) => ({
+        pathname: '/dashboard/articles/[articleId]',
+        params: { articleId },
+      }),
+      edit: (articleId?: string) => ({
+        pathname: '/dashboard/articles/[articleId]/edit',
+        params: { articleId },
+      }),
+    },
+  }
 };
 
 export const nonSEORoutes = [
@@ -94,20 +104,28 @@ export const translatedRoutes = {
     en: ROUTES.profile,
     fr: '/profil',
   },
-  // Dynamic params are supported via square brackets
   [ROUTES.articles.root]: {
     en: ROUTES.articles.root,
-    fr: '/mon-espace-personel/articles',
-  },
-  [ROUTES.articles.add]: {
-    en: ROUTES.articles.add,
-    fr: '/mon-espace-personel/articles/ajouter',
+    fr: '/articles',
   },
   [ROUTES.articles.preview().pathname]: {
+    en: '/articles/[articleId]',
+    fr: '/articles/[articleId]',
+  },
+  // Dynamic params are supported via square brackets
+  [ROUTES.private.articles.root]: {
+    en: ROUTES.private.articles.root,
+    fr: '/mon-espace-personel/articles',
+  },
+  [ROUTES.private.articles.add]: {
+    en: ROUTES.private.articles.add,
+    fr: '/mon-espace-personel/articles/ajouter',
+  },
+  [ROUTES.private.articles.preview().pathname]: {
     en: '/dashboard/articles/[articleId]',
     fr: '/mon-espace-personel/articles/[articleId]',
   },
-  [ROUTES.articles.edit().pathname]: {
+  [ROUTES.private.articles.edit().pathname]: {
     en: '/dashboard/articles/[articleId]/edit',
     fr: '/mon-espace-personel/articles/[articleId]/modifier',
   },

@@ -26,11 +26,11 @@ const AddArticlePage = async ({ params: { locale } }: Props) => {
           segments={[
             {
               title: 'Articles',
-              href: (ROUTES.articles as any).root,
+              href: (ROUTES.private.articles as any).root,
             },
             {
               title: t('create'),
-              href: (ROUTES.articles as any).add,
+              href: (ROUTES.private.articles as any).add,
             },
           ]}
         />

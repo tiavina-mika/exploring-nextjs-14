@@ -5,6 +5,7 @@ import { cutText } from "@/utils/utils";
 import TextLink from "./typography/TextLink";
 import NextIcon from "./NextIcon";
 import { useTranslations } from "next-intl";
+import { ROUTES } from "@/config/routes";
 
 type BreadcrumbsProps = ComponentPropsWithoutRef<"nav"> & {
   segments: {
@@ -13,19 +14,26 @@ type BreadcrumbsProps = ComponentPropsWithoutRef<"nav"> & {
   }[];
   separator?: string;
   truncationLength?: number;
+  isPrivateRoute?: boolean;
 };
+
+export type IBreadCrumbSegment = BreadcrumbsProps['segments'];
 
 export const Breadcrumbs = ({
   segments,
   separator,
   truncationLength = 0,
   className,
+  isPrivateRoute = false,
   ...props
 }: BreadcrumbsProps) => {
   const t = useTranslations('NavBar');
 
   const newSegments = [
-    {
+    isPrivateRoute ? {
+      title: t('dashboard'),
+      href: ROUTES.dashboard,
+    } : {
       title: t('home'),
       href: '/',
     },
@@ -59,6 +67,7 @@ export const Breadcrumbs = ({
                 ? cutText(segment.title, truncationLength)
                 : segment.title}
             </TextLink>
+            {/* do not display icon in the last link */}
             {!isLastSegment && (
               <NextIcon
                 src={`/icons/${separator || 'chevron-right'}.svg`}
