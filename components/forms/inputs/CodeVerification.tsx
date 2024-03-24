@@ -11,7 +11,7 @@ const CodeVerification = ({ onComplete }: Props) => {
             onComplete={onComplete}
             placeholder=" "
             classNames={{
-                container: "flex space-x-2 justify-center items-center self-stretch flex-1",
+                container: "flex space-x-2 md:justify-center items-center self-stretch flex-1",
                 character: "border h-12 w-12 text-center flex justify-center items-center form-control rounded text-xl dark:bg-muted-foreground dark:border-muted-foreground dark:text-gray-300",
                 characterSelected: "dark:border dark:border-primary",
                 characterFilled: "dark:border dark:border-primary"
