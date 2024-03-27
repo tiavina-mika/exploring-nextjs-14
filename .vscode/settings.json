@@ -84,7 +84,7 @@
     "у": true,
     "У": true
   },
-  "jest.autoRevealOutput": "on-exec-error",
+  "jest.outputConfig": "test-results-based",
   "cSpell.words": [
     "ecmascript",
     "graphqlsp",
