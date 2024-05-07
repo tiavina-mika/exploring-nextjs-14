@@ -8,7 +8,7 @@ type Props = {
 };
 const ArticleFormProvider = ({ article }: Props) => {
   return (
-    <TranslationClientProvider rootKeys={['Form', 'Article']}>
+    <TranslationClientProvider rootKeys={['Form', 'Article', 'Zod']}>
       <ArticleForm article={article} />
     </TranslationClientProvider>
   );

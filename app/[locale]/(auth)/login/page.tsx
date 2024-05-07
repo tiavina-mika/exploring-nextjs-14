@@ -44,12 +44,12 @@ const LoginPage = ({ params: { locale } }: Props) => {
 
   return (
     <div className='flex flex-col items-center'>
-      <div  className='flex flex-col self-stretch space-y-2 items-center'>
-        <Title level="h2" className="text-2xl mb-3">{tAuth('loginToYourAccount')}</Title>
+      <div  className='flex flex-col self-stretch space-y-2 md:items-center'>
+        <Title level="h2" className="md:text-2xl mb-3 md:text-center">{tAuth('loginToYourAccount')}</Title>
         <div className="self-stretch">
           <LoginFormProvider />
         </div>
-        <div>
+        <div className="pt-2 md:mt-0">
           <AuthLink text={t('signUp')} url={ROUTES.signUp} label={t('haveNoAccountYet')} />
         </div>
       </div>

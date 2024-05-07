@@ -382,8 +382,7 @@ const MultiSelect = forwardRef<MultiSelectRef, MultiSelectProps>(
                   >
                     <NextIcon
                       alt="close"
-                      width={16}
-                      height={16}
+                      size={16}
                       src="/icons/x2-white.svg"
                       className="text-muted-foreground hover:text-foreground"
                     />

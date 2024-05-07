@@ -58,7 +58,7 @@ const Select = ({
           {options.map((option) => (
             <SelectItem key={option.value} value={option.value}>
               <div className="flex items-center">
-                {option.icon && <NextIcon alt={option.label} src={option.icon as string} width={12} height={12} className="mr-2" />}
+                {option.icon && <NextIcon alt={option.label} src={option.icon as string} size={12} className="mr-2" />}
                 {option.label}
               </div>
             </SelectItem>

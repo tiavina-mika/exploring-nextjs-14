@@ -43,21 +43,21 @@ export const signUp = action(
 
 /**
  * signing using next auth credentials (email and password)
- * @param prevState 
- * @param formData 
- * @returns 
+ * @param prevState
+ * @param formData
+ * @returns
  */
 export const login = async (
   prevState: string | undefined,
   formData: FormData,
 ) => {
-  console.log(' ---------- formData.get(): ', formData.get('redirect'));
-
   try {
     await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
-      redirectTo: formData.get('redirect') as string || "/"
+      // redirection after login
+      // it's from an url search params
+      redirectTo: formData.get('redirect') as string
     });
   } catch (error) {
     if (error instanceof AuthError) {
@@ -87,9 +87,9 @@ export const nextAuthSignInWithGoogle = async () => {
 /**
  * signup with google
  * no need to enter manually (via form) the email and password
- * @param values 
- * @param authId 
- * @returns 
+ * @param values
+ * @param authId
+ * @returns
  */
 export const signUpWiGoogle = async (values: SignUpWithGoogleInput, authId: string): Promise<Parse.User> => {
   try {
@@ -138,7 +138,7 @@ export const getUserByAuthId = async (authId: string): Promise<Parse.User | unde
  * logout user to parse and next auth
  * if there is a redirect, it will redirect to the given url
  * if not go to home
- * @returns 
+ * @returns
  */
 export const logout = async (redirect?: string | null) => {
   try {
@@ -165,8 +165,8 @@ export const logout = async (redirect?: string | null) => {
  * get current user by session token
  * we need to use REST for this because parse sdk doesn't support session token
  * if error, it returns: { code: 209, error: 'Session token is expired.' }
- * @param sessionToken 
- * @returns 
+ * @param sessionToken
+ * @returns
  */
 export const getCurrentUser = async (sessionToken: string | undefined): Promise<IUser | null | void> => {
   if (!sessionToken) return null;

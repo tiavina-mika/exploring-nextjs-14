@@ -1,6 +1,4 @@
-import plugin from 'tailwindcss/plugin';
-
-import { customizeElements, theme } from './utils/theme';
+import { theme } from './utils/theme';
 
 const config = {
   // the dark mode is applied if <html class="dark"></html> instead of the OS dark mode
@@ -17,9 +15,6 @@ const config = {
   },
   plugins: [
     require('@tailwindcss/forms'),
-    plugin(({ addBase, theme }) => {
-      addBase(customizeElements(theme));
-    }),
   ],
 };
 export default config;

@@ -1,0 +1,52 @@
+{
+  "Article": {
+    "anArticle": "un article",
+    "theArticle": "l'article",
+    "categories": "Categories",
+    "philosophy": "Philosophie",
+    "science": "Science",
+    "technology": "Technologie",
+    "geopolitics": "Geopolitiques",
+    "sport": "Sport",
+    "religion": "Religion",
+    "history": "Histoire",
+    "economy": "Economie",
+    "cinema": "Cinema",
+    "literature": "Literature",
+    "title": "Titre",
+    "content": "Contenu",
+    "author": "Auteur",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le",
+    "actions": "Actions",
+    "create": "Créer un article",
+    "edit": "Modifier l'article",
+    "delete": "Supprimer l'article",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet article ?",
+    "deleteSuccess": "Article supprimé avec succès",
+    "deleteError": "Erreur lors de la suppression de l'article",
+    "createSuccess": "Article créé avec succès",
+    "createError": "Erreur lors de la création de l'article",
+    "updateSuccess": "Article mis à jour avec succès",
+    "updateError": "Erreur lors de la mise à jour de l'article",
+    "list": "Liste des articles",
+    "empty": "Aucun article trouvé",
+    "view": "Voir l'article",
+    "back": "Retour à la liste des articles",
+    "publish": "Publier",
+    "publishDescription": "Les articles publiées s'affichent sur le site",
+    "message": {
+      "success": {
+        "added": "Article ajouté avec succès.",
+        "deleted": "Article supprimé avec succès.",
+        "updated": "Article modifié avec succès."
+      },
+      "error": {
+        "added": "La création de l'article a échoué.",
+        "deleted": "La suppression de l'article a échoué.",
+        "updated": "L'édition de l'article a échoué.",
+        "notFound": "L'article n'a pas été trouvé."
+      }
+    }
+  }
+}

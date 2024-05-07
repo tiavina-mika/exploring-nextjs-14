@@ -91,7 +91,7 @@ const RootLayout = async ({ children, params: { locale } }: Props) => {
             disableTransitionOnChange
           >
             <main className="flex flex-col items-center justify-between min-h-screen">
-              <div className="self-stretch flex flex-col items-center">
+              <div className="self-stretch flex flex-col md:items-center pb-12 md:pb-0">
                 <NavBar isLoggedIn={!!session} className="self-stretch" />
                 {children}
               </div>

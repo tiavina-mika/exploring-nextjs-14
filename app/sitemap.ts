@@ -1,17 +1,21 @@
 import { type MetadataRoute } from 'next';
 
-import { getTranslatedAbsoluteUrl } from '@/utils/app.utils';
-import { ROUTES } from '@/config/routes';
+import { getAllTranslatedUrls } from '@/utils/next.utils';
+import { generateArticlesSitemap } from '@/server/queries/article.queries';
 
-const sitemap = (): MetadataRoute.Sitemap => {
-  // TODO: add another dynamic route with db request 
-  getTranslatedAbsoluteUrl(ROUTES.articles.root)
-  const routes = ['', ROUTES.articles.root].map((route) => ({
-    url: getTranslatedAbsoluteUrl(route),
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+  // TODO: add another dynamic route with db request
+  const { nonDynamicUrls } = getAllTranslatedUrls();
+
+  const routes = nonDynamicUrls.map((route) => ({
+    url: route,
+    // url: getTranslatedAbsoluteUrl(route),
     lastModified: new Date().toISOString(),
   }));
 
-  return [...routes];
+  const articlesSiteMap = await generateArticlesSitemap();
+
+  return [...routes, ...articlesSiteMap];
 };
 
 export default sitemap;

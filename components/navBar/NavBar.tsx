@@ -45,9 +45,15 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
       value: ROUTES.contact,
       id: 'contact',
     },
+    {
+      label: t('myArticles'),
+      value: ROUTES.private.articles.root,
+      id: 'myArticles',
+      display: "mobile"
+    },
     // {
     //   label: 'Preview Article',
-    //   value: ROUTES.articles.preview('1'),
+    //   value: ROUTES.private.articles.preview('1'),
     //   id: 'preview-article',
     // },
     // {
@@ -70,6 +76,12 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
       id: 'profile'
     },
     {
+      label: t('dashboard'),
+      value: ROUTES.dashboard,
+      icon: '/icons/layout.svg',
+      id: 'dashboard'
+    },
+    {
       label: t('logout'),
       // the logout url will be added a redirection url search params (see: AccountMenu.tsx)
       value: ROUTES.logout,
@@ -87,6 +99,7 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
     },
   ];
 
+  // not show login and sign-up if the user is logged in
   const loggedInMenus: IMenu[] = filterMenus(menus, ['login', 'sign-up']);
 
   const getMainMenus = () => {
@@ -115,23 +128,33 @@ const NavBar = ({ isLoggedIn, className }: Props) => {
   return (
     <nav className={cn('shadow-grey-200/40 border-gray-200 bg-white shadow-md dark:bg-gray-900', className)}>
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4 py-2 md:p-4">
-        <Logo />
-        <NavBarLinks menus={getMainMenus()} className="-order-1 md:order-1" />
+        <div className="flex md:justify-between items-center md:flex-1 gap-2">
+          <Logo />
+          <div className="md:flex-1 flex md:justify-center -order-1 md:order-1">
+            <NavBarLinks menus={getMainMenus()} tChangeTheme={t('toggleTheme')} />
+          </div>
+        </div>
         {/* responsive */}
-        <div className="flex flex-row items-center space-x-4 md:order-3 order-2">
+        <div className="flex flex-row items-center justify-end space-x-4 md:order-3 order-2">
           <div className="hidden md:flex flex-row">
             {getRightMenus().map((menu: IMenu, index: number) => (
               <TextLink
                 href={menu.value}
                 underline={false}
                 key={index}
+                variant={menu.id === "login" ? 'button' : 'text'}
               >
                 {menu.label}
               </TextLink>
             ))}
-
           </div>
-          <ToggleTheme />
+          {/* logged in button in mobile */}
+          {!isLoggedIn && (
+            <TextLink href={ROUTES.login} variant="button" className="block md:hidden">
+              {t('login')}
+            </TextLink>
+          )}
+          <ToggleTheme className="hidden md:block" />
           <AccountMenu menus={accountMenus} />
         </div>
       </div>

@@ -31,8 +31,8 @@ const Pagination = ({ page, total, className, searchParams, perPage = PAGINATION
   /**
    * add other (than page) query string to the url
    * ex: ?field=updatedAt&order=asc&page=2 instead of just ?page=2
-   * @param page 
-   * @returns 
+   * @param page
+   * @returns
    */
   const getPaginatedUrl = (page: number): string => {
     if (!searchParams) {
@@ -45,10 +45,8 @@ const Pagination = ({ page, total, className, searchParams, perPage = PAGINATION
   const renderArrow = (position: 'left' | 'right'): ReactNode => {
     return (
       <NextIcon
-        alt=""
         src={`/icons/chevrons-${position}.svg`}
-        width={18}
-        height={18}
+        size={18}
       />
     )
   }

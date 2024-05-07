@@ -17,9 +17,9 @@ import { setFormError } from '@/utils/utils';
 
 import { IArticle, IArticleInput } from '@/types/article.type';
 import CheckboxField from '@/components/forms/fields/CheckboxField';
-import { useMemo } from 'react';
 import MultiSelectField from '@/components/forms/fields/MultiSelectField';
 import { getArticleCategoriesOptions } from '@/utils/article.utils';
+import { useI18nZodErrors } from '@/config/zod/useTranslatedZodError';
 
 // form initial values for creation or edition
 const getInitialValues = (article: IArticle | undefined) => {
@@ -46,6 +46,7 @@ const ArticleForm = ({ article }: Props) => {
   const router = useRouter();
   const tForm = useTranslations('Form');
   const tArticle = useTranslations('Article');
+  useI18nZodErrors();
 
   const form = useForm<IArticleInput>({
     resolver: zodResolver(ArticleSchema),
@@ -58,7 +59,7 @@ const ArticleForm = ({ article }: Props) => {
   // this working for creation but not with edition (with .bind(null, id))
   // const { execute: onCreate } = useAction(createArticle, {
   //   onSuccess: (data) => {
-  //     router.push(ROUTES.articles.preview((data as any).objectId));
+  //     router.push(ROUTES.private.articles.preview((data as any).objectId));
   //   },
   //   onError: (error) => {
   //     setFormError<IArticleInput>(form, error, tForm, tArticle);
@@ -80,7 +81,7 @@ const ArticleForm = ({ article }: Props) => {
     if (data.data) {
       const article = data.data as any;
       // go to preview
-      router.push(ROUTES.articles.preview(article.objectId));
+      router.push(ROUTES.private.articles.preview(article.objectId));
       return
     }
 

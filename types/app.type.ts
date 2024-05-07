@@ -26,6 +26,7 @@ export interface IDynamicRouteParams {
 
 export type IMenu = ISelectOption<string | IDynamicRouteParams> & {
   id?: string;
+  display?: "mobile" | "desktop" | "both";
 };
 export interface INavBarSubMenuItem extends IMenu {
   title: string;

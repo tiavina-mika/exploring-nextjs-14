@@ -8,12 +8,15 @@ import { IMenu } from '@/types/app.type';
 
 import MobileOpenMenuIcon from './MobileOpenMenuIcon';
 import NavBarItem from './NavBarItem';
+import ToggleTheme from '../ToggleTheme';
+import Text from '../typography/Text';
 
 type Props = {
   menus: IMenu[];
   className?: string;
+  tChangeTheme: string;
 };
-const NavBarLinks = ({ menus, className }: Props) => {
+const NavBarLinks = ({ menus, className, tChangeTheme }: Props) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const toggleMenu = () => setOpenMenu(!openMenu);
@@ -36,10 +39,20 @@ const NavBarLinks = ({ menus, className }: Props) => {
               key={menu.label + index}
               href={menu.value}
               label={menu.label}
+              onClick={toggleMenu}
               // hide profile and logout on desktop since it is already in the dropdown
-              className={cn({ 'md:hidden': ['profile', 'logout'].includes(menu.id as string)})}
+              className={cn({
+                'md:hidden': ['profile', 'logout', 'dashboard'].includes(menu.id as string),
+                'md:hidden block': menu.display === 'mobile'
+              })}
             />
           ))}
+          <li key="toggle-theme" className="flex items-center gap-2 absolute bottom-4 md:hidden">
+            <ToggleTheme />
+            <Text>
+              {tChangeTheme}
+            </Text>
+          </li>
         </ul>
       </div>
     </div>

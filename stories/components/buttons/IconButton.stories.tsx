@@ -24,10 +24,8 @@ export const IconButton: Story = {
   args: {
     children: [
       <NextIcon
-        alt=""
         src="/icons/trash.svg"
-        width={20}
-        height={20}
+        size={20}
         aria-hidden="true"
       />,
     ],

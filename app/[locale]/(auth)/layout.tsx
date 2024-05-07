@@ -15,8 +15,8 @@ const AuthLayout = async ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <Container className="flex justify-center md:h-screen pt-0 md:pt-32">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4">
+    <Container className="flex justify-center pt-0 md:pb-10">
+      <div className="pt-4 relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5">
         {children}
       </div>
     </Container>

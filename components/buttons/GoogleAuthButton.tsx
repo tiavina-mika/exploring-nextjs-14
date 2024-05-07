@@ -22,8 +22,7 @@ const GoogleAuthButton = ({ children }: Props) => {
       <NextIcon
         alt="Google"
         src="/icons/google.svg"
-        width={18}
-        height={18}
+        size={18}
         className="ml-2"
       />
       {children}

@@ -103,7 +103,7 @@ const Alert = ({
       {message}
       {canBeClosed && (
         <IconButton onClick={onClose} noHovered className='p-1'>
-          <NextIcon src={variant === 'contained' ? '/icons/x2-white.svg' : '/icons/x2.svg'} width={16} height={16} alt="" />
+          <NextIcon src={variant === 'contained' ? '/icons/x2-white.svg' : '/icons/x2.svg'} size={16} />
         </IconButton>
       )}
     </div>

@@ -1,0 +1,113 @@
+{
+  "Contact": {
+    "email": "Email",
+    "emailSent": "Un email a été envoyé à votre adresse email",
+    "name": "Votre nom",
+    "message": "Message",
+    "send": "Envoyer",
+    "contactUs": "Contactez-nous",
+    "subject": "Formulaire de contact du site"
+  },
+  "Error": {
+    "unknown": "Une erreur s'est produite. Veuillez réessayer plus tard."
+  },
+  "ServerError": {
+    "articleSave": "L'article n'a pas pu être enregistré."
+  },
+  "NavBar": {
+    "faq": "FAQ",
+    "home": "Accueil",
+    "about": "À propos",
+    "articles": "Articles",
+    "article": "Article",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "profile": "Profil",
+    "contactUs": "Contactez-nous",
+    "blog": "Blog",
+    "contact": "Contact",
+    "dashboard": "Mon espace personnel",
+    "myArticles": "Mes articles",
+    "toggleTheme": "Changer de thème"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer language",
+    "locale": "{locale, select, fr {Français} en {Anglais} other {Autres}}"
+  },
+  "User": {
+    "haveNoAccountYet": "Vous n'avez pas de compte?",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "createAnAccount": "Créer un compte",
+    "myProfile": "Mon profil",
+    "signUp": "Créer un compte",
+    "login": "Se connecter",
+    "logout": "Se déconnecter"
+  },
+  "Faq": {
+    "have-questions": "Questions?",
+    "read-faq": "Lire notre {faq}.",
+    "title": "FAQ",
+    "faq": "Questions posées fréquemment"
+  },
+  "Faqs" : {
+    "1": {
+      "summary": "Comment puis-je tout installer et commencer immédiatement ?",
+      "details": "Veuillez visiter le fichier README.md dans mon repo GitHub, où vous trouverez toujours les informations les plus récentes sur le projet ainsi que des instructions d'installation simples."
+    },
+    "2": {
+      "summary": "Pourquoi devrais-je choisir Blogy comme starter Next.js 14 ?",
+      "details": "La réponse est simple : pour vous éviter de passer d'une entrée à l'autre. En fait, vous pouvez arrêter de chercher maintenant. Avec Blogy, des possibilités illimitées vous sont proposées. Vous pouvez créer tout ce que vous désirez ; tous les outils nécessaires sont déjà préparé, rien que pour vous."
+    },
+    "3" : {
+      "summary": "Combien de temps faut-il pour développer ce starter ?",
+      "details": "Développer quelque chose d'aussi ambitieux et complexe que Next.js 14 prend évidemment beaucoup de temps, d'autant plus que le projet est principalement développé par une seule personne. J'y travaille depuis janvier 2024 (depuis 3 mois) . J'ai déjà travaillé avec les versions précédentes de Next.js, j'avais donc un bon point de départ, même s'il y a eu plusieurs changements dans Next.js depuis. J'utilise également les dernières technologies et les meilleures pratiques, c'est donc un processus qui prend du temps."
+    }
+  },
+  "Metadata": {
+    "login": {
+      "metaTitle": "Se connecter",
+      "metaDescription": "Connectez-vous à votre compte pour accéder à toutes les fonctionnalités de notre application."
+    },
+    "signUp": {
+      "metaTitle": "Créer un compte",
+      "metaDescription": "Créer facilement un compte à travers notre processus d'inscription intuitif."
+    },
+    "home": {
+      "metaTitle": "Accueil",
+      "metaDescription": "Blogy est une simple application web utilisant NextJs, elle sert de modèle open source pour les applications NextJs 14."
+    },
+    "profile": {
+      "metaTitle": "Mon profil",
+      "metaDescription": "Les infos sur mon profil"
+    },
+    "dashboard": {
+      "metaTitle": "Tableau de bord",
+      "metaDescription": "Mon espace personnel où je peux accéder à toutes mes données et gérer mon compte."
+    },
+    "articles": {
+      "metaTitle": "Mes articles",
+      "metaDescription": "Liste de tous les articles que j'ai écrits avec passion."
+    },
+    "verifyAccount": {
+      "metaTitle": "Verifier le compte",
+      "metaDescription": "Verifier le compte en entrant le code envoyé par email."
+    },
+    "forgotPassword": {
+      "metaTitle": "Mot de passe oublié",
+      "metaDescription": "Envoyer la demande de réinitialisation du mot de passe."
+    },
+    "resetPassword": {
+      "metaTitle": "Réinitialiser mot de passe",
+      "metaDescription": "Reinitialiser le mot de passe avec un nouveau."
+    },
+    "contact": {
+      "metaTitle": "Contactez-nous",
+      "metaDescription": "Contactez-nous pour obtenir de l'aide, des informations ou des suggestions. Le service {appName} se fera un plaisir de vous aider."
+    },
+    "faq": {
+      "metaTitle": "Questions fréquemment posées {appName}",
+      "metaDescription": "Questions que tout le monde pose."
+    }
+  }
+}

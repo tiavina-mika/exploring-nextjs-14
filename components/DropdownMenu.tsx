@@ -25,8 +25,7 @@ const DropdownMenu = ({ menus, title, trigger }: Props) => {
           <NextIcon
             alt="menus"
             src="/icons/more-horizontal.svg"
-            width={18}
-            height={18}
+            size={18}
           />
         )}
       </DropdownMenuTrigger>

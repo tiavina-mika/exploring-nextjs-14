@@ -36,10 +36,8 @@ const AccountMenu = ({ menus }: Props) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="hidden md:block !focus-visible:ring-transparent">
         <NextIcon
-          alt=""
           src="/icons/user.svg"
-          width={18}
-          height={18}
+          size={18}
           aria-hidden="true"
           className="mr-2 text-muted-foreground/70 focus-visible:ring-transparent"
         />
@@ -51,10 +49,8 @@ const AccountMenu = ({ menus }: Props) => {
             <DropdownMenuItem onClick={() => router.push(getRedirectionUrl(menu, currentFullUrl))}>
               {menu.icon && (
                 <NextIcon
-                  alt=""
                   src={menu.icon as string}
-                  width={18}
-                  height={18}
+                  size={18}
                   aria-hidden="true"
                   className="mr-2 text-muted-foreground/70"
                 />

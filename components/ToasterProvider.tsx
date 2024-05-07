@@ -63,8 +63,7 @@ const ToasterProvider = () => (
                       <NextIcon
                         alt=""
                         src="/icons/x2-white.svg"
-                        width={18}
-                        height={18}
+                        size={18}
                         aria-hidden="true"
                       />
                     </IconButton>

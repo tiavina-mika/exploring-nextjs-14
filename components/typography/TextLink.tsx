@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 
-import Image from 'next/image';
 import Link, { type LinkProps } from 'next/link';
 import Balancer from 'react-wrap-balancer';
 
@@ -8,6 +7,7 @@ import { Link as TranslatedLink } from '@/config/navigation';
 import { cn } from '@/utils/app.utils';
 
 import Text from './Text';
+import NextIcon from '../NextIcon';
 
 export type TextLinkProps = LinkProps & {
   isExternal?: boolean;
@@ -17,6 +17,7 @@ export type TextLinkProps = LinkProps & {
   href?: any;
   translate?: boolean;
   underline?: boolean;
+  variant?: 'text' | 'button';
 };
 
 const TextLink = ({
@@ -29,6 +30,7 @@ const TextLink = ({
   className,
   isExternal,
   href,
+  variant = 'text',
   translate = true,
   underline = true,
 }: TextLinkProps) => {
@@ -45,18 +47,18 @@ const TextLink = ({
       <Text
         as={"span" as any}
         className={cn('flex flex-row hover:opacity-90', className, {
-          'underline': underline,
+          'underline': underline && variant === 'text',
+          'bg-primary text-white rounded-sm md:rounded-md px-3 py-1 md:py-2 hover:opacity-75': variant === 'button',
         })}
       >
         {isExternal ? (
           <Balancer as="span">
             <span className="max-w-[100%] leading-relaxed">{children}</span>
-            <Image
+            <NextIcon
               priority
               src="/icons/external-link.svg"
-              alt={alt || ''}
-              height={12}
-              width={12}
+              alt={alt}
+              size={12}
             />
           </Balancer>
         ) : (

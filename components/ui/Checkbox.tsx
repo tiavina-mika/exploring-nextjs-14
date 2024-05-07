@@ -23,7 +23,7 @@ const Checkbox = forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn('flex items-center justify-center text-current')}
     >
-      <NextIcon alt="" src="/icons/check.svg" width={9} height={9} />
+      <NextIcon src="/icons/check.svg" size={9} />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));

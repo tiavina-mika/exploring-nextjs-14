@@ -51,10 +51,8 @@ const CommandInput = forwardRef<
   // eslint-disable-next-line react/no-unknown-property
   <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
     <NextIcon
-      alt=""
       src="/icons/check.svg"
-      width={6}
-      height={6}
+      size={12}
       className="mr-2 shrink-0 opacity-50"
     />
 
